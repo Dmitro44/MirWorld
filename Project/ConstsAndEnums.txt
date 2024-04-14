@@ -1,0 +1,12 @@
+const TArray<FVector> NO_WAY = { {-1, -1, 0} };
+//нет доступного пути
+
+
+enum Resources {
+	wood = 0,
+	stone,
+	food,
+	iron,
+	gold,
+};
+//ресурсы на карте
