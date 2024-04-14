@@ -48,4 +48,9 @@
       <Filter>Source\MirWorld</Filter>
     </ClInclude>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="EnumsAndConsts.h">
+      <Filter>Source\MirWorld</Filter>
+    </ClInclude>
+  </ItemGroup>
 </Project>
