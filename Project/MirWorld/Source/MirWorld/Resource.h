@@ -20,8 +20,8 @@ public:
 	virtual int GiveBunch();
 
 protected:
-	float TimeToMine;
+	float TimeToMine = 5.0f;
 	
-	int ResorceLeft;
-	int BaseRecieve;
+	int ResorceLeft = 0;
+	int BaseRecieve = 3;
 };
