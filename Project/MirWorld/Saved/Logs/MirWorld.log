@@ -1222,3 +1222,4 @@ LogConfig: Set CVar [[r.Shadow.DetectVertexShaderLayerAtRuntime:1]]
 [2024.04.14-18.53.42:164][  1]LogLiveCoding: Display: LiveCodingConsole Arguments: MirWorldEditor Win64 Development
 [2024.04.14-18.53.42:175][  1]LogWorldSubsystemInput: UEnhancedInputDeveloperSettings::bEnableWorldSubsystem is false, the world subsystem will not be created!
 [2024.04.14-18.53.42:259][  1]LogD3D12RHI: Cannot end block when stack is empty
+[2024.04.14-18.55.34:204][565]LogDerivedDataCache: C:/Users/Микалай/AppData/Local/UnrealEngine/Common/DerivedDataCache: Maintenance finished in +00:00:03.125 and deleted 0 files with total size 0 MiB and 0 empty folders. Scanned 2394 files in 3359 folders with total size 103 MiB.
