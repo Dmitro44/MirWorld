@@ -32,6 +32,12 @@
     <Filter Include="Source\MirWorld">
       <UniqueIdentifier>{8B876F1B-4269-3AC7-B923-20994F3F65C1}</UniqueIdentifier>
     </Filter>
+    <ClCompile Include="..\..\Source\MirWorld\BasicActor.cpp">
+      <Filter>Source\MirWorld</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\MirWorld\BasicActor.h">
+      <Filter>Source\MirWorld</Filter>
+    </ClInclude>
     <None Include="..\..\Source\MirWorld\MirWorld.Build.cs">
       <Filter>Source\MirWorld</Filter>
     </None>
@@ -47,5 +53,26 @@
     <ClInclude Include="..\..\Source\MirWorld\MobBase.h">
       <Filter>Source\MirWorld</Filter>
     </ClInclude>
+    <ClCompile Include="..\..\Source\MirWorld\Resource.cpp">
+      <Filter>Source\MirWorld</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\MirWorld\Resource.h">
+      <Filter>Source\MirWorld</Filter>
+    </ClInclude>
+    <Filter Include="Source\MirWorld\.idea">
+      <UniqueIdentifier>{27901254-57E4-3D52-AD26-F734C3715436}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Source\MirWorld\.idea\MirWorld.iml">
+      <Filter>Source\MirWorld\.idea</Filter>
+    </None>
+    <None Include="..\..\Source\MirWorld\.idea\modules.xml">
+      <Filter>Source\MirWorld\.idea</Filter>
+    </None>
+    <None Include="..\..\Source\MirWorld\.idea\vcs.xml">
+      <Filter>Source\MirWorld\.idea</Filter>
+    </None>
+    <None Include="..\..\Source\MirWorld\.idea\workspace.xml">
+      <Filter>Source\MirWorld\.idea</Filter>
+    </None>
   </ItemGroup>
 </Project>
