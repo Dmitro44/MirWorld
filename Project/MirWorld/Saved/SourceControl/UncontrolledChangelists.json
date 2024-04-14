@@ -5,6 +5,8 @@
 			"guid": "00000000000000000000000000000000",
 			"description": "Default Uncontrolled Changelist",
 			"files": [
+				"A:/Code/Projects/GitHub_MirWorld/MirWorld/Project/MirWorld/Content/Maps/Base.umap",
+				"A:/Code/Projects/GitHub_MirWorld/MirWorld/Project/MirWorld/Content/Base.umap",
 				"D:/MirWorld/Project/MirWorld/Content/Base.umap"
 			]
 		}

@@ -6,7 +6,10 @@
 /NAME:"UnrealEditor-MirWorld.dll"
 /IGNORE:4221
 /NODEFAULTLIB
-"D:\MirWorld\Project\MirWorld\Intermediate\Build\Win64\x64\MirWorldEditor\Development\Engine\SharedPCH.Engine.Cpp20.h.obj"
-"D:\MirWorld\Project\MirWorld\Intermediate\Build\Win64\x64\UnrealEditor\Development\MirWorld\MirWorld.cpp.obj"
-"D:\MirWorld\Project\MirWorld\Intermediate\Build\Win64\x64\UnrealEditor\Development\MirWorld\Default.rc2.res"
-/OUT:"D:\MirWorld\Project\MirWorld\Intermediate\Build\Win64\x64\UnrealEditor\Development\MirWorld\UnrealEditor-MirWorld.lib"
+"A:\Code\Projects\GitHub_MirWorld\MirWorld\Project\MirWorld\Intermediate\Build\Win64\x64\MirWorldEditor\Development\Engine\SharedPCH.Engine.Cpp20.h.obj"
+"A:\Code\Projects\GitHub_MirWorld\MirWorld\Project\MirWorld\Intermediate\Build\Win64\x64\UnrealEditor\Development\MirWorld\MirWorld.init.gen.cpp.obj"
+"A:\Code\Projects\GitHub_MirWorld\MirWorld\Project\MirWorld\Intermediate\Build\Win64\x64\UnrealEditor\Development\MirWorld\MobBase.gen.cpp.obj"
+"A:\Code\Projects\GitHub_MirWorld\MirWorld\Project\MirWorld\Intermediate\Build\Win64\x64\UnrealEditor\Development\MirWorld\MirWorld.cpp.obj"
+"A:\Code\Projects\GitHub_MirWorld\MirWorld\Project\MirWorld\Intermediate\Build\Win64\x64\UnrealEditor\Development\MirWorld\MobBase.cpp.obj"
+"A:\Code\Projects\GitHub_MirWorld\MirWorld\Project\MirWorld\Intermediate\Build\Win64\x64\UnrealEditor\Development\MirWorld\Default.rc2.res"
+/OUT:"A:\Code\Projects\GitHub_MirWorld\MirWorld\Project\MirWorld\Intermediate\Build\Win64\x64\UnrealEditor\Development\MirWorld\UnrealEditor-MirWorld.lib"

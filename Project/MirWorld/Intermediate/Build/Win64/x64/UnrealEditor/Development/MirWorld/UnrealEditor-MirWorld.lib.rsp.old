@@ -1,0 +1,12 @@
+/NOLOGO
+/errorReport:prompt
+/MACHINE:x64
+/SUBSYSTEM:WINDOWS
+/DEF
+/NAME:"UnrealEditor-MirWorld.dll"
+/IGNORE:4221
+/NODEFAULTLIB
+"D:\MirWorld\Project\MirWorld\Intermediate\Build\Win64\x64\MirWorldEditor\Development\Engine\SharedPCH.Engine.Cpp20.h.obj"
+"D:\MirWorld\Project\MirWorld\Intermediate\Build\Win64\x64\UnrealEditor\Development\MirWorld\MirWorld.cpp.obj"
+"D:\MirWorld\Project\MirWorld\Intermediate\Build\Win64\x64\UnrealEditor\Development\MirWorld\Default.rc2.res"
+/OUT:"D:\MirWorld\Project\MirWorld\Intermediate\Build\Win64\x64\UnrealEditor\Development\MirWorld\UnrealEditor-MirWorld.lib"

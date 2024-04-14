@@ -11,6 +11,9 @@
     <None Include="..\..\Source\MirWorldEditor.Target.cs">
       <Filter>Source</Filter>
     </None>
+    <None Include="..\..\.editorconfig" />
+    <None Include="..\..\.vsconfig" />
+    <None Include="..\..\shadertoolsconfig.json" />
     <Filter Include="Config">
       <UniqueIdentifier>{FA535FFB-25E1-3D20-B416-52F9BE21E06E}</UniqueIdentifier>
     </Filter>
@@ -36,6 +39,12 @@
       <Filter>Source\MirWorld</Filter>
     </ClCompile>
     <ClInclude Include="..\..\Source\MirWorld\MirWorld.h">
+      <Filter>Source\MirWorld</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\MirWorld\MobBase.cpp">
+      <Filter>Source\MirWorld</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\MirWorld\MobBase.h">
       <Filter>Source\MirWorld</Filter>
     </ClInclude>
   </ItemGroup>
