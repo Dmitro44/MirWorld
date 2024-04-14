@@ -8,6 +8,9 @@
 				"A:/Code/Projects/GitHub_MirWorld/MirWorld/Project/MirWorld/Content/Maps/Base.umap",
 				"A:/Code/Projects/GitHub_MirWorld/MirWorld/Project/MirWorld/Content/Base.umap",
 				"A:/Code/Projects/GitHub_MirWorld/MirWorld/Project/MirWorld/Content/TestBPs/MobBase_BP.uasset",
+				"A:/Code/Projects/GitHub_MirWorld/MirWorld/Project/MirWorld/Content/TestBPs/CharacterMW_BP.uasset",
+				"A:/Code/Projects/GitHub_MirWorld/MirWorld/Project/MirWorld/Content/TestBPs/ScoreCntr_BP.uasset",
+				"A:/Code/Projects/GitHub_MirWorld/MirWorld/Project/MirWorld/Content/BPs/GameplayMW_GameMode.uasset",
 				"D:/MirWorld/Project/MirWorld/Content/Base.umap"
 			]
 		}

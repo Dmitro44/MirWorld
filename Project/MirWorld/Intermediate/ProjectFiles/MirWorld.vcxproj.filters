@@ -32,6 +32,18 @@
     <Filter Include="Source\MirWorld">
       <UniqueIdentifier>{8B876F1B-4269-3AC7-B923-20994F3F65C1}</UniqueIdentifier>
     </Filter>
+    <ClCompile Include="..\..\Source\MirWorld\CharacterMW.cpp">
+      <Filter>Source\MirWorld</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\MirWorld\CharacterMW.h">
+      <Filter>Source\MirWorld</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\MirWorld\GameplayMW_GameMode.cpp">
+      <Filter>Source\MirWorld</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\MirWorld\GameplayMW_GameMode.h">
+      <Filter>Source\MirWorld</Filter>
+    </ClInclude>
     <None Include="..\..\Source\MirWorld\MirWorld.Build.cs">
       <Filter>Source\MirWorld</Filter>
     </None>
@@ -45,6 +57,12 @@
       <Filter>Source\MirWorld</Filter>
     </ClCompile>
     <ClInclude Include="..\..\Source\MirWorld\MobBase.h">
+      <Filter>Source\MirWorld</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\MirWorld\ScoreCntr.cpp">
+      <Filter>Source\MirWorld</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\MirWorld\ScoreCntr.h">
       <Filter>Source\MirWorld</Filter>
     </ClInclude>
   </ItemGroup>

@@ -40,17 +40,21 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "Mob Movement")
 	virtual void StopMovement();
 
-	// Set specific task
+	// Sets specific task
 	UFUNCTION(BlueprintCallable, Category = "Mob Action")
-	virtual void SetAction() {}; /// pure virtual
+	virtual void SetAction(int TypeOfAction, TArray<FVector> newTrajectory, AActor* AimPtr) {}; /// pure virtual
 
-	// Perform selected task
+	// Performs selected task
 	UFUNCTION(BlueprintCallable, Category = "Mob Action")
 	virtual void DoAction() {}; /// pure virtual
 
-	// Set start pos (for current)
+	// Sets start pos (for current)
 	UFUNCTION(BlueprintCallable, Category = "Mob Action")
 	virtual void SetStartPos(FVector StartPos);
+
+	// Sets the size of a tile's side
+	UFUNCTION(BlueprintCallable, Category = "Mob Movement")
+	virtual bool SetTileSize(float newTileSize);
 
 protected:
 	// Called when the game starts or when spawned
@@ -61,9 +65,6 @@ protected:
 
 	// Says to the GameMode, that mob has performed the task
 	virtual void reportDoneTask() {}; /// pure virtual
-
-	// Timer for initializing movement to the next tile
-	FTimerHandle NextTileTimerHandle;
 
 	// Timer for initializing the next tile approach process
 	FTimerHandle ApproachTimerHandle;
@@ -85,14 +86,6 @@ protected:
 	UPROPERTY(EditAnywhere, Category = "Mob State")
 	bool IsMoving = false;
 
-	// Shows if mob should interrupt the movement
-	UPROPERTY(EditAnywhere, Category = "Mob State")
-	bool ShouldBeStopped = false;
-
-	// Shows if mob has finished the movement
-	UPROPERTY(EditAnywhere, Category = "Mob State")
-	bool HasPassedTrajectory = true;
-
 	// Time amount for moving to the next tile
 	UPROPERTY(EditAnywhere, Category = "Mob Movement")
 	float SecsForNextTile = 2.0f;
@@ -100,6 +93,10 @@ protected:
 	// Amount of fraims showing the movement to the next tile
 	UPROPERTY(EditAnywhere, Category = "Mob Movement")
 	int8 MotionFrameAmount = 10;
+
+	// A size of tile's side
+	UPROPERTY(EditAnywhere, Category = "Mob Movement")
+	float TileSize = 100;
 
 
 	// How fast mob moves to the next tile

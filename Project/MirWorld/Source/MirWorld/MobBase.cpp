@@ -7,27 +7,27 @@
 void AMobBase::moveToNextTile()
 {
 	if (CurrentTrajectory.IsEmpty()) {
-		HasPassedTrajectory = true;
-		GetWorldTimerManager().ClearTimer(NextTileTimerHandle);
+		if (GetWorldTimerManager().IsTimerActive(ApproachTimerHandle)) {
+			GetWorldTimerManager().ClearTimer(ApproachTimerHandle);
+		}
 		IsMoving = false;
 		DoAction();
 		return;
 	}
+
 	CurrentTile = NextTile;
 	NextTile = *(CurrentTrajectory.begin());
 	percentOfPassedDistance = 0.0f;
 	CurrentTrajectory.RemoveAt(0);
 
-	if (!GetWorldTimerManager().IsTimerActive(ApproachTimerHandle)) {
-		GetWorldTimerManager().SetTimer(
-			ApproachTimerHandle,
-			this,
-			&AMobBase::goCloserToNextTile,	
-			SecsForNextTile / MovementSpeed / MotionFrameAmount,
-			true,
-			0
-		);
-	}
+	GetWorldTimerManager().SetTimer(
+		ApproachTimerHandle,
+		this,
+		&AMobBase::goCloserToNextTile,
+		SecsForNextTile / MovementSpeed / MotionFrameAmount * FVector::Distance(NextTile, CurrentTile) / TileSize,
+		true,
+		0
+	);
 }
 
 void AMobBase::goCloserToNextTile()
@@ -39,6 +39,7 @@ void AMobBase::goCloserToNextTile()
 
 	if (std::abs(percentOfPassedDistance - 1) < 0.01) {
 		GetWorldTimerManager().ClearTimer(ApproachTimerHandle);
+		moveToNextTile();
 	}
 }
 
@@ -53,7 +54,6 @@ AMobBase::AMobBase()
 void AMobBase::SetTrajectory(TArray<FVector> newTrajectory)
 {
 	CurrentTrajectory = newTrajectory;
-	HasPassedTrajectory = false;
 
 	if (IsMoving) {
 		StopMovement();
@@ -65,28 +65,18 @@ void AMobBase::SetTrajectory(TArray<FVector> newTrajectory)
 void AMobBase::FollowTrajectory()
 {
 	if (CurrentTrajectory.IsEmpty()) {
-		HasPassedTrajectory = true;
 		DoAction();
 		return;
 	}
 
 	if (CurrentTrajectory == NO_WAY) {
 		reportImpossibleTask();
-		HasPassedTrajectory = true;
 		HasTask = false;
 		return;
 	}
 
 	IsMoving = true;
-
-	GetWorldTimerManager().SetTimer(
-		NextTileTimerHandle,
-		this,
-		&AMobBase::moveToNextTile,
-		SecsForNextTile / MovementSpeed,
-		true,
-		0
-	);
+	moveToNextTile();
 }
 
 void AMobBase::StopMovement()
@@ -96,15 +86,21 @@ void AMobBase::StopMovement()
 	if (GetWorldTimerManager().IsTimerActive(ApproachTimerHandle)) {
 		GetWorldTimerManager().ClearTimer(ApproachTimerHandle);
 	}
-	if (GetWorldTimerManager().IsTimerActive(NextTileTimerHandle)) {
-		GetWorldTimerManager().ClearTimer(NextTileTimerHandle);
-	}
 }
 
 void AMobBase::SetStartPos(FVector StartPos)
 {	
 	NextTile = StartPos;
 	SetActorLocation(StartPos);
+}
+
+bool AMobBase::SetTileSize(float newTileSize)
+{
+	if (newTileSize > 0) {
+		TileSize = newTileSize;
+		return true;
+	}
+	return false;
 }
 
 // Called when the game starts or when spawned
