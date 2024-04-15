@@ -13,9 +13,9 @@ void MapInfo::GenerateTree(const int X, const int Y)
 {
 	float Randomize = FMath::RandRange(-10, 10);
 	float Tree = FMath::PerlinNoise2D(FVector2D(X * 0.1f + 0.1f, Y * 0.1f + 0.1f)) * 50.0f;
-	
+
 	//GEngine->AddOnScreenDebugMessage(-1, 999.0f, FColor::Yellow, FString::Printf(TEXT("Tree_ %f"), Tree));
-	
+
 	if (Tree > 2) {
 		Map[X][Y].Resources = 1;
 	}
@@ -36,14 +36,14 @@ void MapInfo::GenerateStone(const int X, const int Y)
 void MapInfo::GenerateBiome(const int X, const int Y)
 {
 	float RandomMove = FMath::RandRange(-5, 5);
-	
-	for(int OuterIndex{0}; OuterIndex < X; ++OuterIndex)
+
+	for (int OuterIndex{ 0 }; OuterIndex < X; ++OuterIndex)
 	{
 		for (int InnerIndex{ 0 }; InnerIndex < Y; ++InnerIndex)
 		{
 			//Generation of Bioms
-			float Z = FMath::PerlinNoise2D(FVector2D((OuterIndex * NoiseScale + 0.01f) + RandomMove, (InnerIndex * NoiseScale + 0.01f))+ RandomMove) * Multiplier;
-			
+			float Z = FMath::PerlinNoise2D(FVector2D((OuterIndex * NoiseScale + 0.01f) + RandomMove, (InnerIndex * NoiseScale + 0.01f)) + RandomMove) * Multiplier;
+
 			//GEngine->AddOnScreenDebugMessage(-1, 999.0f, FColor::Yellow, FString::Printf(TEXT("Z %f"), Z));
 
 			if (Z < -Limits) {
@@ -80,5 +80,3 @@ void MapInfo::CreateEmptyMatrix(const int X, const int Y)
 
 	GenerateBiome(X, Y);
 }
-
-

@@ -9,15 +9,16 @@
 /**
  * 
  */
-UCLASS(Blueprintable)
-class WORKUPTUESDAY_API ATree : public AResource
+UCLASS()
+class MIRWORLD_API ATree : public AResource
 {
 	GENERATED_BODY()
-	
+
 	ATree();
 
 public:
 	//float TimeRequired() override;
 
 	//int GiveBunch() override;
+	
 };

@@ -3,11 +3,6 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "Math/UnrealMathUtility.h"
-#include "GameFramework/Actor.h"
-/**
- * 
- */
 
 struct FInfoMatrix
 {
@@ -26,16 +21,16 @@ struct FInfoMatrix
 	int Resources;
 };
 
-class WORKUPTUESDAY_API MapInfo
+class MIRWORLD_API MapInfo
 {
 public:
 	void GenerateResources(const int X, const int Y);
-	
+
 	void GenerateBiome(const int X, const int Y);
 
 	void CreateEmptyMatrix(const int X, const int Y);
 
-	void GenerateTree(const int X, const int Y);   
+	void GenerateTree(const int X, const int Y);
 
 	void GenerateStone(const int X, const int Y);
 

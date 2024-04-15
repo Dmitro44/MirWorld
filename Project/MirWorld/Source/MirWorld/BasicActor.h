@@ -27,12 +27,14 @@ struct FBlankObjectInfo
 	}
 };
 
+
 UCLASS()
-class WORKUPTUESDAY_API ABasicActor : public AActor
+class MIRWORLD_API ABasicActor : public AActor
 {
 	GENERATED_BODY()
 	
 public:	
+	// Sets default values for this actor's properties
 	ABasicActor();
 
 	void SetInfo(FBlankObjectInfo NewObjectInfo);

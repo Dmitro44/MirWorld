@@ -7,12 +7,12 @@
 #include "Tile.generated.h"
 
 /**
- * 
+ *
  */
 UCLASS()
-class WORKUPTUESDAY_API ATile : public ABasicActor
+class MIRWORLD_API ATile : public ABasicActor
 {
 	GENERATED_BODY()
-	
+
 	ATile();
 };

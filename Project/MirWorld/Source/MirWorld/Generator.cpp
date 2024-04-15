@@ -2,7 +2,7 @@
 
 AGenerator::AGenerator()
 {
- 	PrimaryActorTick.bCanEverTick = false;
+	PrimaryActorTick.bCanEverTick = false;
 
 }
 
@@ -14,7 +14,7 @@ void AGenerator::BuildResources(const FVector CenteredLocation, const int X, con
 		{
 			int SubstanceType = MapInfo.Map[InnerIndex][OuterIndex].Resources;
 			int BiomeType = MapInfo.Map[InnerIndex][OuterIndex].Color;
-			
+
 			if (SubstanceType == 0) {
 				continue;
 			}
@@ -25,23 +25,23 @@ void AGenerator::BuildResources(const FVector CenteredLocation, const int X, con
 			FVector SpawnLocation =
 				FVector(static_cast<float>(InnerIndex) - static_cast<float>(X) / 2.f,
 					static_cast<float>(OuterIndex) - static_cast<float>(Y) / 2.f,
-					0.f) * SectorSize * 1.f + CenteredLocation;
+					0.2f) * SectorSize * 1.f + CenteredLocation;
 
 			FTransform SpawnTransform;
 			SpawnTransform.SetLocation(SpawnLocation);
 
 			AActor* ObjectToSpawn;
-			
+
 			switch (SubstanceType)
 			{
 			case 0:
 			{
-				break;			
+				break;
 			}
 			case 1: {
 				ObjectToSpawn = UGameplayStatics::BeginDeferredActorSpawnFromClass(
 					this, TreeType[BiomeType].LoadSynchronous(), SpawnTransform);
-				
+
 				ATree* Tree = Cast<ATree>(ObjectToSpawn);
 
 				if (Tree)
@@ -129,7 +129,7 @@ void AGenerator::BuildMap(const FVector CenteredLocation, const int X, const int
 
 	MapSize.X = X;
 	MapSize.Y = Y;
-	
+
 	//Creating and allocating memory for matrix
 	MapInfo.CreateEmptyMatrix(MapSize.X, MapSize.Y);
 
@@ -142,6 +142,4 @@ void AGenerator::BuildMap(const FVector CenteredLocation, const int X, const int
 void AGenerator::BeginPlay()
 {
 	Super::BeginPlay();
-	
-
 }

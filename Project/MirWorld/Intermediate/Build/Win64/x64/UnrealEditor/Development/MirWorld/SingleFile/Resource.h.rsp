@@ -1,8 +1,8 @@
-"A:\Code\Projects\GitHub_MirWorld\MirWorld\Project\MirWorld\Intermediate\Build\Win64\x64\UnrealEditor\Development\MirWorld\SingleFile\Resource.h"
-/FI"A:\Code\Projects\GitHub_MirWorld\MirWorld\Project\MirWorld\Intermediate\Build\Win64\x64\UnrealEditor\Development\MirWorld\Definitions.MirWorld.h"
-/Fo"A:\Code\Projects\GitHub_MirWorld\MirWorld\Project\MirWorld\Intermediate\Build\Win64\x64\UnrealEditor\Development\MirWorld\SingleFile\Resource.h.obj"
-/sourceDependencies "A:\Code\Projects\GitHub_MirWorld\MirWorld\Project\MirWorld\Intermediate\Build\Win64\x64\UnrealEditor\Development\MirWorld\SingleFile\Resource.h.dep.json"
-@"A:\Code\Projects\GitHub_MirWorld\MirWorld\Project\MirWorld\Intermediate\Build\Win64\x64\UnrealEditor\Development\MirWorld\MirWorld.Shared.rsp"
+"D:\MirWorld\Project\MirWorld\Intermediate\Build\Win64\x64\UnrealEditor\Development\MirWorld\SingleFile\Resource.h"
+/FI"D:\MirWorld\Project\MirWorld\Intermediate\Build\Win64\x64\UnrealEditor\Development\MirWorld\Definitions.MirWorld.h"
+/Fo"D:\MirWorld\Project\MirWorld\Intermediate\Build\Win64\x64\UnrealEditor\Development\MirWorld\SingleFile\Resource.h.obj"
+/sourceDependencies "D:\MirWorld\Project\MirWorld\Intermediate\Build\Win64\x64\UnrealEditor\Development\MirWorld\SingleFile\Resource.h.dep.json"
+@"D:\MirWorld\Project\MirWorld\Intermediate\Build\Win64\x64\UnrealEditor\Development\MirWorld\MirWorld.Shared.rsp"
 /Zc:inline
 /nologo
 /Oi

@@ -10,14 +10,15 @@
  * 
  */
 UCLASS()
-class WORKUPTUESDAY_API AStone : public AResource
+class MIRWORLD_API AStone : public AResource
 {
 	GENERATED_BODY()
-	
+
 	AStone();
 
 public:
 	//float TimeRequired() override;
 
 	//int GiveBunch() override;
+	
 };

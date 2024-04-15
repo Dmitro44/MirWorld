@@ -1,8 +1,8 @@
-"A:\Code\Projects\GitHub_MirWorld\MirWorld\Project\MirWorld\Source\MirWorld\GameplayMW_GameMode.cpp"
-/FI"A:\Code\Projects\GitHub_MirWorld\MirWorld\Project\MirWorld\Intermediate\Build\Win64\x64\UnrealEditor\Development\MirWorld\Definitions.MirWorld.h"
-/Fo"A:\Code\Projects\GitHub_MirWorld\MirWorld\Project\MirWorld\Intermediate\Build\Win64\x64\UnrealEditor\Development\MirWorld\SingleFile\GameplayMW_GameMode.cpp.obj"
-/sourceDependencies "A:\Code\Projects\GitHub_MirWorld\MirWorld\Project\MirWorld\Intermediate\Build\Win64\x64\UnrealEditor\Development\MirWorld\SingleFile\GameplayMW_GameMode.cpp.dep.json"
-@"A:\Code\Projects\GitHub_MirWorld\MirWorld\Project\MirWorld\Intermediate\Build\Win64\x64\UnrealEditor\Development\MirWorld\MirWorld.Shared.rsp"
+"D:\MirWorld\Project\MirWorld\Source\MirWorld\GameplayMW_GameMode.cpp"
+/FI"D:\MirWorld\Project\MirWorld\Intermediate\Build\Win64\x64\UnrealEditor\Development\MirWorld\Definitions.MirWorld.h"
+/Fo"D:\MirWorld\Project\MirWorld\Intermediate\Build\Win64\x64\UnrealEditor\Development\MirWorld\SingleFile\GameplayMW_GameMode.cpp.obj"
+/sourceDependencies "D:\MirWorld\Project\MirWorld\Intermediate\Build\Win64\x64\UnrealEditor\Development\MirWorld\SingleFile\GameplayMW_GameMode.cpp.dep.json"
+@"D:\MirWorld\Project\MirWorld\Intermediate\Build\Win64\x64\UnrealEditor\Development\MirWorld\MirWorld.Shared.rsp"
 /Zc:inline
 /nologo
 /Oi

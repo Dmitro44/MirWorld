@@ -10,7 +10,7 @@
  * 
  */
 UCLASS()
-class WORKUPTUESDAY_API AResource : public ABasicActor
+class MIRWORLD_API AResource : public ABasicActor
 {
 	GENERATED_BODY()
 	
@@ -20,8 +20,8 @@ public:
 	virtual int GiveBunch();
 
 protected:
-	int ResorceLeft;
-	int BaseRecieve;
-
-	float TimeToMine;
+	float TimeToMine = 5.0f;
+	
+	int ResorceLeft = 0;
+	int BaseRecieve = 3;
 };

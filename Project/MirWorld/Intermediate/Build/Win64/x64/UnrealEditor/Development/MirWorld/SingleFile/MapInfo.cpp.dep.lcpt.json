@@ -1,0 +1,13 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "d:\\mirworld\\project\\mirworld\\source\\mirworld\\mapinfo.cpp",
+        "ProvidedModule": "",
+        "Includes": [
+            "d:\\mirworld\\project\\mirworld\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\mirworld\\definitions.mirworld.h",
+            "d:\\mirworld\\project\\mirworld\\intermediate\\build\\win64\\x64\\mirworldeditor\\development\\engine\\shareddefinitions.engine.cpp20.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}

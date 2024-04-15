@@ -11,13 +11,13 @@
 #include "Generator.generated.h"
 
 UCLASS(BlueprintType)
-class WORKUPTUESDAY_API AGenerator : public AActor
+class MIRWORLD_API AGenerator : public AActor
 {
 	GENERATED_BODY()
-	
-public:	
+
+public:
 	AGenerator();
-	
+
 
 	UFUNCTION(BlueprintCallable)
 	void BuildMap(const FVector CenteredLocation, const int X, const int Y);
@@ -28,9 +28,9 @@ public:
 
 protected:
 	virtual void BeginPlay() override;
-	
+
 	MapInfo MapInfo;
-	
+
 
 	// Map Properties
 
@@ -39,7 +39,7 @@ protected:
 
 	// Container which contains Tiles, displayed in the world
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, meta = (AllowPrivateAccess = true))
-	TArray <TObjectPtr<AActor>> TileMap;	
+	TArray <TObjectPtr<AActor>> TileMap;
 	//------------------
 	//Actors' inherited objects
 	//Class which contains info about tile we want to create than it which will be located to MapTiles  
@@ -48,15 +48,15 @@ protected:
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
 	TArray<TSoftClassPtr<ATree>> TreeType;
-	
+
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
 	TArray<TSoftClassPtr<AStone>> StoneType;
-	
+
 	//------------------
 
 	TArray<TObjectPtr<AActor>> ObjectMap;
-	
+
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
 	TSoftClassPtr<AResource> ObjectType;
-	
+
 };
