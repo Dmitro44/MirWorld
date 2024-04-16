@@ -74,5 +74,5 @@
 /DBUILD_ICON_FILE_NAME="\"..\\Build\\Windows\\Resources\\Default.ico\""
 /DPROJECT_COPYRIGHT_STRING="Fill out your copyright notice in the Description page of Project Settings."
 /DPROJECT_PRODUCT_IDENTIFIER=MirWorld
-/fo "D:\MirWorld\MirWorld\Intermediate\Build\Win64\x64\UnrealEditor\Development\MirWorld\Default.rc2.res"
+/fo "D:\MirWorld\Project\MirWorld\Intermediate\Build\Win64\x64\UnrealEditor\Development\MirWorld\Default.rc2.res"
 "..\Build\Windows\Resources\Default.rc2"

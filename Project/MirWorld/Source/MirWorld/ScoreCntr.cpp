@@ -26,6 +26,13 @@ void AScoreCntr::IncreaseScore(int dScore)
 	CheckScore();
 }
 
+void AScoreCntr::IncreaseScoreByExtracting(int Banch, int ResourceType)
+{
+	if (ResourceMultiplier.IsValidIndex(ResourceType) && Banch > 0) {
+		IncreaseScore(Banch * ResourceMultiplier[ResourceType]);
+	}
+}
+
 // Called when the game starts or when spawned
 void AScoreCntr::BeginPlay()
 {

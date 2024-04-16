@@ -6,20 +6,16 @@
 #include "CoreMinimal.h"
 #include "Resource.h"
 #include "MobBase.h"
+#include "ScoreCntr.h"
+#include "ResourceStorage.h"
 #include "CharacterMW.generated.h"
 
-enum Resources {
-	Wood = 0,
-	Stone,
-	Food,
-	Iron,
-	Gold,
-};
 
-enum Activities {
-	Extract = 0,
-	MoveTo,
-	Stop
+enum EActivity {
+	eExtract = 0,
+	eMoveTo,
+	eStop,
+	eNone
 };
 
 UCLASS()
@@ -30,12 +26,15 @@ class MIRWORLD_API ACharacterMW : public AMobBase
 public:
 	// Sets specific task and the mob starts its
 	// If TypeOfAction == Extract then AimPtr is AResource
-	void SetAction(int TypeOfAction, TArray<FVector> newTrajectory, AActor* AimPtr) override;
+	void SetAction(int TypeOfAction, TArray<FVector> NewTrajectory, AActor* AimPtr) override;
 
 	// Perform selected task
 	void DoAction() override;
 
 protected:
+	// Called when the game starts or when spawned
+	void BeginPlay() override;
+
 	// Says to the GameMode, that mob can't perform the task
 	void reportImpossibleTask() override;
 
@@ -50,6 +49,11 @@ protected:
 	UPROPERTY(EditAnywhere, Category = "Character ID")
 	int ID = -1;
 
+	UPROPERTY(EditAnywhere, Category = "Mob State")
+	int SelectedAction_ = 0; // see the enum
+	EActivity SelectedAction = eNone; 
+
+
 	// Timer for subresults of extracting a resource
 	FTimerHandle SubExtractTimerHandle;
 
@@ -58,8 +62,8 @@ protected:
 	int RepeatsRequired = 5;
 
 	// Cntr for repears of resource extracting
-	UPROPERTY(EditAnywhere, Category = "Resource Extracting")
 	int RepeatsCntr = 0;
+
 
 	// Shows what resources the character can extract
 	UPROPERTY(EditAnywhere, Category = "Character Stats")
@@ -82,6 +86,11 @@ protected:
 	};
 
 	// what resource is axtracting
-	UPROPERTY(EditAnywhere, Category = "Resource Extracting")
 	AResource* Resource;
+
+	// refers to the storage of the resources
+	AResourceStorage* ResourceStorage = nullptr;
+
+	// refers to the score cntr
+	AScoreCntr* ScoreCntr = nullptr;
 };

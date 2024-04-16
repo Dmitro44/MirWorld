@@ -1,11 +1,11 @@
-"D:\MirWorld\MirWorld\Source\MirWorld\MirWorld.cpp"
-/FI"D:\MirWorld\MirWorld\Intermediate\Build\Win64\x64\MirWorldEditor\Development\Engine\SharedPCH.Engine.Cpp20.h"
-/FI"D:\MirWorld\MirWorld\Intermediate\Build\Win64\x64\UnrealEditor\Development\MirWorld\Definitions.MirWorld.h"
-/Yu"D:\MirWorld\MirWorld\Intermediate\Build\Win64\x64\MirWorldEditor\Development\Engine\SharedPCH.Engine.Cpp20.h"
-/Fp"D:\MirWorld\MirWorld\Intermediate\Build\Win64\x64\MirWorldEditor\Development\Engine\SharedPCH.Engine.Cpp20.h.pch"
-/Fo"D:\MirWorld\MirWorld\Intermediate\Build\Win64\x64\UnrealEditor\Development\MirWorld\MirWorld.cpp.obj"
-/sourceDependencies "D:\MirWorld\MirWorld\Intermediate\Build\Win64\x64\UnrealEditor\Development\MirWorld\MirWorld.cpp.dep.json"
-@"D:\MirWorld\MirWorld\Intermediate\Build\Win64\x64\UnrealEditor\Development\MirWorld\MirWorld.Shared.rsp"
+"D:\MirWorld\Project\MirWorld\Source\MirWorld\MirWorld.cpp"
+/FI"D:\MirWorld\Project\MirWorld\Intermediate\Build\Win64\x64\MirWorldEditor\Development\Engine\SharedPCH.Engine.Cpp20.h"
+/FI"D:\MirWorld\Project\MirWorld\Intermediate\Build\Win64\x64\UnrealEditor\Development\MirWorld\Definitions.MirWorld.h"
+/Yu"D:\MirWorld\Project\MirWorld\Intermediate\Build\Win64\x64\MirWorldEditor\Development\Engine\SharedPCH.Engine.Cpp20.h"
+/Fp"D:\MirWorld\Project\MirWorld\Intermediate\Build\Win64\x64\MirWorldEditor\Development\Engine\SharedPCH.Engine.Cpp20.h.pch"
+/Fo"D:\MirWorld\Project\MirWorld\Intermediate\Build\Win64\x64\UnrealEditor\Development\MirWorld\MirWorld.cpp.obj"
+/sourceDependencies "D:\MirWorld\Project\MirWorld\Intermediate\Build\Win64\x64\UnrealEditor\Development\MirWorld\MirWorld.cpp.dep.json"
+@"D:\MirWorld\Project\MirWorld\Intermediate\Build\Win64\x64\UnrealEditor\Development\MirWorld\MirWorld.Shared.rsp"
 /Zc:inline
 /nologo
 /Oi

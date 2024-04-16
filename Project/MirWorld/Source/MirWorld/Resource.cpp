@@ -18,3 +18,8 @@ int AResource::GiveBunch()
 		return 1;
 	}
 }
+
+int AResource::GetResourceType() const
+{
+	return ResourceType;
+}

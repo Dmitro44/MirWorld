@@ -44,6 +44,12 @@
     <ClInclude Include="..\..\Source\MirWorld\CharacterMW.h">
       <Filter>Source\MirWorld</Filter>
     </ClInclude>
+    <ClCompile Include="..\..\Source\MirWorld\EnumsFictitiousClass.cpp">
+      <Filter>Source\MirWorld</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\MirWorld\EnumsFictitiousClass.h">
+      <Filter>Source\MirWorld</Filter>
+    </ClInclude>
     <ClCompile Include="..\..\Source\MirWorld\GameplayMW_GameMode.cpp">
       <Filter>Source\MirWorld</Filter>
     </ClCompile>
@@ -81,6 +87,12 @@
       <Filter>Source\MirWorld</Filter>
     </ClCompile>
     <ClInclude Include="..\..\Source\MirWorld\Resource.h">
+      <Filter>Source\MirWorld</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\MirWorld\ResourceStorage.cpp">
+      <Filter>Source\MirWorld</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\MirWorld\ResourceStorage.h">
       <Filter>Source\MirWorld</Filter>
     </ClInclude>
     <ClCompile Include="..\..\Source\MirWorld\ScoreCntr.cpp">

@@ -50,6 +50,15 @@ void EmptyLinkFunctionForGeneratedCodeScoreCntr() {}
 		P_THIS->DecreaseScore(Z_Param_dScore);
 		P_NATIVE_END;
 	}
+	DEFINE_FUNCTION(AScoreCntr::execIncreaseScoreByExtracting)
+	{
+		P_GET_PROPERTY(FIntProperty,Z_Param_Banch);
+		P_GET_PROPERTY(FIntProperty,Z_Param_ResourceType);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->IncreaseScoreByExtracting(Z_Param_Banch,Z_Param_ResourceType);
+		P_NATIVE_END;
+	}
 	DEFINE_FUNCTION(AScoreCntr::execIncreaseScore)
 	{
 		P_GET_PROPERTY(FIntProperty,Z_Param_dScore);
@@ -73,6 +82,7 @@ void EmptyLinkFunctionForGeneratedCodeScoreCntr() {}
 			{ "DecreaseScore", &AScoreCntr::execDecreaseScore },
 			{ "DecreaseScore_T", &AScoreCntr::execDecreaseScore_T },
 			{ "IncreaseScore", &AScoreCntr::execIncreaseScore },
+			{ "IncreaseScoreByExtracting", &AScoreCntr::execIncreaseScoreByExtracting },
 			{ "LoseTheGame", &AScoreCntr::execLoseTheGame },
 			{ "UpdateDecrease", &AScoreCntr::execUpdateDecrease },
 			{ "WinTheGame", &AScoreCntr::execWinTheGame },
@@ -219,6 +229,51 @@ void EmptyLinkFunctionForGeneratedCodeScoreCntr() {}
 		}
 		return ReturnFunction;
 	}
+	struct Z_Construct_UFunction_AScoreCntr_IncreaseScoreByExtracting_Statics
+	{
+		struct ScoreCntr_eventIncreaseScoreByExtracting_Parms
+		{
+			int32 Banch;
+			int32 ResourceType;
+		};
+		static const UECodeGen_Private::FIntPropertyParams NewProp_Banch;
+		static const UECodeGen_Private::FIntPropertyParams NewProp_ResourceType;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UECodeGen_Private::FIntPropertyParams Z_Construct_UFunction_AScoreCntr_IncreaseScoreByExtracting_Statics::NewProp_Banch = { "Banch", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ScoreCntr_eventIncreaseScoreByExtracting_Parms, Banch), METADATA_PARAMS(0, nullptr) };
+	const UECodeGen_Private::FIntPropertyParams Z_Construct_UFunction_AScoreCntr_IncreaseScoreByExtracting_Statics::NewProp_ResourceType = { "ResourceType", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ScoreCntr_eventIncreaseScoreByExtracting_Parms, ResourceType), METADATA_PARAMS(0, nullptr) };
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AScoreCntr_IncreaseScoreByExtracting_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AScoreCntr_IncreaseScoreByExtracting_Statics::NewProp_Banch,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AScoreCntr_IncreaseScoreByExtracting_Statics::NewProp_ResourceType,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AScoreCntr_IncreaseScoreByExtracting_Statics::Function_MetaDataParams[] = {
+		{ "Category", "Score" },
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "// Increases score when resources are extracted\n" },
+#endif
+		{ "ModuleRelativePath", "ScoreCntr.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "Increases score when resources are extracted" },
+#endif
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AScoreCntr_IncreaseScoreByExtracting_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AScoreCntr, nullptr, "IncreaseScoreByExtracting", nullptr, nullptr, Z_Construct_UFunction_AScoreCntr_IncreaseScoreByExtracting_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AScoreCntr_IncreaseScoreByExtracting_Statics::PropPointers), sizeof(Z_Construct_UFunction_AScoreCntr_IncreaseScoreByExtracting_Statics::ScoreCntr_eventIncreaseScoreByExtracting_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AScoreCntr_IncreaseScoreByExtracting_Statics::Function_MetaDataParams), Z_Construct_UFunction_AScoreCntr_IncreaseScoreByExtracting_Statics::Function_MetaDataParams) };
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_AScoreCntr_IncreaseScoreByExtracting_Statics::PropPointers) < 2048);
+	static_assert(sizeof(Z_Construct_UFunction_AScoreCntr_IncreaseScoreByExtracting_Statics::ScoreCntr_eventIncreaseScoreByExtracting_Parms) < MAX_uint16);
+	UFunction* Z_Construct_UFunction_AScoreCntr_IncreaseScoreByExtracting()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AScoreCntr_IncreaseScoreByExtracting_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
 	struct Z_Construct_UFunction_AScoreCntr_LoseTheGame_Statics
 	{
 #if WITH_METADATA
@@ -334,6 +389,11 @@ void EmptyLinkFunctionForGeneratedCodeScoreCntr() {}
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_VictoryValue_MetaData[];
 #endif
 		static const UECodeGen_Private::FIntPropertyParams NewProp_VictoryValue;
+		static const UECodeGen_Private::FIntPropertyParams NewProp_ResourceMultiplier_Inner;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_ResourceMultiplier_MetaData[];
+#endif
+		static const UECodeGen_Private::FArrayPropertyParams NewProp_ResourceMultiplier;
 		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UECodeGen_Private::FClassParams ClassParams;
@@ -348,6 +408,7 @@ void EmptyLinkFunctionForGeneratedCodeScoreCntr() {}
 		{ &Z_Construct_UFunction_AScoreCntr_DecreaseScore, "DecreaseScore" }, // 3024866344
 		{ &Z_Construct_UFunction_AScoreCntr_DecreaseScore_T, "DecreaseScore_T" }, // 3103852550
 		{ &Z_Construct_UFunction_AScoreCntr_IncreaseScore, "IncreaseScore" }, // 2284042891
+		{ &Z_Construct_UFunction_AScoreCntr_IncreaseScoreByExtracting, "IncreaseScoreByExtracting" }, // 1916298014
 		{ &Z_Construct_UFunction_AScoreCntr_LoseTheGame, "LoseTheGame" }, // 2361189093
 		{ &Z_Construct_UFunction_AScoreCntr_UpdateDecrease, "UpdateDecrease" }, // 684727980
 		{ &Z_Construct_UFunction_AScoreCntr_WinTheGame, "WinTheGame" }, // 3106081493
@@ -411,11 +472,27 @@ void EmptyLinkFunctionForGeneratedCodeScoreCntr() {}
 	};
 #endif
 	const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_AScoreCntr_Statics::NewProp_VictoryValue = { "VictoryValue", nullptr, (EPropertyFlags)0x0020080000000001, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AScoreCntr, VictoryValue), METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AScoreCntr_Statics::NewProp_VictoryValue_MetaData), Z_Construct_UClass_AScoreCntr_Statics::NewProp_VictoryValue_MetaData) };
+	const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_AScoreCntr_Statics::NewProp_ResourceMultiplier_Inner = { "ResourceMultiplier", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, METADATA_PARAMS(0, nullptr) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AScoreCntr_Statics::NewProp_ResourceMultiplier_MetaData[] = {
+		{ "Category", "Score" },
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "// refers to the value of different resource's types\n" },
+#endif
+		{ "ModuleRelativePath", "ScoreCntr.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "refers to the value of different resource's types" },
+#endif
+	};
+#endif
+	const UECodeGen_Private::FArrayPropertyParams Z_Construct_UClass_AScoreCntr_Statics::NewProp_ResourceMultiplier = { "ResourceMultiplier", nullptr, (EPropertyFlags)0x0040000000000001, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AScoreCntr, ResourceMultiplier), EArrayPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AScoreCntr_Statics::NewProp_ResourceMultiplier_MetaData), Z_Construct_UClass_AScoreCntr_Statics::NewProp_ResourceMultiplier_MetaData) };
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AScoreCntr_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AScoreCntr_Statics::NewProp_Score,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AScoreCntr_Statics::NewProp_ScoreDecrease,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AScoreCntr_Statics::NewProp_DecreaseTime,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AScoreCntr_Statics::NewProp_VictoryValue,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AScoreCntr_Statics::NewProp_ResourceMultiplier_Inner,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AScoreCntr_Statics::NewProp_ResourceMultiplier,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_AScoreCntr_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<AScoreCntr>::IsAbstract,
@@ -450,15 +527,15 @@ void EmptyLinkFunctionForGeneratedCodeScoreCntr() {}
 	}
 	DEFINE_VTABLE_PTR_HELPER_CTOR(AScoreCntr);
 	AScoreCntr::~AScoreCntr() {}
-	struct Z_CompiledInDeferFile_FID_MirWorld_Project_MirWorld_Source_MirWorld_ScoreCntr_h_Statics
+	struct Z_CompiledInDeferFile_FID_Code_Projects_GitHub_MirWorld_MirWorld_Project_MirWorld_Source_MirWorld_ScoreCntr_h_Statics
 	{
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
-	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_MirWorld_Project_MirWorld_Source_MirWorld_ScoreCntr_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_AScoreCntr, AScoreCntr::StaticClass, TEXT("AScoreCntr"), &Z_Registration_Info_UClass_AScoreCntr, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AScoreCntr), 1753778537U) },
+	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Code_Projects_GitHub_MirWorld_MirWorld_Project_MirWorld_Source_MirWorld_ScoreCntr_h_Statics::ClassInfo[] = {
+		{ Z_Construct_UClass_AScoreCntr, AScoreCntr::StaticClass, TEXT("AScoreCntr"), &Z_Registration_Info_UClass_AScoreCntr, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AScoreCntr), 365504380U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_MirWorld_Project_MirWorld_Source_MirWorld_ScoreCntr_h_3017664563(TEXT("/Script/MirWorld"),
-		Z_CompiledInDeferFile_FID_MirWorld_Project_MirWorld_Source_MirWorld_ScoreCntr_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_MirWorld_Project_MirWorld_Source_MirWorld_ScoreCntr_h_Statics::ClassInfo),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Code_Projects_GitHub_MirWorld_MirWorld_Project_MirWorld_Source_MirWorld_ScoreCntr_h_2262526597(TEXT("/Script/MirWorld"),
+		Z_CompiledInDeferFile_FID_Code_Projects_GitHub_MirWorld_MirWorld_Project_MirWorld_Source_MirWorld_ScoreCntr_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Code_Projects_GitHub_MirWorld_MirWorld_Project_MirWorld_Source_MirWorld_ScoreCntr_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

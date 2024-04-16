@@ -12,7 +12,6 @@ void EmptyLinkFunctionForGeneratedCodeCharacterMW() {}
 	MIRWORLD_API UClass* Z_Construct_UClass_ACharacterMW();
 	MIRWORLD_API UClass* Z_Construct_UClass_ACharacterMW_NoRegister();
 	MIRWORLD_API UClass* Z_Construct_UClass_AMobBase();
-	MIRWORLD_API UClass* Z_Construct_UClass_AResource_NoRegister();
 	UPackage* Z_Construct_UPackage__Script_MirWorld();
 // End Cross Module References
 	DEFINE_FUNCTION(ACharacterMW::execExtractBunch)
@@ -76,13 +75,13 @@ void EmptyLinkFunctionForGeneratedCodeCharacterMW() {}
 #endif
 		static const UECodeGen_Private::FIntPropertyParams NewProp_ID;
 #if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_SelectedAction__MetaData[];
+#endif
+		static const UECodeGen_Private::FIntPropertyParams NewProp_SelectedAction_;
+#if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_RepeatsRequired_MetaData[];
 #endif
 		static const UECodeGen_Private::FIntPropertyParams NewProp_RepeatsRequired;
-#if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam NewProp_RepeatsCntr_MetaData[];
-#endif
-		static const UECodeGen_Private::FIntPropertyParams NewProp_RepeatsCntr;
 		static const UECodeGen_Private::FBoolPropertyParams NewProp_CanExtract_Inner;
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_CanExtract_MetaData[];
@@ -93,10 +92,6 @@ void EmptyLinkFunctionForGeneratedCodeCharacterMW() {}
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_ExtractSpeeds_MetaData[];
 #endif
 		static const UECodeGen_Private::FArrayPropertyParams NewProp_ExtractSpeeds;
-#if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam NewProp_Resource_MetaData[];
-#endif
-		static const UECodeGen_Private::FObjectPropertyParams NewProp_Resource;
 		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UECodeGen_Private::FClassParams ClassParams;
@@ -130,6 +125,13 @@ void EmptyLinkFunctionForGeneratedCodeCharacterMW() {}
 #endif
 	const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_ACharacterMW_Statics::NewProp_ID = { "ID", nullptr, (EPropertyFlags)0x0020080000000001, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ACharacterMW, ID), METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_ACharacterMW_Statics::NewProp_ID_MetaData), Z_Construct_UClass_ACharacterMW_Statics::NewProp_ID_MetaData) };
 #if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ACharacterMW_Statics::NewProp_SelectedAction__MetaData[] = {
+		{ "Category", "Mob State" },
+		{ "ModuleRelativePath", "CharacterMW.h" },
+	};
+#endif
+	const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_ACharacterMW_Statics::NewProp_SelectedAction_ = { "SelectedAction_", nullptr, (EPropertyFlags)0x0020080000000001, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ACharacterMW, SelectedAction_), METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_ACharacterMW_Statics::NewProp_SelectedAction__MetaData), Z_Construct_UClass_ACharacterMW_Statics::NewProp_SelectedAction__MetaData) };
+#if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ACharacterMW_Statics::NewProp_RepeatsRequired_MetaData[] = {
 		{ "Category", "Resource Extracting" },
 #if !UE_BUILD_SHIPPING
@@ -142,19 +144,6 @@ void EmptyLinkFunctionForGeneratedCodeCharacterMW() {}
 	};
 #endif
 	const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_ACharacterMW_Statics::NewProp_RepeatsRequired = { "RepeatsRequired", nullptr, (EPropertyFlags)0x0020080000000001, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ACharacterMW, RepeatsRequired), METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_ACharacterMW_Statics::NewProp_RepeatsRequired_MetaData), Z_Construct_UClass_ACharacterMW_Statics::NewProp_RepeatsRequired_MetaData) };
-#if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ACharacterMW_Statics::NewProp_RepeatsCntr_MetaData[] = {
-		{ "Category", "Resource Extracting" },
-#if !UE_BUILD_SHIPPING
-		{ "Comment", "// Cntr for repears of resource extracting\n" },
-#endif
-		{ "ModuleRelativePath", "CharacterMW.h" },
-#if !UE_BUILD_SHIPPING
-		{ "ToolTip", "Cntr for repears of resource extracting" },
-#endif
-	};
-#endif
-	const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_ACharacterMW_Statics::NewProp_RepeatsCntr = { "RepeatsCntr", nullptr, (EPropertyFlags)0x0020080000000001, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ACharacterMW, RepeatsCntr), METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_ACharacterMW_Statics::NewProp_RepeatsCntr_MetaData), Z_Construct_UClass_ACharacterMW_Statics::NewProp_RepeatsCntr_MetaData) };
 	const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_ACharacterMW_Statics::NewProp_CanExtract_Inner = { "CanExtract", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), 0, nullptr, METADATA_PARAMS(0, nullptr) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ACharacterMW_Statics::NewProp_CanExtract_MetaData[] = {
@@ -183,28 +172,14 @@ void EmptyLinkFunctionForGeneratedCodeCharacterMW() {}
 	};
 #endif
 	const UECodeGen_Private::FArrayPropertyParams Z_Construct_UClass_ACharacterMW_Statics::NewProp_ExtractSpeeds = { "ExtractSpeeds", nullptr, (EPropertyFlags)0x0020080000000001, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ACharacterMW, ExtractSpeeds), EArrayPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_ACharacterMW_Statics::NewProp_ExtractSpeeds_MetaData), Z_Construct_UClass_ACharacterMW_Statics::NewProp_ExtractSpeeds_MetaData) };
-#if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ACharacterMW_Statics::NewProp_Resource_MetaData[] = {
-		{ "Category", "Resource Extracting" },
-#if !UE_BUILD_SHIPPING
-		{ "Comment", "// what resource is axtracting\n" },
-#endif
-		{ "ModuleRelativePath", "CharacterMW.h" },
-#if !UE_BUILD_SHIPPING
-		{ "ToolTip", "what resource is axtracting" },
-#endif
-	};
-#endif
-	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ACharacterMW_Statics::NewProp_Resource = { "Resource", nullptr, (EPropertyFlags)0x0020080000000001, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ACharacterMW, Resource), Z_Construct_UClass_AResource_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_ACharacterMW_Statics::NewProp_Resource_MetaData), Z_Construct_UClass_ACharacterMW_Statics::NewProp_Resource_MetaData) };
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ACharacterMW_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACharacterMW_Statics::NewProp_ID,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACharacterMW_Statics::NewProp_SelectedAction_,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACharacterMW_Statics::NewProp_RepeatsRequired,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACharacterMW_Statics::NewProp_RepeatsCntr,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACharacterMW_Statics::NewProp_CanExtract_Inner,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACharacterMW_Statics::NewProp_CanExtract,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACharacterMW_Statics::NewProp_ExtractSpeeds_Inner,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACharacterMW_Statics::NewProp_ExtractSpeeds,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACharacterMW_Statics::NewProp_Resource,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_ACharacterMW_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<ACharacterMW>::IsAbstract,
@@ -245,9 +220,9 @@ void EmptyLinkFunctionForGeneratedCodeCharacterMW() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Code_Projects_GitHub_MirWorld_MirWorld_Project_MirWorld_Source_MirWorld_CharacterMW_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_ACharacterMW, ACharacterMW::StaticClass, TEXT("ACharacterMW"), &Z_Registration_Info_UClass_ACharacterMW, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ACharacterMW), 1559140500U) },
+		{ Z_Construct_UClass_ACharacterMW, ACharacterMW::StaticClass, TEXT("ACharacterMW"), &Z_Registration_Info_UClass_ACharacterMW, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ACharacterMW), 1220940269U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Code_Projects_GitHub_MirWorld_MirWorld_Project_MirWorld_Source_MirWorld_CharacterMW_h_975157511(TEXT("/Script/MirWorld"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Code_Projects_GitHub_MirWorld_MirWorld_Project_MirWorld_Source_MirWorld_CharacterMW_h_2141532207(TEXT("/Script/MirWorld"),
 		Z_CompiledInDeferFile_FID_Code_Projects_GitHub_MirWorld_MirWorld_Project_MirWorld_Source_MirWorld_CharacterMW_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Code_Projects_GitHub_MirWorld_MirWorld_Project_MirWorld_Source_MirWorld_CharacterMW_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

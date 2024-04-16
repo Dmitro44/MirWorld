@@ -54,6 +54,7 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "Mob Action")
 	virtual void DoAction() {}; /// pure virtual
 
+
 	// Sets start pos (for current)
 	UFUNCTION(BlueprintCallable, Category = "Mob Action")
 	virtual void SetStartPos(FVector StartPos);

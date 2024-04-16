@@ -2,10 +2,12 @@
 
 #pragma once
 
+#include "EnumsFictitiousClass.h"
 #include "CoreMinimal.h"
 #include "GameplayMW_GameMode.h"
 #include "GameFramework/Actor.h"
 #include "ScoreCntr.generated.h"
+
 
 UCLASS()
 class MIRWORLD_API AScoreCntr : public AActor
@@ -23,6 +25,10 @@ public:
 	// Increases score
 	UFUNCTION(BlueprintCallable, Category = "Score")
 	void IncreaseScore(int dScore);
+
+	// Increases score when resources are extracted
+	UFUNCTION(BlueprintCallable, Category = "Score")
+	void IncreaseScoreByExtracting(int Banch, int ResourceType);
 
 	// Decreases score
 	UFUNCTION(BlueprintCallable, Category = "Score")
@@ -70,5 +76,16 @@ protected:
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
+
+private:
+	// refers to the value of different resource's types
+	UPROPERTY(EditAnywhere, Category = "Score")
+	TArray<int> ResourceMultiplier = {
+		1,
+		1,
+		1,
+		2,
+		3
+	};
 
 };

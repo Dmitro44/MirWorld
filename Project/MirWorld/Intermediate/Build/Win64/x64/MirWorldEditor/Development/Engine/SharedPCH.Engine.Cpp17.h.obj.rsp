@@ -1,4 +1,4 @@
-"D:\MirWorld\Project\MirWorld\Intermediate\Build\Win64\x64\MirWorldEditor\Development\Engine\SharedPCH.Engine.Cpp17.cpp"
+"A:\Code\Projects\GitHub_MirWorld\MirWorld\Project\MirWorld\Intermediate\Build\Win64\x64\MirWorldEditor\Development\Engine\SharedPCH.Engine.Cpp17.cpp"
 /I "."
 /I "..\Intermediate\Build\Win64\UnrealEditor\Inc\Engine\UHT"
 /I "..\Shaders\Shared"
@@ -261,15 +261,15 @@
 /external:I "ThirdParty\mimalloc\include"
 /external:I "ThirdParty\LibTiff\Source\Win64"
 /external:I "ThirdParty\LibTiff\Source"
-/external:I "C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.36.32532\INCLUDE"
+/external:I "A:\Code\vs\VC\Tools\MSVC\14.36.32532\INCLUDE"
 /external:I "C:\Program Files (x86)\Windows Kits\10\include\10.0.22621.0\ucrt"
 /external:I "C:\Program Files (x86)\Windows Kits\10\include\10.0.22621.0\shared"
 /external:I "C:\Program Files (x86)\Windows Kits\10\include\10.0.22621.0\um"
 /external:I "C:\Program Files (x86)\Windows Kits\10\include\10.0.22621.0\winrt"
-/Yc"D:\MirWorld\Project\MirWorld\Intermediate\Build\Win64\x64\MirWorldEditor\Development\Engine\SharedPCH.Engine.Cpp17.h"
-/Fp"D:\MirWorld\Project\MirWorld\Intermediate\Build\Win64\x64\MirWorldEditor\Development\Engine\SharedPCH.Engine.Cpp17.h.pch"
-/Fo"D:\MirWorld\Project\MirWorld\Intermediate\Build\Win64\x64\MirWorldEditor\Development\Engine\SharedPCH.Engine.Cpp17.h.obj"
-/sourceDependencies "D:\MirWorld\Project\MirWorld\Intermediate\Build\Win64\x64\MirWorldEditor\Development\Engine\SharedPCH.Engine.Cpp17.h.dep.json"
+/Yc"A:\Code\Projects\GitHub_MirWorld\MirWorld\Project\MirWorld\Intermediate\Build\Win64\x64\MirWorldEditor\Development\Engine\SharedPCH.Engine.Cpp17.h"
+/Fp"A:\Code\Projects\GitHub_MirWorld\MirWorld\Project\MirWorld\Intermediate\Build\Win64\x64\MirWorldEditor\Development\Engine\SharedPCH.Engine.Cpp17.h.pch"
+/Fo"A:\Code\Projects\GitHub_MirWorld\MirWorld\Project\MirWorld\Intermediate\Build\Win64\x64\MirWorldEditor\Development\Engine\SharedPCH.Engine.Cpp17.h.obj"
+/sourceDependencies "A:\Code\Projects\GitHub_MirWorld\MirWorld\Project\MirWorld\Intermediate\Build\Win64\x64\MirWorldEditor\Development\Engine\SharedPCH.Engine.Cpp17.h.dep.json"
 /Zc:inline
 /nologo
 /Oi

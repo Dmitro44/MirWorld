@@ -1,17 +1,17 @@
 {
     "Version": "1.2",
     "Data": {
-        "Source": "d:\\mirworld\\project\\mirworld\\source\\mirworld\\tree.cpp",
+        "Source": "a:\\code\\projects\\github_mirworld\\mirworld\\project\\mirworld\\source\\mirworld\\tree.cpp",
         "ProvidedModule": "",
-        "PCH": "d:\\mirworld\\project\\mirworld\\intermediate\\build\\win64\\x64\\mirworldeditor\\development\\engine\\sharedpch.engine.cpp20.h.pch",
+        "PCH": "a:\\code\\projects\\github_mirworld\\mirworld\\project\\mirworld\\intermediate\\build\\win64\\x64\\mirworldeditor\\development\\engine\\sharedpch.engine.cpp20.h.pch",
         "Includes": [
-            "d:\\mirworld\\project\\mirworld\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\mirworld\\definitions.mirworld.h",
-            "d:\\mirworld\\project\\mirworld\\source\\mirworld\\tree.h",
-            "d:\\mirworld\\project\\mirworld\\source\\mirworld\\resource.h",
-            "d:\\mirworld\\project\\mirworld\\source\\mirworld\\basicactor.h",
-            "d:\\mirworld\\project\\mirworld\\intermediate\\build\\win64\\unrealeditor\\inc\\mirworld\\uht\\basicactor.generated.h",
-            "d:\\mirworld\\project\\mirworld\\intermediate\\build\\win64\\unrealeditor\\inc\\mirworld\\uht\\resource.generated.h",
-            "d:\\mirworld\\project\\mirworld\\intermediate\\build\\win64\\unrealeditor\\inc\\mirworld\\uht\\tree.generated.h"
+            "a:\\code\\projects\\github_mirworld\\mirworld\\project\\mirworld\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\mirworld\\definitions.mirworld.h",
+            "a:\\code\\projects\\github_mirworld\\mirworld\\project\\mirworld\\source\\mirworld\\tree.h",
+            "a:\\code\\projects\\github_mirworld\\mirworld\\project\\mirworld\\source\\mirworld\\resource.h",
+            "a:\\code\\projects\\github_mirworld\\mirworld\\project\\mirworld\\source\\mirworld\\basicactor.h",
+            "a:\\code\\projects\\github_mirworld\\mirworld\\project\\mirworld\\intermediate\\build\\win64\\unrealeditor\\inc\\mirworld\\uht\\basicactor.generated.h",
+            "a:\\code\\projects\\github_mirworld\\mirworld\\project\\mirworld\\intermediate\\build\\win64\\unrealeditor\\inc\\mirworld\\uht\\resource.generated.h",
+            "a:\\code\\projects\\github_mirworld\\mirworld\\project\\mirworld\\intermediate\\build\\win64\\unrealeditor\\inc\\mirworld\\uht\\tree.generated.h"
         ],
         "ImportedModules": [],
         "ImportedHeaderUnits": []

@@ -5,6 +5,13 @@
 			"guid": "00000000000000000000000000000000",
 			"description": "Default Uncontrolled Changelist",
 			"files": [
+				"A:/Code/Projects/GitHub_MirWorld/MirWorld/Project/MirWorld/Content/Maps/Base.umap",
+				"A:/Code/Projects/GitHub_MirWorld/MirWorld/Project/MirWorld/Content/Base.umap",
+				"A:/Code/Projects/GitHub_MirWorld/MirWorld/Project/MirWorld/Content/TestBPs/MobBase_BP.uasset",
+				"A:/Code/Projects/GitHub_MirWorld/MirWorld/Project/MirWorld/Content/TestBPs/CharacterMW_BP.uasset",
+				"A:/Code/Projects/GitHub_MirWorld/MirWorld/Project/MirWorld/Content/TestBPs/ScoreCntr_BP.uasset",
+				"A:/Code/Projects/GitHub_MirWorld/MirWorld/Project/MirWorld/Content/BPs/GameplayMW_GameMode.uasset",
+				"A:/Code/Projects/GitHub_MirWorld/MirWorld/Project/MirWorld/Content/TestBPs/ResourceStorage_BP.uasset",
 				"D:/MirWorld/Project/MirWorld/Content/Base.umap",
 				"D:/MirWorld/Project/MirWorld/Content/Maps/Base.umap",
 				"D:/MirWorld/Project/MirWorld/Content/BPs/BP_MapGenerate.uasset",
@@ -32,13 +39,7 @@
 				"D:/MirWorld/Project/MirWorld/Content/BPs/Trees/BP_Tree_Snow2.uasset",
 				"D:/MirWorld/Project/MirWorld/Content/BPs/Trees/BP_Tree_Grass.uasset",
 				"D:/MirWorld/Project/MirWorld/Content/BPs/Trees/BP_Tree_Sand.uasset",
-				"D:/MirWorld/Project/MirWorld/Content/BPs/BP_Generate.uasset",
-				"A:/Code/Projects/GitHub_MirWorld/MirWorld/Project/MirWorld/Content/Maps/Base.umap",
-				"A:/Code/Projects/GitHub_MirWorld/MirWorld/Project/MirWorld/Content/Base.umap",
-				"A:/Code/Projects/GitHub_MirWorld/MirWorld/Project/MirWorld/Content/TestBPs/MobBase_BP.uasset",
-				"A:/Code/Projects/GitHub_MirWorld/MirWorld/Project/MirWorld/Content/TestBPs/CharacterMW_BP.uasset",
-				"A:/Code/Projects/GitHub_MirWorld/MirWorld/Project/MirWorld/Content/TestBPs/ScoreCntr_BP.uasset",
-				"A:/Code/Projects/GitHub_MirWorld/MirWorld/Project/MirWorld/Content/BPs/GameplayMW_GameMode.uasset"
+				"D:/MirWorld/Project/MirWorld/Content/BPs/BP_Generate.uasset"
 			]
 		}
 	]

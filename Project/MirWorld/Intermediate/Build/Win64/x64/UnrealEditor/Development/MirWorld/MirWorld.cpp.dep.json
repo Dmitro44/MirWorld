@@ -1,12 +1,12 @@
 {
     "Version": "1.2",
     "Data": {
-        "Source": "d:\\mirworld\\project\\mirworld\\source\\mirworld\\mirworld.cpp",
+        "Source": "a:\\code\\projects\\github_mirworld\\mirworld\\project\\mirworld\\source\\mirworld\\mirworld.cpp",
         "ProvidedModule": "",
-        "PCH": "d:\\mirworld\\project\\mirworld\\intermediate\\build\\win64\\x64\\mirworldeditor\\development\\engine\\sharedpch.engine.cpp20.h.pch",
+        "PCH": "a:\\code\\projects\\github_mirworld\\mirworld\\project\\mirworld\\intermediate\\build\\win64\\x64\\mirworldeditor\\development\\engine\\sharedpch.engine.cpp20.h.pch",
         "Includes": [
-            "d:\\mirworld\\project\\mirworld\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\mirworld\\definitions.mirworld.h",
-            "d:\\mirworld\\project\\mirworld\\source\\mirworld\\mirworld.h"
+            "a:\\code\\projects\\github_mirworld\\mirworld\\project\\mirworld\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\mirworld\\definitions.mirworld.h",
+            "a:\\code\\projects\\github_mirworld\\mirworld\\project\\mirworld\\source\\mirworld\\mirworld.h"
         ],
         "ImportedModules": [],
         "ImportedHeaderUnits": []

@@ -1,13 +1,13 @@
 {
     "Version": "1.2",
     "Data": {
-        "Source": "d:\\mirworld\\project\\mirworld\\intermediate\\build\\win64\\unrealeditor\\inc\\mirworld\\uht\\mobbase.gen.cpp",
+        "Source": "a:\\code\\projects\\github_mirworld\\mirworld\\project\\mirworld\\intermediate\\build\\win64\\unrealeditor\\inc\\mirworld\\uht\\mobbase.gen.cpp",
         "ProvidedModule": "",
-        "PCH": "d:\\mirworld\\project\\mirworld\\intermediate\\build\\win64\\x64\\mirworldeditor\\development\\engine\\sharedpch.engine.cpp20.h.pch",
+        "PCH": "a:\\code\\projects\\github_mirworld\\mirworld\\project\\mirworld\\intermediate\\build\\win64\\x64\\mirworldeditor\\development\\engine\\sharedpch.engine.cpp20.h.pch",
         "Includes": [
-            "d:\\mirworld\\project\\mirworld\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\mirworld\\definitions.mirworld.h",
-            "d:\\mirworld\\project\\mirworld\\source\\mirworld\\mobbase.h",
-            "d:\\mirworld\\project\\mirworld\\intermediate\\build\\win64\\unrealeditor\\inc\\mirworld\\uht\\mobbase.generated.h"
+            "a:\\code\\projects\\github_mirworld\\mirworld\\project\\mirworld\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\mirworld\\definitions.mirworld.h",
+            "a:\\code\\projects\\github_mirworld\\mirworld\\project\\mirworld\\source\\mirworld\\mobbase.h",
+            "a:\\code\\projects\\github_mirworld\\mirworld\\project\\mirworld\\intermediate\\build\\win64\\unrealeditor\\inc\\mirworld\\uht\\mobbase.generated.h"
         ],
         "ImportedModules": [],
         "ImportedHeaderUnits": []
