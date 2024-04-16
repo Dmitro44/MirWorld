@@ -7,13 +7,13 @@
 #include "Resource.generated.h"
 
 /**
- * 
+ * TODO add uproperty and ufunction macroses
  */
 UCLASS()
 class MIRWORLD_API AResource : public ABasicActor
 {
 	GENERATED_BODY()
-	
+
 public:
 	virtual float TimeRequired();
 
