@@ -16,9 +16,9 @@ class MIRWORLD_API ATree : public AResource
 
 	ATree();
 
-public:
-	//float TimeRequired() override;
+	int EnumValue = 0;
+	//float TimeRequired();
 
-	//int GiveBunch() override;
+	//int GiveBunch();
 	
 };

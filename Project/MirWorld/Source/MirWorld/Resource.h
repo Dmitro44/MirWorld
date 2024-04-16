@@ -9,19 +9,22 @@
 /**
  * 
  */
-UCLASS()
+UCLASS(BlueprintType)
 class MIRWORLD_API AResource : public ABasicActor
 {
 	GENERATED_BODY()
 	
 public:
-	virtual float TimeRequired();
+	UFUNCTION(BlueprintCallable)
+	float TimeRequired();
 
-	virtual int GiveBunch();
+	UFUNCTION(BlueprintCallable) 
+	int GiveBunch();
 
 protected:
 	float TimeToMine = 5.0f;
 	
 	int ResorceLeft = 0;
 	int BaseRecieve = 3;
+	int EnumValue;
 };

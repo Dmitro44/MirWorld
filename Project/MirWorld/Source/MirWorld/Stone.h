@@ -16,9 +16,9 @@ class MIRWORLD_API AStone : public AResource
 
 	AStone();
 
-public:
-	//float TimeRequired() override;
+	int EnumValue = 1;
+	//float TimeRequired();
 
-	//int GiveBunch() override;
-	
+	//UFUNCTION(BlueprintCallable);
+	//int GiveBunch();
 };

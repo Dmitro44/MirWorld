@@ -82,9 +82,9 @@ void EmptyLinkFunctionForGeneratedCodeStone() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_MirWorld_Project_MirWorld_Source_MirWorld_Stone_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_AStone, AStone::StaticClass, TEXT("AStone"), &Z_Registration_Info_UClass_AStone, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AStone), 1127450795U) },
+		{ Z_Construct_UClass_AStone, AStone::StaticClass, TEXT("AStone"), &Z_Registration_Info_UClass_AStone, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AStone), 3760607091U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_MirWorld_Project_MirWorld_Source_MirWorld_Stone_h_2258055961(TEXT("/Script/MirWorld"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_MirWorld_Project_MirWorld_Source_MirWorld_Stone_h_3895766147(TEXT("/Script/MirWorld"),
 		Z_CompiledInDeferFile_FID_MirWorld_Project_MirWorld_Source_MirWorld_Stone_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_MirWorld_Project_MirWorld_Source_MirWorld_Stone_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);
