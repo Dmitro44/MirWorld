@@ -12,6 +12,7 @@ void EmptyLinkFunctionForGeneratedCodeCharacterMW() {}
 	MIRWORLD_API UClass* Z_Construct_UClass_ACharacterMW();
 	MIRWORLD_API UClass* Z_Construct_UClass_ACharacterMW_NoRegister();
 	MIRWORLD_API UClass* Z_Construct_UClass_AMobBase();
+	MIRWORLD_API UClass* Z_Construct_UClass_AResource_NoRegister();
 	UPackage* Z_Construct_UPackage__Script_MirWorld();
 // End Cross Module References
 	DEFINE_FUNCTION(ACharacterMW::execExtractBunch)
@@ -92,6 +93,10 @@ void EmptyLinkFunctionForGeneratedCodeCharacterMW() {}
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_ExtractSpeeds_MetaData[];
 #endif
 		static const UECodeGen_Private::FArrayPropertyParams NewProp_ExtractSpeeds;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_Resource_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_Resource;
 		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UECodeGen_Private::FClassParams ClassParams;
@@ -178,6 +183,19 @@ void EmptyLinkFunctionForGeneratedCodeCharacterMW() {}
 	};
 #endif
 	const UECodeGen_Private::FArrayPropertyParams Z_Construct_UClass_ACharacterMW_Statics::NewProp_ExtractSpeeds = { "ExtractSpeeds", nullptr, (EPropertyFlags)0x0020080000000001, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ACharacterMW, ExtractSpeeds), EArrayPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_ACharacterMW_Statics::NewProp_ExtractSpeeds_MetaData), Z_Construct_UClass_ACharacterMW_Statics::NewProp_ExtractSpeeds_MetaData) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ACharacterMW_Statics::NewProp_Resource_MetaData[] = {
+		{ "Category", "Resource Extracting" },
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "// what resource is axtracting\n" },
+#endif
+		{ "ModuleRelativePath", "CharacterMW.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "what resource is axtracting" },
+#endif
+	};
+#endif
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ACharacterMW_Statics::NewProp_Resource = { "Resource", nullptr, (EPropertyFlags)0x0020080000000001, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ACharacterMW, Resource), Z_Construct_UClass_AResource_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_ACharacterMW_Statics::NewProp_Resource_MetaData), Z_Construct_UClass_ACharacterMW_Statics::NewProp_Resource_MetaData) };
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ACharacterMW_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACharacterMW_Statics::NewProp_ID,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACharacterMW_Statics::NewProp_RepeatsRequired,
@@ -186,6 +204,7 @@ void EmptyLinkFunctionForGeneratedCodeCharacterMW() {}
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACharacterMW_Statics::NewProp_CanExtract,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACharacterMW_Statics::NewProp_ExtractSpeeds_Inner,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACharacterMW_Statics::NewProp_ExtractSpeeds,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACharacterMW_Statics::NewProp_Resource,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_ACharacterMW_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<ACharacterMW>::IsAbstract,
@@ -221,15 +240,15 @@ void EmptyLinkFunctionForGeneratedCodeCharacterMW() {}
 	ACharacterMW::ACharacterMW() {}
 	DEFINE_VTABLE_PTR_HELPER_CTOR(ACharacterMW);
 	ACharacterMW::~ACharacterMW() {}
-	struct Z_CompiledInDeferFile_FID_MirWorld_Project_MirWorld_Source_MirWorld_CharacterMW_h_Statics
+	struct Z_CompiledInDeferFile_FID_Code_Projects_GitHub_MirWorld_MirWorld_Project_MirWorld_Source_MirWorld_CharacterMW_h_Statics
 	{
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
-	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_MirWorld_Project_MirWorld_Source_MirWorld_CharacterMW_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_ACharacterMW, ACharacterMW::StaticClass, TEXT("ACharacterMW"), &Z_Registration_Info_UClass_ACharacterMW, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ACharacterMW), 2624661783U) },
+	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Code_Projects_GitHub_MirWorld_MirWorld_Project_MirWorld_Source_MirWorld_CharacterMW_h_Statics::ClassInfo[] = {
+		{ Z_Construct_UClass_ACharacterMW, ACharacterMW::StaticClass, TEXT("ACharacterMW"), &Z_Registration_Info_UClass_ACharacterMW, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ACharacterMW), 1559140500U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_MirWorld_Project_MirWorld_Source_MirWorld_CharacterMW_h_4221189401(TEXT("/Script/MirWorld"),
-		Z_CompiledInDeferFile_FID_MirWorld_Project_MirWorld_Source_MirWorld_CharacterMW_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_MirWorld_Project_MirWorld_Source_MirWorld_CharacterMW_h_Statics::ClassInfo),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Code_Projects_GitHub_MirWorld_MirWorld_Project_MirWorld_Source_MirWorld_CharacterMW_h_975157511(TEXT("/Script/MirWorld"),
+		Z_CompiledInDeferFile_FID_Code_Projects_GitHub_MirWorld_MirWorld_Project_MirWorld_Source_MirWorld_CharacterMW_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Code_Projects_GitHub_MirWorld_MirWorld_Project_MirWorld_Source_MirWorld_CharacterMW_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

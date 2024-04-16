@@ -49,6 +49,13 @@ void EmptyLinkFunctionForGeneratedCodeMobBase() {}
 		P_THIS->SetAction(Z_Param_TypeOfAction,Z_Param_newTrajectory,Z_Param_AimPtr);
 		P_NATIVE_END;
 	}
+	DEFINE_FUNCTION(AMobBase::execHasAction)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		*(bool*)Z_Param__Result=P_THIS->HasAction();
+		P_NATIVE_END;
+	}
 	DEFINE_FUNCTION(AMobBase::execStopMovement)
 	{
 		P_FINISH;
@@ -77,6 +84,7 @@ void EmptyLinkFunctionForGeneratedCodeMobBase() {}
 		static const FNameNativePtrPair Funcs[] = {
 			{ "DoAction", &AMobBase::execDoAction },
 			{ "FollowTrajectory", &AMobBase::execFollowTrajectory },
+			{ "HasAction", &AMobBase::execHasAction },
 			{ "SetAction", &AMobBase::execSetAction },
 			{ "SetStartPos", &AMobBase::execSetStartPos },
 			{ "SetTileSize", &AMobBase::execSetTileSize },
@@ -125,11 +133,11 @@ void EmptyLinkFunctionForGeneratedCodeMobBase() {}
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AMobBase_FollowTrajectory_Statics::Function_MetaDataParams[] = {
 		{ "Category", "Mob Movement" },
 #if !UE_BUILD_SHIPPING
-		{ "Comment", "// Makes the mob follow the set trajectory\n" },
+		{ "Comment", "// Makes the mob follow the set trajectory and DoAction when the trajectory is passed\n" },
 #endif
 		{ "ModuleRelativePath", "MobBase.h" },
 #if !UE_BUILD_SHIPPING
-		{ "ToolTip", "Makes the mob follow the set trajectory" },
+		{ "ToolTip", "Makes the mob follow the set trajectory and DoAction when the trajectory is passed" },
 #endif
 	};
 #endif
@@ -140,6 +148,52 @@ void EmptyLinkFunctionForGeneratedCodeMobBase() {}
 		if (!ReturnFunction)
 		{
 			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AMobBase_FollowTrajectory_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_AMobBase_HasAction_Statics
+	{
+		struct MobBase_eventHasAction_Parms
+		{
+			bool ReturnValue;
+		};
+		static void NewProp_ReturnValue_SetBit(void* Obj);
+		static const UECodeGen_Private::FBoolPropertyParams NewProp_ReturnValue;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+	void Z_Construct_UFunction_AMobBase_HasAction_Statics::NewProp_ReturnValue_SetBit(void* Obj)
+	{
+		((MobBase_eventHasAction_Parms*)Obj)->ReturnValue = 1;
+	}
+	const UECodeGen_Private::FBoolPropertyParams Z_Construct_UFunction_AMobBase_HasAction_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(MobBase_eventHasAction_Parms), &Z_Construct_UFunction_AMobBase_HasAction_Statics::NewProp_ReturnValue_SetBit, METADATA_PARAMS(0, nullptr) };
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AMobBase_HasAction_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AMobBase_HasAction_Statics::NewProp_ReturnValue,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AMobBase_HasAction_Statics::Function_MetaDataParams[] = {
+		{ "Category", "Mob State" },
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "// Shows if mob is executing any task\n" },
+#endif
+		{ "ModuleRelativePath", "MobBase.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "Shows if mob is executing any task" },
+#endif
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AMobBase_HasAction_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AMobBase, nullptr, "HasAction", nullptr, nullptr, Z_Construct_UFunction_AMobBase_HasAction_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AMobBase_HasAction_Statics::PropPointers), sizeof(Z_Construct_UFunction_AMobBase_HasAction_Statics::MobBase_eventHasAction_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x54020400, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AMobBase_HasAction_Statics::Function_MetaDataParams), Z_Construct_UFunction_AMobBase_HasAction_Statics::Function_MetaDataParams) };
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_AMobBase_HasAction_Statics::PropPointers) < 2048);
+	static_assert(sizeof(Z_Construct_UFunction_AMobBase_HasAction_Statics::MobBase_eventHasAction_Parms) < MAX_uint16);
+	UFunction* Z_Construct_UFunction_AMobBase_HasAction()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AMobBase_HasAction_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -175,11 +229,11 @@ void EmptyLinkFunctionForGeneratedCodeMobBase() {}
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AMobBase_SetAction_Statics::Function_MetaDataParams[] = {
 		{ "Category", "Mob Action" },
 #if !UE_BUILD_SHIPPING
-		{ "Comment", "// Sets specific task\n" },
+		{ "Comment", "// Sets specific task and the mob starts its\n" },
 #endif
 		{ "ModuleRelativePath", "MobBase.h" },
 #if !UE_BUILD_SHIPPING
-		{ "ToolTip", "Sets specific task" },
+		{ "ToolTip", "Sets specific task and the mob starts its" },
 #endif
 	};
 #endif
@@ -310,11 +364,11 @@ void EmptyLinkFunctionForGeneratedCodeMobBase() {}
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AMobBase_SetTrajectory_Statics::Function_MetaDataParams[] = {
 		{ "Category", "Mob Movement" },
 #if !UE_BUILD_SHIPPING
-		{ "Comment", "// Sets the trajectory for the mob movement, returns false if there is no way\n" },
+		{ "Comment", "// Sets the trajectory for the mob movement\n" },
 #endif
 		{ "ModuleRelativePath", "MobBase.h" },
 #if !UE_BUILD_SHIPPING
-		{ "ToolTip", "Sets the trajectory for the mob movement, returns false if there is no way" },
+		{ "ToolTip", "Sets the trajectory for the mob movement" },
 #endif
 	};
 #endif
@@ -429,11 +483,12 @@ void EmptyLinkFunctionForGeneratedCodeMobBase() {}
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_AMobBase_Statics::DependentSingletons) < 16);
 	const FClassFunctionLinkInfo Z_Construct_UClass_AMobBase_Statics::FuncInfo[] = {
 		{ &Z_Construct_UFunction_AMobBase_DoAction, "DoAction" }, // 4162670875
-		{ &Z_Construct_UFunction_AMobBase_FollowTrajectory, "FollowTrajectory" }, // 3375553059
-		{ &Z_Construct_UFunction_AMobBase_SetAction, "SetAction" }, // 2991195246
+		{ &Z_Construct_UFunction_AMobBase_FollowTrajectory, "FollowTrajectory" }, // 3593297659
+		{ &Z_Construct_UFunction_AMobBase_HasAction, "HasAction" }, // 2963107839
+		{ &Z_Construct_UFunction_AMobBase_SetAction, "SetAction" }, // 1190955491
 		{ &Z_Construct_UFunction_AMobBase_SetStartPos, "SetStartPos" }, // 1294903535
 		{ &Z_Construct_UFunction_AMobBase_SetTileSize, "SetTileSize" }, // 2834676201
-		{ &Z_Construct_UFunction_AMobBase_SetTrajectory, "SetTrajectory" }, // 3649789793
+		{ &Z_Construct_UFunction_AMobBase_SetTrajectory, "SetTrajectory" }, // 1844677938
 		{ &Z_Construct_UFunction_AMobBase_StopMovement, "StopMovement" }, // 2437099576
 	};
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_AMobBase_Statics::FuncInfo) < 2048);
@@ -642,15 +697,15 @@ void EmptyLinkFunctionForGeneratedCodeMobBase() {}
 	}
 	DEFINE_VTABLE_PTR_HELPER_CTOR(AMobBase);
 	AMobBase::~AMobBase() {}
-	struct Z_CompiledInDeferFile_FID_MirWorld_Project_MirWorld_Source_MirWorld_MobBase_h_Statics
+	struct Z_CompiledInDeferFile_FID_Code_Projects_GitHub_MirWorld_MirWorld_Project_MirWorld_Source_MirWorld_MobBase_h_Statics
 	{
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
-	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_MirWorld_Project_MirWorld_Source_MirWorld_MobBase_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_AMobBase, AMobBase::StaticClass, TEXT("AMobBase"), &Z_Registration_Info_UClass_AMobBase, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AMobBase), 2254531506U) },
+	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Code_Projects_GitHub_MirWorld_MirWorld_Project_MirWorld_Source_MirWorld_MobBase_h_Statics::ClassInfo[] = {
+		{ Z_Construct_UClass_AMobBase, AMobBase::StaticClass, TEXT("AMobBase"), &Z_Registration_Info_UClass_AMobBase, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AMobBase), 1611413577U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_MirWorld_Project_MirWorld_Source_MirWorld_MobBase_h_357859491(TEXT("/Script/MirWorld"),
-		Z_CompiledInDeferFile_FID_MirWorld_Project_MirWorld_Source_MirWorld_MobBase_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_MirWorld_Project_MirWorld_Source_MirWorld_MobBase_h_Statics::ClassInfo),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Code_Projects_GitHub_MirWorld_MirWorld_Project_MirWorld_Source_MirWorld_MobBase_h_4102259853(TEXT("/Script/MirWorld"),
+		Z_CompiledInDeferFile_FID_Code_Projects_GitHub_MirWorld_MirWorld_Project_MirWorld_Source_MirWorld_MobBase_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Code_Projects_GitHub_MirWorld_MirWorld_Project_MirWorld_Source_MirWorld_MobBase_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

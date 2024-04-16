@@ -50,6 +50,11 @@ AMobBase::AMobBase()
 	PrimaryActorTick.bCanEverTick = true;
 }
 
+bool AMobBase::HasAction() const
+{
+	return HasTask;
+}
+
 // Sets the trajectory for the mob movement, if there is no way mob messeges GameMode
 void AMobBase::SetTrajectory(TArray<FVector> newTrajectory)
 {

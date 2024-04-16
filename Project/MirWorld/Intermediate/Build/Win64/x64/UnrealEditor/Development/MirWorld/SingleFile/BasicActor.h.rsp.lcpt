@@ -1,8 +1,8 @@
-"D:\MirWorld\Project\MirWorld\Intermediate\Build\Win64\x64\UnrealEditor\Development\MirWorld\SingleFile\BasicActor.h"
-/FI"D:\MirWorld\Project\MirWorld\Intermediate\Build\Win64\x64\UnrealEditor\Development\MirWorld\Definitions.MirWorld.h"
-/Fo"D:\MirWorld\Project\MirWorld\Intermediate\Build\Win64\x64\UnrealEditor\Development\MirWorld\SingleFile\BasicActor.h.lcpt.obj"
-/sourceDependencies"D:\MirWorld\Project\MirWorld\Intermediate\Build\Win64\x64\UnrealEditor\Development\MirWorld\SingleFile\BasicActor.h.dep.lcpt.json"
-@"D:\MirWorld\Project\MirWorld\Intermediate\Build\Win64\x64\UnrealEditor\Development\MirWorld\MirWorld.Shared.rsp"
+"A:\Code\Projects\GitHub_MirWorld\MirWorld\Project\MirWorld\Intermediate\Build\Win64\x64\UnrealEditor\Development\MirWorld\SingleFile\BasicActor.h"
+/FI"A:\Code\Projects\GitHub_MirWorld\MirWorld\Project\MirWorld\Intermediate\Build\Win64\x64\UnrealEditor\Development\MirWorld\Definitions.MirWorld.h"
+/Fo"A:\Code\Projects\GitHub_MirWorld\MirWorld\Project\MirWorld\Intermediate\Build\Win64\x64\UnrealEditor\Development\MirWorld\SingleFile\BasicActor.h.lcpt.obj"
+/sourceDependencies"A:\Code\Projects\GitHub_MirWorld\MirWorld\Project\MirWorld\Intermediate\Build\Win64\x64\UnrealEditor\Development\MirWorld\SingleFile\BasicActor.h.dep.lcpt.json"
+@"A:\Code\Projects\GitHub_MirWorld\MirWorld\Project\MirWorld\Intermediate\Build\Win64\x64\UnrealEditor\Development\MirWorld\MirWorld.Shared.rsp"
 /Zc:inline
 /nologo
 /Oi

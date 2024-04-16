@@ -28,19 +28,25 @@ public:
 	// Sets default values for this actor's properties
 	AMobBase();
 
-	// Sets the trajectory for the mob movement, returns false if there is no way
+
+	// Sets the trajectory for the mob movement
 	UFUNCTION(BlueprintCallable, Category = "Mob Movement")
 	virtual void SetTrajectory(TArray<FVector> newTrajectory);
 
-	// Makes the mob follow the set trajectory
+	// Makes the mob follow the set trajectory and DoAction when the trajectory is passed
 	UFUNCTION(BlueprintCallable, Category = "Mob Movement")
 	virtual void FollowTrajectory();
 
 	// Makes the mob follow the set trajectory
 	UFUNCTION(BlueprintCallable, Category = "Mob Movement")
 	virtual void StopMovement();
+	
 
-	// Sets specific task
+	// Shows if mob is executing any task
+	UFUNCTION(BlueprintCallable, Category = "Mob State")
+	virtual bool HasAction() const;
+
+	// Sets specific task and the mob starts its
 	UFUNCTION(BlueprintCallable, Category = "Mob Action")
 	virtual void SetAction(int TypeOfAction, TArray<FVector> newTrajectory, AActor* AimPtr) {}; /// pure virtual
 

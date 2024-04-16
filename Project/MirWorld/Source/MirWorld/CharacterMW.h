@@ -2,22 +2,24 @@
 
 #pragma once
 
+#include "Kismet/GameplayStatics.h"
 #include "CoreMinimal.h"
+#include "Resource.h"
 #include "MobBase.h"
 #include "CharacterMW.generated.h"
 
 enum Resources {
-	wood = 0,
-	stone,
-	food,
-	iron,
-	gold,
+	Wood = 0,
+	Stone,
+	Food,
+	Iron,
+	Gold,
 };
 
 enum Activities {
-	move = 0,
-	extract,
-	stop
+	Extract = 0,
+	MoveTo,
+	Stop
 };
 
 UCLASS()
@@ -26,7 +28,8 @@ class MIRWORLD_API ACharacterMW : public AMobBase
 	GENERATED_BODY()
 	
 public:
-	// Set specific task
+	// Sets specific task and the mob starts its
+	// If TypeOfAction == Extract then AimPtr is AResource
 	void SetAction(int TypeOfAction, TArray<FVector> newTrajectory, AActor* AimPtr) override;
 
 	// Perform selected task
@@ -77,4 +80,8 @@ protected:
 		1, // iron
 		1 // gold
 	};
+
+	// what resource is axtracting
+	UPROPERTY(EditAnywhere, Category = "Resource Extracting")
+	AResource* Resource;
 };

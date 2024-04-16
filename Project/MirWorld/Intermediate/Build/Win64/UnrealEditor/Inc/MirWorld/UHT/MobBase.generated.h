@@ -24,6 +24,7 @@ class AActor;
 	DECLARE_FUNCTION(execSetStartPos); \
 	DECLARE_FUNCTION(execDoAction); \
 	DECLARE_FUNCTION(execSetAction); \
+	DECLARE_FUNCTION(execHasAction); \
 	DECLARE_FUNCTION(execStopMovement); \
 	DECLARE_FUNCTION(execFollowTrajectory); \
 	DECLARE_FUNCTION(execSetTrajectory);
