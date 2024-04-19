@@ -1,0 +1,54 @@
+{
+	"ConfigurationsAndPlatforms": [
+		{
+			"Configuration": "DebugGame",
+			"Platform": "IOS",
+			"Target": "Editor"
+		},
+		{
+			"Configuration": "DebugGame",
+			"Platform": "Mac",
+			"Target": "Editor"
+		},
+		{
+			"Configuration": "DebugGame",
+			"Platform": "IOS",
+			"Target": "Program"
+		},
+		{
+			"Configuration": "DebugGame",
+			"Platform": "Mac",
+			"Target": "Program"
+		},
+		{
+			"Configuration": "Development",
+			"Platform": "IOS",
+			"Target": "Editor"
+		},
+		{
+			"Configuration": "Development",
+			"Platform": "Mac",
+			"Target": "Editor"
+		},
+		{
+			"Configuration": "Development",
+			"Platform": "IOS",
+			"Target": "Program"
+		},
+		{
+			"Configuration": "Development",
+			"Platform": "Mac",
+			"Target": "Program"
+		},
+		{
+			"Configuration": "Shipping",
+			"Platform": "IOS",
+			"Target": "Program"
+		},
+		{
+			"Configuration": "Shipping",
+			"Platform": "Mac",
+			"Target": "Program"
+		}
+	]
+}
