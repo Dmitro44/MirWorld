@@ -5,6 +5,9 @@
 			"guid": "00000000000000000000000000000000",
 			"description": "Default Uncontrolled Changelist",
 			"files": [
+				"C:/UnrealRep/MirWorld/Project/MirWorld/Content/Maps/Base.umap",
+				"C:/UnrealRep/MirWorld/Project/MirWorld/Content/BPs/GameplayMW_GameMode.uasset",
+				"C:/UnrealRep/MirWorld/Project/MirWorld/Content/BPs/BP_PlayerPawn.uasset",
 				"A:/Code/Projects/GitHub_MirWorld/MirWorld/Project/MirWorld/Content/Maps/Base.umap",
 				"A:/Code/Projects/GitHub_MirWorld/MirWorld/Project/MirWorld/Content/Base.umap",
 				"A:/Code/Projects/GitHub_MirWorld/MirWorld/Project/MirWorld/Content/TestBPs/MobBase_BP.uasset",

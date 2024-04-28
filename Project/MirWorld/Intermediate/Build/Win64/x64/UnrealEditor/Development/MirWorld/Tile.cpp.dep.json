@@ -1,15 +1,15 @@
 {
     "Version": "1.2",
     "Data": {
-        "Source": "a:\\code\\projects\\github_mirworld\\mirworld\\project\\mirworld\\source\\mirworld\\tile.cpp",
+        "Source": "c:\\unrealrep\\mirworld\\project\\mirworld\\source\\mirworld\\tile.cpp",
         "ProvidedModule": "",
-        "PCH": "a:\\code\\projects\\github_mirworld\\mirworld\\project\\mirworld\\intermediate\\build\\win64\\x64\\mirworldeditor\\development\\engine\\sharedpch.engine.cpp20.h.pch",
+        "PCH": "c:\\unrealrep\\mirworld\\project\\mirworld\\intermediate\\build\\win64\\x64\\mirworldeditor\\development\\engine\\sharedpch.engine.cpp20.h.pch",
         "Includes": [
-            "a:\\code\\projects\\github_mirworld\\mirworld\\project\\mirworld\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\mirworld\\definitions.mirworld.h",
-            "a:\\code\\projects\\github_mirworld\\mirworld\\project\\mirworld\\source\\mirworld\\tile.h",
-            "a:\\code\\projects\\github_mirworld\\mirworld\\project\\mirworld\\source\\mirworld\\basicactor.h",
-            "a:\\code\\projects\\github_mirworld\\mirworld\\project\\mirworld\\intermediate\\build\\win64\\unrealeditor\\inc\\mirworld\\uht\\basicactor.generated.h",
-            "a:\\code\\projects\\github_mirworld\\mirworld\\project\\mirworld\\intermediate\\build\\win64\\unrealeditor\\inc\\mirworld\\uht\\tile.generated.h"
+            "c:\\unrealrep\\mirworld\\project\\mirworld\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\mirworld\\definitions.mirworld.h",
+            "c:\\unrealrep\\mirworld\\project\\mirworld\\source\\mirworld\\tile.h",
+            "c:\\unrealrep\\mirworld\\project\\mirworld\\source\\mirworld\\basicactor.h",
+            "c:\\unrealrep\\mirworld\\project\\mirworld\\intermediate\\build\\win64\\unrealeditor\\inc\\mirworld\\uht\\basicactor.generated.h",
+            "c:\\unrealrep\\mirworld\\project\\mirworld\\intermediate\\build\\win64\\unrealeditor\\inc\\mirworld\\uht\\tile.generated.h"
         ],
         "ImportedModules": [],
         "ImportedHeaderUnits": []

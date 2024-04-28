@@ -9,7 +9,7 @@
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeGameplayMW_GameMode() {}
 // Cross Module References
-	ENGINE_API UClass* Z_Construct_UClass_AGameMode();
+	ENGINE_API UClass* Z_Construct_UClass_AGameModeBase();
 	MIRWORLD_API UClass* Z_Construct_UClass_AGameplayMW_GameMode();
 	MIRWORLD_API UClass* Z_Construct_UClass_AGameplayMW_GameMode_NoRegister();
 	UPackage* Z_Construct_UPackage__Script_MirWorld();
@@ -111,7 +111,7 @@ void EmptyLinkFunctionForGeneratedCodeGameplayMW_GameMode() {}
 		static const UECodeGen_Private::FClassParams ClassParams;
 	};
 	UObject* (*const Z_Construct_UClass_AGameplayMW_GameMode_Statics::DependentSingletons[])() = {
-		(UObject* (*)())Z_Construct_UClass_AGameMode,
+		(UObject* (*)())Z_Construct_UClass_AGameModeBase,
 		(UObject* (*)())Z_Construct_UPackage__Script_MirWorld,
 	};
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_AGameplayMW_GameMode_Statics::DependentSingletons) < 16);
@@ -161,18 +161,17 @@ void EmptyLinkFunctionForGeneratedCodeGameplayMW_GameMode() {}
 	{
 		return AGameplayMW_GameMode::StaticClass();
 	}
-	AGameplayMW_GameMode::AGameplayMW_GameMode(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {}
 	DEFINE_VTABLE_PTR_HELPER_CTOR(AGameplayMW_GameMode);
 	AGameplayMW_GameMode::~AGameplayMW_GameMode() {}
-	struct Z_CompiledInDeferFile_FID_Code_Projects_GitHub_MirWorld_MirWorld_Project_MirWorld_Source_MirWorld_GameplayMW_GameMode_h_Statics
+	struct Z_CompiledInDeferFile_FID_UnrealRep_MirWorld_Project_MirWorld_Source_MirWorld_GameplayMW_GameMode_h_Statics
 	{
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
-	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Code_Projects_GitHub_MirWorld_MirWorld_Project_MirWorld_Source_MirWorld_GameplayMW_GameMode_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_AGameplayMW_GameMode, AGameplayMW_GameMode::StaticClass, TEXT("AGameplayMW_GameMode"), &Z_Registration_Info_UClass_AGameplayMW_GameMode, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AGameplayMW_GameMode), 2950553064U) },
+	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UnrealRep_MirWorld_Project_MirWorld_Source_MirWorld_GameplayMW_GameMode_h_Statics::ClassInfo[] = {
+		{ Z_Construct_UClass_AGameplayMW_GameMode, AGameplayMW_GameMode::StaticClass, TEXT("AGameplayMW_GameMode"), &Z_Registration_Info_UClass_AGameplayMW_GameMode, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AGameplayMW_GameMode), 805619566U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Code_Projects_GitHub_MirWorld_MirWorld_Project_MirWorld_Source_MirWorld_GameplayMW_GameMode_h_2008473411(TEXT("/Script/MirWorld"),
-		Z_CompiledInDeferFile_FID_Code_Projects_GitHub_MirWorld_MirWorld_Project_MirWorld_Source_MirWorld_GameplayMW_GameMode_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Code_Projects_GitHub_MirWorld_MirWorld_Project_MirWorld_Source_MirWorld_GameplayMW_GameMode_h_Statics::ClassInfo),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UnrealRep_MirWorld_Project_MirWorld_Source_MirWorld_GameplayMW_GameMode_h_2460792089(TEXT("/Script/MirWorld"),
+		Z_CompiledInDeferFile_FID_UnrealRep_MirWorld_Project_MirWorld_Source_MirWorld_GameplayMW_GameMode_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_UnrealRep_MirWorld_Project_MirWorld_Source_MirWorld_GameplayMW_GameMode_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
