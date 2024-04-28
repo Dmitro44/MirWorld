@@ -1,8 +1,8 @@
 {
 	"SourceFiles": [
-		"C:\\UnrealRep\\MirWorld\\Project\\MirWorld\\Source\\MirWorld\\MirWorld.Build.cs",
-		"C:\\UnrealRep\\MirWorld\\Project\\MirWorld\\Source\\MirWorld.Target.cs",
-		"C:\\UnrealRep\\MirWorld\\Project\\MirWorld\\Source\\MirWorldEditor.Target.cs"
+		"A:\\Code\\Projects\\GitHub_MirWorld\\MirWorld\\Project\\MirWorld\\Source\\MirWorld\\MirWorld.Build.cs",
+		"A:\\Code\\Projects\\GitHub_MirWorld\\MirWorld\\Project\\MirWorld\\Source\\MirWorld.Target.cs",
+		"A:\\Code\\Projects\\GitHub_MirWorld\\MirWorld\\Project\\MirWorld\\Source\\MirWorldEditor.Target.cs"
 	],
 	"EngineVersion": "5.3.2"
 }

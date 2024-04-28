@@ -24,10 +24,14 @@ public:
 	AGameplayMW_GameMode();
 	
 	// Implements the logic of victory
-	UFUNCTION(BlueprintCallable, Category = "End of the Game") ///TODO
+	UFUNCTION(BlueprintImplementableEvent, Category = "End of the Game") /// implemented in BPs
 	void EndGame_Victory();
 
 	// Implements the logic of defeat
-	UFUNCTION(BlueprintCallable, Category = "End of the Game") ///TODO
+	UFUNCTION(BlueprintImplementableEvent, Category = "End of the Game") /// implemented in BPs
 	void EndGame_Defeat();
+
+	// Update the UI score cntr
+	UFUNCTION(BlueprintImplementableEvent, Category = "End of the Game") /// implemented in BPs
+	void UpdateScore();
 };

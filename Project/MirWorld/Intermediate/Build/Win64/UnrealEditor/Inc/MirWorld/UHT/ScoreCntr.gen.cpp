@@ -42,6 +42,13 @@ void EmptyLinkFunctionForGeneratedCodeScoreCntr() {}
 		P_THIS->DecreaseScore_T();
 		P_NATIVE_END;
 	}
+	DEFINE_FUNCTION(AScoreCntr::execGetScore)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		*(int32*)Z_Param__Result=P_THIS->GetScore();
+		P_NATIVE_END;
+	}
 	DEFINE_FUNCTION(AScoreCntr::execDecreaseScore)
 	{
 		P_GET_PROPERTY(FIntProperty,Z_Param_dScore);
@@ -81,6 +88,7 @@ void EmptyLinkFunctionForGeneratedCodeScoreCntr() {}
 			{ "CheckScore", &AScoreCntr::execCheckScore },
 			{ "DecreaseScore", &AScoreCntr::execDecreaseScore },
 			{ "DecreaseScore_T", &AScoreCntr::execDecreaseScore_T },
+			{ "GetScore", &AScoreCntr::execGetScore },
 			{ "IncreaseScore", &AScoreCntr::execIncreaseScore },
 			{ "IncreaseScoreByExtracting", &AScoreCntr::execIncreaseScoreByExtracting },
 			{ "LoseTheGame", &AScoreCntr::execLoseTheGame },
@@ -185,6 +193,47 @@ void EmptyLinkFunctionForGeneratedCodeScoreCntr() {}
 		if (!ReturnFunction)
 		{
 			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AScoreCntr_DecreaseScore_T_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_AScoreCntr_GetScore_Statics
+	{
+		struct ScoreCntr_eventGetScore_Parms
+		{
+			int32 ReturnValue;
+		};
+		static const UECodeGen_Private::FIntPropertyParams NewProp_ReturnValue;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UECodeGen_Private::FIntPropertyParams Z_Construct_UFunction_AScoreCntr_GetScore_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ScoreCntr_eventGetScore_Parms, ReturnValue), METADATA_PARAMS(0, nullptr) };
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AScoreCntr_GetScore_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AScoreCntr_GetScore_Statics::NewProp_ReturnValue,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AScoreCntr_GetScore_Statics::Function_MetaDataParams[] = {
+		{ "Category", "Score" },
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "// Returns score\n" },
+#endif
+		{ "ModuleRelativePath", "ScoreCntr.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "Returns score" },
+#endif
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AScoreCntr_GetScore_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AScoreCntr, nullptr, "GetScore", nullptr, nullptr, Z_Construct_UFunction_AScoreCntr_GetScore_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AScoreCntr_GetScore_Statics::PropPointers), sizeof(Z_Construct_UFunction_AScoreCntr_GetScore_Statics::ScoreCntr_eventGetScore_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AScoreCntr_GetScore_Statics::Function_MetaDataParams), Z_Construct_UFunction_AScoreCntr_GetScore_Statics::Function_MetaDataParams) };
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_AScoreCntr_GetScore_Statics::PropPointers) < 2048);
+	static_assert(sizeof(Z_Construct_UFunction_AScoreCntr_GetScore_Statics::ScoreCntr_eventGetScore_Parms) < MAX_uint16);
+	UFunction* Z_Construct_UFunction_AScoreCntr_GetScore()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AScoreCntr_GetScore_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -407,6 +456,7 @@ void EmptyLinkFunctionForGeneratedCodeScoreCntr() {}
 		{ &Z_Construct_UFunction_AScoreCntr_CheckScore, "CheckScore" }, // 1705209645
 		{ &Z_Construct_UFunction_AScoreCntr_DecreaseScore, "DecreaseScore" }, // 3024866344
 		{ &Z_Construct_UFunction_AScoreCntr_DecreaseScore_T, "DecreaseScore_T" }, // 3103852550
+		{ &Z_Construct_UFunction_AScoreCntr_GetScore, "GetScore" }, // 3614079609
 		{ &Z_Construct_UFunction_AScoreCntr_IncreaseScore, "IncreaseScore" }, // 2284042891
 		{ &Z_Construct_UFunction_AScoreCntr_IncreaseScoreByExtracting, "IncreaseScoreByExtracting" }, // 1916298014
 		{ &Z_Construct_UFunction_AScoreCntr_LoseTheGame, "LoseTheGame" }, // 2361189093
@@ -527,15 +577,15 @@ void EmptyLinkFunctionForGeneratedCodeScoreCntr() {}
 	}
 	DEFINE_VTABLE_PTR_HELPER_CTOR(AScoreCntr);
 	AScoreCntr::~AScoreCntr() {}
-	struct Z_CompiledInDeferFile_FID_UnrealRep_MirWorld_Project_MirWorld_Source_MirWorld_ScoreCntr_h_Statics
+	struct Z_CompiledInDeferFile_FID_Code_Projects_GitHub_MirWorld_MirWorld_Project_MirWorld_Source_MirWorld_ScoreCntr_h_Statics
 	{
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
-	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UnrealRep_MirWorld_Project_MirWorld_Source_MirWorld_ScoreCntr_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_AScoreCntr, AScoreCntr::StaticClass, TEXT("AScoreCntr"), &Z_Registration_Info_UClass_AScoreCntr, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AScoreCntr), 365504380U) },
+	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Code_Projects_GitHub_MirWorld_MirWorld_Project_MirWorld_Source_MirWorld_ScoreCntr_h_Statics::ClassInfo[] = {
+		{ Z_Construct_UClass_AScoreCntr, AScoreCntr::StaticClass, TEXT("AScoreCntr"), &Z_Registration_Info_UClass_AScoreCntr, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AScoreCntr), 1021399480U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UnrealRep_MirWorld_Project_MirWorld_Source_MirWorld_ScoreCntr_h_2262526597(TEXT("/Script/MirWorld"),
-		Z_CompiledInDeferFile_FID_UnrealRep_MirWorld_Project_MirWorld_Source_MirWorld_ScoreCntr_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_UnrealRep_MirWorld_Project_MirWorld_Source_MirWorld_ScoreCntr_h_Statics::ClassInfo),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Code_Projects_GitHub_MirWorld_MirWorld_Project_MirWorld_Source_MirWorld_ScoreCntr_h_493544527(TEXT("/Script/MirWorld"),
+		Z_CompiledInDeferFile_FID_Code_Projects_GitHub_MirWorld_MirWorld_Project_MirWorld_Source_MirWorld_ScoreCntr_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Code_Projects_GitHub_MirWorld_MirWorld_Project_MirWorld_Source_MirWorld_ScoreCntr_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

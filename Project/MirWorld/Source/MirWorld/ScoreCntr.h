@@ -5,6 +5,7 @@
 #include "EnumsFictitiousClass.h"
 #include "CoreMinimal.h"
 #include "GameplayMW_GameMode.h"
+#include "Kismet/GameplayStatics.h"
 #include "GameFramework/Actor.h"
 #include "ScoreCntr.generated.h"
 
@@ -29,10 +30,14 @@ public:
 	// Increases score when resources are extracted
 	UFUNCTION(BlueprintCallable, Category = "Score")
 	void IncreaseScoreByExtracting(int Banch, int ResourceType);
-
+		
 	// Decreases score
 	UFUNCTION(BlueprintCallable, Category = "Score")
 	void DecreaseScore(int dScore);
+
+	// Returns score
+	UFUNCTION(BlueprintCallable, Category = "Score")
+	int GetScore();
 
 protected:
 	// Called when the game starts or when spawned

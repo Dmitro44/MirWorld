@@ -1,1 +1,0 @@
-#include "D:/MirWorld/Project/MirWorld/Source/MirWorld/MapInfo.h"

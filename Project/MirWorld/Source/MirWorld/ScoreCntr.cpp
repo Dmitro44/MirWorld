@@ -12,6 +12,16 @@ AScoreCntr::AScoreCntr()
 
 void AScoreCntr::CheckScore()
 {
+	if (UWorld* World = GetWorld()) // checks if world exists
+	{
+		AGameplayMW_GameMode* MyGameMode = reinterpret_cast<AGameplayMW_GameMode*>(UGameplayStatics::GetGameMode(World)); // checks if custom gamemode exists
+		if (MyGameMode)
+		{
+			MyGameMode->UpdateScore();
+		}
+	}
+
+
 	if (Score < 0) {
 		LoseTheGame();
 	}
@@ -56,6 +66,11 @@ void AScoreCntr::DecreaseScore(int dScore)
 {
 	Score -= dScore;
 	CheckScore();
+}
+
+int AScoreCntr::GetScore()
+{
+	return Score;
 }
 
 void AScoreCntr::UpdateDecrease()

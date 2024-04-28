@@ -15,12 +15,3 @@ AGameplayMW_GameMode::AGameplayMW_GameMode()
 	}
 }
 
-void AGameplayMW_GameMode::EndGame_Victory()
-{
-
-}
-
-void AGameplayMW_GameMode::EndGame_Defeat()
-{
-
-}

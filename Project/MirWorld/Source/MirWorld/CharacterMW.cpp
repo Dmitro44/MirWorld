@@ -71,7 +71,7 @@ void ACharacterMW::ExtractBunch()
 	}
 
 	if (ResourceStorage == nullptr) {
-		TArray<AActor*> FoundActors = {nullptr};
+		TArray<AActor*> FoundActors = { nullptr };
 		UGameplayStatics::GetAllActorsOfClass(GetWorld(), AResourceStorage::StaticClass(), FoundActors);
 		ResourceStorage = reinterpret_cast<AResourceStorage*>(FoundActors[0]);
 	} 
