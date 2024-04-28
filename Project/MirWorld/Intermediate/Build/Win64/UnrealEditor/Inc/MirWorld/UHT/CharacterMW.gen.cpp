@@ -220,9 +220,9 @@ void EmptyLinkFunctionForGeneratedCodeCharacterMW() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Code_Projects_GitHub_MirWorld_MirWorld_Project_MirWorld_Source_MirWorld_CharacterMW_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_ACharacterMW, ACharacterMW::StaticClass, TEXT("ACharacterMW"), &Z_Registration_Info_UClass_ACharacterMW, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ACharacterMW), 1220940269U) },
+		{ Z_Construct_UClass_ACharacterMW, ACharacterMW::StaticClass, TEXT("ACharacterMW"), &Z_Registration_Info_UClass_ACharacterMW, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ACharacterMW), 56643019U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Code_Projects_GitHub_MirWorld_MirWorld_Project_MirWorld_Source_MirWorld_CharacterMW_h_2141532207(TEXT("/Script/MirWorld"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Code_Projects_GitHub_MirWorld_MirWorld_Project_MirWorld_Source_MirWorld_CharacterMW_h_45009985(TEXT("/Script/MirWorld"),
 		Z_CompiledInDeferFile_FID_Code_Projects_GitHub_MirWorld_MirWorld_Project_MirWorld_Source_MirWorld_CharacterMW_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Code_Projects_GitHub_MirWorld_MirWorld_Project_MirWorld_Source_MirWorld_CharacterMW_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

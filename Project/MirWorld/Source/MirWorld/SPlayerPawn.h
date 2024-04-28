@@ -47,7 +47,7 @@ protected:
 	float MinZoom = 500.0f;
 	
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Settings|Camera")
-	float MaxZoom = 3000.0f;
+	float MaxZoom = 8000.0f; /// changed ----------------------------------------------------------------------
 
 
 private:	

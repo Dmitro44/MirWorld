@@ -1,5 +1,41 @@
 {
 	"RemapUnityFiles": 
 	{
+		"Module.MirWorld.cpp.obj": [
+			"BasicActor.gen.cpp.obj",
+			"CharacterMW.gen.cpp.obj",
+			"CharacterMW2D.gen.cpp.obj",
+			"GameplayMW_GameMode.gen.cpp.obj",
+			"Generator.gen.cpp.obj",
+			"MirWorld.init.gen.cpp.obj",
+			"MobBase.gen.cpp.obj",
+			"MobBase2D.gen.cpp.obj",
+			"PathFinder.gen.cpp.obj",
+			"Resource.gen.cpp.obj",
+			"ResourceStorage.gen.cpp.obj",
+			"ScoreCntr.gen.cpp.obj",
+			"SPlayerPawn.gen.cpp.obj",
+			"Stone.gen.cpp.obj",
+			"Tile.gen.cpp.obj",
+			"Tree.gen.cpp.obj",
+			"BasicActor.cpp.obj",
+			"CharacterMW.cpp.obj",
+			"CharacterMW2D.cpp.obj",
+			"EnumsFictitiousClass.cpp.obj",
+			"GameplayMW_GameMode.cpp.obj",
+			"Generator.cpp.obj",
+			"MapInfo.cpp.obj",
+			"MirWorld.cpp.obj",
+			"MobBase.cpp.obj",
+			"MobBase2D.cpp.obj",
+			"PathFinder.cpp.obj",
+			"Resource.cpp.obj",
+			"ResourceStorage.cpp.obj",
+			"ScoreCntr.cpp.obj",
+			"SPlayerPawn.cpp.obj",
+			"Stone.cpp.obj",
+			"Tile.cpp.obj",
+			"Tree.cpp.obj"
+		]
 	}
 }

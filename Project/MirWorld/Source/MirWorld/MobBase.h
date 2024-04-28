@@ -7,7 +7,7 @@
 #include "MobBase.generated.h"
 
 
-const TArray<FVector> NO_WAY = { {-1, -1, 0} };
+const TArray<FVector> G_NO_WAY = { {-1, -1, 0} }; // global NO_WAY
 
 
 UCLASS()

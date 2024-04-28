@@ -44,6 +44,12 @@
     <ClInclude Include="..\..\Source\MirWorld\CharacterMW.h">
       <Filter>Source\MirWorld</Filter>
     </ClInclude>
+    <ClCompile Include="..\..\Source\MirWorld\CharacterMW2D.cpp">
+      <Filter>Source\MirWorld</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\MirWorld\CharacterMW2D.h">
+      <Filter>Source\MirWorld</Filter>
+    </ClInclude>
     <ClCompile Include="..\..\Source\MirWorld\EnumsFictitiousClass.cpp">
       <Filter>Source\MirWorld</Filter>
     </ClCompile>
@@ -81,6 +87,12 @@
       <Filter>Source\MirWorld</Filter>
     </ClCompile>
     <ClInclude Include="..\..\Source\MirWorld\MobBase.h">
+      <Filter>Source\MirWorld</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\MirWorld\MobBase2D.cpp">
+      <Filter>Source\MirWorld</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\MirWorld\MobBase2D.h">
       <Filter>Source\MirWorld</Filter>
     </ClInclude>
     <ClCompile Include="..\..\Source\MirWorld\PathFinder.cpp">

@@ -23,8 +23,9 @@ ASPlayerPawn::ASPlayerPawn()
 	SpringArmComponent->bDoCollisionTest = false;
 
 	CameraComponent = CreateDefaultSubobject<UCameraComponent>(TEXT("CameraComponent"));
+	CameraComponent->SetProjectionMode(ECameraProjectionMode::Orthographic); /// added for better image -------------------------------
+	/// поменял режим с перспективы по умолчанию на ортогональный. Теперь расстояние до точки не играет роли для отрисовки (или типа того, но перспективы теперь нет)
 	CameraComponent->SetupAttachment(SpringArmComponent);
-
 }
 
 // Called when the game starts or when spawned
@@ -99,6 +100,8 @@ void ASPlayerPawn::Tick(float DeltaTime)
 	TargetLocation.X = FMath::Clamp(TargetLocation.X, MinBoundary.X, MaxBoundary.X);
 	TargetLocation.Y = FMath::Clamp(TargetLocation.Y, MinBoundary.Y, MaxBoundary.Y);
 	TargetLocation.Z = FMath::Clamp(TargetLocation.Z, MinBoundary.Z, MaxBoundary.Z);
+	CameraComponent->SetOrthoWidth(TargetZoom); /// added ----------------------------------------------
+	/// угол обзора. Можно представлять, как высоту, но это не она, конечно
 
 	// Move the pawn in the desired location
 	const FVector InterpolatedLocation = UKismetMathLibrary::VInterpTo(GetActorLocation(), TargetLocation, DeltaTime, moveSpeed);

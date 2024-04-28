@@ -256,6 +256,9 @@
 /I "Developer\PhysicsUtilities\Public"
 /I "..\Intermediate\Build\Win64\UnrealEditor\Inc\WidgetRegistration\UHT"
 /I "Developer\WidgetRegistration\Public"
+/I "..\Plugins\2D\Paper2D\Intermediate\Build\Win64\UnrealEditor\Inc\Paper2D\UHT"
+/I "..\Plugins\2D\Paper2D\Source\Paper2D\Classes"
+/I "..\Plugins\2D\Paper2D\Source\Paper2D\Public"
 /I "A:\Code\Projects\GitHub_MirWorld\MirWorld\Project\MirWorld\Intermediate\Build\Win64\UnrealEditor\Inc\MirWorld\UHT"
 /I "A:\Code\Projects\GitHub_MirWorld\MirWorld\Project\MirWorld\Source"
 /external:W0

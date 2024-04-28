@@ -74,7 +74,7 @@ void AMobBase::FollowTrajectory()
 		return;
 	}
 
-	if (CurrentTrajectory == NO_WAY) {
+	if (CurrentTrajectory == G_NO_WAY) {
 		reportImpossibleTask();
 		HasTask = false;
 		return;

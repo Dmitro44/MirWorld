@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MirWorldModuleRules")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Development")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+73e4569bcfae9e549ab9689841a4c4c208e20152")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ef69d80661b1d520493b9d85a881c37aa0bca0ca")]
 [assembly: System.Reflection.AssemblyProductAttribute("MirWorldModuleRules")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MirWorldModuleRules")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
