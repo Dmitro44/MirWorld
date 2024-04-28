@@ -3,23 +3,26 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "GameFramework/GameMode.h"
+#include "GameFramework/GameModeBase.h"
 #include "GameplayMW_GameMode.generated.h"
 
 /// TODO:
-/// 1. Установка персонажа/пешку по умолчанию (камеру и т.д.)
-/// 2. Установка карты по умолчанию (меню)
-/// 3. Логика и механики
+/// 1. РЈСЃС‚Р°РЅРѕРІРєР° РїРµСЂСЃРѕРЅР°Р¶Р°/РїРµС€РєСѓ РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ (РєР°РјРµСЂСѓ Рё С‚.Рґ.)
+/// 2. РЈСЃС‚Р°РЅРѕРІРєР° РєР°СЂС‚С‹ РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ (РјРµРЅСЋ)
+/// 3. Р›РѕРіРёРєР° Рё РјРµС…Р°РЅРёРєРё
 
 /**
  * 
  */
 UCLASS()
-class MIRWORLD_API AGameplayMW_GameMode : public AGameMode
+class MIRWORLD_API AGameplayMW_GameMode : public AGameModeBase
 {
 	GENERATED_BODY()
 	
 public:
+
+	AGameplayMW_GameMode();
+	
 	// Implements the logic of victory
 	UFUNCTION(BlueprintCallable, Category = "End of the Game") ///TODO
 	void EndGame_Victory();

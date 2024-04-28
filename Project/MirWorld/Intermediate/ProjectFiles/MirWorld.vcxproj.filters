@@ -83,6 +83,12 @@
     <ClInclude Include="..\..\Source\MirWorld\MobBase.h">
       <Filter>Source\MirWorld</Filter>
     </ClInclude>
+    <ClCompile Include="..\..\Source\MirWorld\PathFinder.cpp">
+      <Filter>Source\MirWorld</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\MirWorld\PathFinder.h">
+      <Filter>Source\MirWorld</Filter>
+    </ClInclude>
     <ClCompile Include="..\..\Source\MirWorld\Resource.cpp">
       <Filter>Source\MirWorld</Filter>
     </ClCompile>
@@ -99,6 +105,12 @@
       <Filter>Source\MirWorld</Filter>
     </ClCompile>
     <ClInclude Include="..\..\Source\MirWorld\ScoreCntr.h">
+      <Filter>Source\MirWorld</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\MirWorld\SPlayerPawn.cpp">
+      <Filter>Source\MirWorld</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\MirWorld\SPlayerPawn.h">
       <Filter>Source\MirWorld</Filter>
     </ClInclude>
     <ClCompile Include="..\..\Source\MirWorld\Stone.cpp">
