@@ -3,12 +3,17 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "Kismet/GameplayStatics.h"
 #include "GameFramework/Pawn.h"
 #include "Components/SceneComponent.h"
 #include "GameFramework/SpringArmComponent.h"
 #include "Camera/CameraComponent.h"
 #include "SPlayerPawn.generated.h"
 
+
+/**
+ * Default pawn that handles the camera and clicks
+ */
 UCLASS()
 class MIRWORLD_API ASPlayerPawn : public APawn
 {

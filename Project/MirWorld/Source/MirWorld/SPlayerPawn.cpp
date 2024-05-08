@@ -3,6 +3,8 @@
 
 #include "SPlayerPawn.h"
 
+#include "GameplayMW_GameMode.h"
+
 #include "Camera/CameraComponent.h"
 #include "GameFramework/SpringArmComponent.h"
 #include "Kismet/KismetMathLibrary.h"

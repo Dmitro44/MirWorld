@@ -219,9 +219,15 @@ void EmptyLinkFunctionForGeneratedCodeSPlayerPawn() {}
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_ASPlayerPawn_Statics::FuncInfo) < 2048);
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ASPlayerPawn_Statics::Class_MetaDataParams[] = {
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "/**\n * Default pawn that handles the camera and clicks\n */" },
+#endif
 		{ "HideCategories", "Navigation" },
 		{ "IncludePath", "SPlayerPawn.h" },
 		{ "ModuleRelativePath", "SPlayerPawn.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "Default pawn that handles the camera and clicks" },
+#endif
 	};
 #endif
 #if WITH_METADATA
@@ -340,9 +346,9 @@ void EmptyLinkFunctionForGeneratedCodeSPlayerPawn() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Code_Projects_GitHub_MirWorld_MirWorld_Project_MirWorld_Source_MirWorld_SPlayerPawn_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_ASPlayerPawn, ASPlayerPawn::StaticClass, TEXT("ASPlayerPawn"), &Z_Registration_Info_UClass_ASPlayerPawn, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ASPlayerPawn), 1977439674U) },
+		{ Z_Construct_UClass_ASPlayerPawn, ASPlayerPawn::StaticClass, TEXT("ASPlayerPawn"), &Z_Registration_Info_UClass_ASPlayerPawn, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ASPlayerPawn), 3229449488U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Code_Projects_GitHub_MirWorld_MirWorld_Project_MirWorld_Source_MirWorld_SPlayerPawn_h_2907532684(TEXT("/Script/MirWorld"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Code_Projects_GitHub_MirWorld_MirWorld_Project_MirWorld_Source_MirWorld_SPlayerPawn_h_1162090478(TEXT("/Script/MirWorld"),
 		Z_CompiledInDeferFile_FID_Code_Projects_GitHub_MirWorld_MirWorld_Project_MirWorld_Source_MirWorld_SPlayerPawn_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Code_Projects_GitHub_MirWorld_MirWorld_Project_MirWorld_Source_MirWorld_SPlayerPawn_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);
