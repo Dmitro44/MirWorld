@@ -18,7 +18,8 @@ void MapInfo::GenerateTree(const int X, const int Y)
 
 	if (Tree > 2) {
 		Map[X][Y].Resources = 1;
-		Map[X][Y].bIsGoThrough = false;
+		Map[X][Y].bIsGoThrough = bTreeIsPassable;
+		Map[X][Y].bIsBuildable = false;
 	}
 }
 
@@ -31,7 +32,8 @@ void MapInfo::GenerateStone(const int X, const int Y)
 
 	if (Stone > 15) {
 		Map[X][Y].Resources = 2;
-		Map[X][Y].bIsGoThrough = false;
+		Map[X][Y].bIsGoThrough = bStoneIsPassable;
+		Map[X][Y].bIsBuildable = false;
 	}
 }
 

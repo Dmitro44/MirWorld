@@ -48,4 +48,12 @@ public:
 
 private:
 	TArray<TArray<FInfoMatrix>> Map;
+
+	// Refers to the passability of trees on the map
+	UPROPERTY(EditAnywhere, Category = "Tile settings") // it's actually can't be accesed through blueprints
+	bool bTreeIsPassable = true;
+
+	// Refers to the passability of stones on the map
+	UPROPERTY(EditAnywhere, Category = "Tile settings") // it's actually can't be accesed through blueprints
+	bool bStoneIsPassable = false;
 };
