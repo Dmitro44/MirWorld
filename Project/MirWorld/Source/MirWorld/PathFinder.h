@@ -19,5 +19,7 @@ UCLASS()
 class MIRWORLD_API APathFinder : public AGameModeBase
 {
 	GENERATED_BODY()
-	static TFVector getPathFromTo(int32 grid[][COL],FVector start, FVector dest);
+
+public:
+	static TFVector getPathFromTo(int32 grid[][COL], FVector start, FVector dest);
 };

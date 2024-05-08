@@ -12,8 +12,8 @@ void AGenerator::BuildResources(const FVector CenteredLocation, const int X, con
 	{
 		for (auto InnerIndex{ 0 }; InnerIndex <= X - 1; ++InnerIndex)
 		{
-			int SubstanceType = MapInfo.Map[InnerIndex][OuterIndex].Resources;
-			int BiomeType = MapInfo.Map[InnerIndex][OuterIndex].Color;
+			int SubstanceType = MapInfo.GetMap()[InnerIndex][OuterIndex].Resources;
+			int BiomeType = MapInfo.GetMap()[InnerIndex][OuterIndex].Color;
 
 			if (SubstanceType == 0) {
 				continue;
@@ -100,7 +100,7 @@ void AGenerator::BuildTiles(const FVector CenteredLocation, const int X, const i
 			//Here function initiates spawning of an actor from a specified class.
 			// LoadSynchronous() -- function will wait until the loading process is complete before proceeding			
 
-			int SubstanceType = MapInfo.Map[InnerIndex][OuterIndex].Color;
+			int SubstanceType = MapInfo.GetMap()[InnerIndex][OuterIndex].Color;
 
 			ObjectToSpawn = UGameplayStatics::BeginDeferredActorSpawnFromClass(
 				this, TileType[SubstanceType].LoadSynchronous(), SpawnTransform);
@@ -136,6 +136,30 @@ void AGenerator::BuildMap(const FVector CenteredLocation, const int X, const int
 	BuildTiles(CenteredLocation, X, Y);
 
 	BuildResources(CenteredLocation, X, Y);
+}
+
+bool AGenerator::TileIsPassable(const int X, const int Y)
+{
+	return MapInfo.GetMap()[X][Y].bIsGoThrough;
+}
+
+bool AGenerator::TileIsBuildable(const int X, const int Y)
+{
+	return MapInfo.GetMap()[X][Y].bIsBuildable;
+}
+
+TArray<FVector> AGenerator::GetTrajectory(FVector Start, FVector Aim)
+{
+	int32 PassabilityMatrix[ROW][COL];
+	auto& Map = MapInfo.GetMap();
+
+	for (int i = 0; i < ROW; ++i) {
+		for (int j = 0; j < COL; ++j) {
+			PassabilityMatrix[i][j] = (Map[i][j].bIsGoThrough ? 1 : 0);
+		}
+	}
+
+	return APathFinder::getPathFromTo(PassabilityMatrix, Start, Aim);
 }
 
 

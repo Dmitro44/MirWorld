@@ -18,6 +18,7 @@ void MapInfo::GenerateTree(const int X, const int Y)
 
 	if (Tree > 2) {
 		Map[X][Y].Resources = 1;
+		Map[X][Y].bIsGoThrough = false;
 	}
 }
 
@@ -30,7 +31,13 @@ void MapInfo::GenerateStone(const int X, const int Y)
 
 	if (Stone > 15) {
 		Map[X][Y].Resources = 2;
+		Map[X][Y].bIsGoThrough = false;
 	}
+}
+
+TArray<TArray<FInfoMatrix>>& MapInfo::GetMap()
+{
+	return Map;
 }
 
 void MapInfo::GenerateBiome(const int X, const int Y)
@@ -65,11 +72,11 @@ void MapInfo::CreateEmptyMatrix(const int X, const int Y)
 	TArray<TArray<FInfoMatrix>> NewMap;
 	FInfoMatrix ElementTemplate = FInfoMatrix(0, 0, 0, true);
 
-	for (auto RowIndex{ 0 }; RowIndex < Y; ++RowIndex)
+	for (int RowIndex = 0; RowIndex < Y; ++RowIndex)
 	{
 		TArray<FInfoMatrix> Row;
 
-		for (auto ColumnIndex{ 0 }; ColumnIndex < X; ++ColumnIndex)
+		for (int ColumnIndex = 0; ColumnIndex < X; ++ColumnIndex)
 		{
 			Row.Add(ElementTemplate);
 		}

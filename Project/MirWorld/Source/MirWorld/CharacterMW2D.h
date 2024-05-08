@@ -6,7 +6,7 @@
 #include "CoreMinimal.h"
 #include "Resource.h"
 #include "MobBase2D.h"
-#include "CharacterMW.h"
+#include "CharacterMW.h" // for EActivity
 #include "ScoreCntr.h"
 #include "ResourceStorage.h"
 #include "CharacterMW2D.generated.h"

@@ -15,6 +15,7 @@ struct FInfoMatrix
 	};
 
 	bool bIsGoThrough;
+	bool bIsBuildable = true;
 
 	int Color;
 	int Building;
@@ -43,6 +44,8 @@ public:
 	UPROPERTY(EditAnywhere, meta = (Generation))
 	float Limits = 4.0f;
 
-public:
+	TArray<TArray<FInfoMatrix>>& GetMap();
+
+private:
 	TArray<TArray<FInfoMatrix>> Map;
 };

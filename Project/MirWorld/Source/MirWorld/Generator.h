@@ -2,6 +2,8 @@
 
 #include <Kismet/GameplayStatics.h>
 
+#include "PathFinder.h"
+
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
 #include "MapInfo.h"
@@ -21,6 +23,16 @@ public:
 
 	UFUNCTION(BlueprintCallable)
 	void BuildMap(const FVector CenteredLocation, const int X, const int Y);
+
+	UFUNCTION(BlueprintCallable)
+	bool TileIsPassable(const int X, const int Y);
+
+	UFUNCTION(BlueprintCallable)
+	bool TileIsBuildable(const int X, const int Y);
+
+	// Return the trajectory from Start to Aim or NO_WAY = 
+	UFUNCTION(BlueprintCallable)
+	TArray<FVector> GetTrajectory(FVector Start, FVector Aim);
 
 	void BuildTiles(const FVector CenteredLocation, const int X, const int Y);
 

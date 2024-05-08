@@ -21,6 +21,33 @@ void EmptyLinkFunctionForGeneratedCodeGenerator() {}
 	MIRWORLD_API UClass* Z_Construct_UClass_ATree_NoRegister();
 	UPackage* Z_Construct_UPackage__Script_MirWorld();
 // End Cross Module References
+	DEFINE_FUNCTION(AGenerator::execGetTrajectory)
+	{
+		P_GET_STRUCT(FVector,Z_Param_Start);
+		P_GET_STRUCT(FVector,Z_Param_Aim);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		*(TArray<FVector>*)Z_Param__Result=P_THIS->GetTrajectory(Z_Param_Start,Z_Param_Aim);
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(AGenerator::execTileIsBuildable)
+	{
+		P_GET_PROPERTY(FIntProperty,Z_Param_X);
+		P_GET_PROPERTY(FIntProperty,Z_Param_Y);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		*(bool*)Z_Param__Result=P_THIS->TileIsBuildable(Z_Param_X,Z_Param_Y);
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(AGenerator::execTileIsPassable)
+	{
+		P_GET_PROPERTY(FIntProperty,Z_Param_X);
+		P_GET_PROPERTY(FIntProperty,Z_Param_Y);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		*(bool*)Z_Param__Result=P_THIS->TileIsPassable(Z_Param_X,Z_Param_Y);
+		P_NATIVE_END;
+	}
 	DEFINE_FUNCTION(AGenerator::execBuildMap)
 	{
 		P_GET_STRUCT(FVector,Z_Param_CenteredLocation);
@@ -36,6 +63,9 @@ void EmptyLinkFunctionForGeneratedCodeGenerator() {}
 		UClass* Class = AGenerator::StaticClass();
 		static const FNameNativePtrPair Funcs[] = {
 			{ "BuildMap", &AGenerator::execBuildMap },
+			{ "GetTrajectory", &AGenerator::execGetTrajectory },
+			{ "TileIsBuildable", &AGenerator::execTileIsBuildable },
+			{ "TileIsPassable", &AGenerator::execTileIsPassable },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
 	}
@@ -105,6 +135,183 @@ void EmptyLinkFunctionForGeneratedCodeGenerator() {}
 		}
 		return ReturnFunction;
 	}
+	struct Z_Construct_UFunction_AGenerator_GetTrajectory_Statics
+	{
+		struct Generator_eventGetTrajectory_Parms
+		{
+			FVector Start;
+			FVector Aim;
+			TArray<FVector> ReturnValue;
+		};
+		static const UECodeGen_Private::FStructPropertyParams NewProp_Start;
+		static const UECodeGen_Private::FStructPropertyParams NewProp_Aim;
+		static const UECodeGen_Private::FStructPropertyParams NewProp_ReturnValue_Inner;
+		static const UECodeGen_Private::FArrayPropertyParams NewProp_ReturnValue;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_AGenerator_GetTrajectory_Statics::NewProp_Start = { "Start", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(Generator_eventGetTrajectory_Parms, Start), Z_Construct_UScriptStruct_FVector, METADATA_PARAMS(0, nullptr) };
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_AGenerator_GetTrajectory_Statics::NewProp_Aim = { "Aim", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(Generator_eventGetTrajectory_Parms, Aim), Z_Construct_UScriptStruct_FVector, METADATA_PARAMS(0, nullptr) };
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_AGenerator_GetTrajectory_Statics::NewProp_ReturnValue_Inner = { "ReturnValue", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, Z_Construct_UScriptStruct_FVector, METADATA_PARAMS(0, nullptr) };
+	const UECodeGen_Private::FArrayPropertyParams Z_Construct_UFunction_AGenerator_GetTrajectory_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(Generator_eventGetTrajectory_Parms, ReturnValue), EArrayPropertyFlags::None, METADATA_PARAMS(0, nullptr) };
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AGenerator_GetTrajectory_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AGenerator_GetTrajectory_Statics::NewProp_Start,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AGenerator_GetTrajectory_Statics::NewProp_Aim,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AGenerator_GetTrajectory_Statics::NewProp_ReturnValue_Inner,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AGenerator_GetTrajectory_Statics::NewProp_ReturnValue,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AGenerator_GetTrajectory_Statics::Function_MetaDataParams[] = {
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "// Return the trajectory from Start to Aim or NO_WAY = \n" },
+#endif
+		{ "ModuleRelativePath", "Generator.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "Return the trajectory from Start to Aim or NO_WAY =" },
+#endif
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AGenerator_GetTrajectory_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AGenerator, nullptr, "GetTrajectory", nullptr, nullptr, Z_Construct_UFunction_AGenerator_GetTrajectory_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AGenerator_GetTrajectory_Statics::PropPointers), sizeof(Z_Construct_UFunction_AGenerator_GetTrajectory_Statics::Generator_eventGetTrajectory_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04820401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AGenerator_GetTrajectory_Statics::Function_MetaDataParams), Z_Construct_UFunction_AGenerator_GetTrajectory_Statics::Function_MetaDataParams) };
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_AGenerator_GetTrajectory_Statics::PropPointers) < 2048);
+	static_assert(sizeof(Z_Construct_UFunction_AGenerator_GetTrajectory_Statics::Generator_eventGetTrajectory_Parms) < MAX_uint16);
+	UFunction* Z_Construct_UFunction_AGenerator_GetTrajectory()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AGenerator_GetTrajectory_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_AGenerator_TileIsBuildable_Statics
+	{
+		struct Generator_eventTileIsBuildable_Parms
+		{
+			int32 X;
+			int32 Y;
+			bool ReturnValue;
+		};
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_X_MetaData[];
+#endif
+		static const UECodeGen_Private::FIntPropertyParams NewProp_X;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_Y_MetaData[];
+#endif
+		static const UECodeGen_Private::FIntPropertyParams NewProp_Y;
+		static void NewProp_ReturnValue_SetBit(void* Obj);
+		static const UECodeGen_Private::FBoolPropertyParams NewProp_ReturnValue;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AGenerator_TileIsBuildable_Statics::NewProp_X_MetaData[] = {
+		{ "NativeConst", "" },
+	};
+#endif
+	const UECodeGen_Private::FIntPropertyParams Z_Construct_UFunction_AGenerator_TileIsBuildable_Statics::NewProp_X = { "X", nullptr, (EPropertyFlags)0x0010000000000082, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(Generator_eventTileIsBuildable_Parms, X), METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AGenerator_TileIsBuildable_Statics::NewProp_X_MetaData), Z_Construct_UFunction_AGenerator_TileIsBuildable_Statics::NewProp_X_MetaData) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AGenerator_TileIsBuildable_Statics::NewProp_Y_MetaData[] = {
+		{ "NativeConst", "" },
+	};
+#endif
+	const UECodeGen_Private::FIntPropertyParams Z_Construct_UFunction_AGenerator_TileIsBuildable_Statics::NewProp_Y = { "Y", nullptr, (EPropertyFlags)0x0010000000000082, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(Generator_eventTileIsBuildable_Parms, Y), METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AGenerator_TileIsBuildable_Statics::NewProp_Y_MetaData), Z_Construct_UFunction_AGenerator_TileIsBuildable_Statics::NewProp_Y_MetaData) };
+	void Z_Construct_UFunction_AGenerator_TileIsBuildable_Statics::NewProp_ReturnValue_SetBit(void* Obj)
+	{
+		((Generator_eventTileIsBuildable_Parms*)Obj)->ReturnValue = 1;
+	}
+	const UECodeGen_Private::FBoolPropertyParams Z_Construct_UFunction_AGenerator_TileIsBuildable_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(Generator_eventTileIsBuildable_Parms), &Z_Construct_UFunction_AGenerator_TileIsBuildable_Statics::NewProp_ReturnValue_SetBit, METADATA_PARAMS(0, nullptr) };
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AGenerator_TileIsBuildable_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AGenerator_TileIsBuildable_Statics::NewProp_X,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AGenerator_TileIsBuildable_Statics::NewProp_Y,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AGenerator_TileIsBuildable_Statics::NewProp_ReturnValue,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AGenerator_TileIsBuildable_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Generator.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AGenerator_TileIsBuildable_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AGenerator, nullptr, "TileIsBuildable", nullptr, nullptr, Z_Construct_UFunction_AGenerator_TileIsBuildable_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AGenerator_TileIsBuildable_Statics::PropPointers), sizeof(Z_Construct_UFunction_AGenerator_TileIsBuildable_Statics::Generator_eventTileIsBuildable_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AGenerator_TileIsBuildable_Statics::Function_MetaDataParams), Z_Construct_UFunction_AGenerator_TileIsBuildable_Statics::Function_MetaDataParams) };
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_AGenerator_TileIsBuildable_Statics::PropPointers) < 2048);
+	static_assert(sizeof(Z_Construct_UFunction_AGenerator_TileIsBuildable_Statics::Generator_eventTileIsBuildable_Parms) < MAX_uint16);
+	UFunction* Z_Construct_UFunction_AGenerator_TileIsBuildable()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AGenerator_TileIsBuildable_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_AGenerator_TileIsPassable_Statics
+	{
+		struct Generator_eventTileIsPassable_Parms
+		{
+			int32 X;
+			int32 Y;
+			bool ReturnValue;
+		};
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_X_MetaData[];
+#endif
+		static const UECodeGen_Private::FIntPropertyParams NewProp_X;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_Y_MetaData[];
+#endif
+		static const UECodeGen_Private::FIntPropertyParams NewProp_Y;
+		static void NewProp_ReturnValue_SetBit(void* Obj);
+		static const UECodeGen_Private::FBoolPropertyParams NewProp_ReturnValue;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AGenerator_TileIsPassable_Statics::NewProp_X_MetaData[] = {
+		{ "NativeConst", "" },
+	};
+#endif
+	const UECodeGen_Private::FIntPropertyParams Z_Construct_UFunction_AGenerator_TileIsPassable_Statics::NewProp_X = { "X", nullptr, (EPropertyFlags)0x0010000000000082, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(Generator_eventTileIsPassable_Parms, X), METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AGenerator_TileIsPassable_Statics::NewProp_X_MetaData), Z_Construct_UFunction_AGenerator_TileIsPassable_Statics::NewProp_X_MetaData) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AGenerator_TileIsPassable_Statics::NewProp_Y_MetaData[] = {
+		{ "NativeConst", "" },
+	};
+#endif
+	const UECodeGen_Private::FIntPropertyParams Z_Construct_UFunction_AGenerator_TileIsPassable_Statics::NewProp_Y = { "Y", nullptr, (EPropertyFlags)0x0010000000000082, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(Generator_eventTileIsPassable_Parms, Y), METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AGenerator_TileIsPassable_Statics::NewProp_Y_MetaData), Z_Construct_UFunction_AGenerator_TileIsPassable_Statics::NewProp_Y_MetaData) };
+	void Z_Construct_UFunction_AGenerator_TileIsPassable_Statics::NewProp_ReturnValue_SetBit(void* Obj)
+	{
+		((Generator_eventTileIsPassable_Parms*)Obj)->ReturnValue = 1;
+	}
+	const UECodeGen_Private::FBoolPropertyParams Z_Construct_UFunction_AGenerator_TileIsPassable_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(Generator_eventTileIsPassable_Parms), &Z_Construct_UFunction_AGenerator_TileIsPassable_Statics::NewProp_ReturnValue_SetBit, METADATA_PARAMS(0, nullptr) };
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AGenerator_TileIsPassable_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AGenerator_TileIsPassable_Statics::NewProp_X,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AGenerator_TileIsPassable_Statics::NewProp_Y,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AGenerator_TileIsPassable_Statics::NewProp_ReturnValue,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AGenerator_TileIsPassable_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Generator.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AGenerator_TileIsPassable_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AGenerator, nullptr, "TileIsPassable", nullptr, nullptr, Z_Construct_UFunction_AGenerator_TileIsPassable_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AGenerator_TileIsPassable_Statics::PropPointers), sizeof(Z_Construct_UFunction_AGenerator_TileIsPassable_Statics::Generator_eventTileIsPassable_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AGenerator_TileIsPassable_Statics::Function_MetaDataParams), Z_Construct_UFunction_AGenerator_TileIsPassable_Statics::Function_MetaDataParams) };
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_AGenerator_TileIsPassable_Statics::PropPointers) < 2048);
+	static_assert(sizeof(Z_Construct_UFunction_AGenerator_TileIsPassable_Statics::Generator_eventTileIsPassable_Parms) < MAX_uint16);
+	UFunction* Z_Construct_UFunction_AGenerator_TileIsPassable()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AGenerator_TileIsPassable_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
 	IMPLEMENT_CLASS_NO_AUTO_REGISTRATION(AGenerator);
 	UClass* Z_Construct_UClass_AGenerator_NoRegister()
 	{
@@ -156,6 +363,9 @@ void EmptyLinkFunctionForGeneratedCodeGenerator() {}
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_AGenerator_Statics::DependentSingletons) < 16);
 	const FClassFunctionLinkInfo Z_Construct_UClass_AGenerator_Statics::FuncInfo[] = {
 		{ &Z_Construct_UFunction_AGenerator_BuildMap, "BuildMap" }, // 2181011163
+		{ &Z_Construct_UFunction_AGenerator_GetTrajectory, "GetTrajectory" }, // 3933290406
+		{ &Z_Construct_UFunction_AGenerator_TileIsBuildable, "TileIsBuildable" }, // 1546904854
+		{ &Z_Construct_UFunction_AGenerator_TileIsPassable, "TileIsPassable" }, // 444847072
 	};
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_AGenerator_Statics::FuncInfo) < 2048);
 #if WITH_METADATA
@@ -280,9 +490,9 @@ void EmptyLinkFunctionForGeneratedCodeGenerator() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Code_Projects_GitHub_MirWorld_MirWorld_Project_MirWorld_Source_MirWorld_Generator_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_AGenerator, AGenerator::StaticClass, TEXT("AGenerator"), &Z_Registration_Info_UClass_AGenerator, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AGenerator), 897775767U) },
+		{ Z_Construct_UClass_AGenerator, AGenerator::StaticClass, TEXT("AGenerator"), &Z_Registration_Info_UClass_AGenerator, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AGenerator), 2514902569U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Code_Projects_GitHub_MirWorld_MirWorld_Project_MirWorld_Source_MirWorld_Generator_h_3808957616(TEXT("/Script/MirWorld"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Code_Projects_GitHub_MirWorld_MirWorld_Project_MirWorld_Source_MirWorld_Generator_h_1003657217(TEXT("/Script/MirWorld"),
 		Z_CompiledInDeferFile_FID_Code_Projects_GitHub_MirWorld_MirWorld_Project_MirWorld_Source_MirWorld_Generator_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Code_Projects_GitHub_MirWorld_MirWorld_Project_MirWorld_Source_MirWorld_Generator_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);
