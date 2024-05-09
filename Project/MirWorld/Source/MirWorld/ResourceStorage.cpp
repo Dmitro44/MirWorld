@@ -12,7 +12,7 @@ AResourceStorage::AResourceStorage()
 }
 
 int AResourceStorage::GetResourceAmnt(int ResourceType)
-{
+	{
 	if (ResourceCntr.IsValidIndex(ResourceType)) {
 		return ResourceCntr[ResourceType];
 	}
@@ -48,6 +48,5 @@ void AResourceStorage::BeginPlay()
 void AResourceStorage::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-
 }
 

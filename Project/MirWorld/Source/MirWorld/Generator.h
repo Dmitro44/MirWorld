@@ -1,9 +1,8 @@
 #pragma once
 
 #include <Kismet/GameplayStatics.h>
-
 #include "PathFinder.h"
-
+#include "MobBase.h"
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
 #include "MapInfo.h"
@@ -11,6 +10,8 @@
 #include "Tree.h"
 #include "Stone.h"
 #include "Generator.generated.h"
+
+const uint8 SIDE_SIZE = 100U;
 
 UCLASS(BlueprintType)
 class MIRWORLD_API AGenerator : public AActor

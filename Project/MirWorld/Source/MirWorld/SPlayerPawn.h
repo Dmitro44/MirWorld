@@ -71,6 +71,6 @@ private:
 	UPROPERTY()
 	float TargetZoom;
 
-	const float CameraBoundsMin = -2500.0f;
-	const float CameraBoundsMax = 2500.0f;
+	const float CameraBoundsMin = 0;
+	const float CameraBoundsMax = 5000.0f;
 };

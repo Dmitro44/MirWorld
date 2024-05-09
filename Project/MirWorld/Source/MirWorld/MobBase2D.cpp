@@ -82,6 +82,10 @@ void AMobBase2D::FollowTrajectory()
 	}
 
 	IsMoving = true;
+	if (CurrentTrajectory.IsEmpty()) {
+		NextTile = *(CurrentTrajectory.begin());
+	}
+
 	moveToNextTile();
 }
 
@@ -106,6 +110,7 @@ FVector AMobBase2D::GetDirection()
 void AMobBase2D::SetStartPos(FVector StartPos)
 {
 	NextTile = StartPos;
+	CurrentTile = StartPos;
 	SetActorLocation(StartPos);
 }
 

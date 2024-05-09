@@ -4,6 +4,8 @@
 
 #include "EnumsFictitiousClass.h"
 #include "CoreMinimal.h"
+#include "GameplayMW_GameMode.h"
+#include "Kismet/GameplayStatics.h"
 #include "GameFramework/Actor.h"
 #include "ResourceStorage.generated.h"
 

@@ -159,7 +159,23 @@ TArray<FVector> AGenerator::GetTrajectory(FVector Start, FVector Aim)
 		}
 	}
 
-	return APathFinder::getPathFromTo(PassabilityMatrix, Start, Aim);
+	// We consider that first tile is located in 0,0,0 and its side size is SIDE_SIZE 
+	Start.X = static_cast<int32>(Start.X) / SIDE_SIZE;
+	Start.Y = static_cast<int32>(Start.Y) / SIDE_SIZE;
+	Aim.X = static_cast<int32>(Aim.X) / SIDE_SIZE;
+	Aim.Y = static_cast<int32>(Aim.Y) / SIDE_SIZE;
+
+	TArray<FVector> Trajectory = APathFinder::getPathFromTo(PassabilityMatrix, Start, Aim); // it's only indexes for now
+
+	if (Trajectory == G_NO_WAY) {
+		return Trajectory;
+	}
+
+	for (auto& Now : Trajectory) {
+		Now.X *= SIDE_SIZE;
+		Now.Y *= SIDE_SIZE;
+	}
+	return Trajectory;
 }
 
 
