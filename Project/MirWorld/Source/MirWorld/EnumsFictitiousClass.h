@@ -19,9 +19,11 @@ enum EAllResource {
 	aFood,
 	aIron,
 	aGold
-	// add craftable resources
+	// TODO add craftable resources
 };
 
+
+const uint8 BIOME_AMNT = 3U;
 
 /**
  * Has no functionality

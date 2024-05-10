@@ -3,7 +3,6 @@
 AGenerator::AGenerator()
 {
 	PrimaryActorTick.bCanEverTick = false;
-
 }
 
 void AGenerator::BuildResources(const FVector CenteredLocation, const int X, const int Y)
@@ -25,7 +24,7 @@ void AGenerator::BuildResources(const FVector CenteredLocation, const int X, con
 			FVector SpawnLocation =
 				FVector(static_cast<float>(InnerIndex) - static_cast<float>(X) / 2.f,
 					static_cast<float>(OuterIndex) - static_cast<float>(Y) / 2.f,
-					0.2f) * SectorSize * 1.f + CenteredLocation;
+					1.f) * SectorSize + CenteredLocation;
 
 			FTransform SpawnTransform;
 			SpawnTransform.SetLocation(SpawnLocation);
@@ -35,32 +34,24 @@ void AGenerator::BuildResources(const FVector CenteredLocation, const int X, con
 			switch (SubstanceType)
 			{
 			case 0:
-			{
 				break;
-			}
 			case 1: {
 				ObjectToSpawn = UGameplayStatics::BeginDeferredActorSpawnFromClass(
-					this, TreeType[BiomeType].LoadSynchronous(), SpawnTransform);
+					this, TreeType.LoadSynchronous(), SpawnTransform);
 
 				ATree* Tree = Cast<ATree>(ObjectToSpawn);
-
-				if (Tree)
-				{
-					Tree->SetInfo(FBlankObjectInfo(InnerIndex, OuterIndex, 0));
-				}
+				Tree->SetBiomeType(BiomeType);
+				Tree->SetInfo(FBlankObjectInfo(InnerIndex, OuterIndex, 0));
 
 				break;
 			}
 			case 2: {
 				ObjectToSpawn = UGameplayStatics::BeginDeferredActorSpawnFromClass(
-					this, StoneType[BiomeType].LoadSynchronous(), SpawnTransform);
+					this, StoneType.LoadSynchronous(), SpawnTransform);
 
 				AStone* Stone = Cast<AStone>(ObjectToSpawn);
-
-				if (Stone)
-				{
-					Stone->SetInfo(FBlankObjectInfo(InnerIndex, OuterIndex, 0));
-				}
+				Stone->SetBiomeType(BiomeType);
+				Stone->SetInfo(FBlankObjectInfo(InnerIndex, OuterIndex, 0));
 
 				break;
 			}
@@ -68,7 +59,6 @@ void AGenerator::BuildResources(const FVector CenteredLocation, const int X, con
 				break;
 			}
 
-			//		
 			ObjectMap.Add(ObjectToSpawn);
 			ObjectToSpawn->FinishSpawning(SpawnTransform);
 			ObjectToSpawn->AttachToActor(this, FAttachmentTransformRules::KeepRelativeTransform);
@@ -85,7 +75,6 @@ void AGenerator::BuildTiles(const FVector CenteredLocation, const int X, const i
 		{
 			float constexpr SectorSize = 100.f;
 
-			//prepare tile transform
 			FVector SpawnLocation =
 				FVector(static_cast<float>(InnerIndex) - static_cast<float>(X) / 2.f,
 					static_cast<float>(OuterIndex) - static_cast<float>(Y) / 2.f,
@@ -100,18 +89,14 @@ void AGenerator::BuildTiles(const FVector CenteredLocation, const int X, const i
 			//Here function initiates spawning of an actor from a specified class.
 			// LoadSynchronous() -- function will wait until the loading process is complete before proceeding			
 
-			int SubstanceType = MapInfo.GetMap()[InnerIndex][OuterIndex].Color;
+			int BiomeType = MapInfo.GetMap()[InnerIndex][OuterIndex].Color;
 
 			ObjectToSpawn = UGameplayStatics::BeginDeferredActorSpawnFromClass(
-				this, TileType[SubstanceType].LoadSynchronous(), SpawnTransform);
+				this, TileType.LoadSynchronous(), SpawnTransform);
 
-			//Common cast
 			ATile* Tile = Cast<ATile>(ObjectToSpawn);
-
-			if (Tile)
-			{
-				Tile->SetInfo(FBlankObjectInfo(InnerIndex, OuterIndex, 0));
-			}
+			Tile->SetBiomeType(BiomeType);
+			Tile->SetInfo(FBlankObjectInfo(InnerIndex, OuterIndex, 0));
 
 			TileMap.Add(ObjectToSpawn);
 			ObjectToSpawn->FinishSpawning(SpawnTransform);

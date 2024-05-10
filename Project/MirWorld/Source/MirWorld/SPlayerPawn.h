@@ -54,7 +54,6 @@ protected:
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Settings|Camera")
 	float MaxZoom = 8000.0f; /// changed ----------------------------------------------------------------------
 
-
 private:	
 	UPROPERTY(BlueprintReadWrite, VisibleAnywhere, meta = (AllowPrivateAccess = "true"))
 	USceneComponent* SceneComponent;

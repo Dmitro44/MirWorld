@@ -23,3 +23,15 @@ int AResource::GetResourceType() const
 {
 	return ResourceType;
 }
+
+int AResource::GetBiomeType() const
+{
+	return BiomeType;
+}
+
+void AResource::SetBiomeType(int Newtype)
+{
+	if (Newtype >= 0 && Newtype < BIOME_AMNT) {
+		BiomeType = Newtype;
+	}
+}

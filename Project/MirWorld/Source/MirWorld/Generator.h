@@ -57,13 +57,13 @@ protected:
 	//Actors' inherited objects
 	//Class which contains info about tile we want to create than it which will be located to MapTiles  
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
-	TArray<TSoftClassPtr<ATile>> TileType;
+	TSoftClassPtr<ATile> TileType;
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
-	TArray<TSoftClassPtr<ATree>> TreeType;
+	TSoftClassPtr<ATree> TreeType;
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
-	TArray<TSoftClassPtr<AStone>> StoneType;
+	TSoftClassPtr<AStone> StoneType;
 
 	//------------------
 

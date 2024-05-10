@@ -190,39 +190,39 @@ TFVector AStarSearch(int32 grid[][COL], FVector src, FVector dest)
 
     while (!openList.IsEmpty())
     {
-        FP_Pair p = *(openList.CreateIterator());
+        FP_Pair p1 = *(openList.CreateIterator());
 
         // Remove this vertex from the open list
-        openList.Remove(p);
+        openList.Remove(p1);
 
         // Add this vertex to the closed list
-        i = p.Value.Key;
-        j = p.Value.Value;
+        i = p1.Value.Key;
+        j = p1.Value.Value;
         closedList[i][j] = true;
-    }
-	/*
-		Generating all the 8 successor of this cell
 
-			N.W N N.E
-			\ | /
-				\ | /
-			W----Cell----E
-				/ | \
-				/ | \
-			S.W S S.E
+        /*
+            Generating all the 8 successor of this cell
 
-		Cell-->Popped Cell (i, j)
-		N --> North	(i-1, j)
-		S --> South	(i+1, j)
-		E --> East (i, j+1)
-		W --> West (i, j-1)
-		N.E--> North-East (i-1, j+1)
-		N.W--> North-West (i-1, j-1)
-		S.E--> South-East (i+1, j+1)
-		S.W--> South-West (i+1, j-1)
-         */
+                N.W N N.E
+                \ | /
+                    \ | /
+                W----Cell----E
+                    / | \
+                    / | \
+                S.W S S.E
 
-        // To store the 'g', 'h' and 'f' of the 8 successors
+            Cell-->Popped Cell (i, j)
+            N --> North	(i-1, j)
+            S --> South	(i+1, j)
+            E --> East (i, j+1)
+            W --> West (i, j-1)
+            N.E--> North-East (i-1, j+1)
+            N.W--> North-West (i-1, j-1)
+            S.E--> South-East (i+1, j+1)
+            S.W--> South-West (i+1, j-1)
+             */
+
+             // To store the 'g', 'h' and 'f' of the 8 successors
         float gNew, hNew, fNew;
 
         //----------- 1st Successor (North)
@@ -230,7 +230,7 @@ TFVector AStarSearch(int32 grid[][COL], FVector src, FVector dest)
 
         // Only process this cell if this is a valid one
         if (IsValid((i - 1), j))
-        	{
+        {
             // If the destination cell is the same as the
             // current successor
             if (IsDestination(i - 1, j, dest)) {
@@ -240,7 +240,7 @@ TFVector AStarSearch(int32 grid[][COL], FVector src, FVector dest)
                 UE_LOG(LogTemp, Warning, TEXT("The destination cell is found"));
                 TFVector p = TracePath(cellDetails, dest);
                 foundDest = true;
-            	return p;
+                return p;
             }
             // If the successor is already on the closed
             // list or if it is blocked, then ignore it.
@@ -282,7 +282,7 @@ TFVector AStarSearch(int32 grid[][COL], FVector src, FVector dest)
                 cellDetails[i + 1][j].parent_j = j;
                 UE_LOG(LogTemp, Warning, TEXT("The destination cell is found"));
                 foundDest = true;
-            	TFVector p = TracePath(cellDetails, dest);
+                TFVector p = TracePath(cellDetails, dest);
                 return p;
             }
 
@@ -302,199 +302,201 @@ TFVector AStarSearch(int32 grid[][COL], FVector src, FVector dest)
 
         //----------- 3rd Successor (East)
         //------------
-if (IsValid(i, j + 1)) {
-    // If the destination cell is the same as the
-    // current successor
-    if (IsDestination(i, j + 1, dest))
-    {
-        // Set the Parent of the destination cell
-        cellDetails[i][j + 1].parent_i = i;
-        cellDetails[i][j + 1].parent_j = j;
-        UE_LOG(LogTemp, Warning, TEXT("The destination cell is found"));
-        foundDest = true;
-    	TFVector p = TracePath(cellDetails, dest);
-        return p;
-    }
+        if (IsValid(i, j + 1)) {
+            // If the destination cell is the same as the
+            // current successor
+            if (IsDestination(i, j + 1, dest))
+            {
+                // Set the Parent of the destination cell
+                cellDetails[i][j + 1].parent_i = i;
+                cellDetails[i][j + 1].parent_j = j;
+                UE_LOG(LogTemp, Warning, TEXT("The destination cell is found"));
+                foundDest = true;
+                TFVector p = TracePath(cellDetails, dest);
+                return p;
+            }
 
-    else if (!closedList[i][j + 1] && IsUnBlocked(grid, i, j + 1))
-    {
-        gNew = cellDetails[i][j].g + 1.0f;
-        hNew = CalculateHValue(i, j + 1, dest);
-        fNew = gNew + hNew;
+            else if (!closedList[i][j + 1] && IsUnBlocked(grid, i, j + 1))
+            {
+                gNew = cellDetails[i][j].g + 1.0f;
+                hNew = CalculateHValue(i, j + 1, dest);
+                fNew = gNew + hNew;
 
-        if (cellDetails[i][j + 1].f == FLT_MAX || cellDetails[i][j + 1].f > fNew)
-        {
-            openList.Add(FP_Pair(fNew, FPair(i, j + 1)));
+                if (cellDetails[i][j + 1].f == FLT_MAX || cellDetails[i][j + 1].f > fNew)
+                {
+                    openList.Add(FP_Pair(fNew, FPair(i, j + 1)));
 
-            // Update the details of this cell
-            UpdateCellDetails(cellDetails, i, j + 1, fNew, gNew, hNew, i, j);
+                    // Update the details of this cell
+                    UpdateCellDetails(cellDetails, i, j + 1, fNew, gNew, hNew, i, j);
+                }
+            }
         }
-    }
-}
 
-//----------- 4th Successor (West)
-//------------
-if (IsValid(i, j - 1))
-{
-    // If the destination cell is the same as the
-    // current successor
-    if (IsDestination(i, j - 1, dest))
-    {
-        // Set the Parent of the destination cell
-        cellDetails[i][j - 1].parent_i = i;
-        cellDetails[i][j - 1].parent_j = j;
-        UE_LOG(LogTemp, Warning, TEXT("The destination cell is found"));
-        foundDest = true;
-    	TFVector p = TracePath(cellDetails, dest);
-        return p;
-    }
-
-    else if (!closedList[i][j - 1] && IsUnBlocked(grid, i, j - 1))
-    {
-        gNew = cellDetails[i][j].g + 1.0f;
-        hNew = CalculateHValue(i, j - 1, dest);
-        fNew = gNew + hNew;
-
-        if (cellDetails[i][j - 1].f == FLT_MAX || cellDetails[i][j - 1].f > fNew)
+        //----------- 4th Successor (West)
+        //------------
+        if (IsValid(i, j - 1))
         {
-            openList.Add(FP_Pair(fNew, FPair(i, j - 1)));
+            // If the destination cell is the same as the
+            // current successor
+            if (IsDestination(i, j - 1, dest))
+            {
+                // Set the Parent of the destination cell
+                cellDetails[i][j - 1].parent_i = i;
+                cellDetails[i][j - 1].parent_j = j;
+                UE_LOG(LogTemp, Warning, TEXT("The destination cell is found"));
+                foundDest = true;
+                TFVector p = TracePath(cellDetails, dest);
+                return p;
+            }
 
-            // Update the details of this cell
-            UpdateCellDetails(cellDetails, i, j - 1, fNew, gNew, hNew, i, j);
+            else if (!closedList[i][j - 1] && IsUnBlocked(grid, i, j - 1))
+            {
+                gNew = cellDetails[i][j].g + 1.0f;
+                hNew = CalculateHValue(i, j - 1, dest);
+                fNew = gNew + hNew;
+
+                if (cellDetails[i][j - 1].f == FLT_MAX || cellDetails[i][j - 1].f > fNew)
+                {
+                    openList.Add(FP_Pair(fNew, FPair(i, j - 1)));
+
+                    // Update the details of this cell
+                    UpdateCellDetails(cellDetails, i, j - 1, fNew, gNew, hNew, i, j);
+                }
+            }
         }
-    }
-}
 
-//----------- 5th Successor (North-East)
-//------------
-if (IsValid(i - 1, j + 1)) {
-    // If the destination cell is the same as the
-    // current successor
-    if (IsDestination(i - 1, j + 1, dest))
-    {
-        // Set the Parent of the destination cell
-        cellDetails[i - 1][j + 1].parent_i = i;
-        cellDetails[i - 1][j + 1].parent_j = j;
-        UE_LOG(LogTemp, Warning, TEXT("The destination cell is found"));
-        foundDest = true;
-    	TFVector p = TracePath(cellDetails, dest);
-        return p;
-    }
+        //----------- 5th Successor (North-East)
+        //------------
+        if (IsValid(i - 1, j + 1)) {
+            // If the destination cell is the same as the
+            // current successor
+            if (IsDestination(i - 1, j + 1, dest))
+            {
+                // Set the Parent of the destination cell
+                cellDetails[i - 1][j + 1].parent_i = i;
+                cellDetails[i - 1][j + 1].parent_j = j;
+                UE_LOG(LogTemp, Warning, TEXT("The destination cell is found"));
+                foundDest = true;
+                TFVector p = TracePath(cellDetails, dest);
+                return p;
+            }
 
-    else if (!closedList[i - 1][j + 1] && IsUnBlocked(grid, i - 1, j + 1)) {
-        gNew = cellDetails[i][j].g + 1.414f;
-        hNew = CalculateHValue(i - 1, j + 1, dest);
-        fNew = gNew + hNew;
+            else if (!closedList[i - 1][j + 1] && IsUnBlocked(grid, i - 1, j + 1)) {
+                gNew = cellDetails[i][j].g + 1.414f;
+                hNew = CalculateHValue(i - 1, j + 1, dest);
+                fNew = gNew + hNew;
 
-        if (cellDetails[i - 1][j + 1].f == FLT_MAX || cellDetails[i - 1][j + 1].f > fNew)
-        {
-            openList.Add(FP_Pair(fNew, FPair(i - 1, j + 1)));
+                if (cellDetails[i - 1][j + 1].f == FLT_MAX || cellDetails[i - 1][j + 1].f > fNew)
+                {
+                    openList.Add(FP_Pair(fNew, FPair(i - 1, j + 1)));
 
-            // Update the details of this cell
-            UpdateCellDetails(cellDetails, i - 1, j + 1, fNew, gNew, hNew, i, j);
+                    // Update the details of this cell
+                    UpdateCellDetails(cellDetails, i - 1, j + 1, fNew, gNew, hNew, i, j);
+                }
+            }
         }
+
+        //----------- 6th Successor (North-West)
+        //------------
+
+        if (IsValid(i - 1, j - 1)) {
+            // If the destination cell is the same as the
+            // current successor
+            if (IsDestination(i - 1, j - 1, dest))
+            {
+                // Set the Parent of the destination cell
+                cellDetails[i - 1][j - 1].parent_i = i;
+                cellDetails[i - 1][j - 1].parent_j = j;
+                UE_LOG(LogTemp, Warning, TEXT("The destination cell is found"));
+                foundDest = true;
+                TFVector p = TracePath(cellDetails, dest);
+                return p;
+            }
+
+            else if (!closedList[i - 1][j - 1] && IsUnBlocked(grid, i - 1, j - 1)) {
+                gNew = cellDetails[i][j].g + 1.414f;
+                hNew = CalculateHValue(i - 1, j - 1, dest);
+                fNew = gNew + hNew;
+
+                if (cellDetails[i - 1][j - 1].f == FLT_MAX || cellDetails[i - 1][j - 1].f > fNew)
+                {
+                    openList.Add(FP_Pair(fNew, FPair(i - 1, j - 1)));
+
+                    // Update the details of this cell
+                    UpdateCellDetails(cellDetails, i - 1, j - 1, fNew, gNew, hNew, i, j);
+                }
+            }
+        }
+        //----------- 7th Successor (South-East)
+        //------------
+
+        if (IsValid(i + 1, j + 1)) {
+            // If the destination cell is the same as the
+            // current successor
+            if (IsDestination(i + 1, j + 1, dest))
+            {
+                // Set the Parent of the destination cell
+                cellDetails[i + 1][j + 1].parent_i = i;
+                cellDetails[i + 1][j + 1].parent_j = j;
+                UE_LOG(LogTemp, Warning, TEXT("The destination cell is found"));
+                foundDest = true;
+                TFVector p = TracePath(cellDetails, dest);
+                return p;
+            }
+
+            else if (!closedList[i + 1][j + 1] && IsUnBlocked(grid, i + 1, j + 1)) {
+                gNew = cellDetails[i][j].g + 1.414f;
+                hNew = CalculateHValue(i + 1, j + 1, dest);
+                fNew = gNew + hNew;
+
+                if (cellDetails[i + 1][j + 1].f == FLT_MAX || cellDetails[i + 1][j + 1].f > fNew)
+                {
+                    openList.Add(FP_Pair(fNew, FPair(i + 1, j + 1)));
+
+                    // Update the details of this cell
+                    UpdateCellDetails(cellDetails, i + 1, j + 1, fNew, gNew, hNew, i, j);
+                }
+            }
+        }
+
+        //----------- 8th Successor (South-West)
+        //------------
+
+        if (IsValid(i + 1, j - 1)) {
+            // If the destination cell is the same as the
+            // current successor
+            if (IsDestination(i + 1, j - 1, dest))
+            {
+                // Set the Parent of the destination cell
+                cellDetails[i + 1][j - 1].parent_i = i;
+                cellDetails[i + 1][j - 1].parent_j = j;
+                UE_LOG(LogTemp, Warning, TEXT("The destination cell is found"));
+                foundDest = true;
+                TFVector p = TracePath(cellDetails, dest);
+                return p;
+            }
+
+            else if (!closedList[i + 1][j - 1] && IsUnBlocked(grid, i + 1, j - 1)) {
+                gNew = cellDetails[i][j].g + 1.414f;
+                hNew = CalculateHValue(i + 1, j - 1, dest);
+                fNew = gNew + hNew;
+
+                if (cellDetails[i + 1][j - 1].f == FLT_MAX || cellDetails[i + 1][j - 1].f > fNew)
+                {
+                    openList.Add(FP_Pair(fNew, FPair(i + 1, j - 1)));
+
+                    // Update the details of this cell
+                    UpdateCellDetails(cellDetails, i + 1, j - 1, fNew, gNew, hNew, i, j);
+                }
+            }
+        }
+
+	    if (foundDest == false)
+	    {	
+		    UE_LOG(LogTemp, Warning, TEXT("Failed to find the Destination Cell"));
+		    return NO_WAY;
+	    }
     }
-}
-
-//----------- 6th Successor (North-West)
-//------------
-	
-	if (IsValid(i - 1, j - 1)) {
-		// If the destination cell is the same as the
-		// current successor
-		if (IsDestination(i - 1, j - 1, dest))
-		{
-			// Set the Parent of the destination cell
-			cellDetails[i - 1][j - 1].parent_i = i;
-			cellDetails[i - 1][j - 1].parent_j = j;
-			UE_LOG(LogTemp, Warning, TEXT("The destination cell is found"));
-			foundDest = true;
-			TFVector p = TracePath(cellDetails, dest);
-			return p;
-		}
-
-		else if (!closedList[i - 1][j - 1] && IsUnBlocked(grid, i - 1, j - 1)) {
-			gNew = cellDetails[i][j].g + 1.414f;
-			hNew = CalculateHValue(i - 1, j - 1, dest);
-			fNew = gNew + hNew;
-
-			if (cellDetails[i - 1][j - 1].f == FLT_MAX || cellDetails[i - 1][j - 1].f > fNew)
-			{
-				openList.Add(FP_Pair(fNew, FPair(i - 1, j - 1)));
-
-				// Update the details of this cell
-				UpdateCellDetails(cellDetails, i - 1, j - 1, fNew, gNew, hNew, i, j);
-			}
-		}
-	}
-	//----------- 7th Successor (South-East)
-	//------------
-
-	if (IsValid(i + 1, j + 1)) {
-		// If the destination cell is the same as the
-		// current successor
-		if (IsDestination(i + 1, j + 1, dest))
-		{
-			// Set the Parent of the destination cell
-			cellDetails[i + 1][j + 1].parent_i = i;
-			cellDetails[i + 1][j + 1].parent_j = j;
-			UE_LOG(LogTemp, Warning, TEXT("The destination cell is found"));
-			foundDest = true;
-			TFVector p = TracePath(cellDetails, dest);
-			return p;
-		}
-
-		else if (!closedList[i + 1][j + 1] && IsUnBlocked(grid, i + 1, j + 1)) {
-			gNew = cellDetails[i][j].g + 1.414f;
-			hNew = CalculateHValue(i + 1, j + 1, dest);
-			fNew = gNew + hNew;
-
-			if (cellDetails[i + 1][j + 1].f == FLT_MAX || cellDetails[i + 1][j + 1].f > fNew)
-			{
-				openList.Add(FP_Pair(fNew, FPair(i + 1, j + 1)));
-
-				// Update the details of this cell
-				UpdateCellDetails(cellDetails, i + 1, j + 1, fNew, gNew, hNew, i, j);
-			}
-		}
-	}
-
-	//----------- 8th Successor (South-West)
-	//------------
-
-	if (IsValid(i + 1, j - 1)) {
-		// If the destination cell is the same as the
-		// current successor
-		if (IsDestination(i + 1, j - 1, dest))
-		{
-			// Set the Parent of the destination cell
-			cellDetails[i + 1][j - 1].parent_i = i;
-			cellDetails[i + 1][j - 1].parent_j = j;
-			UE_LOG(LogTemp, Warning, TEXT("The destination cell is found"));
-			foundDest = true;
-			TFVector p = TracePath(cellDetails, dest);
-			return p;
-		}
-
-		else if (!closedList[i + 1][j - 1] && IsUnBlocked(grid, i + 1, j - 1)) {
-			gNew = cellDetails[i][j].g + 1.414f;
-			hNew = CalculateHValue(i + 1, j - 1, dest);
-			fNew = gNew + hNew;
-
-			if (cellDetails[i + 1][j - 1].f == FLT_MAX || cellDetails[i + 1][j - 1].f > fNew)
-			{
-				openList.Add(FP_Pair(fNew, FPair(i + 1, j - 1)));
-
-				// Update the details of this cell
-				UpdateCellDetails(cellDetails, i + 1, j - 1, fNew, gNew, hNew, i, j);
-			}
-		}
-	}
-	if (foundDest == false)
-	{	
-		UE_LOG(LogTemp, Warning, TEXT("Failed to find the Destination Cell"));
-		return NO_WAY;
-	}
 	return NO_WAY;
 }
 TFVector APathFinder::getPathFromTo(int32 grid[][COL],FVector start, FVector dest)

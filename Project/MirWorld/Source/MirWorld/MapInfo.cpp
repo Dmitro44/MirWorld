@@ -11,8 +11,9 @@ void MapInfo::GenerateResources(const int X, const int Y)
 
 void MapInfo::GenerateTree(const int X, const int Y)
 {
-	float Randomize = FMath::RandRange(-10, 10);
-	float Tree = FMath::PerlinNoise2D(FVector2D(X * 0.1f + 0.1f, Y * 0.1f + 0.1f)) * 50.0f;
+	float Randomize = FMath::RandRange(0, 1);
+	float Tree = FMath::PerlinNoise2D(FVector2D(X * 0.1f + 0.1f * Randomize + RandomResMove,
+												Y * 0.1f + 0.1f * Randomize + RandomResMove)) * 50.0f;
 
 	//GEngine->AddOnScreenDebugMessage(-1, 999.0f, FColor::Yellow, FString::Printf(TEXT("Tree_ %f"), Tree));
 
@@ -25,8 +26,8 @@ void MapInfo::GenerateTree(const int X, const int Y)
 
 void MapInfo::GenerateStone(const int X, const int Y)
 {
-	float Randomize = FMath::RandRange(-10, 10);
-	float Stone = FMath::PerlinNoise2D(FVector2D(X + 0.1 + FMath::RandRange(-10, 10), Y + 0.1 + FMath::RandRange(-10, 10))) * 100.0f;
+	float Stone = FMath::PerlinNoise2D(FVector2D(X + 0.1 + FMath::RandRange(-10, 10), 
+												 Y + 0.1 + FMath::RandRange(-10, 10))) * 100.0f;
 
 	//GEngine->AddOnScreenDebugMessage(-1, 999.0f, FColor::Yellow, FString::Printf(TEXT("Stone_ %f"), Stone));
 
@@ -44,14 +45,15 @@ TArray<TArray<FInfoMatrix>>& MapInfo::GetMap()
 
 void MapInfo::GenerateBiome(const int X, const int Y)
 {
-	float RandomMove = FMath::RandRange(-5, 5);
+	float RandomBioMove = FMath::RandRange(-100, 100); // TODO!!!
+	RandomResMove = RandomBioMove + 100 + FMath::RandRange(-100, 100);
 
 	for (int OuterIndex{ 0 }; OuterIndex < X; ++OuterIndex)
 	{
 		for (int InnerIndex{ 0 }; InnerIndex < Y; ++InnerIndex)
 		{
 			//Generation of Bioms
-			float Z = FMath::PerlinNoise2D(FVector2D((OuterIndex * NoiseScale + 0.01f) + RandomMove, (InnerIndex * NoiseScale + 0.01f)) + RandomMove) * Multiplier;
+			float Z = FMath::PerlinNoise2D(FVector2D((OuterIndex * NoiseScale + 0.01f) + RandomBioMove, (InnerIndex * NoiseScale + 0.01f)) + RandomBioMove) * Multiplier;
 
 			//GEngine->AddOnScreenDebugMessage(-1, 999.0f, FColor::Yellow, FString::Printf(TEXT("Z %f"), Z));
 
@@ -66,7 +68,6 @@ void MapInfo::GenerateBiome(const int X, const int Y)
 			GenerateResources(InnerIndex, OuterIndex);
 		}
 	}
-
 }
 
 void MapInfo::CreateEmptyMatrix(const int X, const int Y)

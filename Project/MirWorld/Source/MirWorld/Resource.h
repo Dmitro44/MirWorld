@@ -8,7 +8,6 @@
 #include "Resource.generated.h"
 
 
-
 UCLASS(BlueprintType)
 class MIRWORLD_API AResource : public ABasicActor
 {
@@ -24,11 +23,17 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "Resource")
 	int GetResourceType() const;
 
+	UFUNCTION(BlueprintCallable, Category = "Biome")
+	int GetBiomeType() const;
+
+	UFUNCTION(BlueprintCallable, Category = "Biome")
+	void SetBiomeType(int Newtype);
+
 protected:
 	UPROPERTY(EditAnywhere, Category = "Resource")
 	float TimeToMine = 5.0f;
-	
 
+	UPROPERTY(EditAnywhere, Category = "Resource")
 	int ResorceLeft = 0;
 
 	UPROPERTY(EditAnywhere, Category = "Resource")
@@ -36,4 +41,7 @@ protected:
 
 	UPROPERTY(EditAnywhere, Category = "Resource")
 	int ResourceType = 0; // see the enum
+
+	UPROPERTY(EditAnywhere, Category = "Biome")
+	int BiomeType;
 };
