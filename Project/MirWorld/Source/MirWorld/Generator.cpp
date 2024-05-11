@@ -24,7 +24,7 @@ void AGenerator::BuildResources(const FVector CenteredLocation, const int X, con
 			FVector SpawnLocation =
 				FVector(static_cast<float>(InnerIndex) - static_cast<float>(X) / 2.f,
 					static_cast<float>(OuterIndex) - static_cast<float>(Y) / 2.f,
-					1.f) * SectorSize + CenteredLocation;
+					0.f) * SectorSize + CenteredLocation;
 
 			FTransform SpawnTransform;
 			SpawnTransform.SetLocation(SpawnLocation);
