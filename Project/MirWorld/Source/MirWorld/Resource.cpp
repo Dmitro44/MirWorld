@@ -35,3 +35,10 @@ void AResource::SetBiomeType(int Newtype)
 		BiomeType = Newtype;
 	}
 }
+
+void AResource::SetResourceType(int NewType)
+{
+	if (NewType >= 0 && NewType < RESOURCE_AMNT) {
+		ResourceType = NewType;
+	}
+}

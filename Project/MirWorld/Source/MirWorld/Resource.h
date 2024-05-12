@@ -30,6 +30,9 @@ public:
 	void SetBiomeType(int Newtype);
 
 protected:
+	UFUNCTION(BlueprintCallable, Category = "Resource")
+	void SetResourceType(int NewType);
+
 	UPROPERTY(EditAnywhere, Category = "Resource")
 	float TimeToMine = 5.0f;
 

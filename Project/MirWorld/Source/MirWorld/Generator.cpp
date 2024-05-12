@@ -33,30 +33,25 @@ void AGenerator::BuildResources(const FVector CenteredLocation, const int X, con
 
 			switch (SubstanceType)
 			{
-			case 0:
-				break;
 			case 1: {
 				ObjectToSpawn = UGameplayStatics::BeginDeferredActorSpawnFromClass(
 					this, TreeType.LoadSynchronous(), SpawnTransform);
-
-				ATree* Tree = Cast<ATree>(ObjectToSpawn);
-				Tree->SetBiomeType(BiomeType);
-				Tree->SetInfo(FBlankObjectInfo(InnerIndex, OuterIndex, 0));
-
+				AResource* Resource = Cast<AResource>(ObjectToSpawn);
+				Resource->SetBiomeType(BiomeType);
+				Resource->SetInfo(FBlankObjectInfo(InnerIndex, OuterIndex, 0));
 				break;
 			}
 			case 2: {
 				ObjectToSpawn = UGameplayStatics::BeginDeferredActorSpawnFromClass(
 					this, StoneType.LoadSynchronous(), SpawnTransform);
-
-				AStone* Stone = Cast<AStone>(ObjectToSpawn);
-				Stone->SetBiomeType(BiomeType);
-				Stone->SetInfo(FBlankObjectInfo(InnerIndex, OuterIndex, 0));
-
+				AResource* Resource = Cast<AResource>(ObjectToSpawn);
+				Resource->SetBiomeType(BiomeType);
+				Resource->SetInfo(FBlankObjectInfo(InnerIndex, OuterIndex, 0));
 				break;
 			}
-			default:
+			default: {
 				break;
+			}
 			}
 
 			ObjectMap.Add(ObjectToSpawn);

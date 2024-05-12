@@ -14,6 +14,14 @@ void EmptyLinkFunctionForGeneratedCodeResource() {}
 	MIRWORLD_API UClass* Z_Construct_UClass_AResource_NoRegister();
 	UPackage* Z_Construct_UPackage__Script_MirWorld();
 // End Cross Module References
+	DEFINE_FUNCTION(AResource::execSetResourceType)
+	{
+		P_GET_PROPERTY(FIntProperty,Z_Param_NewType);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->SetResourceType(Z_Param_NewType);
+		P_NATIVE_END;
+	}
 	DEFINE_FUNCTION(AResource::execSetBiomeType)
 	{
 		P_GET_PROPERTY(FIntProperty,Z_Param_Newtype);
@@ -58,6 +66,7 @@ void EmptyLinkFunctionForGeneratedCodeResource() {}
 			{ "GetResourceType", &AResource::execGetResourceType },
 			{ "GiveBunch", &AResource::execGiveBunch },
 			{ "SetBiomeType", &AResource::execSetBiomeType },
+			{ "SetResourceType", &AResource::execSetResourceType },
 			{ "TimeRequired", &AResource::execTimeRequired },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
@@ -202,6 +211,41 @@ void EmptyLinkFunctionForGeneratedCodeResource() {}
 		}
 		return ReturnFunction;
 	}
+	struct Z_Construct_UFunction_AResource_SetResourceType_Statics
+	{
+		struct Resource_eventSetResourceType_Parms
+		{
+			int32 NewType;
+		};
+		static const UECodeGen_Private::FIntPropertyParams NewProp_NewType;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UECodeGen_Private::FIntPropertyParams Z_Construct_UFunction_AResource_SetResourceType_Statics::NewProp_NewType = { "NewType", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(Resource_eventSetResourceType_Parms, NewType), METADATA_PARAMS(0, nullptr) };
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AResource_SetResourceType_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AResource_SetResourceType_Statics::NewProp_NewType,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AResource_SetResourceType_Statics::Function_MetaDataParams[] = {
+		{ "Category", "Resource" },
+		{ "ModuleRelativePath", "Resource.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AResource_SetResourceType_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AResource, nullptr, "SetResourceType", nullptr, nullptr, Z_Construct_UFunction_AResource_SetResourceType_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AResource_SetResourceType_Statics::PropPointers), sizeof(Z_Construct_UFunction_AResource_SetResourceType_Statics::Resource_eventSetResourceType_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04080401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AResource_SetResourceType_Statics::Function_MetaDataParams), Z_Construct_UFunction_AResource_SetResourceType_Statics::Function_MetaDataParams) };
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_AResource_SetResourceType_Statics::PropPointers) < 2048);
+	static_assert(sizeof(Z_Construct_UFunction_AResource_SetResourceType_Statics::Resource_eventSetResourceType_Parms) < MAX_uint16);
+	UFunction* Z_Construct_UFunction_AResource_SetResourceType()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AResource_SetResourceType_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
 	struct Z_Construct_UFunction_AResource_TimeRequired_Statics
 	{
 		struct Resource_eventTimeRequired_Parms
@@ -283,6 +327,7 @@ void EmptyLinkFunctionForGeneratedCodeResource() {}
 		{ &Z_Construct_UFunction_AResource_GetResourceType, "GetResourceType" }, // 1835135641
 		{ &Z_Construct_UFunction_AResource_GiveBunch, "GiveBunch" }, // 1443290399
 		{ &Z_Construct_UFunction_AResource_SetBiomeType, "SetBiomeType" }, // 3468290282
+		{ &Z_Construct_UFunction_AResource_SetResourceType, "SetResourceType" }, // 576808706
 		{ &Z_Construct_UFunction_AResource_TimeRequired, "TimeRequired" }, // 1690557605
 	};
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_AResource_Statics::FuncInfo) < 2048);
@@ -380,9 +425,9 @@ void EmptyLinkFunctionForGeneratedCodeResource() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Code_Projects_GitHub_MirWorld_MirWorld_Project_MirWorld_Source_MirWorld_Resource_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_AResource, AResource::StaticClass, TEXT("AResource"), &Z_Registration_Info_UClass_AResource, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AResource), 2153373823U) },
+		{ Z_Construct_UClass_AResource, AResource::StaticClass, TEXT("AResource"), &Z_Registration_Info_UClass_AResource, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AResource), 2343316548U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Code_Projects_GitHub_MirWorld_MirWorld_Project_MirWorld_Source_MirWorld_Resource_h_2129603241(TEXT("/Script/MirWorld"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Code_Projects_GitHub_MirWorld_MirWorld_Project_MirWorld_Source_MirWorld_Resource_h_1429706177(TEXT("/Script/MirWorld"),
 		Z_CompiledInDeferFile_FID_Code_Projects_GitHub_MirWorld_MirWorld_Project_MirWorld_Source_MirWorld_Resource_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Code_Projects_GitHub_MirWorld_MirWorld_Project_MirWorld_Source_MirWorld_Resource_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

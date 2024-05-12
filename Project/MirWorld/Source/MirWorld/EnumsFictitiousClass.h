@@ -25,6 +25,8 @@ enum EAllResource {
 
 const uint8 BIOME_AMNT = 3U;
 
+const uint8 RESOURCE_AMNT = 5U;
+
 /**
  * Has no functionality
  */

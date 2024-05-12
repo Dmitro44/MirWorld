@@ -60,10 +60,10 @@ protected:
 	TSoftClassPtr<ATile> TileType;
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
-	TSoftClassPtr<ATree> TreeType;
+	TSoftClassPtr<AResource> TreeType;
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
-	TSoftClassPtr<AStone> StoneType;
+	TSoftClassPtr<AResource> StoneType;
 
 	//------------------
 
