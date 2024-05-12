@@ -24,6 +24,11 @@ int AResource::GetResourceType() const
 	return ResourceType;
 }
 
+int AResource::GetResourceLeft() const
+{
+	return ResorceLeft;
+}
+
 int AResource::GetBiomeType() const
 {
 	return BiomeType;

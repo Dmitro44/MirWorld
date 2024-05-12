@@ -23,6 +23,9 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "Resource")
 	int GetResourceType() const;
 
+	UFUNCTION(BlueprintCallable, Category = "Resource")
+	int GetResourceLeft() const;
+
 	UFUNCTION(BlueprintCallable, Category = "Biome")
 	int GetBiomeType() const;
 

@@ -22,6 +22,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 	DECLARE_FUNCTION(execSetResourceType); \
 	DECLARE_FUNCTION(execSetBiomeType); \
 	DECLARE_FUNCTION(execGetBiomeType); \
+	DECLARE_FUNCTION(execGetResourceLeft); \
 	DECLARE_FUNCTION(execGetResourceType); \
 	DECLARE_FUNCTION(execGiveBunch); \
 	DECLARE_FUNCTION(execTimeRequired);

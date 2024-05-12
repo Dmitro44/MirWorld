@@ -37,6 +37,13 @@ void EmptyLinkFunctionForGeneratedCodeResource() {}
 		*(int32*)Z_Param__Result=P_THIS->GetBiomeType();
 		P_NATIVE_END;
 	}
+	DEFINE_FUNCTION(AResource::execGetResourceLeft)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		*(int32*)Z_Param__Result=P_THIS->GetResourceLeft();
+		P_NATIVE_END;
+	}
 	DEFINE_FUNCTION(AResource::execGetResourceType)
 	{
 		P_FINISH;
@@ -63,6 +70,7 @@ void EmptyLinkFunctionForGeneratedCodeResource() {}
 		UClass* Class = AResource::StaticClass();
 		static const FNameNativePtrPair Funcs[] = {
 			{ "GetBiomeType", &AResource::execGetBiomeType },
+			{ "GetResourceLeft", &AResource::execGetResourceLeft },
 			{ "GetResourceType", &AResource::execGetResourceType },
 			{ "GiveBunch", &AResource::execGiveBunch },
 			{ "SetBiomeType", &AResource::execSetBiomeType },
@@ -103,6 +111,41 @@ void EmptyLinkFunctionForGeneratedCodeResource() {}
 		if (!ReturnFunction)
 		{
 			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AResource_GetBiomeType_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_AResource_GetResourceLeft_Statics
+	{
+		struct Resource_eventGetResourceLeft_Parms
+		{
+			int32 ReturnValue;
+		};
+		static const UECodeGen_Private::FIntPropertyParams NewProp_ReturnValue;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UECodeGen_Private::FIntPropertyParams Z_Construct_UFunction_AResource_GetResourceLeft_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(Resource_eventGetResourceLeft_Parms, ReturnValue), METADATA_PARAMS(0, nullptr) };
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AResource_GetResourceLeft_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AResource_GetResourceLeft_Statics::NewProp_ReturnValue,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AResource_GetResourceLeft_Statics::Function_MetaDataParams[] = {
+		{ "Category", "Resource" },
+		{ "ModuleRelativePath", "Resource.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AResource_GetResourceLeft_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AResource, nullptr, "GetResourceLeft", nullptr, nullptr, Z_Construct_UFunction_AResource_GetResourceLeft_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AResource_GetResourceLeft_Statics::PropPointers), sizeof(Z_Construct_UFunction_AResource_GetResourceLeft_Statics::Resource_eventGetResourceLeft_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x54020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AResource_GetResourceLeft_Statics::Function_MetaDataParams), Z_Construct_UFunction_AResource_GetResourceLeft_Statics::Function_MetaDataParams) };
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_AResource_GetResourceLeft_Statics::PropPointers) < 2048);
+	static_assert(sizeof(Z_Construct_UFunction_AResource_GetResourceLeft_Statics::Resource_eventGetResourceLeft_Parms) < MAX_uint16);
+	UFunction* Z_Construct_UFunction_AResource_GetResourceLeft()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AResource_GetResourceLeft_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -324,6 +367,7 @@ void EmptyLinkFunctionForGeneratedCodeResource() {}
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_AResource_Statics::DependentSingletons) < 16);
 	const FClassFunctionLinkInfo Z_Construct_UClass_AResource_Statics::FuncInfo[] = {
 		{ &Z_Construct_UFunction_AResource_GetBiomeType, "GetBiomeType" }, // 2259446154
+		{ &Z_Construct_UFunction_AResource_GetResourceLeft, "GetResourceLeft" }, // 3411369210
 		{ &Z_Construct_UFunction_AResource_GetResourceType, "GetResourceType" }, // 1835135641
 		{ &Z_Construct_UFunction_AResource_GiveBunch, "GiveBunch" }, // 1443290399
 		{ &Z_Construct_UFunction_AResource_SetBiomeType, "SetBiomeType" }, // 3468290282
@@ -425,9 +469,9 @@ void EmptyLinkFunctionForGeneratedCodeResource() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Code_Projects_GitHub_MirWorld_MirWorld_Project_MirWorld_Source_MirWorld_Resource_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_AResource, AResource::StaticClass, TEXT("AResource"), &Z_Registration_Info_UClass_AResource, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AResource), 2343316548U) },
+		{ Z_Construct_UClass_AResource, AResource::StaticClass, TEXT("AResource"), &Z_Registration_Info_UClass_AResource, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AResource), 3731652838U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Code_Projects_GitHub_MirWorld_MirWorld_Project_MirWorld_Source_MirWorld_Resource_h_1429706177(TEXT("/Script/MirWorld"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Code_Projects_GitHub_MirWorld_MirWorld_Project_MirWorld_Source_MirWorld_Resource_h_582733577(TEXT("/Script/MirWorld"),
 		Z_CompiledInDeferFile_FID_Code_Projects_GitHub_MirWorld_MirWorld_Project_MirWorld_Source_MirWorld_Resource_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Code_Projects_GitHub_MirWorld_MirWorld_Project_MirWorld_Source_MirWorld_Resource_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);
