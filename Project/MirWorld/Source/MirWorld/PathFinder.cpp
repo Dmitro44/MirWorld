@@ -490,14 +490,15 @@ TFVector AStarSearch(int32 grid[][COL], FVector src, FVector dest)
                 }
             }
         }
-
-	    if (foundDest == false)
-	    {	
-		    UE_LOG(LogTemp, Warning, TEXT("Failed to find the Destination Cell"));
-		    return NO_WAY;
-	    }
+    	
     }
-	return NO_WAY;
+	if (foundDest == false)
+	{
+
+		
+		UE_LOG(LogTemp, Warning, TEXT("Failed to find the Destination Cell"));
+		return NO_WAY;
+	}
 }
 TFVector APathFinder::getPathFromTo(int32 grid[][COL],FVector start, FVector dest)
 {
