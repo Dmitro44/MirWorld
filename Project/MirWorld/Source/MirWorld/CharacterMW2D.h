@@ -32,6 +32,12 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "Mob Action")
 	bool IsWorking() const;
 
+	UFUNCTION(BlueprintCallable, Category = "Character ID")
+	int GetID() const;
+
+	UFUNCTION(BlueprintCallable, Category = "Character ID")
+	void SetID(int NewID);
+
 protected:
 	// Called when the game starts or when spawned
 	void BeginPlay() override;
@@ -46,7 +52,7 @@ protected:
 	UFUNCTION(BlueprintCallable, Category = "Resource Extracting")
 	void ExtractBunch();
 
-	// Shows how many repeats should be produced
+	// Unique for every character
 	UPROPERTY(EditAnywhere, Category = "Character ID")
 	int ID = -1;
 

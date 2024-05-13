@@ -21,6 +21,21 @@ void EmptyLinkFunctionForGeneratedCodeCharacterMW2D() {}
 		P_THIS->ExtractBunch();
 		P_NATIVE_END;
 	}
+	DEFINE_FUNCTION(ACharacterMW2D::execSetID)
+	{
+		P_GET_PROPERTY(FIntProperty,Z_Param_NewID);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->SetID(Z_Param_NewID);
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(ACharacterMW2D::execGetID)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		*(int32*)Z_Param__Result=P_THIS->GetID();
+		P_NATIVE_END;
+	}
 	DEFINE_FUNCTION(ACharacterMW2D::execIsWorking)
 	{
 		P_FINISH;
@@ -33,7 +48,9 @@ void EmptyLinkFunctionForGeneratedCodeCharacterMW2D() {}
 		UClass* Class = ACharacterMW2D::StaticClass();
 		static const FNameNativePtrPair Funcs[] = {
 			{ "ExtractBunch", &ACharacterMW2D::execExtractBunch },
+			{ "GetID", &ACharacterMW2D::execGetID },
 			{ "IsWorking", &ACharacterMW2D::execIsWorking },
+			{ "SetID", &ACharacterMW2D::execSetID },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
 	}
@@ -63,6 +80,41 @@ void EmptyLinkFunctionForGeneratedCodeCharacterMW2D() {}
 		if (!ReturnFunction)
 		{
 			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_ACharacterMW2D_ExtractBunch_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_ACharacterMW2D_GetID_Statics
+	{
+		struct CharacterMW2D_eventGetID_Parms
+		{
+			int32 ReturnValue;
+		};
+		static const UECodeGen_Private::FIntPropertyParams NewProp_ReturnValue;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UECodeGen_Private::FIntPropertyParams Z_Construct_UFunction_ACharacterMW2D_GetID_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(CharacterMW2D_eventGetID_Parms, ReturnValue), METADATA_PARAMS(0, nullptr) };
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_ACharacterMW2D_GetID_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ACharacterMW2D_GetID_Statics::NewProp_ReturnValue,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ACharacterMW2D_GetID_Statics::Function_MetaDataParams[] = {
+		{ "Category", "Mob Action" },
+		{ "ModuleRelativePath", "CharacterMW2D.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_ACharacterMW2D_GetID_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ACharacterMW2D, nullptr, "GetID", nullptr, nullptr, Z_Construct_UFunction_ACharacterMW2D_GetID_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_ACharacterMW2D_GetID_Statics::PropPointers), sizeof(Z_Construct_UFunction_ACharacterMW2D_GetID_Statics::CharacterMW2D_eventGetID_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x54020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_ACharacterMW2D_GetID_Statics::Function_MetaDataParams), Z_Construct_UFunction_ACharacterMW2D_GetID_Statics::Function_MetaDataParams) };
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_ACharacterMW2D_GetID_Statics::PropPointers) < 2048);
+	static_assert(sizeof(Z_Construct_UFunction_ACharacterMW2D_GetID_Statics::CharacterMW2D_eventGetID_Parms) < MAX_uint16);
+	UFunction* Z_Construct_UFunction_ACharacterMW2D_GetID()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_ACharacterMW2D_GetID_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -112,6 +164,41 @@ void EmptyLinkFunctionForGeneratedCodeCharacterMW2D() {}
 		}
 		return ReturnFunction;
 	}
+	struct Z_Construct_UFunction_ACharacterMW2D_SetID_Statics
+	{
+		struct CharacterMW2D_eventSetID_Parms
+		{
+			int32 NewID;
+		};
+		static const UECodeGen_Private::FIntPropertyParams NewProp_NewID;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UECodeGen_Private::FIntPropertyParams Z_Construct_UFunction_ACharacterMW2D_SetID_Statics::NewProp_NewID = { "NewID", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(CharacterMW2D_eventSetID_Parms, NewID), METADATA_PARAMS(0, nullptr) };
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_ACharacterMW2D_SetID_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ACharacterMW2D_SetID_Statics::NewProp_NewID,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ACharacterMW2D_SetID_Statics::Function_MetaDataParams[] = {
+		{ "Category", "Mob Action" },
+		{ "ModuleRelativePath", "CharacterMW2D.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_ACharacterMW2D_SetID_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ACharacterMW2D, nullptr, "SetID", nullptr, nullptr, Z_Construct_UFunction_ACharacterMW2D_SetID_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_ACharacterMW2D_SetID_Statics::PropPointers), sizeof(Z_Construct_UFunction_ACharacterMW2D_SetID_Statics::CharacterMW2D_eventSetID_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_ACharacterMW2D_SetID_Statics::Function_MetaDataParams), Z_Construct_UFunction_ACharacterMW2D_SetID_Statics::Function_MetaDataParams) };
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_ACharacterMW2D_SetID_Statics::PropPointers) < 2048);
+	static_assert(sizeof(Z_Construct_UFunction_ACharacterMW2D_SetID_Statics::CharacterMW2D_eventSetID_Parms) < MAX_uint16);
+	UFunction* Z_Construct_UFunction_ACharacterMW2D_SetID()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_ACharacterMW2D_SetID_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
 	IMPLEMENT_CLASS_NO_AUTO_REGISTRATION(ACharacterMW2D);
 	UClass* Z_Construct_UClass_ACharacterMW2D_NoRegister()
 	{
@@ -157,7 +244,9 @@ void EmptyLinkFunctionForGeneratedCodeCharacterMW2D() {}
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_ACharacterMW2D_Statics::DependentSingletons) < 16);
 	const FClassFunctionLinkInfo Z_Construct_UClass_ACharacterMW2D_Statics::FuncInfo[] = {
 		{ &Z_Construct_UFunction_ACharacterMW2D_ExtractBunch, "ExtractBunch" }, // 3566854456
+		{ &Z_Construct_UFunction_ACharacterMW2D_GetID, "GetID" }, // 2715581090
 		{ &Z_Construct_UFunction_ACharacterMW2D_IsWorking, "IsWorking" }, // 1209243199
+		{ &Z_Construct_UFunction_ACharacterMW2D_SetID, "SetID" }, // 4011043152
 	};
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_ACharacterMW2D_Statics::FuncInfo) < 2048);
 #if WITH_METADATA
@@ -177,11 +266,11 @@ void EmptyLinkFunctionForGeneratedCodeCharacterMW2D() {}
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ACharacterMW2D_Statics::NewProp_ID_MetaData[] = {
 		{ "Category", "Character ID" },
 #if !UE_BUILD_SHIPPING
-		{ "Comment", "// Shows how many repeats should be produced\n" },
+		{ "Comment", "// Unique for every character\n" },
 #endif
 		{ "ModuleRelativePath", "CharacterMW2D.h" },
 #if !UE_BUILD_SHIPPING
-		{ "ToolTip", "Shows how many repeats should be produced" },
+		{ "ToolTip", "Unique for every character" },
 #endif
 	};
 #endif
@@ -282,9 +371,9 @@ void EmptyLinkFunctionForGeneratedCodeCharacterMW2D() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Code_Projects_GitHub_MirWorld_MirWorld_Project_MirWorld_Source_MirWorld_CharacterMW2D_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_ACharacterMW2D, ACharacterMW2D::StaticClass, TEXT("ACharacterMW2D"), &Z_Registration_Info_UClass_ACharacterMW2D, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ACharacterMW2D), 2752148784U) },
+		{ Z_Construct_UClass_ACharacterMW2D, ACharacterMW2D::StaticClass, TEXT("ACharacterMW2D"), &Z_Registration_Info_UClass_ACharacterMW2D, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ACharacterMW2D), 2743111651U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Code_Projects_GitHub_MirWorld_MirWorld_Project_MirWorld_Source_MirWorld_CharacterMW2D_h_3755613134(TEXT("/Script/MirWorld"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Code_Projects_GitHub_MirWorld_MirWorld_Project_MirWorld_Source_MirWorld_CharacterMW2D_h_125836024(TEXT("/Script/MirWorld"),
 		Z_CompiledInDeferFile_FID_Code_Projects_GitHub_MirWorld_MirWorld_Project_MirWorld_Source_MirWorld_CharacterMW2D_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Code_Projects_GitHub_MirWorld_MirWorld_Project_MirWorld_Source_MirWorld_CharacterMW2D_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

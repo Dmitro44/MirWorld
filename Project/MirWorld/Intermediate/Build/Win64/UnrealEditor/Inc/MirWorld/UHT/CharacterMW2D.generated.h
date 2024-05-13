@@ -20,6 +20,8 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #define FID_Code_Projects_GitHub_MirWorld_MirWorld_Project_MirWorld_Source_MirWorld_CharacterMW2D_h_21_RPC_WRAPPERS_NO_PURE_DECLS \
  \
 	DECLARE_FUNCTION(execExtractBunch); \
+	DECLARE_FUNCTION(execSetID); \
+	DECLARE_FUNCTION(execGetID); \
 	DECLARE_FUNCTION(execIsWorking);
 
 

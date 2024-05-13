@@ -55,6 +55,18 @@ bool ACharacterMW2D::IsWorking() const
 	return bIsWorking;
 }
 
+int ACharacterMW2D::GetID() const
+{
+	return ID;
+}
+
+void ACharacterMW2D::SetID(int NewID)
+{
+	if (NewID >= 0) {
+		ID = NewID;
+	}
+}
+
 void ACharacterMW2D::BeginPlay()
 {
 	AMobBase2D::BeginPlay(); // check
