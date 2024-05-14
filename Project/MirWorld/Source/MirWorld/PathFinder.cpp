@@ -84,8 +84,8 @@ TFVector TracePath(TArray<TArray<FCell>> cellDetails, FVector dest)
 	while (!path.IsEmpty())
 	{
 		FVector p;
-		p = Path.Top();
-		path.Add(p);
+		p = Path[0];
+		path.Emplace(p);
 		Path.RemoveAt(0);
 		UE_LOG(LogTemp, Warning, TEXT("-> (%d,%d) "), p[0], p[1]);
 	}
@@ -109,7 +109,7 @@ TFVector AStarSearch(int32 grid[][COL], FVector src, FVector dest)
     if (!IsValid(dest[0], dest[1]))
     {
         UE_LOG(LogTemp, Warning, TEXT("Destination is invalid"));
-    	return NO_WAY;
+        return NO_WAY;
     }
 
     // Either the source or the destination is blocked
@@ -182,7 +182,7 @@ TFVector AStarSearch(int32 grid[][COL], FVector src, FVector dest)
 
     // Put the starting cell on the open list and set its
     // 'f' as 0
-    openList.Add(FP_Pair(0.0f, FPair(i, j))); //the start position
+    openList.Emplace(FP_Pair(0.0f, FPair(i, j))); //the start position
 
     // We set this boolean value as false as initially
     // the destination is not reached.
@@ -490,17 +490,26 @@ TFVector AStarSearch(int32 grid[][COL], FVector src, FVector dest)
                 }
             }
         }
-    	
     }
-	if (foundDest == false)
+	//if (foundDest == false)
 	{
-
-		
 		UE_LOG(LogTemp, Warning, TEXT("Failed to find the Destination Cell"));
 		return NO_WAY;
 	}
 }
 TFVector APathFinder::getPathFromTo(int32 grid[][COL],FVector start, FVector dest)
 {
+    GEngine->AddOnScreenDebugMessage(-1, 1000.f, FColor::Red, start.ToString());
+    GEngine->AddOnScreenDebugMessage(-1, 1000.f, FColor::Red, dest.ToString());
+    std::string str;
+    for (int i = 0; i < 50; ++i) {
+        for (int j = 0; j < 50; ++j) {
+            str.append(1, IsUnBlocked(grid, i, j) + '0');
+        }
+        str.append("\n");
+    }
+    FString fstr(str.c_str());
+    //GEngine->AddOnScreenDebugMessage(-1, 1000.f, FColor::Red, fstr);
+
 	return AStarSearch(grid,start, dest);
 }

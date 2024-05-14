@@ -30,7 +30,13 @@ public:
 	int GetBiomeType() const;
 
 	UFUNCTION(BlueprintCallable, Category = "Biome")
-	void SetBiomeType(int Newtype);
+	void SetBiomeType(int NewType);
+
+	UFUNCTION(BlueprintCallable, Category = "Resource")
+	bool GetDoesExist() const;
+
+	UFUNCTION(BlueprintCallable, Category = "Resource")
+	void SetDoesExist(bool NewStatus);
 
 protected:
 	UFUNCTION(BlueprintCallable, Category = "Resource")
@@ -50,4 +56,6 @@ protected:
 
 	UPROPERTY(EditAnywhere, Category = "Biome")
 	int BiomeType;
+
+	bool bDoesExist = true;
 };

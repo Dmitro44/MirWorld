@@ -14,7 +14,7 @@ struct FInfoMatrix
 		Building = NewBuilding;
 	};
 
-	bool bIsGoThrough;
+	bool bIsGoThrough = true;
 	bool bIsBuildable = true;
 
 	int Color;

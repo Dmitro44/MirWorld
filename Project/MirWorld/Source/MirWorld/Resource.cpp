@@ -41,6 +41,16 @@ void AResource::SetBiomeType(int Newtype)
 	}
 }
 
+bool AResource::GetDoesExist() const
+{
+	return bDoesExist;
+}
+
+void AResource::SetDoesExist(bool bNewStatus)
+{
+	bDoesExist = bNewStatus;
+}
+
 void AResource::SetResourceType(int NewType)
 {
 	if (NewType >= 0 && NewType < RESOURCE_AMNT) {

@@ -82,10 +82,15 @@ void ACharacterMW2D::reportDoneTask()
 
 }
 
+bool ACharacterMW2D::IsResourceValid(AResource* CheckResource)
+{
+	return CheckResource != nullptr && CheckResource->GetDoesExist();
+}
+
 void ACharacterMW2D::ExtractBunch()
 {
 	++RepeatsCntr;
-	if (RepeatsCntr == RepeatsRequired - 1) {
+	if (RepeatsCntr == RepeatsRequired - 1 || !IsResourceValid(Resource)) {
 		GetWorldTimerManager().ClearTimer(SubExtractTimerHandle);
 		bIsWorking = false;
 	}
@@ -100,6 +105,10 @@ void ACharacterMW2D::ExtractBunch()
 		TArray<AActor*> FoundActors = { nullptr };
 		UGameplayStatics::GetAllActorsOfClass(GetWorld(), AScoreCntr::StaticClass(), FoundActors);
 		ScoreCntr = reinterpret_cast<AScoreCntr*>(FoundActors[0]);
+	}
+	
+	if (!IsResourceValid(Resource)) {
+		return;
 	}
 
 	ResourceStorage->AddResource(

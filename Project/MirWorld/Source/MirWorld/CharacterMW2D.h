@@ -48,6 +48,10 @@ protected:
 	// Says to the GameMode, that mob has performed the task
 	void reportDoneTask() override;
 
+	// Checks if aim resource is valid
+	UFUNCTION(BlueprintCallable, Category = "Character ID")
+	bool IsResourceValid(AResource* Resource);
+
 	// Extract a bunch of a resource
 	UFUNCTION(BlueprintCallable, Category = "Resource Extracting")
 	void ExtractBunch();

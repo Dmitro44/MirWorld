@@ -15,11 +15,13 @@ void AMobBase2D::moveToNextTile()
 		return;
 	}
 
-	Direction = NextTile - CurrentTile;
 	CurrentTile = NextTile;
 	NextTile = *(CurrentTrajectory.begin());
+	Direction = NextTile - CurrentTile;
 	percentOfPassedDistance = 0.0f;
 	CurrentTrajectory.RemoveAt(0);
+	
+	GEngine->AddOnScreenDebugMessage(-1, 1000.f, FColor::Green, CurrentTile.ToString());
 
 	GetWorldTimerManager().SetTimer(
 		ApproachTimerHandle,
@@ -37,6 +39,8 @@ void AMobBase2D::goCloserToNextTile()
 
 	FVector newLocation = CurrentTile * (1 - percentOfPassedDistance) + NextTile * percentOfPassedDistance;
 	SetActorLocation(newLocation);
+
+	GEngine->AddOnScreenDebugMessage(-1, 1000.f, FColor::Red, newLocation.ToString());
 
 	if (std::abs(percentOfPassedDistance - 1) < 0.01) {
 		GetWorldTimerManager().ClearTimer(ApproachTimerHandle);
@@ -82,9 +86,11 @@ void AMobBase2D::FollowTrajectory()
 	}
 
 	IsMoving = true;
-	if (CurrentTrajectory.IsEmpty()) {
-		NextTile = *(CurrentTrajectory.begin());
+	if (!CurrentTrajectory.IsEmpty()) {
+		//NextTile = *(CurrentTrajectory.begin()); // why?
 	}
+
+	GEngine->AddOnScreenDebugMessage(-1, 1000.f, FColor::Red, FString("GO"));
 
 	moveToNextTile();
 }
