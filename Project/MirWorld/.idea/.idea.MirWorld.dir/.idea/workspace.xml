@@ -8,7 +8,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b1dff6b1-20c7-4a7e-b1d4-942bd7ca98b4" name="Changes" comment="pa">
+      <change afterPath="$PROJECT_DIR$/Binaries/Mac/UnrealEditor-MirWorld-Mac-DebugGame.dylib" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/Cplayer.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/SelectedCplayer.uasset" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/Intermediate/Build/Mac/arm64/MirWorldEditor/DebugGame/DependencyCache.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Intermediate/Build/Mac/arm64/MirWorldEditor/DebugGame/Engine/SharedDefinitions.Engine.RTTI.Cpp20.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Intermediate/Build/Mac/arm64/MirWorldEditor/DebugGame/Engine/SharedPCH.Engine.RTTI.Cpp20.h" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/Intermediate/Build/Mac/arm64/UnrealEditor/DebugGame/MirWorld/CharacterMW.gen.cpp.d" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/Intermediate/Build/Mac/arm64/UnrealEditor/DebugGame/MirWorld/CharacterMW.gen.cpp.o" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/Intermediate/Build/Mac/arm64/UnrealEditor/DebugGame/MirWorld/CharacterMW.gen.cpp.o.rsp" afterDir="false" />
@@ -31,6 +36,7 @@
       <change afterPath="$PROJECT_DIR$/Intermediate/Build/Mac/arm64/UnrealEditor/DebugGame/MirWorld/MobBase2D.gen.cpp.o" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/Intermediate/Build/Mac/arm64/UnrealEditor/DebugGame/MirWorld/MobBase2D.gen.cpp.o.rsp" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/Intermediate/Build/Mac/arm64/UnrealEditor/DebugGame/MirWorld/Module.MirWorld.cpp.old" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Intermediate/Build/Mac/arm64/UnrealEditor/DebugGame/MirWorld/PathFinder.cpp.o" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/Intermediate/Build/Mac/arm64/UnrealEditor/DebugGame/MirWorld/Resource.gen.cpp.d" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/Intermediate/Build/Mac/arm64/UnrealEditor/DebugGame/MirWorld/Resource.gen.cpp.o" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/Intermediate/Build/Mac/arm64/UnrealEditor/DebugGame/MirWorld/Resource.gen.cpp.o.rsp" afterDir="false" />
@@ -49,7 +55,82 @@
       <change afterPath="$PROJECT_DIR$/Intermediate/Build/Mac/arm64/UnrealEditor/DebugGame/MirWorld/Tree.gen.cpp.d" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/Intermediate/Build/Mac/arm64/UnrealEditor/DebugGame/MirWorld/Tree.gen.cpp.o" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/Intermediate/Build/Mac/arm64/UnrealEditor/DebugGame/MirWorld/Tree.gen.cpp.o.rsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Intermediate/Build/Win64/x64/UnrealEditor/Development/MirWorld/SingleFile/CharacterMW2D.h.dep.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Intermediate/Build/Win64/x64/UnrealEditor/Development/MirWorld/SingleFile/EnumsFictitiousClass.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Intermediate/Build/Win64/x64/UnrealEditor/Development/MirWorld/SingleFile/EnumsFictitiousClass.h.dep.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Intermediate/Build/Win64/x64/UnrealEditor/Development/MirWorld/SingleFile/EnumsFictitiousClass.h.dep.lcpt.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Intermediate/Build/Win64/x64/UnrealEditor/Development/MirWorld/SingleFile/EnumsFictitiousClass.h.rsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Intermediate/Build/Win64/x64/UnrealEditor/Development/MirWorld/SingleFile/EnumsFictitiousClass.h.rsp.lcpt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Intermediate/Build/Win64/x64/UnrealEditor/Development/MirWorld/SingleFile/Generator.cpp.dep.lcpt.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Intermediate/Build/Win64/x64/UnrealEditor/Development/MirWorld/SingleFile/Generator.cpp.rsp.lcpt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Intermediate/Build/Win64/x64/UnrealEditor/Development/MirWorld/SingleFile/MapInfo.cpp.dep.lcpt.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Intermediate/Build/Win64/x64/UnrealEditor/Development/MirWorld/SingleFile/MapInfo.cpp.rsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Intermediate/Build/Win64/x64/UnrealEditor/Development/MirWorld/SingleFile/MapInfo.cpp.rsp.lcpt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Intermediate/Build/Win64/x64/UnrealEditor/Development/MirWorld/SingleFile/MapInfo.h.dep.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Intermediate/Build/Win64/x64/UnrealEditor/Development/MirWorld/SingleFile/MobBase2D.cpp.dep.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Intermediate/Build/Win64/x64/UnrealEditor/Development/MirWorld/SingleFile/PathFinder.cpp.dep.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Intermediate/Build/Win64/x64/UnrealEditor/Development/MirWorld/SingleFile/PathFinder.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Intermediate/Build/Win64/x64/UnrealEditor/Development/MirWorld/SingleFile/PathFinder.h.dep.lcpt.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Intermediate/Build/Win64/x64/UnrealEditor/Development/MirWorld/SingleFile/PathFinder.h.rsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Intermediate/Build/Win64/x64/UnrealEditor/Development/MirWorld/SingleFile/PathFinder.h.rsp.lcpt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Intermediate/Build/Win64/x64/UnrealEditor/Development/MirWorld/SingleFile/Resource.cpp.dep.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Intermediate/Build/Win64/x64/UnrealEditor/Development/MirWorld/SingleFile/Resource.h.dep.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Intermediate/Build/Win64/x64/UnrealEditor/Development/MirWorld/SingleFile/Tree.cpp.dep.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Intermediate/Build/Win64/x64/UnrealEditor/Development/MirWorld/SingleFile/Tree.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Intermediate/Build/Win64/x64/UnrealEditor/Development/MirWorld/SingleFile/Tree.h.dep.lcpt.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Intermediate/Build/Win64/x64/UnrealEditor/Development/MirWorld/SingleFile/Tree.h.rsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Intermediate/Build/Win64/x64/UnrealEditor/Development/MirWorld/SingleFile/Tree.h.rsp.lcpt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Intermediate/ProjectFiles/.Rider/Mac/DebugGame/Editor/MirWorld.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Intermediate/ProjectFiles/.Rider/Mac/DebugGame/Editor/UE5.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Saved/Autosaves/Game/Assets/SelectedCplayer_Auto0.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Saved/Autosaves/Game/BPs/CharactersAndMobs/BP_CharacterMW2D_Auto3.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Saved/Autosaves/Game/BPs/CharactersAndMobs/BP_CharacterMW2D_Auto5.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Saved/Autosaves/Game/BPs/Widgets/BP_GamePlayUI_Auto0.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Saved/Autosaves/Game/BPs/Widgets/BP_GamePlayUI_Auto2.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Saved/Autosaves/Game/BPs/Widgets/BP_GamePlayUI_Auto7.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Saved/Autosaves/Game/BPs/Widgets/BP_GamePlayUI_Auto8.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Saved/Autosaves/Game/BPs/Widgets/BP_GamePlayUI_Auto9.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Saved/Autosaves/Game/Maps/lvl_Gameplay_Auto2.umap" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/Saved/Config/CrashReportClient/UECC-Mac-095445BA8743B41202ECF9BA3E86889D/CrashReportClient.ini" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Saved/Config/CrashReportClient/UECC-Mac-AD5BAFD7B6442AB894461CA68204A804/CrashReportClient.ini" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Saved/Config/CrashReportClient/UECC-Mac-DFAAF3AA674D1D28073D47A7F62E9D6C/CrashReportClient.ini" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Saved/Config/CrashReportClient/UECC-Windows-13B66513418D34EBDAF2F59A43D726A3/CrashReportClient.ini" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Saved/Config/CrashReportClient/UECC-Windows-174F719947DF89D75B6CEA909468EF2C/CrashReportClient.ini" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Saved/Config/CrashReportClient/UECC-Windows-199FBCE244163902F2E491A3A20B94A5/CrashReportClient.ini" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Saved/Config/CrashReportClient/UECC-Windows-2D27E8754D4B9D774F4B60AE61A57D3B/CrashReportClient.ini" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Saved/Config/CrashReportClient/UECC-Windows-45AB36884401587ACA0E678958E1BDA7/CrashReportClient.ini" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Saved/Config/CrashReportClient/UECC-Windows-6B2DE1D34F50A350AB75E282B5DEF299/CrashReportClient.ini" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Saved/Config/CrashReportClient/UECC-Windows-83F16B3F47B680187CC6A8BBD1F68CA6/CrashReportClient.ini" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Saved/Config/CrashReportClient/UECC-Windows-8F6FD3574D17F9EF2495FDAB1EB7E844/CrashReportClient.ini" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Saved/Config/CrashReportClient/UECC-Windows-DA4D9D0148862268895C2BA2D84776E1/CrashReportClient.ini" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Saved/Config/CrashReportClient/UECC-Windows-DA691BEA4C302954CFAAEEA0D11579F3/CrashReportClient.ini" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Saved/Config/CrashReportClient/UECC-Windows-DFF962394E93C626679629B5E1F43B50/CrashReportClient.ini" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Saved/Config/CrashReportClient/UECC-Windows-E06014B94CAE36802F2B6796E79BEF88/CrashReportClient.ini" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Saved/Config/CrashReportClient/UECC-Windows-F65DD3D84F9188FB01F3328C9268793D/CrashReportClient.ini" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Saved/Crashes/UECC-Windows-199FBCE244163902F2E491A3A20B94A5_0000/CrashContext.runtime-xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Saved/Crashes/UECC-Windows-199FBCE244163902F2E491A3A20B94A5_0000/CrashReportClient.ini" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Saved/Crashes/UECC-Windows-199FBCE244163902F2E491A3A20B94A5_0000/MirWorld.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Saved/Crashes/UECC-Windows-DFF962394E93C626679629B5E1F43B50_0000/CrashContext.runtime-xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Saved/Crashes/UECC-Windows-DFF962394E93C626679629B5E1F43B50_0000/CrashReportClient.ini" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Saved/Crashes/UECC-Windows-DFF962394E93C626679629B5E1F43B50_0000/MirWorld.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Saved/Crashes/UECC-Windows-DFF962394E93C626679629B5E1F43B50_0000/UEMinidump.dmp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Saved/Logs/MirWorld-backup-2024.05.13-23.18.18.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Saved/Logs/MirWorld-backup-2024.05.13-23.21.51.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Saved/Logs/MirWorld-backup-2024.05.13-23.30.06.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Saved/Logs/MirWorld-backup-2024.05.13-23.33.26.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Saved/Logs/MirWorld-backup-2024.05.13-23.39.56.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Saved/Logs/MirWorld-backup-2024.05.14-00.01.14.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Saved/Logs/MirWorld-backup-2024.05.14-12.42.19.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Saved/Logs/MirWorld-backup-2024.05.14-12.45.54.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Saved/Logs/MirWorld-backup-2024.05.14-13.04.48.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Saved/Logs/MirWorld-backup-2024.05.14-13.39.40.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/BPs/CharactersAndMobs/BP_CharacterMW2D.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BPs/CharactersAndMobs/BP_CharacterMW2D.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/BPs/GameMods/BP_GameplayMW_GameMode.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BPs/GameMods/BP_GameplayMW_GameMode.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/BPs/GameMods/BP_ISelection.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BPs/GameMods/BP_ISelection.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/BPs/MapContent/BP_Resource.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BPs/MapContent/BP_Resource.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/BPs/MapContent/Tiles/BP_Tile.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BPs/MapContent/Tiles/BP_Tile.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/BPs/Widgets/BP_GamePlayUI.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BPs/Widgets/BP_GamePlayUI.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Maps/lvl_Gameplay.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Maps/lvl_Gameplay.umap" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Intermediate/Build/Mac/ActionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/Intermediate/Build/Mac/ActionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Intermediate/Build/Mac/UnrealEditor/Inc/MirWorld/UHT/CharacterMW.gen.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Intermediate/Build/Mac/UnrealEditor/Inc/MirWorld/UHT/CharacterMW.gen.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Intermediate/Build/Mac/UnrealEditor/Inc/MirWorld/UHT/GameplayMW_GameMode.gen.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Intermediate/Build/Mac/UnrealEditor/Inc/MirWorld/UHT/GameplayMW_GameMode.gen.cpp" afterDir="false" />
@@ -72,8 +153,31 @@
       <change beforePath="$PROJECT_DIR$/Intermediate/Build/Mac/arm64/MirWorldEditor/DebugGame/Engine/SharedPCH.Engine.NonOptimized.Cpp20.h.gch" beforeDir="false" afterPath="$PROJECT_DIR$/Intermediate/Build/Mac/arm64/MirWorldEditor/DebugGame/Engine/SharedPCH.Engine.NonOptimized.Cpp20.h.gch" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Intermediate/Build/Mac/arm64/MirWorldEditor/DebugGame/UnrealEd/SharedPCH.UnrealEd.NonOptimized.Cpp20.h.gch" beforeDir="false" afterPath="$PROJECT_DIR$/Intermediate/Build/Mac/arm64/MirWorldEditor/DebugGame/UnrealEd/SharedPCH.UnrealEd.NonOptimized.Cpp20.h.gch" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Intermediate/Build/Mac/arm64/UnrealEditor/ActionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/Intermediate/Build/Mac/arm64/UnrealEditor/ActionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Intermediate/Build/Win64/UnrealEditor/Inc/MirWorld/UHT/CharacterMW2D.gen.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Intermediate/Build/Win64/UnrealEditor/Inc/MirWorld/UHT/CharacterMW2D.gen.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Intermediate/Build/Win64/UnrealEditor/Inc/MirWorld/UHT/CharacterMW2D.generated.h" beforeDir="false" afterPath="$PROJECT_DIR$/Intermediate/Build/Win64/UnrealEditor/Inc/MirWorld/UHT/CharacterMW2D.generated.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Intermediate/TargetInfo.MirWorld.json" beforeDir="false" afterPath="$PROJECT_DIR$/Intermediate/TargetInfo.MirWorld.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Saved/Autosaves/Game/BPs/BP_MapGenerate_Auto1.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Saved/Autosaves/Game/BPs/BP_MapGenerate_Auto1.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Saved/Autosaves/Game/BPs/BP_MapGenerate_Auto2.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Saved/Autosaves/Game/BPs/BP_MapGenerate_Auto2.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Saved/Autosaves/Game/BPs/CharactersAndMobs/BP_CharacterMW2D_Auto1.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Saved/Autosaves/Game/BPs/CharactersAndMobs/BP_CharacterMW2D_Auto1.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Saved/Autosaves/Game/BPs/GameMods/BP_GameplayMW_GameMode_Auto1.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Saved/Autosaves/Game/BPs/GameMods/BP_GameplayMW_GameMode_Auto1.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Saved/Autosaves/Game/BPs/GameMods/BP_GameplayMW_GameMode_Auto4.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Saved/Autosaves/Game/BPs/GameMods/BP_GameplayMW_GameMode_Auto4.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Saved/Autosaves/Game/BPs/Widgets/BP_GamePlayUI_Auto1.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Saved/Autosaves/Game/BPs/Widgets/BP_GamePlayUI_Auto1.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Saved/Autosaves/Game/BPs/Widgets/BP_GamePlayUI_Auto6.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Saved/Autosaves/Game/BPs/Widgets/BP_GamePlayUI_Auto6.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Saved/Autosaves/Game/Maps/lvl_Gameplay_Auto1.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Saved/Autosaves/Game/Maps/lvl_Gameplay_Auto1.umap" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Saved/Config/MacEditor/EditorPerProjectUserSettings.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Saved/Config/MacEditor/EditorPerProjectUserSettings.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Saved/Logs/MirWorld-backup-2024.05.12-12.34.36.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Saved/Logs/MirWorld-backup-2024.05.12-13.09.13.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Saved/Logs/MirWorld-backup-2024.05.12-17.08.31.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Saved/Logs/MirWorld-backup-2024.05.12-17.32.21.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Saved/Logs/MirWorld-backup-2024.05.12-21.24.50.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Saved/Logs/MirWorld-backup-2024.05.12-22.08.43.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Saved/Logs/MirWorld-backup-2024.05.13-12.21.42.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Saved/Logs/MirWorld-backup-2024.05.13-12.26.34.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Saved/Logs/MirWorld-backup-2024.05.13-13.14.47.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Saved/Logs/MirWorld-backup-2024.05.13-19.19.24.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/MirWorld/CharacterMW2D.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/MirWorld/CharacterMW2D.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/MirWorld/CharacterMW2D.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/MirWorld/CharacterMW2D.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/MirWorld/MobBase2D.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/MirWorld/MobBase2D.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/MirWorld/PathFinder.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/MirWorld/PathFinder.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/MirWorld/PathFinder.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/MirWorld/PathFinder.h" afterDir="false" />
     </list>

@@ -1,4 +1,4 @@
-/Users/daniil_mariyn/Documents/Game\ Mirworld/MirWorld/Project/MirWorld/Intermediate/Build/Mac/arm64/UnrealEditor/DebugGame/MirWorld/Module.MirWorld.cpp.o: \
+/Users/daniil_mariyn/Documents/Game\ Mirworld/MirWorld/Project/MirWorld/Intermediate/Build/Mac/arm64/UnrealEditor/DebugGame/MirWorld/CharacterMW2D.cpp.o: \
   /Users/daniil_mariyn/Documents/Game\ Mirworld/MirWorld/Project/MirWorld/Intermediate/Build/Mac/arm64/MirWorldEditor/DebugGame/Engine/SharedPCH.Engine.NonOptimized.Cpp20.h \
   /Users/daniil_mariyn/Documents/Game\ Mirworld/MirWorld/Project/MirWorld/Intermediate/Build/Mac/arm64/MirWorldEditor/DebugGame/Engine/SharedDefinitions.Engine.NonOptimized.Cpp20.h \
   /Users/Shared/Epic\ Games/UE_5.3/Engine/Source/Runtime/Engine/Public/EngineSharedPCH.h \
@@ -3969,44 +3969,25 @@
   /Users/Shared/Epic\ Games/UE_5.3/Engine/Source/Editor/UnrealEd/Public/MRUFavoritesList.h \
   /Users/Shared/Epic\ Games/UE_5.3/Engine/Source/Editor/UnrealEd/Public/MRUList.h \
   /Users/Shared/Epic\ Games/UE_5.3/Engine/Source/../Intermediate/Build/Mac/UnrealEditor/Inc/UnrealEd/UHT/AssetEditorSubsystem.generated.h \
-  /Users/daniil_mariyn/Documents/Game\ Mirworld/MirWorld/Project/MirWorld/Intermediate/Build/Mac/arm64/UnrealEditor/DebugGame/MirWorld/Module.MirWorld.cpp \
+  /Users/daniil_mariyn/Documents/Game\ Mirworld/MirWorld/Project/MirWorld/Source/MirWorld/CharacterMW2D.cpp \
   /Users/daniil_mariyn/Documents/Game\ Mirworld/MirWorld/Project/MirWorld/Intermediate/Build/Mac/arm64/UnrealEditor/DebugGame/MirWorld/Definitions.MirWorld.h \
-  /Users/daniil_mariyn/Documents/Game\ Mirworld/MirWorld/Project/MirWorld/Intermediate/Build/Mac/UnrealEditor/Inc/MirWorld/UHT/BasicActor.gen.cpp \
-  Runtime/CoreUObject/Public/UObject/GeneratedCppIncludes.h \
-  /Users/daniil_mariyn/Documents/Game\ Mirworld/MirWorld/Project/MirWorld/Source/MirWorld/BasicActor.h \
-  Runtime/Core/Public/CoreMinimal.h \
-  Runtime/Engine/Classes/GameFramework/Actor.h \
-  /Users/daniil_mariyn/Documents/Game\ Mirworld/MirWorld/Project/MirWorld/Intermediate/Build/Mac/UnrealEditor/Inc/MirWorld/UHT/BasicActor.generated.h \
-  Runtime/CoreUObject/Public/UObject/ObjectMacros.h \
-  Runtime/CoreUObject/Public/UObject/ScriptMacros.h \
-  /Users/daniil_mariyn/Documents/Game\ Mirworld/MirWorld/Project/MirWorld/Intermediate/Build/Mac/UnrealEditor/Inc/MirWorld/UHT/PathFinder.gen.cpp \
-  /Users/daniil_mariyn/Documents/Game\ Mirworld/MirWorld/Project/MirWorld/Source/MirWorld/PathFinder.h \
-  Runtime/Engine/Classes/GameFramework/GameModeBase.h \
-  Runtime/Core/Public/Misc/Guid.h \
-  Runtime/CoreUObject/Public/Templates/SubclassOf.h \
-  Runtime/Engine/Classes/GameFramework/Pawn.h \
-  Runtime/Engine/Classes/GameFramework/Info.h \
-  Runtime/Engine/Classes/Engine/ServerStatReplicator.h \
-  ../Intermediate/Build/Mac/UnrealEditor/Inc/Engine/UHT/ServerStatReplicator.generated.h \
-  Runtime/CoreOnline/Public/Online/CoreOnline.h \
-  Runtime/Engine/Classes/GameFramework/PlayerController.h \
-  ../Intermediate/Build/Mac/UnrealEditor/Inc/Engine/UHT/GameModeBase.generated.h \
-  /Users/daniil_mariyn/Documents/Game\ Mirworld/MirWorld/Project/MirWorld/Intermediate/Build/Mac/UnrealEditor/Inc/MirWorld/UHT/PathFinder.generated.h \
-  /Users/daniil_mariyn/Documents/Game\ Mirworld/MirWorld/Project/MirWorld/Intermediate/Build/Mac/UnrealEditor/Inc/MirWorld/UHT/ResourceStorage.gen.cpp \
-  /Users/daniil_mariyn/Documents/Game\ Mirworld/MirWorld/Project/MirWorld/Source/MirWorld/ResourceStorage.h \
-  /Users/daniil_mariyn/Documents/Game\ Mirworld/MirWorld/Project/MirWorld/Source/MirWorld/EnumsFictitiousClass.h \
-  /Users/daniil_mariyn/Documents/Game\ Mirworld/MirWorld/Project/MirWorld/Source/MirWorld/GameplayMW_GameMode.h \
-  /Users/daniil_mariyn/Documents/Game\ Mirworld/MirWorld/Project/MirWorld/Intermediate/Build/Mac/UnrealEditor/Inc/MirWorld/UHT/GameplayMW_GameMode.generated.h \
+  /Users/daniil_mariyn/Documents/Game\ Mirworld/MirWorld/Project/MirWorld/Source/MirWorld/CharacterMW2D.h \
   Runtime/Engine/Classes/Kismet/GameplayStatics.h \
+  Runtime/Core/Public/CoreMinimal.h \
+  Runtime/CoreUObject/Public/UObject/ObjectMacros.h \
   Runtime/CoreUObject/Public/UObject/Object.h \
+  Runtime/CoreUObject/Public/Templates/SubclassOf.h \
   Runtime/Engine/Classes/Engine/EngineTypes.h \
   Runtime/CoreUObject/Public/UObject/Interface.h \
+  Runtime/Engine/Classes/GameFramework/Actor.h \
   Runtime/Engine/Public/CollisionQueryParams.h \
   Runtime/Engine/Classes/Engine/LatentActionManager.h \
+  Runtime/Engine/Classes/GameFramework/PlayerController.h \
   Runtime/Engine/Classes/Kismet/BlueprintFunctionLibrary.h \
   Runtime/Engine/Classes/Kismet/KismetSystemLibrary.h \
   Runtime/Engine/Classes/Engine/HitResult.h \
   Runtime/CoreUObject/Public/UObject/UnrealType.h \
+  Runtime/CoreUObject/Public/UObject/ScriptMacros.h \
   Runtime/CoreUObject/Public/UObject/TextProperty.h \
   Runtime/CoreUObject/Public/UObject/SoftObjectPtr.h \
   Runtime/CoreUObject/Public/UObject/PropertyAccessUtil.h \
@@ -4027,24 +4008,48 @@
   ../Intermediate/Build/Mac/UnrealEditor/Inc/Engine/UHT/GameplayStaticsTypes.generated.h \
   Runtime/Engine/Classes/Particles/WorldPSCPool.h \
   ../Intermediate/Build/Mac/UnrealEditor/Inc/Engine/UHT/GameplayStatics.generated.h \
-  /Users/daniil_mariyn/Documents/Game\ Mirworld/MirWorld/Project/MirWorld/Intermediate/Build/Mac/UnrealEditor/Inc/MirWorld/UHT/ResourceStorage.generated.h \
-  /Users/daniil_mariyn/Documents/Game\ Mirworld/MirWorld/Project/MirWorld/Source/MirWorld/SPlayerPawn.cpp \
-  /Users/daniil_mariyn/Documents/Game\ Mirworld/MirWorld/Project/MirWorld/Source/MirWorld/SPlayerPawn.h \
-  Runtime/Engine/Classes/Components/SceneComponent.h \
-  Runtime/Engine/Classes/GameFramework/SpringArmComponent.h \
-  ../Intermediate/Build/Mac/UnrealEditor/Inc/Engine/UHT/SpringArmComponent.generated.h \
-  Runtime/Engine/Classes/Camera/CameraComponent.h \
-  Runtime/CoreUObject/Public/UObject/ScriptInterface.h \
-  Runtime/Engine/Classes/Engine/BlendableInterface.h \
-  Runtime/Engine/Classes/Engine/Scene.h \
-  Runtime/Engine/Classes/Camera/CameraTypes.h \
-  ../Intermediate/Build/Mac/UnrealEditor/Inc/Engine/UHT/CameraComponent.generated.h \
-  /Users/daniil_mariyn/Documents/Game\ Mirworld/MirWorld/Project/MirWorld/Intermediate/Build/Mac/UnrealEditor/Inc/MirWorld/UHT/SPlayerPawn.generated.h \
-  Runtime/Engine/Classes/Kismet/KismetMathLibrary.h \
-  Runtime/CoreUObject/Public/UObject/Script.h \
-  Runtime/Core/Public/Math/RandomStream.h \
-  Runtime/CoreUObject/Public/UObject/Stack.h \
-  Runtime/Core/Public/Misc/QualifiedFrameTime.h \
+  /Users/daniil_mariyn/Documents/Game\ Mirworld/MirWorld/Project/MirWorld/Source/MirWorld/Resource.h \
+  /Users/daniil_mariyn/Documents/Game\ Mirworld/MirWorld/Project/MirWorld/Source/MirWorld/EnumsFictitiousClass.h \
+  /Users/daniil_mariyn/Documents/Game\ Mirworld/MirWorld/Project/MirWorld/Source/MirWorld/BasicActor.h \
+  /Users/daniil_mariyn/Documents/Game\ Mirworld/MirWorld/Project/MirWorld/Intermediate/Build/Mac/UnrealEditor/Inc/MirWorld/UHT/BasicActor.generated.h \
+  /Users/daniil_mariyn/Documents/Game\ Mirworld/MirWorld/Project/MirWorld/Intermediate/Build/Mac/UnrealEditor/Inc/MirWorld/UHT/Resource.generated.h \
+  /Users/daniil_mariyn/Documents/Game\ Mirworld/MirWorld/Project/MirWorld/Source/MirWorld/MobBase2D.h \
+  /Users/daniil_mariyn/Documents/Game\ Mirworld/MirWorld/Project/MirWorld/Source/MirWorld/MobBase.h \
+  /Users/daniil_mariyn/Documents/Game\ Mirworld/MirWorld/Project/MirWorld/Intermediate/Build/Mac/UnrealEditor/Inc/MirWorld/UHT/MobBase.generated.h \
+  ../Plugins/2D/Paper2D/Source/Paper2D/Classes/PaperCharacter.h \
+  Runtime/Engine/Classes/GameFramework/Character.h \
+  Runtime/CoreUObject/Public/UObject/UObjectGlobals.h \
+  Runtime/CoreUObject/Public/UObject/CoreNet.h \
   Runtime/Engine/Classes/Engine/NetSerialization.h \
-  ../Intermediate/Build/Mac/UnrealEditor/Inc/Engine/UHT/KismetMathLibrary.generated.h \
-  /Users/Shared/Epic\ Games/UE_5.3/Engine/Source/Runtime/Engine/Classes/Kismet/KismetMathLibrary.inl
+  Runtime/Engine/Classes/Components/ActorComponent.h \
+  Runtime/Engine/Classes/GameFramework/Pawn.h \
+  Runtime/Engine/Classes/GameFramework/CharacterMovementReplication.h \
+  Runtime/Core/Public/Serialization/BitWriter.h \
+  Runtime/Core/Public/Containers/BitArray.h \
+  Runtime/Experimental/Iris/Core/Public/Iris/Serialization/IrisObjectReferencePackageMap.h \
+  ../Intermediate/Build/Mac/UnrealEditor/Inc/IrisCore/UHT/IrisObjectReferencePackageMap.generated.h \
+  ../Intermediate/Build/Mac/UnrealEditor/Inc/Engine/UHT/CharacterMovementReplication.generated.h \
+  Runtime/Engine/Classes/Animation/AnimationAsset.h \
+  Runtime/Engine/Classes/GameFramework/RootMotionSource.h \
+  Runtime/Core/Public/HAL/IConsoleManager.h \
+  Runtime/CoreUObject/Public/UObject/Class.h \
+  ../Intermediate/Build/Mac/UnrealEditor/Inc/Engine/UHT/RootMotionSource.generated.h \
+  ../Intermediate/Build/Mac/UnrealEditor/Inc/Engine/UHT/Character.generated.h \
+  ../Plugins/2D/Paper2D/Intermediate/Build/Mac/UnrealEditor/Inc/Paper2D/UHT/PaperCharacter.generated.h \
+  /Users/daniil_mariyn/Documents/Game\ Mirworld/MirWorld/Project/MirWorld/Intermediate/Build/Mac/UnrealEditor/Inc/MirWorld/UHT/MobBase2D.generated.h \
+  /Users/daniil_mariyn/Documents/Game\ Mirworld/MirWorld/Project/MirWorld/Source/MirWorld/CharacterMW.h \
+  /Users/daniil_mariyn/Documents/Game\ Mirworld/MirWorld/Project/MirWorld/Source/MirWorld/ScoreCntr.h \
+  /Users/daniil_mariyn/Documents/Game\ Mirworld/MirWorld/Project/MirWorld/Source/MirWorld/GameplayMW_GameMode.h \
+  Runtime/Engine/Classes/GameFramework/GameModeBase.h \
+  Runtime/Core/Public/Misc/Guid.h \
+  Runtime/Engine/Classes/GameFramework/Info.h \
+  Runtime/Engine/Classes/Engine/ServerStatReplicator.h \
+  ../Intermediate/Build/Mac/UnrealEditor/Inc/Engine/UHT/ServerStatReplicator.generated.h \
+  Runtime/CoreOnline/Public/Online/CoreOnline.h \
+  ../Intermediate/Build/Mac/UnrealEditor/Inc/Engine/UHT/GameModeBase.generated.h \
+  /Users/daniil_mariyn/Documents/Game\ Mirworld/MirWorld/Project/MirWorld/Intermediate/Build/Mac/UnrealEditor/Inc/MirWorld/UHT/GameplayMW_GameMode.generated.h \
+  /Users/daniil_mariyn/Documents/Game\ Mirworld/MirWorld/Project/MirWorld/Intermediate/Build/Mac/UnrealEditor/Inc/MirWorld/UHT/ScoreCntr.generated.h \
+  /Users/daniil_mariyn/Documents/Game\ Mirworld/MirWorld/Project/MirWorld/Source/MirWorld/ResourceStorage.h \
+  /Users/daniil_mariyn/Documents/Game\ Mirworld/MirWorld/Project/MirWorld/Intermediate/Build/Mac/UnrealEditor/Inc/MirWorld/UHT/ResourceStorage.generated.h \
+  /Users/daniil_mariyn/Documents/Game\ Mirworld/MirWorld/Project/MirWorld/Intermediate/Build/Mac/UnrealEditor/Inc/MirWorld/UHT/CharacterMW.generated.h \
+  /Users/daniil_mariyn/Documents/Game\ Mirworld/MirWorld/Project/MirWorld/Intermediate/Build/Mac/UnrealEditor/Inc/MirWorld/UHT/CharacterMW2D.generated.h

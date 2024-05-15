@@ -22,12 +22,27 @@ void EmptyLinkFunctionForGeneratedCodeResource() {}
 		P_THIS->SetResourceType(Z_Param_NewType);
 		P_NATIVE_END;
 	}
-	DEFINE_FUNCTION(AResource::execSetBiomeType)
+	DEFINE_FUNCTION(AResource::execSetDoesExist)
 	{
-		P_GET_PROPERTY(FIntProperty,Z_Param_Newtype);
+		P_GET_UBOOL(Z_Param_NewStatus);
 		P_FINISH;
 		P_NATIVE_BEGIN;
-		P_THIS->SetBiomeType(Z_Param_Newtype);
+		P_THIS->SetDoesExist(Z_Param_NewStatus);
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(AResource::execGetDoesExist)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		*(bool*)Z_Param__Result=P_THIS->GetDoesExist();
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(AResource::execSetBiomeType)
+	{
+		P_GET_PROPERTY(FIntProperty,Z_Param_NewType);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->SetBiomeType(Z_Param_NewType);
 		P_NATIVE_END;
 	}
 	DEFINE_FUNCTION(AResource::execGetBiomeType)
@@ -70,10 +85,12 @@ void EmptyLinkFunctionForGeneratedCodeResource() {}
 		UClass* Class = AResource::StaticClass();
 		static const FNameNativePtrPair Funcs[] = {
 			{ "GetBiomeType", &AResource::execGetBiomeType },
+			{ "GetDoesExist", &AResource::execGetDoesExist },
 			{ "GetResourceLeft", &AResource::execGetResourceLeft },
 			{ "GetResourceType", &AResource::execGetResourceType },
 			{ "GiveBunch", &AResource::execGiveBunch },
 			{ "SetBiomeType", &AResource::execSetBiomeType },
+			{ "SetDoesExist", &AResource::execSetDoesExist },
 			{ "SetResourceType", &AResource::execSetResourceType },
 			{ "TimeRequired", &AResource::execTimeRequired },
 		};
@@ -111,6 +128,46 @@ void EmptyLinkFunctionForGeneratedCodeResource() {}
 		if (!ReturnFunction)
 		{
 			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AResource_GetBiomeType_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_AResource_GetDoesExist_Statics
+	{
+		struct Resource_eventGetDoesExist_Parms
+		{
+			bool ReturnValue;
+		};
+		static void NewProp_ReturnValue_SetBit(void* Obj);
+		static const UECodeGen_Private::FBoolPropertyParams NewProp_ReturnValue;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+	void Z_Construct_UFunction_AResource_GetDoesExist_Statics::NewProp_ReturnValue_SetBit(void* Obj)
+	{
+		((Resource_eventGetDoesExist_Parms*)Obj)->ReturnValue = 1;
+	}
+	const UECodeGen_Private::FBoolPropertyParams Z_Construct_UFunction_AResource_GetDoesExist_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(Resource_eventGetDoesExist_Parms), &Z_Construct_UFunction_AResource_GetDoesExist_Statics::NewProp_ReturnValue_SetBit, METADATA_PARAMS(0, nullptr) };
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AResource_GetDoesExist_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AResource_GetDoesExist_Statics::NewProp_ReturnValue,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AResource_GetDoesExist_Statics::Function_MetaDataParams[] = {
+		{ "Category", "Resource" },
+		{ "ModuleRelativePath", "Resource.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AResource_GetDoesExist_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AResource, nullptr, "GetDoesExist", nullptr, nullptr, Z_Construct_UFunction_AResource_GetDoesExist_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AResource_GetDoesExist_Statics::PropPointers), sizeof(Z_Construct_UFunction_AResource_GetDoesExist_Statics::Resource_eventGetDoesExist_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x54020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AResource_GetDoesExist_Statics::Function_MetaDataParams), Z_Construct_UFunction_AResource_GetDoesExist_Statics::Function_MetaDataParams) };
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_AResource_GetDoesExist_Statics::PropPointers) < 2048);
+	static_assert(sizeof(Z_Construct_UFunction_AResource_GetDoesExist_Statics::Resource_eventGetDoesExist_Parms) < MAX_uint16);
+	UFunction* Z_Construct_UFunction_AResource_GetDoesExist()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AResource_GetDoesExist_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -223,18 +280,18 @@ void EmptyLinkFunctionForGeneratedCodeResource() {}
 	{
 		struct Resource_eventSetBiomeType_Parms
 		{
-			int32 Newtype;
+			int32 NewType;
 		};
-		static const UECodeGen_Private::FIntPropertyParams NewProp_Newtype;
+		static const UECodeGen_Private::FIntPropertyParams NewProp_NewType;
 		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
 #endif
 		static const UECodeGen_Private::FFunctionParams FuncParams;
 	};
-	const UECodeGen_Private::FIntPropertyParams Z_Construct_UFunction_AResource_SetBiomeType_Statics::NewProp_Newtype = { "Newtype", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(Resource_eventSetBiomeType_Parms, Newtype), METADATA_PARAMS(0, nullptr) };
+	const UECodeGen_Private::FIntPropertyParams Z_Construct_UFunction_AResource_SetBiomeType_Statics::NewProp_NewType = { "NewType", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(Resource_eventSetBiomeType_Parms, NewType), METADATA_PARAMS(0, nullptr) };
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AResource_SetBiomeType_Statics::PropPointers[] = {
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AResource_SetBiomeType_Statics::NewProp_Newtype,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AResource_SetBiomeType_Statics::NewProp_NewType,
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AResource_SetBiomeType_Statics::Function_MetaDataParams[] = {
@@ -251,6 +308,46 @@ void EmptyLinkFunctionForGeneratedCodeResource() {}
 		if (!ReturnFunction)
 		{
 			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AResource_SetBiomeType_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_AResource_SetDoesExist_Statics
+	{
+		struct Resource_eventSetDoesExist_Parms
+		{
+			bool NewStatus;
+		};
+		static void NewProp_NewStatus_SetBit(void* Obj);
+		static const UECodeGen_Private::FBoolPropertyParams NewProp_NewStatus;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+	void Z_Construct_UFunction_AResource_SetDoesExist_Statics::NewProp_NewStatus_SetBit(void* Obj)
+	{
+		((Resource_eventSetDoesExist_Parms*)Obj)->NewStatus = 1;
+	}
+	const UECodeGen_Private::FBoolPropertyParams Z_Construct_UFunction_AResource_SetDoesExist_Statics::NewProp_NewStatus = { "NewStatus", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(Resource_eventSetDoesExist_Parms), &Z_Construct_UFunction_AResource_SetDoesExist_Statics::NewProp_NewStatus_SetBit, METADATA_PARAMS(0, nullptr) };
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AResource_SetDoesExist_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AResource_SetDoesExist_Statics::NewProp_NewStatus,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AResource_SetDoesExist_Statics::Function_MetaDataParams[] = {
+		{ "Category", "Resource" },
+		{ "ModuleRelativePath", "Resource.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AResource_SetDoesExist_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AResource, nullptr, "SetDoesExist", nullptr, nullptr, Z_Construct_UFunction_AResource_SetDoesExist_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AResource_SetDoesExist_Statics::PropPointers), sizeof(Z_Construct_UFunction_AResource_SetDoesExist_Statics::Resource_eventSetDoesExist_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AResource_SetDoesExist_Statics::Function_MetaDataParams), Z_Construct_UFunction_AResource_SetDoesExist_Statics::Function_MetaDataParams) };
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_AResource_SetDoesExist_Statics::PropPointers) < 2048);
+	static_assert(sizeof(Z_Construct_UFunction_AResource_SetDoesExist_Statics::Resource_eventSetDoesExist_Parms) < MAX_uint16);
+	UFunction* Z_Construct_UFunction_AResource_SetDoesExist()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AResource_SetDoesExist_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -367,10 +464,12 @@ void EmptyLinkFunctionForGeneratedCodeResource() {}
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_AResource_Statics::DependentSingletons) < 16);
 	const FClassFunctionLinkInfo Z_Construct_UClass_AResource_Statics::FuncInfo[] = {
 		{ &Z_Construct_UFunction_AResource_GetBiomeType, "GetBiomeType" }, // 2259446154
+		{ &Z_Construct_UFunction_AResource_GetDoesExist, "GetDoesExist" }, // 970532320
 		{ &Z_Construct_UFunction_AResource_GetResourceLeft, "GetResourceLeft" }, // 3411369210
 		{ &Z_Construct_UFunction_AResource_GetResourceType, "GetResourceType" }, // 1835135641
 		{ &Z_Construct_UFunction_AResource_GiveBunch, "GiveBunch" }, // 1443290399
-		{ &Z_Construct_UFunction_AResource_SetBiomeType, "SetBiomeType" }, // 3468290282
+		{ &Z_Construct_UFunction_AResource_SetBiomeType, "SetBiomeType" }, // 236822830
+		{ &Z_Construct_UFunction_AResource_SetDoesExist, "SetDoesExist" }, // 1206391479
 		{ &Z_Construct_UFunction_AResource_SetResourceType, "SetResourceType" }, // 576808706
 		{ &Z_Construct_UFunction_AResource_TimeRequired, "TimeRequired" }, // 1690557605
 	};
@@ -469,9 +568,9 @@ void EmptyLinkFunctionForGeneratedCodeResource() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_daniil_mariyn_Documents_Game_Mirworld_MirWorld_Project_MirWorld_Source_MirWorld_Resource_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_AResource, AResource::StaticClass, TEXT("AResource"), &Z_Registration_Info_UClass_AResource, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AResource), 3731652838U) },
+		{ Z_Construct_UClass_AResource, AResource::StaticClass, TEXT("AResource"), &Z_Registration_Info_UClass_AResource, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AResource), 2107457861U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_daniil_mariyn_Documents_Game_Mirworld_MirWorld_Project_MirWorld_Source_MirWorld_Resource_h_582733577(TEXT("/Script/MirWorld"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_daniil_mariyn_Documents_Game_Mirworld_MirWorld_Project_MirWorld_Source_MirWorld_Resource_h_275048445(TEXT("/Script/MirWorld"),
 		Z_CompiledInDeferFile_FID_daniil_mariyn_Documents_Game_Mirworld_MirWorld_Project_MirWorld_Source_MirWorld_Resource_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_daniil_mariyn_Documents_Game_Mirworld_MirWorld_Project_MirWorld_Source_MirWorld_Resource_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

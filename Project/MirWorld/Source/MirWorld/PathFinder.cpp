@@ -624,6 +624,7 @@ TFVector tracePath(vector<vector<cell>> cellDetails, Pair dest)
     //printf("\nThe Path is ");
     UE_LOG(LogTemp, Warning, TEXT("The path is: "));
     int row = dest.first;
+    ////
     int col = dest.second;
     std::vector<Pair> Path;
     TFVector PATH;
@@ -670,18 +671,15 @@ TFVector  APathFinder::getPathFromTo(int grid[][COL], FVector src_1, FVector des
     {
         //printf("Source is invalid\n");
         return {NO_WAY};
+        
     }
 
     // If the destination is out of range
     if (isValid(dest.first, dest.second) == false)
     {
-<<<<<<< HEAD
         UE_LOG(LogTemp, Warning, TEXT("Destination is invalid"));
-        return NO_WAY;
-=======
+        return {NO_WAY};
         //printf("Destination is invalid\n");
-        return{NO_WAY};
->>>>>>> 4f43bab (pathfinding method with ordinary vector)
     }
 
     // Either the source or the destination is blocked
@@ -1052,40 +1050,11 @@ TFVector  APathFinder::getPathFromTo(int grid[][COL], FVector src_1, FVector des
             }
         }
     }
-<<<<<<< HEAD
-<<<<<<< HEAD
-	//if (foundDest == false)
-	{
+
+	if (foundDest == false)
 		UE_LOG(LogTemp, Warning, TEXT("Failed to find the Destination Cell"));
-=======
-	if (foundDest == false)UE_LOG(LogTemp, Warning, TEXT("Failed to find the Destination Cell"));
->>>>>>> 6eee571 (my commit)
-		return NO_WAY;
-}
-TFVector APathFinder::getPathFromTo(int32 grid[][COL],FVector start, FVector dest)
-{
-    GEngine->AddOnScreenDebugMessage(-1, 1000.f, FColor::Red, start.ToString());
-    GEngine->AddOnScreenDebugMessage(-1, 1000.f, FColor::Red, dest.ToString());
-    std::string str;
-    for (int i = 0; i < 50; ++i) {
-        for (int j = 0; j < 50; ++j) {
-            str.append(1, IsUnBlocked(grid, i, j) + '0');
-        }
-        str.append("\n");
-    }
-    FString fstr(str.c_str());
-    //GEngine->AddOnScreenDebugMessage(-1, 1000.f, FColor::Red, fstr);
-
-	return AStarSearch(grid,start, dest);
-=======
-
-    // When the destination cell is not found and the open
-    // list is empty, then we conclude that we failed to
-    // reach the destination cell. This may happen when the
-    // there is no way to destination cell (due to
-    // blockages)
-    if (foundDest == false)
-        std::cout << "Failed to find the Destination Cell\n";
-    return{NO_WAY};
->>>>>>> 4f43bab (pathfinding method with ordinary vector)
+	    
+    return {NO_WAY};
+    
+    
 }

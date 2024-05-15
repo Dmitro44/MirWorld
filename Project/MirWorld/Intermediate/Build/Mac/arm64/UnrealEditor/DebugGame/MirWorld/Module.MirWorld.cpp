@@ -2,6 +2,4 @@
 #include "/Users/daniil_mariyn/Documents/Game Mirworld/MirWorld/Project/MirWorld/Intermediate/Build/Mac/UnrealEditor/Inc/MirWorld/UHT/BasicActor.gen.cpp"
 #include "/Users/daniil_mariyn/Documents/Game Mirworld/MirWorld/Project/MirWorld/Intermediate/Build/Mac/UnrealEditor/Inc/MirWorld/UHT/PathFinder.gen.cpp"
 #include "/Users/daniil_mariyn/Documents/Game Mirworld/MirWorld/Project/MirWorld/Intermediate/Build/Mac/UnrealEditor/Inc/MirWorld/UHT/ResourceStorage.gen.cpp"
-#include "/Users/daniil_mariyn/Documents/Game Mirworld/MirWorld/Project/MirWorld/Source/MirWorld/CharacterMW2D.cpp"
-#include "/Users/daniil_mariyn/Documents/Game Mirworld/MirWorld/Project/MirWorld/Source/MirWorld/MobBase2D.cpp"
 #include "/Users/daniil_mariyn/Documents/Game Mirworld/MirWorld/Project/MirWorld/Source/MirWorld/SPlayerPawn.cpp"

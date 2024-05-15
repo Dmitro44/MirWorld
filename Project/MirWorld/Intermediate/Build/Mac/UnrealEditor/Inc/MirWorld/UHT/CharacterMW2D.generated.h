@@ -9,6 +9,7 @@
 #include "UObject/ScriptMacros.h"
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
+class AResource;
 #ifdef MIRWORLD_CharacterMW2D_generated_h
 #error "CharacterMW2D.generated.h already included, missing '#pragma once' in CharacterMW2D.h"
 #endif
@@ -20,6 +21,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #define FID_daniil_mariyn_Documents_Game_Mirworld_MirWorld_Project_MirWorld_Source_MirWorld_CharacterMW2D_h_21_RPC_WRAPPERS_NO_PURE_DECLS \
  \
 	DECLARE_FUNCTION(execExtractBunch); \
+	DECLARE_FUNCTION(execIsResourceValid); \
 	DECLARE_FUNCTION(execSetID); \
 	DECLARE_FUNCTION(execGetID); \
 	DECLARE_FUNCTION(execIsWorking);
