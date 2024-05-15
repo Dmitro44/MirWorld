@@ -7,8 +7,75 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b1dff6b1-20c7-4a7e-b1d4-942bd7ca98b4" name="Changes" comment="path commit">
+    <list default="true" id="b1dff6b1-20c7-4a7e-b1d4-942bd7ca98b4" name="Changes" comment="pa">
+      <change afterPath="$PROJECT_DIR$/Intermediate/Build/Mac/arm64/MirWorldEditor/DebugGame/DependencyCache.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Intermediate/Build/Mac/arm64/UnrealEditor/DebugGame/MirWorld/CharacterMW.gen.cpp.d" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Intermediate/Build/Mac/arm64/UnrealEditor/DebugGame/MirWorld/CharacterMW.gen.cpp.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Intermediate/Build/Mac/arm64/UnrealEditor/DebugGame/MirWorld/CharacterMW.gen.cpp.o.rsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Intermediate/Build/Mac/arm64/UnrealEditor/DebugGame/MirWorld/CharacterMW2D.gen.cpp.d" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Intermediate/Build/Mac/arm64/UnrealEditor/DebugGame/MirWorld/CharacterMW2D.gen.cpp.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Intermediate/Build/Mac/arm64/UnrealEditor/DebugGame/MirWorld/CharacterMW2D.gen.cpp.o.rsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Intermediate/Build/Mac/arm64/UnrealEditor/DebugGame/MirWorld/GameplayMW_GameMode.gen.cpp.d" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Intermediate/Build/Mac/arm64/UnrealEditor/DebugGame/MirWorld/GameplayMW_GameMode.gen.cpp.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Intermediate/Build/Mac/arm64/UnrealEditor/DebugGame/MirWorld/GameplayMW_GameMode.gen.cpp.o.rsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Intermediate/Build/Mac/arm64/UnrealEditor/DebugGame/MirWorld/Generator.gen.cpp.d" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Intermediate/Build/Mac/arm64/UnrealEditor/DebugGame/MirWorld/Generator.gen.cpp.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Intermediate/Build/Mac/arm64/UnrealEditor/DebugGame/MirWorld/Generator.gen.cpp.o.rsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Intermediate/Build/Mac/arm64/UnrealEditor/DebugGame/MirWorld/MirWorld.init.gen.cpp.d" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Intermediate/Build/Mac/arm64/UnrealEditor/DebugGame/MirWorld/MirWorld.init.gen.cpp.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Intermediate/Build/Mac/arm64/UnrealEditor/DebugGame/MirWorld/MirWorld.init.gen.cpp.o.rsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Intermediate/Build/Mac/arm64/UnrealEditor/DebugGame/MirWorld/MobBase.gen.cpp.d" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Intermediate/Build/Mac/arm64/UnrealEditor/DebugGame/MirWorld/MobBase.gen.cpp.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Intermediate/Build/Mac/arm64/UnrealEditor/DebugGame/MirWorld/MobBase.gen.cpp.o.rsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Intermediate/Build/Mac/arm64/UnrealEditor/DebugGame/MirWorld/MobBase2D.gen.cpp.d" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Intermediate/Build/Mac/arm64/UnrealEditor/DebugGame/MirWorld/MobBase2D.gen.cpp.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Intermediate/Build/Mac/arm64/UnrealEditor/DebugGame/MirWorld/MobBase2D.gen.cpp.o.rsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Intermediate/Build/Mac/arm64/UnrealEditor/DebugGame/MirWorld/Module.MirWorld.cpp.old" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Intermediate/Build/Mac/arm64/UnrealEditor/DebugGame/MirWorld/Resource.gen.cpp.d" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Intermediate/Build/Mac/arm64/UnrealEditor/DebugGame/MirWorld/Resource.gen.cpp.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Intermediate/Build/Mac/arm64/UnrealEditor/DebugGame/MirWorld/Resource.gen.cpp.o.rsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Intermediate/Build/Mac/arm64/UnrealEditor/DebugGame/MirWorld/SPlayerPawn.gen.cpp.d" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Intermediate/Build/Mac/arm64/UnrealEditor/DebugGame/MirWorld/SPlayerPawn.gen.cpp.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Intermediate/Build/Mac/arm64/UnrealEditor/DebugGame/MirWorld/SPlayerPawn.gen.cpp.o.rsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Intermediate/Build/Mac/arm64/UnrealEditor/DebugGame/MirWorld/ScoreCntr.gen.cpp.d" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Intermediate/Build/Mac/arm64/UnrealEditor/DebugGame/MirWorld/ScoreCntr.gen.cpp.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Intermediate/Build/Mac/arm64/UnrealEditor/DebugGame/MirWorld/ScoreCntr.gen.cpp.o.rsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Intermediate/Build/Mac/arm64/UnrealEditor/DebugGame/MirWorld/Stone.gen.cpp.d" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Intermediate/Build/Mac/arm64/UnrealEditor/DebugGame/MirWorld/Stone.gen.cpp.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Intermediate/Build/Mac/arm64/UnrealEditor/DebugGame/MirWorld/Stone.gen.cpp.o.rsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Intermediate/Build/Mac/arm64/UnrealEditor/DebugGame/MirWorld/Tile.gen.cpp.d" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Intermediate/Build/Mac/arm64/UnrealEditor/DebugGame/MirWorld/Tile.gen.cpp.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Intermediate/Build/Mac/arm64/UnrealEditor/DebugGame/MirWorld/Tile.gen.cpp.o.rsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Intermediate/Build/Mac/arm64/UnrealEditor/DebugGame/MirWorld/Tree.gen.cpp.d" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Intermediate/Build/Mac/arm64/UnrealEditor/DebugGame/MirWorld/Tree.gen.cpp.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Intermediate/Build/Mac/arm64/UnrealEditor/DebugGame/MirWorld/Tree.gen.cpp.o.rsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Saved/Config/CrashReportClient/UECC-Mac-095445BA8743B41202ECF9BA3E86889D/CrashReportClient.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Intermediate/Build/Mac/ActionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/Intermediate/Build/Mac/ActionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Intermediate/Build/Mac/UnrealEditor/Inc/MirWorld/UHT/CharacterMW.gen.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Intermediate/Build/Mac/UnrealEditor/Inc/MirWorld/UHT/CharacterMW.gen.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Intermediate/Build/Mac/UnrealEditor/Inc/MirWorld/UHT/GameplayMW_GameMode.gen.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Intermediate/Build/Mac/UnrealEditor/Inc/MirWorld/UHT/GameplayMW_GameMode.gen.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Intermediate/Build/Mac/UnrealEditor/Inc/MirWorld/UHT/GameplayMW_GameMode.generated.h" beforeDir="false" afterPath="$PROJECT_DIR$/Intermediate/Build/Mac/UnrealEditor/Inc/MirWorld/UHT/GameplayMW_GameMode.generated.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Intermediate/Build/Mac/UnrealEditor/Inc/MirWorld/UHT/Generator.gen.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Intermediate/Build/Mac/UnrealEditor/Inc/MirWorld/UHT/Generator.gen.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Intermediate/Build/Mac/UnrealEditor/Inc/MirWorld/UHT/Generator.generated.h" beforeDir="false" afterPath="$PROJECT_DIR$/Intermediate/Build/Mac/UnrealEditor/Inc/MirWorld/UHT/Generator.generated.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Intermediate/Build/Mac/UnrealEditor/Inc/MirWorld/UHT/MirWorld.init.gen.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Intermediate/Build/Mac/UnrealEditor/Inc/MirWorld/UHT/MirWorld.init.gen.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Intermediate/Build/Mac/UnrealEditor/Inc/MirWorld/UHT/MobBase.gen.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Intermediate/Build/Mac/UnrealEditor/Inc/MirWorld/UHT/MobBase.gen.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Intermediate/Build/Mac/UnrealEditor/Inc/MirWorld/UHT/Resource.gen.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Intermediate/Build/Mac/UnrealEditor/Inc/MirWorld/UHT/Resource.gen.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Intermediate/Build/Mac/UnrealEditor/Inc/MirWorld/UHT/Resource.generated.h" beforeDir="false" afterPath="$PROJECT_DIR$/Intermediate/Build/Mac/UnrealEditor/Inc/MirWorld/UHT/Resource.generated.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Intermediate/Build/Mac/UnrealEditor/Inc/MirWorld/UHT/ResourceStorage.generated.h" beforeDir="false" afterPath="$PROJECT_DIR$/Intermediate/Build/Mac/UnrealEditor/Inc/MirWorld/UHT/ResourceStorage.generated.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Intermediate/Build/Mac/UnrealEditor/Inc/MirWorld/UHT/ScoreCntr.gen.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Intermediate/Build/Mac/UnrealEditor/Inc/MirWorld/UHT/ScoreCntr.gen.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Intermediate/Build/Mac/UnrealEditor/Inc/MirWorld/UHT/ScoreCntr.generated.h" beforeDir="false" afterPath="$PROJECT_DIR$/Intermediate/Build/Mac/UnrealEditor/Inc/MirWorld/UHT/ScoreCntr.generated.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Intermediate/Build/Mac/UnrealEditor/Inc/MirWorld/UHT/Stone.gen.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Intermediate/Build/Mac/UnrealEditor/Inc/MirWorld/UHT/Stone.gen.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Intermediate/Build/Mac/UnrealEditor/Inc/MirWorld/UHT/Tile.gen.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Intermediate/Build/Mac/UnrealEditor/Inc/MirWorld/UHT/Tile.gen.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Intermediate/Build/Mac/UnrealEditor/Inc/MirWorld/UHT/Tile.generated.h" beforeDir="false" afterPath="$PROJECT_DIR$/Intermediate/Build/Mac/UnrealEditor/Inc/MirWorld/UHT/Tile.generated.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Intermediate/Build/Mac/UnrealEditor/Inc/MirWorld/UHT/Timestamp" beforeDir="false" afterPath="$PROJECT_DIR$/Intermediate/Build/Mac/UnrealEditor/Inc/MirWorld/UHT/Timestamp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Intermediate/Build/Mac/UnrealEditor/Inc/MirWorld/UHT/Tree.gen.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Intermediate/Build/Mac/UnrealEditor/Inc/MirWorld/UHT/Tree.gen.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Intermediate/Build/Mac/arm64/MirWorldEditor/ActionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/Intermediate/Build/Mac/arm64/MirWorldEditor/ActionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Intermediate/Build/Mac/arm64/MirWorldEditor/DebugGame/Engine/SharedPCH.Engine.NonOptimized.Cpp20.h.gch" beforeDir="false" afterPath="$PROJECT_DIR$/Intermediate/Build/Mac/arm64/MirWorldEditor/DebugGame/Engine/SharedPCH.Engine.NonOptimized.Cpp20.h.gch" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Intermediate/Build/Mac/arm64/MirWorldEditor/DebugGame/UnrealEd/SharedPCH.UnrealEd.NonOptimized.Cpp20.h.gch" beforeDir="false" afterPath="$PROJECT_DIR$/Intermediate/Build/Mac/arm64/MirWorldEditor/DebugGame/UnrealEd/SharedPCH.UnrealEd.NonOptimized.Cpp20.h.gch" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Intermediate/Build/Mac/arm64/UnrealEditor/ActionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/Intermediate/Build/Mac/arm64/UnrealEditor/ActionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Intermediate/TargetInfo.MirWorld.json" beforeDir="false" afterPath="$PROJECT_DIR$/Intermediate/TargetInfo.MirWorld.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Saved/Config/MacEditor/EditorPerProjectUserSettings.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Saved/Config/MacEditor/EditorPerProjectUserSettings.ini" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/MirWorld/PathFinder.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/MirWorld/PathFinder.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/MirWorld/PathFinder.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/MirWorld/PathFinder.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,13 +86,21 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Source/MirWorld/MapInfo.h" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/MirWorld/MirWorld.Build.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/MirWorld/MirWorld.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/MirWorld/MirWorld.h" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/MirWorld/MobBase.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/MirWorld/MobBase.h" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/MirWorld/PathFinder.cpp" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///Users/daniil_mariyn/Documents/Game Mirworld/MirWorld/Project/MirWorld/Source/MirWorld/PathFinder.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/MirWorld/PathFinder.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/MirWorld/Resource.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/MirWorld/ScoreCntr.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/MirWorld/Stone.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/MirWorld/Stone.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/MirWorld/Tile.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/MirWorld/Tile.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/MirWorld/Tree.cpp" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProblemsViewState">
@@ -127,6 +202,61 @@
         <option name="USE_EXTERNAL_CONSOLE" value="0" />
         <option name="TERMINAL_INTERACTION_BEHAVIOR" value="FORCE_CONSOLE" />
       </configuration_6>
+      <configuration_7>
+        <option name="CONFIGURATION" value="DebugGame Editor" />
+        <option name="PLATFORM" value="Win64" />
+        <option name="EXECUTABLE_PATH" value="$PROJECT_DIR$/../../../../../../Shared/Epic Games/UE_5.3/Engine/Binaries/Win64/UnrealEditor-Win64-DebugGame.exe" />
+        <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../../../../../../Shared/Epic Games/UE_5.3" />
+        <option name="MANDATORY_PROGRAM_PARAMETERS" value=" &quot;$PROJECT_DIR$/MirWorld.uproject&quot;" />
+        <option name="CUSTOM_PROGRAM_PARAMETERS" value="" />
+        <option name="PASS_PARENT_ENVS" value="1" />
+        <option name="USE_EXTERNAL_CONSOLE" value="0" />
+        <option name="TERMINAL_INTERACTION_BEHAVIOR" value="FORCE_CONSOLE" />
+      </configuration_7>
+      <configuration_8>
+        <option name="CONFIGURATION" value="DebugGame" />
+        <option name="PLATFORM" value="Win64" />
+        <option name="EXECUTABLE_PATH" value="$PROJECT_DIR$/Binaries/Win64/MirWorld-Win64-DebugGame.exe" />
+        <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../../../../../../Shared/Epic Games/UE_5.3" />
+        <option name="MANDATORY_PROGRAM_PARAMETERS" value="" />
+        <option name="CUSTOM_PROGRAM_PARAMETERS" value="" />
+        <option name="PASS_PARENT_ENVS" value="1" />
+        <option name="USE_EXTERNAL_CONSOLE" value="0" />
+        <option name="TERMINAL_INTERACTION_BEHAVIOR" value="FORCE_CONSOLE" />
+      </configuration_8>
+      <configuration_9>
+        <option name="CONFIGURATION" value="Development Editor" />
+        <option name="PLATFORM" value="Win64" />
+        <option name="EXECUTABLE_PATH" value="$PROJECT_DIR$/../../../../../../Shared/Epic Games/UE_5.3/Engine/Binaries/Win64/UnrealEditor.exe" />
+        <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../../../../../../Shared/Epic Games/UE_5.3" />
+        <option name="MANDATORY_PROGRAM_PARAMETERS" value=" &quot;$PROJECT_DIR$/MirWorld.uproject&quot;" />
+        <option name="CUSTOM_PROGRAM_PARAMETERS" value="" />
+        <option name="PASS_PARENT_ENVS" value="1" />
+        <option name="USE_EXTERNAL_CONSOLE" value="0" />
+        <option name="TERMINAL_INTERACTION_BEHAVIOR" value="FORCE_CONSOLE" />
+      </configuration_9>
+      <configuration_10>
+        <option name="CONFIGURATION" value="Development" />
+        <option name="PLATFORM" value="Win64" />
+        <option name="EXECUTABLE_PATH" value="$PROJECT_DIR$/Binaries/Win64/MirWorld.exe" />
+        <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../../../../../../Shared/Epic Games/UE_5.3" />
+        <option name="MANDATORY_PROGRAM_PARAMETERS" value="" />
+        <option name="CUSTOM_PROGRAM_PARAMETERS" value="" />
+        <option name="PASS_PARENT_ENVS" value="1" />
+        <option name="USE_EXTERNAL_CONSOLE" value="0" />
+        <option name="TERMINAL_INTERACTION_BEHAVIOR" value="FORCE_CONSOLE" />
+      </configuration_10>
+      <configuration_11>
+        <option name="CONFIGURATION" value="Shipping" />
+        <option name="PLATFORM" value="Win64" />
+        <option name="EXECUTABLE_PATH" value="$PROJECT_DIR$/Binaries/Win64/MirWorld-Win64-Shipping.exe" />
+        <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../../../../../../Shared/Epic Games/UE_5.3" />
+        <option name="MANDATORY_PROGRAM_PARAMETERS" value="" />
+        <option name="CUSTOM_PROGRAM_PARAMETERS" value="" />
+        <option name="PASS_PARENT_ENVS" value="1" />
+        <option name="USE_EXTERNAL_CONSOLE" value="0" />
+        <option name="TERMINAL_INTERACTION_BEHAVIOR" value="FORCE_CONSOLE" />
+      </configuration_11>
       <method v="2">
         <option name="Build" />
       </method>
@@ -149,6 +279,9 @@
       <workItem from="1713537601287" duration="108000" />
       <workItem from="1713537712752" duration="73000" />
       <workItem from="1713537807000" duration="3511000" />
+      <workItem from="1715693360772" duration="16000" />
+      <workItem from="1715695889708" duration="3509000" />
+      <workItem from="1715778218806" duration="3352000" />
     </task>
     <task id="LOCAL-00001" summary="fixed path">
       <option name="closed" value="true" />

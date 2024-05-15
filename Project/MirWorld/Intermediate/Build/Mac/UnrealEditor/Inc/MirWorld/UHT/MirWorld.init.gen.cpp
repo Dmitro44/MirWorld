@@ -17,13 +17,13 @@ void EmptyLinkFunctionForGeneratedCodeMirWorld_init() {}
 				nullptr,
 				0,
 				PKG_CompiledIn | 0x00000000,
-				0x5A4940C7,
-				0x0F0C06F8,
+				0xFFA028A3,
+				0x499A9032,
 				METADATA_PARAMS(0, nullptr)
 			};
 			UECodeGen_Private::ConstructUPackage(Z_Registration_Info_UPackage__Script_MirWorld.OuterSingleton, PackageParams);
 		}
 		return Z_Registration_Info_UPackage__Script_MirWorld.OuterSingleton;
 	}
-	static FRegisterCompiledInInfo Z_CompiledInDeferPackage_UPackage__Script_MirWorld(Z_Construct_UPackage__Script_MirWorld, TEXT("/Script/MirWorld"), Z_Registration_Info_UPackage__Script_MirWorld, CONSTRUCT_RELOAD_VERSION_INFO(FPackageReloadVersionInfo, 0x5A4940C7, 0x0F0C06F8));
+	static FRegisterCompiledInInfo Z_CompiledInDeferPackage_UPackage__Script_MirWorld(Z_Construct_UPackage__Script_MirWorld, TEXT("/Script/MirWorld"), Z_Registration_Info_UPackage__Script_MirWorld, CONSTRUCT_RELOAD_VERSION_INFO(FPackageReloadVersionInfo, 0xFFA028A3, 0x499A9032));
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

@@ -17,25 +17,19 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #define FID_daniil_mariyn_Documents_Game_Mirworld_MirWorld_Project_MirWorld_Source_MirWorld_GameplayMW_GameMode_h_20_SPARSE_DATA
 #define FID_daniil_mariyn_Documents_Game_Mirworld_MirWorld_Project_MirWorld_Source_MirWorld_GameplayMW_GameMode_h_20_SPARSE_DATA_PROPERTY_ACCESSORS
 #define FID_daniil_mariyn_Documents_Game_Mirworld_MirWorld_Project_MirWorld_Source_MirWorld_GameplayMW_GameMode_h_20_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS
-#define FID_daniil_mariyn_Documents_Game_Mirworld_MirWorld_Project_MirWorld_Source_MirWorld_GameplayMW_GameMode_h_20_RPC_WRAPPERS_NO_PURE_DECLS \
- \
-	DECLARE_FUNCTION(execEndGame_Defeat); \
-	DECLARE_FUNCTION(execEndGame_Victory);
-
-
+#define FID_daniil_mariyn_Documents_Game_Mirworld_MirWorld_Project_MirWorld_Source_MirWorld_GameplayMW_GameMode_h_20_RPC_WRAPPERS_NO_PURE_DECLS
 #define FID_daniil_mariyn_Documents_Game_Mirworld_MirWorld_Project_MirWorld_Source_MirWorld_GameplayMW_GameMode_h_20_ACCESSORS
+#define FID_daniil_mariyn_Documents_Game_Mirworld_MirWorld_Project_MirWorld_Source_MirWorld_GameplayMW_GameMode_h_20_CALLBACK_WRAPPERS
 #define FID_daniil_mariyn_Documents_Game_Mirworld_MirWorld_Project_MirWorld_Source_MirWorld_GameplayMW_GameMode_h_20_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesAGameplayMW_GameMode(); \
 	friend struct Z_Construct_UClass_AGameplayMW_GameMode_Statics; \
 public: \
-	DECLARE_CLASS(AGameplayMW_GameMode, AGameMode, COMPILED_IN_FLAGS(0 | CLASS_Transient | CLASS_Config), CASTCLASS_None, TEXT("/Script/MirWorld"), NO_API) \
+	DECLARE_CLASS(AGameplayMW_GameMode, AGameModeBase, COMPILED_IN_FLAGS(0 | CLASS_Transient | CLASS_Config), CASTCLASS_None, TEXT("/Script/MirWorld"), NO_API) \
 	DECLARE_SERIALIZER(AGameplayMW_GameMode)
 
 
 #define FID_daniil_mariyn_Documents_Game_Mirworld_MirWorld_Project_MirWorld_Source_MirWorld_GameplayMW_GameMode_h_20_ENHANCED_CONSTRUCTORS \
-	/** Standard constructor, called after all reflected properties have been initialized */ \
-	NO_API AGameplayMW_GameMode(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get()); \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	NO_API AGameplayMW_GameMode(AGameplayMW_GameMode&&); \
@@ -43,7 +37,7 @@ private: \
 public: \
 	DECLARE_VTABLE_PTR_HELPER_CTOR(NO_API, AGameplayMW_GameMode); \
 	DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(AGameplayMW_GameMode); \
-	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(AGameplayMW_GameMode) \
+	DEFINE_DEFAULT_CONSTRUCTOR_CALL(AGameplayMW_GameMode) \
 	NO_API virtual ~AGameplayMW_GameMode();
 
 
@@ -56,6 +50,7 @@ public: \
 	FID_daniil_mariyn_Documents_Game_Mirworld_MirWorld_Project_MirWorld_Source_MirWorld_GameplayMW_GameMode_h_20_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS \
 	FID_daniil_mariyn_Documents_Game_Mirworld_MirWorld_Project_MirWorld_Source_MirWorld_GameplayMW_GameMode_h_20_RPC_WRAPPERS_NO_PURE_DECLS \
 	FID_daniil_mariyn_Documents_Game_Mirworld_MirWorld_Project_MirWorld_Source_MirWorld_GameplayMW_GameMode_h_20_ACCESSORS \
+	FID_daniil_mariyn_Documents_Game_Mirworld_MirWorld_Project_MirWorld_Source_MirWorld_GameplayMW_GameMode_h_20_CALLBACK_WRAPPERS \
 	FID_daniil_mariyn_Documents_Game_Mirworld_MirWorld_Project_MirWorld_Source_MirWorld_GameplayMW_GameMode_h_20_INCLASS_NO_PURE_DECLS \
 	FID_daniil_mariyn_Documents_Game_Mirworld_MirWorld_Project_MirWorld_Source_MirWorld_GameplayMW_GameMode_h_20_ENHANCED_CONSTRUCTORS \
 private: \

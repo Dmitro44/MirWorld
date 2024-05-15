@@ -494,8 +494,14 @@ void EmptyLinkFunctionForGeneratedCodeMobBase() {}
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_AMobBase_Statics::FuncInfo) < 2048);
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AMobBase_Statics::Class_MetaDataParams[] = {
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "// global NO_WAY\n" },
+#endif
 		{ "IncludePath", "MobBase.h" },
 		{ "ModuleRelativePath", "MobBase.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "global NO_WAY" },
+#endif
 	};
 #endif
 #if WITH_METADATA
@@ -702,9 +708,9 @@ void EmptyLinkFunctionForGeneratedCodeMobBase() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_daniil_mariyn_Documents_Game_Mirworld_MirWorld_Project_MirWorld_Source_MirWorld_MobBase_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_AMobBase, AMobBase::StaticClass, TEXT("AMobBase"), &Z_Registration_Info_UClass_AMobBase, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AMobBase), 1611413577U) },
+		{ Z_Construct_UClass_AMobBase, AMobBase::StaticClass, TEXT("AMobBase"), &Z_Registration_Info_UClass_AMobBase, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AMobBase), 1346978675U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_daniil_mariyn_Documents_Game_Mirworld_MirWorld_Project_MirWorld_Source_MirWorld_MobBase_h_4102259853(TEXT("/Script/MirWorld"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_daniil_mariyn_Documents_Game_Mirworld_MirWorld_Project_MirWorld_Source_MirWorld_MobBase_h_2043240499(TEXT("/Script/MirWorld"),
 		Z_CompiledInDeferFile_FID_daniil_mariyn_Documents_Game_Mirworld_MirWorld_Project_MirWorld_Source_MirWorld_MobBase_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_daniil_mariyn_Documents_Game_Mirworld_MirWorld_Project_MirWorld_Source_MirWorld_MobBase_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);
