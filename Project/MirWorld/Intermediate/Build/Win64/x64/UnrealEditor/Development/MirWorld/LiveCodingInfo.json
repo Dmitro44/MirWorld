@@ -16,6 +16,7 @@
 			"ScoreCntr.gen.cpp.obj",
 			"SPlayerPawn.gen.cpp.obj",
 			"Stone.gen.cpp.obj",
+			"TaskManager.gen.cpp.obj",
 			"Tile.gen.cpp.obj",
 			"Tree.gen.cpp.obj",
 			"BasicActor.cpp.obj",
@@ -34,6 +35,7 @@
 			"ScoreCntr.cpp.obj",
 			"SPlayerPawn.cpp.obj",
 			"Stone.cpp.obj",
+			"TaskManager.cpp.obj",
 			"Tile.cpp.obj",
 			"Tree.cpp.obj"
 		]

@@ -27,6 +27,8 @@ const uint8 BIOME_AMNT = 3U;
 
 const uint8 RESOURCE_AMNT = 5U;
 
+const uint8 CHARACTERS_AMNT = 4U;
+
 /**
  * Has no functionality
  */

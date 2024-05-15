@@ -131,6 +131,12 @@
     <ClInclude Include="..\..\Source\MirWorld\Stone.h">
       <Filter>Source\MirWorld</Filter>
     </ClInclude>
+    <ClCompile Include="..\..\Source\MirWorld\TaskManager.cpp">
+      <Filter>Source\MirWorld</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\MirWorld\TaskManager.h">
+      <Filter>Source\MirWorld</Filter>
+    </ClInclude>
     <ClCompile Include="..\..\Source\MirWorld\Tile.cpp">
       <Filter>Source\MirWorld</Filter>
     </ClCompile>
