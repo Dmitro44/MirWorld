@@ -20,7 +20,7 @@ class AResource;
 #define FID_Code_Projects_GitHub_MirWorld_MirWorld_Project_MirWorld_Source_MirWorld_CharacterMW2D_h_21_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS
 #define FID_Code_Projects_GitHub_MirWorld_MirWorld_Project_MirWorld_Source_MirWorld_CharacterMW2D_h_21_RPC_WRAPPERS_NO_PURE_DECLS \
  \
-	DECLARE_FUNCTION(execExtractBunch); \
+	DECLARE_FUNCTION(execMineResource); \
 	DECLARE_FUNCTION(execIsResourceValid); \
 	DECLARE_FUNCTION(execSetID); \
 	DECLARE_FUNCTION(execGetID); \

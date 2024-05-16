@@ -26,8 +26,12 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 	DECLARE_FUNCTION(execGetBiomeType); \
 	DECLARE_FUNCTION(execGetResourceLeft); \
 	DECLARE_FUNCTION(execGetResourceType); \
+	DECLARE_FUNCTION(execExtractRes); \
 	DECLARE_FUNCTION(execGiveBunch); \
-	DECLARE_FUNCTION(execTimeRequired);
+	DECLARE_FUNCTION(execSetExtractTime); \
+	DECLARE_FUNCTION(execSetMineTime); \
+	DECLARE_FUNCTION(execExtractTime); \
+	DECLARE_FUNCTION(execMineTime);
 
 
 #define FID_Code_Projects_GitHub_MirWorld_MirWorld_Project_MirWorld_Source_MirWorld_Resource_h_14_ACCESSORS

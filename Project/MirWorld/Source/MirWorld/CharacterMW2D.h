@@ -6,7 +6,7 @@
 #include "CoreMinimal.h"
 #include "Resource.h"
 #include "MobBase2D.h"
-#include "CharacterMW.h" // for EActivity
+#include "EnumsFictitiousClass.h"
 #include "ScoreCntr.h"
 #include "ResourceStorage.h"
 #include "CharacterMW2D.generated.h"
@@ -42,27 +42,32 @@ protected:
 	// Called when the game starts or when spawned
 	void BeginPlay() override;
 
+	/*
 	// Says to the GameMode, that mob can't perform the task
-	void reportImpossibleTask() override;
+	UFUNCTION(BlueprintImplementableEvent, Category = "Mob Action") /// implemented in BPs
+	ACharacterMW2D* reportImpossibleTask() override;
 
 	// Says to the GameMode, that mob has performed the task
-	void reportDoneTask() override;
+	UFUNCTION(BlueprintImplementableEvent, Category = "Mob Action") /// implemented in BPs
+	ACharacterMW2D* reportDoneTask() override;*/
 
 	// Checks if aim resource is valid
 	UFUNCTION(BlueprintCallable, Category = "Character ID")
 	bool IsResourceValid(AResource* Resource);
 
-	// Extract a bunch of a resource
+	void prepareToResourceTask();
+
+	// Extract a bunch of a resource or extract the whole res point 
 	UFUNCTION(BlueprintCallable, Category = "Resource Extracting")
-	void ExtractBunch();
+	void MineResource();
 
 	// Unique for every character
 	UPROPERTY(EditAnywhere, Category = "Character ID")
 	int ID = -1;
 
 	UPROPERTY(EditAnywhere, Category = "Mob State")
-	int SelectedAction_ = 0; // see the enum
-	EActivity SelectedAction = eNone;
+	int SelectedAction_ = 2; // see the enum
+	EActivity SelectedAction = eMoveTo;
 
 
 	// Timer for subresults of extracting a resource

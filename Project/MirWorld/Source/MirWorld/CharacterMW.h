@@ -4,19 +4,13 @@
 
 #include "Kismet/GameplayStatics.h"
 #include "CoreMinimal.h"
+#include "EnumsFictitiousClass.h"
 #include "Resource.h"
 #include "MobBase.h"
 #include "ScoreCntr.h"
 #include "ResourceStorage.h"
 #include "CharacterMW.generated.h"
 
-
-enum EActivity {
-	eExtract = 0,
-	eMoveTo,
-	eStop,
-	eNone
-};
 
 UCLASS()
 class MIRWORLD_API ACharacterMW : public AMobBase
@@ -51,7 +45,7 @@ protected:
 
 	UPROPERTY(EditAnywhere, Category = "Mob State")
 	int SelectedAction_ = 0; // see the enum
-	EActivity SelectedAction = eNone; 
+	EActivity SelectedAction; 
 
 
 	// Timer for subresults of extracting a resource

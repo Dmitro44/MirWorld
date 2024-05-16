@@ -56,6 +56,13 @@ void EmptyLinkFunctionForGeneratedCodeMobBase2D() {}
 		*(bool*)Z_Param__Result=P_THIS->HasAction();
 		P_NATIVE_END;
 	}
+	DEFINE_FUNCTION(AMobBase2D::execGetCurrentTile)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		*(FVector*)Z_Param__Result=P_THIS->GetCurrentTile();
+		P_NATIVE_END;
+	}
 	DEFINE_FUNCTION(AMobBase2D::execGetDirection)
 	{
 		P_FINISH;
@@ -85,12 +92,47 @@ void EmptyLinkFunctionForGeneratedCodeMobBase2D() {}
 		P_THIS->SetTrajectory(Z_Param_newTrajectory);
 		P_NATIVE_END;
 	}
+	struct MobBase2D_eventreportDoneTask_Parms
+	{
+		AMobBase2D* ReturnValue;
+
+		/** Constructor, initializes return property only **/
+		MobBase2D_eventreportDoneTask_Parms()
+			: ReturnValue(NULL)
+		{
+		}
+	};
+	struct MobBase2D_eventreportImpossibleTask_Parms
+	{
+		AMobBase2D* ReturnValue;
+
+		/** Constructor, initializes return property only **/
+		MobBase2D_eventreportImpossibleTask_Parms()
+			: ReturnValue(NULL)
+		{
+		}
+	};
+	static FName NAME_AMobBase2D_reportDoneTask = FName(TEXT("reportDoneTask"));
+	AMobBase2D* AMobBase2D::reportDoneTask()
+	{
+		MobBase2D_eventreportDoneTask_Parms Parms;
+		ProcessEvent(FindFunctionChecked(NAME_AMobBase2D_reportDoneTask),&Parms);
+		return Parms.ReturnValue;
+	}
+	static FName NAME_AMobBase2D_reportImpossibleTask = FName(TEXT("reportImpossibleTask"));
+	AMobBase2D* AMobBase2D::reportImpossibleTask()
+	{
+		MobBase2D_eventreportImpossibleTask_Parms Parms;
+		ProcessEvent(FindFunctionChecked(NAME_AMobBase2D_reportImpossibleTask),&Parms);
+		return Parms.ReturnValue;
+	}
 	void AMobBase2D::StaticRegisterNativesAMobBase2D()
 	{
 		UClass* Class = AMobBase2D::StaticClass();
 		static const FNameNativePtrPair Funcs[] = {
 			{ "DoAction", &AMobBase2D::execDoAction },
 			{ "FollowTrajectory", &AMobBase2D::execFollowTrajectory },
+			{ "GetCurrentTile", &AMobBase2D::execGetCurrentTile },
 			{ "GetDirection", &AMobBase2D::execGetDirection },
 			{ "HasAction", &AMobBase2D::execHasAction },
 			{ "SetAction", &AMobBase2D::execSetAction },
@@ -156,6 +198,41 @@ void EmptyLinkFunctionForGeneratedCodeMobBase2D() {}
 		if (!ReturnFunction)
 		{
 			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AMobBase2D_FollowTrajectory_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_AMobBase2D_GetCurrentTile_Statics
+	{
+		struct MobBase2D_eventGetCurrentTile_Parms
+		{
+			FVector ReturnValue;
+		};
+		static const UECodeGen_Private::FStructPropertyParams NewProp_ReturnValue;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_AMobBase2D_GetCurrentTile_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(MobBase2D_eventGetCurrentTile_Parms, ReturnValue), Z_Construct_UScriptStruct_FVector, METADATA_PARAMS(0, nullptr) };
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AMobBase2D_GetCurrentTile_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AMobBase2D_GetCurrentTile_Statics::NewProp_ReturnValue,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AMobBase2D_GetCurrentTile_Statics::Function_MetaDataParams[] = {
+		{ "Category", "Mob Movement" },
+		{ "ModuleRelativePath", "MobBase2D.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AMobBase2D_GetCurrentTile_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AMobBase2D, nullptr, "GetCurrentTile", nullptr, nullptr, Z_Construct_UFunction_AMobBase2D_GetCurrentTile_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AMobBase2D_GetCurrentTile_Statics::PropPointers), sizeof(Z_Construct_UFunction_AMobBase2D_GetCurrentTile_Statics::MobBase2D_eventGetCurrentTile_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04820400, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AMobBase2D_GetCurrentTile_Statics::Function_MetaDataParams), Z_Construct_UFunction_AMobBase2D_GetCurrentTile_Statics::Function_MetaDataParams) };
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_AMobBase2D_GetCurrentTile_Statics::PropPointers) < 2048);
+	static_assert(sizeof(Z_Construct_UFunction_AMobBase2D_GetCurrentTile_Statics::MobBase2D_eventGetCurrentTile_Parms) < MAX_uint16);
+	UFunction* Z_Construct_UFunction_AMobBase2D_GetCurrentTile()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AMobBase2D_GetCurrentTile_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -243,6 +320,80 @@ void EmptyLinkFunctionForGeneratedCodeMobBase2D() {}
 		if (!ReturnFunction)
 		{
 			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AMobBase2D_HasAction_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_AMobBase2D_reportDoneTask_Statics
+	{
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_ReturnValue;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_AMobBase2D_reportDoneTask_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(MobBase2D_eventreportDoneTask_Parms, ReturnValue), Z_Construct_UClass_AMobBase2D_NoRegister, METADATA_PARAMS(0, nullptr) };
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AMobBase2D_reportDoneTask_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AMobBase2D_reportDoneTask_Statics::NewProp_ReturnValue,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AMobBase2D_reportDoneTask_Statics::Function_MetaDataParams[] = {
+		{ "Category", "Mob Action" },
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "// Says to the GameMode, that mob has performed the task\n/// implemented in BPs\n" },
+#endif
+		{ "ModuleRelativePath", "MobBase2D.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "Says to the GameMode, that mob has performed the task\nimplemented in BPs" },
+#endif
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AMobBase2D_reportDoneTask_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AMobBase2D, nullptr, "reportDoneTask", nullptr, nullptr, Z_Construct_UFunction_AMobBase2D_reportDoneTask_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AMobBase2D_reportDoneTask_Statics::PropPointers), sizeof(MobBase2D_eventreportDoneTask_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x08080800, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AMobBase2D_reportDoneTask_Statics::Function_MetaDataParams), Z_Construct_UFunction_AMobBase2D_reportDoneTask_Statics::Function_MetaDataParams) };
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_AMobBase2D_reportDoneTask_Statics::PropPointers) < 2048);
+	static_assert(sizeof(MobBase2D_eventreportDoneTask_Parms) < MAX_uint16);
+	UFunction* Z_Construct_UFunction_AMobBase2D_reportDoneTask()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AMobBase2D_reportDoneTask_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_AMobBase2D_reportImpossibleTask_Statics
+	{
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_ReturnValue;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_AMobBase2D_reportImpossibleTask_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(MobBase2D_eventreportImpossibleTask_Parms, ReturnValue), Z_Construct_UClass_AMobBase2D_NoRegister, METADATA_PARAMS(0, nullptr) };
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AMobBase2D_reportImpossibleTask_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AMobBase2D_reportImpossibleTask_Statics::NewProp_ReturnValue,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AMobBase2D_reportImpossibleTask_Statics::Function_MetaDataParams[] = {
+		{ "Category", "Mob Action" },
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "// Says to the GameMode, that mob can't perform the task\n/// implemented in BPs\n" },
+#endif
+		{ "ModuleRelativePath", "MobBase2D.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "Says to the GameMode, that mob can't perform the task\nimplemented in BPs" },
+#endif
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AMobBase2D_reportImpossibleTask_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AMobBase2D, nullptr, "reportImpossibleTask", nullptr, nullptr, Z_Construct_UFunction_AMobBase2D_reportImpossibleTask_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AMobBase2D_reportImpossibleTask_Statics::PropPointers), sizeof(MobBase2D_eventreportImpossibleTask_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x08080800, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AMobBase2D_reportImpossibleTask_Statics::Function_MetaDataParams), Z_Construct_UFunction_AMobBase2D_reportImpossibleTask_Statics::Function_MetaDataParams) };
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_AMobBase2D_reportImpossibleTask_Statics::PropPointers) < 2048);
+	static_assert(sizeof(MobBase2D_eventreportImpossibleTask_Parms) < MAX_uint16);
+	UFunction* Z_Construct_UFunction_AMobBase2D_reportImpossibleTask()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AMobBase2D_reportImpossibleTask_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -488,10 +639,10 @@ void EmptyLinkFunctionForGeneratedCodeMobBase2D() {}
 #endif
 		static const UECodeGen_Private::FArrayPropertyParams NewProp_CurrentTrajectory;
 #if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam NewProp_IsMoving_MetaData[];
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_bIsMoving_MetaData[];
 #endif
-		static void NewProp_IsMoving_SetBit(void* Obj);
-		static const UECodeGen_Private::FBoolPropertyParams NewProp_IsMoving;
+		static void NewProp_bIsMoving_SetBit(void* Obj);
+		static const UECodeGen_Private::FBoolPropertyParams NewProp_bIsMoving;
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_SecsForNextTile_MetaData[];
 #endif
@@ -517,10 +668,10 @@ void EmptyLinkFunctionForGeneratedCodeMobBase2D() {}
 #endif
 		static const UECodeGen_Private::FFloatPropertyParams NewProp_CurrentHealthPoints;
 #if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam NewProp_HasTask_MetaData[];
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_bHasTask_MetaData[];
 #endif
-		static void NewProp_HasTask_SetBit(void* Obj);
-		static const UECodeGen_Private::FBoolPropertyParams NewProp_HasTask;
+		static void NewProp_bHasTask_SetBit(void* Obj);
+		static const UECodeGen_Private::FBoolPropertyParams NewProp_bHasTask;
 		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UECodeGen_Private::FClassParams ClassParams;
@@ -533,8 +684,11 @@ void EmptyLinkFunctionForGeneratedCodeMobBase2D() {}
 	const FClassFunctionLinkInfo Z_Construct_UClass_AMobBase2D_Statics::FuncInfo[] = {
 		{ &Z_Construct_UFunction_AMobBase2D_DoAction, "DoAction" }, // 160857523
 		{ &Z_Construct_UFunction_AMobBase2D_FollowTrajectory, "FollowTrajectory" }, // 2739747432
+		{ &Z_Construct_UFunction_AMobBase2D_GetCurrentTile, "GetCurrentTile" }, // 2141357219
 		{ &Z_Construct_UFunction_AMobBase2D_GetDirection, "GetDirection" }, // 1101989343
 		{ &Z_Construct_UFunction_AMobBase2D_HasAction, "HasAction" }, // 3749647603
+		{ &Z_Construct_UFunction_AMobBase2D_reportDoneTask, "reportDoneTask" }, // 659715457
+		{ &Z_Construct_UFunction_AMobBase2D_reportImpossibleTask, "reportImpossibleTask" }, // 234807163
 		{ &Z_Construct_UFunction_AMobBase2D_SetAction, "SetAction" }, // 1867305002
 		{ &Z_Construct_UFunction_AMobBase2D_SetStartPos, "SetStartPos" }, // 2108494187
 		{ &Z_Construct_UFunction_AMobBase2D_SetTileSize, "SetTileSize" }, // 2043470816
@@ -596,7 +750,7 @@ void EmptyLinkFunctionForGeneratedCodeMobBase2D() {}
 #endif
 	const UECodeGen_Private::FArrayPropertyParams Z_Construct_UClass_AMobBase2D_Statics::NewProp_CurrentTrajectory = { "CurrentTrajectory", nullptr, (EPropertyFlags)0x0020080000000001, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AMobBase2D, CurrentTrajectory), EArrayPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AMobBase2D_Statics::NewProp_CurrentTrajectory_MetaData), Z_Construct_UClass_AMobBase2D_Statics::NewProp_CurrentTrajectory_MetaData) };
 #if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AMobBase2D_Statics::NewProp_IsMoving_MetaData[] = {
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AMobBase2D_Statics::NewProp_bIsMoving_MetaData[] = {
 		{ "Category", "Mob State" },
 #if !UE_BUILD_SHIPPING
 		{ "Comment", "// Shows if mob is moving\n" },
@@ -607,11 +761,11 @@ void EmptyLinkFunctionForGeneratedCodeMobBase2D() {}
 #endif
 	};
 #endif
-	void Z_Construct_UClass_AMobBase2D_Statics::NewProp_IsMoving_SetBit(void* Obj)
+	void Z_Construct_UClass_AMobBase2D_Statics::NewProp_bIsMoving_SetBit(void* Obj)
 	{
-		((AMobBase2D*)Obj)->IsMoving = 1;
+		((AMobBase2D*)Obj)->bIsMoving = 1;
 	}
-	const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_AMobBase2D_Statics::NewProp_IsMoving = { "IsMoving", nullptr, (EPropertyFlags)0x0020080000000001, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(AMobBase2D), &Z_Construct_UClass_AMobBase2D_Statics::NewProp_IsMoving_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AMobBase2D_Statics::NewProp_IsMoving_MetaData), Z_Construct_UClass_AMobBase2D_Statics::NewProp_IsMoving_MetaData) };
+	const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_AMobBase2D_Statics::NewProp_bIsMoving = { "bIsMoving", nullptr, (EPropertyFlags)0x0020080000000001, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(AMobBase2D), &Z_Construct_UClass_AMobBase2D_Statics::NewProp_bIsMoving_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AMobBase2D_Statics::NewProp_bIsMoving_MetaData), Z_Construct_UClass_AMobBase2D_Statics::NewProp_bIsMoving_MetaData) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AMobBase2D_Statics::NewProp_SecsForNextTile_MetaData[] = {
 		{ "Category", "Mob Movement" },
@@ -691,7 +845,7 @@ void EmptyLinkFunctionForGeneratedCodeMobBase2D() {}
 #endif
 	const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_AMobBase2D_Statics::NewProp_CurrentHealthPoints = { "CurrentHealthPoints", nullptr, (EPropertyFlags)0x0020080000000001, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AMobBase2D, CurrentHealthPoints), METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AMobBase2D_Statics::NewProp_CurrentHealthPoints_MetaData), Z_Construct_UClass_AMobBase2D_Statics::NewProp_CurrentHealthPoints_MetaData) };
 #if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AMobBase2D_Statics::NewProp_HasTask_MetaData[] = {
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AMobBase2D_Statics::NewProp_bHasTask_MetaData[] = {
 		{ "Category", "Mob State" },
 #if !UE_BUILD_SHIPPING
 		{ "Comment", "// Shows if mob has some incomplete mission\n" },
@@ -702,24 +856,24 @@ void EmptyLinkFunctionForGeneratedCodeMobBase2D() {}
 #endif
 	};
 #endif
-	void Z_Construct_UClass_AMobBase2D_Statics::NewProp_HasTask_SetBit(void* Obj)
+	void Z_Construct_UClass_AMobBase2D_Statics::NewProp_bHasTask_SetBit(void* Obj)
 	{
-		((AMobBase2D*)Obj)->HasTask = 1;
+		((AMobBase2D*)Obj)->bHasTask = 1;
 	}
-	const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_AMobBase2D_Statics::NewProp_HasTask = { "HasTask", nullptr, (EPropertyFlags)0x0020080000000001, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(AMobBase2D), &Z_Construct_UClass_AMobBase2D_Statics::NewProp_HasTask_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AMobBase2D_Statics::NewProp_HasTask_MetaData), Z_Construct_UClass_AMobBase2D_Statics::NewProp_HasTask_MetaData) };
+	const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_AMobBase2D_Statics::NewProp_bHasTask = { "bHasTask", nullptr, (EPropertyFlags)0x0020080000000001, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(AMobBase2D), &Z_Construct_UClass_AMobBase2D_Statics::NewProp_bHasTask_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AMobBase2D_Statics::NewProp_bHasTask_MetaData), Z_Construct_UClass_AMobBase2D_Statics::NewProp_bHasTask_MetaData) };
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AMobBase2D_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMobBase2D_Statics::NewProp_CurrentTile,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMobBase2D_Statics::NewProp_NextTile,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMobBase2D_Statics::NewProp_CurrentTrajectory_Inner,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMobBase2D_Statics::NewProp_CurrentTrajectory,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMobBase2D_Statics::NewProp_IsMoving,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMobBase2D_Statics::NewProp_bIsMoving,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMobBase2D_Statics::NewProp_SecsForNextTile,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMobBase2D_Statics::NewProp_MotionFrameAmount,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMobBase2D_Statics::NewProp_TileSize,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMobBase2D_Statics::NewProp_MovementSpeed,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMobBase2D_Statics::NewProp_MaxHealthPoints,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMobBase2D_Statics::NewProp_CurrentHealthPoints,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMobBase2D_Statics::NewProp_HasTask,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMobBase2D_Statics::NewProp_bHasTask,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_AMobBase2D_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<AMobBase2D>::IsAbstract,
@@ -759,9 +913,9 @@ void EmptyLinkFunctionForGeneratedCodeMobBase2D() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Code_Projects_GitHub_MirWorld_MirWorld_Project_MirWorld_Source_MirWorld_MobBase2D_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_AMobBase2D, AMobBase2D::StaticClass, TEXT("AMobBase2D"), &Z_Registration_Info_UClass_AMobBase2D, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AMobBase2D), 3790788223U) },
+		{ Z_Construct_UClass_AMobBase2D, AMobBase2D::StaticClass, TEXT("AMobBase2D"), &Z_Registration_Info_UClass_AMobBase2D, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AMobBase2D), 197884007U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Code_Projects_GitHub_MirWorld_MirWorld_Project_MirWorld_Source_MirWorld_MobBase2D_h_2040985828(TEXT("/Script/MirWorld"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Code_Projects_GitHub_MirWorld_MirWorld_Project_MirWorld_Source_MirWorld_MobBase2D_h_1405935239(TEXT("/Script/MirWorld"),
 		Z_CompiledInDeferFile_FID_Code_Projects_GitHub_MirWorld_MirWorld_Project_MirWorld_Source_MirWorld_MobBase2D_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Code_Projects_GitHub_MirWorld_MirWorld_Project_MirWorld_Source_MirWorld_MobBase2D_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

@@ -151,11 +151,16 @@ TArray<FVector> AGenerator::GetTrajectory(FVector Start, FVector Aim)
 		return Trajectory;
 	}
 
-	for (auto& Now : Trajectory) {
-		Now.X *= SIDE_SIZE;
-		Now.Y *= SIDE_SIZE;
+	TArray<FVector> ReturnArray;
+
+	for (int i = Trajectory.Num() - 2; i >= 0; --i) {
+		ReturnArray.Emplace(
+			Trajectory[i].X * SIDE_SIZE,
+			Trajectory[i].Y * SIDE_SIZE,
+			Trajectory[i].Z
+		);
 	}
-	return Trajectory;
+	return ReturnArray;
 }
 
 

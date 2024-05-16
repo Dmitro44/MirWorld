@@ -1,8 +1,27 @@
 #include "Resource.h"
 
-float AResource::TimeRequired()
+float AResource::MineTime()
 {
 	return TimeToMine;
+}
+
+float AResource::ExtractTime()
+{
+	return TimeToExtract;
+}
+
+void AResource::SetExtractTime(float NewTime)
+{
+	if (NewTime > 0) {
+		TimeToExtract = NewTime;
+	}
+}
+
+void AResource::SetMineTime(float NewTime)
+{
+	if (NewTime > 0) {
+		TimeToMine = NewTime;
+	}
 }
 
 int AResource::GiveBunch()
@@ -17,6 +36,11 @@ int AResource::GiveBunch()
 	else {
 		return 1;
 	}
+}
+
+int AResource::ExtractRes()
+{
+	return BaseRecieve * 3 > ResorceLeft ? BaseRecieve * 3 : ResorceLeft;
 }
 
 int AResource::GetResourceType() const

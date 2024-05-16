@@ -10,6 +10,7 @@
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 class AActor;
+class AMobBase2D;
 #ifdef MIRWORLD_MobBase2D_generated_h
 #error "MobBase2D.generated.h already included, missing '#pragma once' in MobBase2D.h"
 #endif
@@ -25,6 +26,7 @@ class AActor;
 	DECLARE_FUNCTION(execDoAction); \
 	DECLARE_FUNCTION(execSetAction); \
 	DECLARE_FUNCTION(execHasAction); \
+	DECLARE_FUNCTION(execGetCurrentTile); \
 	DECLARE_FUNCTION(execGetDirection); \
 	DECLARE_FUNCTION(execStopMovement); \
 	DECLARE_FUNCTION(execFollowTrajectory); \
@@ -32,6 +34,7 @@ class AActor;
 
 
 #define FID_Code_Projects_GitHub_MirWorld_MirWorld_Project_MirWorld_Source_MirWorld_MobBase2D_h_18_ACCESSORS
+#define FID_Code_Projects_GitHub_MirWorld_MirWorld_Project_MirWorld_Source_MirWorld_MobBase2D_h_18_CALLBACK_WRAPPERS
 #define FID_Code_Projects_GitHub_MirWorld_MirWorld_Project_MirWorld_Source_MirWorld_MobBase2D_h_18_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesAMobBase2D(); \
@@ -62,6 +65,7 @@ public: \
 	FID_Code_Projects_GitHub_MirWorld_MirWorld_Project_MirWorld_Source_MirWorld_MobBase2D_h_18_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS \
 	FID_Code_Projects_GitHub_MirWorld_MirWorld_Project_MirWorld_Source_MirWorld_MobBase2D_h_18_RPC_WRAPPERS_NO_PURE_DECLS \
 	FID_Code_Projects_GitHub_MirWorld_MirWorld_Project_MirWorld_Source_MirWorld_MobBase2D_h_18_ACCESSORS \
+	FID_Code_Projects_GitHub_MirWorld_MirWorld_Project_MirWorld_Source_MirWorld_MobBase2D_h_18_CALLBACK_WRAPPERS \
 	FID_Code_Projects_GitHub_MirWorld_MirWorld_Project_MirWorld_Source_MirWorld_MobBase2D_h_18_INCLASS_NO_PURE_DECLS \
 	FID_Code_Projects_GitHub_MirWorld_MirWorld_Project_MirWorld_Source_MirWorld_MobBase2D_h_18_ENHANCED_CONSTRUCTORS \
 private: \

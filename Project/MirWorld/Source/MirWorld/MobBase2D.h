@@ -2,7 +2,7 @@
 
 #pragma once
 
-#include "MobBase.h" // for NO_WAY
+#include "EnumsFictitiousClass.h"
 #include "CoreMinimal.h"
 #include "PaperCharacter.h"
 #include "MobBase2D.generated.h"
@@ -48,6 +48,9 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "Mob Movement")
 	virtual FVector GetDirection();
 
+	UFUNCTION(BlueprintCallable, Category = "Mob Movement")
+	virtual FVector GetCurrentTile();
+
 	// Shows if mob is executing any task
 	UFUNCTION(BlueprintCallable, Category = "Mob State")
 	virtual bool HasAction() const;
@@ -75,10 +78,12 @@ protected:
 	virtual void BeginPlay() override;
 
 	// Says to the GameMode, that mob can't perform the task
-	virtual void reportImpossibleTask() {}; /// pure virtual
+	UFUNCTION(BlueprintImplementableEvent, Category = "Mob Action") /// implemented in BPs
+	AMobBase2D* reportImpossibleTask();
 
 	// Says to the GameMode, that mob has performed the task
-	virtual void reportDoneTask() {}; /// pure virtual
+	UFUNCTION(BlueprintImplementableEvent, Category = "Mob Action") /// implemented in BPs
+	AMobBase2D* reportDoneTask();
 
 	// Timer for initializing the next tile approach process
 	FTimerHandle ApproachTimerHandle;
@@ -98,7 +103,7 @@ protected:
 
 	// Shows if mob is moving
 	UPROPERTY(EditAnywhere, Category = "Mob State")
-	bool IsMoving = false;
+	bool bIsMoving = false;
 
 	// Time amount for moving to the next tile
 	UPROPERTY(EditAnywhere, Category = "Mob Movement")
@@ -128,7 +133,7 @@ protected:
 
 	// Shows if mob has some incomplete mission
 	UPROPERTY(EditAnywhere, Category = "Mob State")
-	bool HasTask = false;
+	bool bHasTask = false;
 
 	// Refers to rhe last movement direction
 	FVector Direction = {0, 0, 0};

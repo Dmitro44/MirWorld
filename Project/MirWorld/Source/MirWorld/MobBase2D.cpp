@@ -10,7 +10,7 @@ void AMobBase2D::moveToNextTile()
 		if (GetWorldTimerManager().IsTimerActive(ApproachTimerHandle)) {
 			GetWorldTimerManager().ClearTimer(ApproachTimerHandle);
 		}
-		IsMoving = false;
+		bIsMoving = false;
 		DoAction();
 		return;
 	}
@@ -57,15 +57,15 @@ AMobBase2D::AMobBase2D()
 
 bool AMobBase2D::HasAction() const
 {
-	return HasTask;
+	return bHasTask;
 }
 
 // Sets the trajectory for the mob movement, if there is no way mob messeges GameMode
-void AMobBase2D::SetTrajectory(TArray<FVector> newTrajectory)
+void AMobBase2D::SetTrajectory(TArray<FVector> NewTrajectory)
 {
-	CurrentTrajectory = newTrajectory;
+	CurrentTrajectory = NewTrajectory;
 
-	if (IsMoving) {
+	if (bIsMoving) {
 		StopMovement();
 		FollowTrajectory();
 	}
@@ -81,14 +81,11 @@ void AMobBase2D::FollowTrajectory()
 
 	if (CurrentTrajectory == G_NO_WAY) {
 		reportImpossibleTask();
-		HasTask = false;
+		bHasTask = false;
 		return;
 	}
 
-	IsMoving = true;
-	if (!CurrentTrajectory.IsEmpty()) {
-		//NextTile = *(CurrentTrajectory.begin()); // why?
-	}
+	bIsMoving = true;
 
 	GEngine->AddOnScreenDebugMessage(-1, 1000.f, FColor::Red, FString("GO"));
 
@@ -97,7 +94,7 @@ void AMobBase2D::FollowTrajectory()
 
 void AMobBase2D::StopMovement()
 {
-	IsMoving = false;
+	bIsMoving = false;
 
 	if (GetWorldTimerManager().IsTimerActive(ApproachTimerHandle)) {
 		GetWorldTimerManager().ClearTimer(ApproachTimerHandle);
@@ -106,11 +103,16 @@ void AMobBase2D::StopMovement()
 
 FVector AMobBase2D::GetDirection()
 {
-	if (!IsMoving) {
+	if (!bIsMoving) {
 		return FVector(0, 0, 0);
 	}
 
 	return Direction;
+}
+
+FVector AMobBase2D::GetCurrentTile()
+{
+	return CurrentTile;
 }
 
 void AMobBase2D::SetStartPos(FVector StartPos)

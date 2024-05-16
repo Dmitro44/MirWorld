@@ -15,10 +15,22 @@ class MIRWORLD_API AResource : public ABasicActor
 
 public:
 	UFUNCTION(BlueprintCallable, Category = "Resource")
-	float TimeRequired();
+	float MineTime();
+
+	UFUNCTION(BlueprintCallable, Category = "Resource")
+	float ExtractTime();
+
+	UFUNCTION(BlueprintCallable, Category = "Resource")
+	void SetMineTime(float NewTime);
+
+	UFUNCTION(BlueprintCallable, Category = "Resource")
+	void SetExtractTime(float NewTime);
 
 	UFUNCTION(BlueprintCallable, Category = "Resource")
 	int GiveBunch();
+
+	UFUNCTION(BlueprintCallable, Category = "Resource")
+	int ExtractRes();
 
 	UFUNCTION(BlueprintCallable, Category = "Resource")
 	int GetResourceType() const;
@@ -44,6 +56,9 @@ protected:
 
 	UPROPERTY(EditAnywhere, Category = "Resource")
 	float TimeToMine = 5.0f;
+
+	UPROPERTY(EditAnywhere, Category = "Resource")
+	float TimeToExtract = 20.0f;
 
 	UPROPERTY(EditAnywhere, Category = "Resource")
 	int ResorceLeft = 0;

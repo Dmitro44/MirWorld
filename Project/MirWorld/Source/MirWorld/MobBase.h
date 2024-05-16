@@ -3,11 +3,9 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "EnumsFictitiousClass.h"
 #include "GameFramework/Actor.h"
 #include "MobBase.generated.h"
-
-
-const TArray<FVector> G_NO_WAY = { {-1, -1, 0} }; // global NO_WAY
 
 
 UCLASS()

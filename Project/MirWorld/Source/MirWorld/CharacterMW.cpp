@@ -9,9 +9,6 @@ void ACharacterMW::SetAction(int TypeOfAction, TArray<FVector> NewTrajectory, AA
 	if (TypeOfAction >= 0 && TypeOfAction < 3) {
 		SelectedAction = static_cast<EActivity> (TypeOfAction);
 		HasTask = true;
-	} else {
-		SelectedAction = eNone;
-		HasTask = false;
 	}
 
 	Resource = nullptr;
@@ -22,11 +19,6 @@ void ACharacterMW::SetAction(int TypeOfAction, TArray<FVector> NewTrajectory, AA
 			break;
 		case eMoveTo:
 			FollowTrajectory();
-			break;
-		case eStop:
-			StopMovement();
-			SelectedAction = eNone;
-			HasTask = false;
 			break;
 	}
 }
@@ -39,12 +31,10 @@ void ACharacterMW::DoAction()
 			SubExtractTimerHandle,
 			this,
 			&ACharacterMW::ExtractBunch,
-			Resource->TimeRequired(),
+			Resource->ExtractTime(),
 			true
 		);
 	}
-
-	SelectedAction = eNone;
 	HasTask = false;
 }
 
