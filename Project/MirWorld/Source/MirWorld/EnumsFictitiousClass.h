@@ -25,7 +25,8 @@ enum EAllResource {
 enum EActivity {
 	eExtract = 0,
 	eMine,
-	eMoveTo
+	eMoveTo,
+	eBuild
 };
 
 const TArray<FVector> G_NO_WAY = { {-1, -1, 0} }; // global NO_WAY
@@ -34,7 +35,7 @@ const uint8 BIOME_AMNT = 3U;
 
 const uint8 RESOURCE_AMNT = 5U;
 
-const uint8 TASK_AMNT = 3U;
+const uint8 TASK_AMNT = 4U;
 
 const uint8 CHARACTERS_AMNT = 4U;
 

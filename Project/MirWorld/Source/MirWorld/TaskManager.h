@@ -3,11 +3,15 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "Resource.h"
 #include "EnumsFictitiousClass.h"
 #include "UObject/NoExportTypes.h"
 #include "TaskManager.generated.h"
 
 const int MUCH_MORE_THAN_TASKTYPE = 100;
+const int NOT_RES_TASKS = 2; // + build + goto
+
+#define TASK_STORAGE_SIZE (RESOURCE_AMNT + NOT_RES_TASKS)
 
 /**
  * Uses priority matrix for task management
@@ -26,19 +30,20 @@ class MIRWORLD_API UTaskManager : public UObject
 	struct FTask_T
 	{
 	public:
-		int Type;
+		int ResType;
+		EActivity TaskType;
 		int PriorityLevel;
 		
 		bool operator>(const FTask_T& other) {
-			return Type - other.Type + (PriorityLevel - other.PriorityLevel) * MUCH_MORE_THAN_TASKTYPE > 0;
+			return ResType - other.ResType + (PriorityLevel - other.PriorityLevel) * MUCH_MORE_THAN_TASKTYPE > 0;
 		}
 
 		bool operator<(const FTask_T& other) {
-			return Type - other.Type + (PriorityLevel - other.PriorityLevel) * MUCH_MORE_THAN_TASKTYPE < 0;
+			return ResType - other.ResType + (PriorityLevel - other.PriorityLevel) * MUCH_MORE_THAN_TASKTYPE < 0;
 		}
 
 		bool operator==(const FTask_T& other) {
-			return Type - other.Type + (PriorityLevel - other.PriorityLevel) * MUCH_MORE_THAN_TASKTYPE == 0;
+			return ResType - other.ResType + (PriorityLevel - other.PriorityLevel) * MUCH_MORE_THAN_TASKTYPE == 0;
 		}
 	};
 	
