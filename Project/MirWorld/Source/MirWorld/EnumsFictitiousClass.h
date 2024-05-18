@@ -23,9 +23,9 @@ enum EAllResource {
 };
 
 enum EActivity {
-	eExtract = 0,
+	eMoveTo = -1,
+	eExtract,
 	eMine,
-	eMoveTo,
 	eBuild
 };
 

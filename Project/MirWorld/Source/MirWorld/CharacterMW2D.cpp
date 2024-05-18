@@ -1,28 +1,25 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
-
 #include "CharacterMW2D.h"
 
-void ACharacterMW2D::SetAction(int TypeOfAction, TArray<FVector> NewTrajectory, AActor* AimPtr)
+
+void ACharacterMW2D::SetAction(int TypeOfAction, AActor* AimPtr)
 {
-	SetTrajectory(NewTrajectory);
 	SelectedAction = static_cast<EActivity>(TypeOfAction);
+	SelectedAction_ = TypeOfAction;
 	bHasTask = true;
 
 	Resource = nullptr;
 	switch (SelectedAction) {
-	case eExtract:
-		Resource = reinterpret_cast<AResource*>(AimPtr);
-		FollowTrajectory();
-		break;
 	case eMoveTo:
-		FollowTrajectory();
 		break;
+	case eExtract: // or
 	case eMine:
 		Resource = reinterpret_cast<AResource*>(AimPtr);
-		FollowTrajectory();
 		break;
 	}
+
+	GoTo(AimPtr->GetActorLocation());
 }
 
 void ACharacterMW2D::DoAction()
@@ -53,7 +50,10 @@ void ACharacterMW2D::DoAction()
 	case eMoveTo:
 		bIsWorking = false;
 		bHasTask = false;
-		reportDoneTask();
+		ReportDoneTask();
+		break;
+	case eBuild:
+		// TODO ------------------------------------------------------------------------------------------------------------------------
 		break;
 	}
 }
@@ -62,6 +62,7 @@ bool ACharacterMW2D::IsWorking() const
 {
 	return bIsWorking;
 }
+
 
 int ACharacterMW2D::GetID() const
 {
@@ -75,17 +76,13 @@ void ACharacterMW2D::SetID(int NewID)
 	}
 }
 
-void ACharacterMW2D::BeginPlay()
-{
-	AMobBase2D::BeginPlay(); 
-}
 
 bool ACharacterMW2D::IsResourceValid(AResource* CheckResource)
 {
 	return CheckResource != nullptr && CheckResource->GetDoesExist();
 }
 
-void ACharacterMW2D::prepareToResourceTask()
+void ACharacterMW2D::PrepareToResourceTask()
 {
 	if (ResourceStorage == nullptr) {
 		TArray<AActor*> FoundActors = { nullptr };
@@ -104,12 +101,12 @@ void ACharacterMW2D::MineResource()
 {
 	++RepeatsCntr;
 
-	prepareToResourceTask();
+	PrepareToResourceTask();
 
 	if (!IsResourceValid(Resource)) {
 		bIsWorking = false;
 		bHasTask = false;
-		reportImpossibleTask();
+		ReportImpossibleTask();
 		return;
 	}
 
@@ -127,6 +124,12 @@ void ACharacterMW2D::MineResource()
 		GetWorldTimerManager().ClearTimer(SubExtractTimerHandle);
 		bIsWorking = false;
 		bHasTask = false;
-		reportDoneTask();
+		ReportDoneTask();
 	}
+}
+
+
+void ACharacterMW2D::BeginPlay()
+{
+	AMobBase2D::BeginPlay();
 }

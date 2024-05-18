@@ -15,21 +15,6 @@ void EmptyLinkFunctionForGeneratedCodeCharacterMW2D() {}
 	MIRWORLD_API UClass* Z_Construct_UClass_AResource_NoRegister();
 	UPackage* Z_Construct_UPackage__Script_MirWorld();
 // End Cross Module References
-	DEFINE_FUNCTION(ACharacterMW2D::execMineResource)
-	{
-		P_FINISH;
-		P_NATIVE_BEGIN;
-		P_THIS->MineResource();
-		P_NATIVE_END;
-	}
-	DEFINE_FUNCTION(ACharacterMW2D::execIsResourceValid)
-	{
-		P_GET_OBJECT(AResource,Z_Param_Resource);
-		P_FINISH;
-		P_NATIVE_BEGIN;
-		*(bool*)Z_Param__Result=P_THIS->IsResourceValid(Z_Param_Resource);
-		P_NATIVE_END;
-	}
 	DEFINE_FUNCTION(ACharacterMW2D::execSetID)
 	{
 		P_GET_PROPERTY(FIntProperty,Z_Param_NewID);
@@ -43,6 +28,21 @@ void EmptyLinkFunctionForGeneratedCodeCharacterMW2D() {}
 		P_FINISH;
 		P_NATIVE_BEGIN;
 		*(int32*)Z_Param__Result=P_THIS->GetID();
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(ACharacterMW2D::execMineResource)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->MineResource();
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(ACharacterMW2D::execIsResourceValid)
+	{
+		P_GET_OBJECT(AResource,Z_Param_Resource);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		*(bool*)Z_Param__Result=P_THIS->IsResourceValid(Z_Param_Resource);
 		P_NATIVE_END;
 	}
 	DEFINE_FUNCTION(ACharacterMW2D::execIsWorking)
@@ -129,11 +129,11 @@ void EmptyLinkFunctionForGeneratedCodeCharacterMW2D() {}
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ACharacterMW2D_IsResourceValid_Statics::Function_MetaDataParams[] = {
 		{ "Category", "Character ID" },
 #if !UE_BUILD_SHIPPING
-		{ "Comment", "/*\n\x09// Says to the GameMode, that mob can't perform the task\n\x09UFUNCTION(BlueprintImplementableEvent, Category = \"Mob Action\") /// implemented in BPs\n\x09""ACharacterMW2D* reportImpossibleTask() override;\n\n\x09// Says to the GameMode, that mob has performed the task\n\x09UFUNCTION(BlueprintImplementableEvent, Category = \"Mob Action\") /// implemented in BPs\n\x09""ACharacterMW2D* reportDoneTask() override;*/// Checks if aim resource is valid\n" },
+		{ "Comment", "// Checks if aim resource is valid\n" },
 #endif
 		{ "ModuleRelativePath", "CharacterMW2D.h" },
 #if !UE_BUILD_SHIPPING
-		{ "ToolTip", "// Says to the GameMode, that mob can't perform the task\nUFUNCTION(BlueprintImplementableEvent, Category = \"Mob Action\") /// implemented in BPs\nACharacterMW2D* reportImpossibleTask() override;\n\n// Says to the GameMode, that mob has performed the task\nUFUNCTION(BlueprintImplementableEvent, Category = \"Mob Action\") /// implemented in BPs\nACharacterMW2D* reportDoneTask() override;// Checks if aim resource is valid" },
+		{ "ToolTip", "Checks if aim resource is valid" },
 #endif
 	};
 #endif
@@ -272,10 +272,6 @@ void EmptyLinkFunctionForGeneratedCodeCharacterMW2D() {}
 		static const UECodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
 #endif
 #if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam NewProp_ID_MetaData[];
-#endif
-		static const UECodeGen_Private::FIntPropertyParams NewProp_ID;
-#if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_SelectedAction__MetaData[];
 #endif
 		static const UECodeGen_Private::FIntPropertyParams NewProp_SelectedAction_;
@@ -293,6 +289,10 @@ void EmptyLinkFunctionForGeneratedCodeCharacterMW2D() {}
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_ExtractSpeeds_MetaData[];
 #endif
 		static const UECodeGen_Private::FArrayPropertyParams NewProp_ExtractSpeeds;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_ID_MetaData[];
+#endif
+		static const UECodeGen_Private::FIntPropertyParams NewProp_ID;
 		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UECodeGen_Private::FClassParams ClassParams;
@@ -304,7 +304,7 @@ void EmptyLinkFunctionForGeneratedCodeCharacterMW2D() {}
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_ACharacterMW2D_Statics::DependentSingletons) < 16);
 	const FClassFunctionLinkInfo Z_Construct_UClass_ACharacterMW2D_Statics::FuncInfo[] = {
 		{ &Z_Construct_UFunction_ACharacterMW2D_GetID, "GetID" }, // 3245743242
-		{ &Z_Construct_UFunction_ACharacterMW2D_IsResourceValid, "IsResourceValid" }, // 2127087004
+		{ &Z_Construct_UFunction_ACharacterMW2D_IsResourceValid, "IsResourceValid" }, // 2730726561
 		{ &Z_Construct_UFunction_ACharacterMW2D_IsWorking, "IsWorking" }, // 1209243199
 		{ &Z_Construct_UFunction_ACharacterMW2D_MineResource, "MineResource" }, // 1195246054
 		{ &Z_Construct_UFunction_ACharacterMW2D_SetID, "SetID" }, // 1791681449
@@ -323,19 +323,6 @@ void EmptyLinkFunctionForGeneratedCodeCharacterMW2D() {}
 #endif
 	};
 #endif
-#if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ACharacterMW2D_Statics::NewProp_ID_MetaData[] = {
-		{ "Category", "Character ID" },
-#if !UE_BUILD_SHIPPING
-		{ "Comment", "// Unique for every character\n" },
-#endif
-		{ "ModuleRelativePath", "CharacterMW2D.h" },
-#if !UE_BUILD_SHIPPING
-		{ "ToolTip", "Unique for every character" },
-#endif
-	};
-#endif
-	const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_ACharacterMW2D_Statics::NewProp_ID = { "ID", nullptr, (EPropertyFlags)0x0020080000000001, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ACharacterMW2D, ID), METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_ACharacterMW2D_Statics::NewProp_ID_MetaData), Z_Construct_UClass_ACharacterMW2D_Statics::NewProp_ID_MetaData) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ACharacterMW2D_Statics::NewProp_SelectedAction__MetaData[] = {
 		{ "Category", "Mob State" },
@@ -384,14 +371,27 @@ void EmptyLinkFunctionForGeneratedCodeCharacterMW2D() {}
 	};
 #endif
 	const UECodeGen_Private::FArrayPropertyParams Z_Construct_UClass_ACharacterMW2D_Statics::NewProp_ExtractSpeeds = { "ExtractSpeeds", nullptr, (EPropertyFlags)0x0020080000000001, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ACharacterMW2D, ExtractSpeeds), EArrayPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_ACharacterMW2D_Statics::NewProp_ExtractSpeeds_MetaData), Z_Construct_UClass_ACharacterMW2D_Statics::NewProp_ExtractSpeeds_MetaData) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ACharacterMW2D_Statics::NewProp_ID_MetaData[] = {
+		{ "Category", "Character ID" },
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "// Unique for every character\n" },
+#endif
+		{ "ModuleRelativePath", "CharacterMW2D.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "Unique for every character" },
+#endif
+	};
+#endif
+	const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_ACharacterMW2D_Statics::NewProp_ID = { "ID", nullptr, (EPropertyFlags)0x0020080000000001, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ACharacterMW2D, ID), METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_ACharacterMW2D_Statics::NewProp_ID_MetaData), Z_Construct_UClass_ACharacterMW2D_Statics::NewProp_ID_MetaData) };
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ACharacterMW2D_Statics::PropPointers[] = {
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACharacterMW2D_Statics::NewProp_ID,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACharacterMW2D_Statics::NewProp_SelectedAction_,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACharacterMW2D_Statics::NewProp_RepeatsRequired,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACharacterMW2D_Statics::NewProp_CanExtract_Inner,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACharacterMW2D_Statics::NewProp_CanExtract,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACharacterMW2D_Statics::NewProp_ExtractSpeeds_Inner,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACharacterMW2D_Statics::NewProp_ExtractSpeeds,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACharacterMW2D_Statics::NewProp_ID,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_ACharacterMW2D_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<ACharacterMW2D>::IsAbstract,
@@ -432,9 +432,9 @@ void EmptyLinkFunctionForGeneratedCodeCharacterMW2D() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Code_Projects_GitHub_MirWorld_MirWorld_Project_MirWorld_Source_MirWorld_CharacterMW2D_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_ACharacterMW2D, ACharacterMW2D::StaticClass, TEXT("ACharacterMW2D"), &Z_Registration_Info_UClass_ACharacterMW2D, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ACharacterMW2D), 2019137189U) },
+		{ Z_Construct_UClass_ACharacterMW2D, ACharacterMW2D::StaticClass, TEXT("ACharacterMW2D"), &Z_Registration_Info_UClass_ACharacterMW2D, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ACharacterMW2D), 915354214U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Code_Projects_GitHub_MirWorld_MirWorld_Project_MirWorld_Source_MirWorld_CharacterMW2D_h_1291687997(TEXT("/Script/MirWorld"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Code_Projects_GitHub_MirWorld_MirWorld_Project_MirWorld_Source_MirWorld_CharacterMW2D_h_2437178658(TEXT("/Script/MirWorld"),
 		Z_CompiledInDeferFile_FID_Code_Projects_GitHub_MirWorld_MirWorld_Project_MirWorld_Source_MirWorld_CharacterMW2D_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Code_Projects_GitHub_MirWorld_MirWorld_Project_MirWorld_Source_MirWorld_CharacterMW2D_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

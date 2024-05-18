@@ -1,27 +1,7 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
-
 #include "CharacterMW.h"
 
-void ACharacterMW::SetAction(int TypeOfAction, TArray<FVector> NewTrajectory, AActor* AimPtr) 
-{
-	SetTrajectory(NewTrajectory);
-	if (TypeOfAction >= 0 && TypeOfAction < 3) {
-		SelectedAction = static_cast<EActivity> (TypeOfAction);
-		HasTask = true;
-	}
-
-	Resource = nullptr;
-	switch (SelectedAction) {
-		case eExtract:
-			Resource = reinterpret_cast<AResource*>(AimPtr);
-			FollowTrajectory();
-			break;
-		case eMoveTo:
-			FollowTrajectory();
-			break;
-	}
-}
 
 void ACharacterMW::DoAction()
 {
@@ -43,12 +23,12 @@ void ACharacterMW::BeginPlay()
 	AMobBase::BeginPlay(); // check
 }
 
-void ACharacterMW::reportImpossibleTask()
+void ACharacterMW::ReportImpossibleTask()
 {
 
 }
 
-void ACharacterMW::reportDoneTask()
+void ACharacterMW::ReportDoneTask()
 {
 
 }

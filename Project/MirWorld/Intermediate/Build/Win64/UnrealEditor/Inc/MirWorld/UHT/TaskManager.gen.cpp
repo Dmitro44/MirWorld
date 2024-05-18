@@ -264,12 +264,12 @@ void EmptyLinkFunctionForGeneratedCodeTaskManager() {}
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UTaskManager_Statics::Class_MetaDataParams[] = {
 #if !UE_BUILD_SHIPPING
-		{ "Comment", "/**\n * Uses priority matrix for task management\n */" },
+		{ "Comment", "/**\n * Uses priority matrix for task management\n * \n * MoveTo and Stop have the highest priority and sgould be managed instantly so there are not stored here\n */" },
 #endif
 		{ "IncludePath", "TaskManager.h" },
 		{ "ModuleRelativePath", "TaskManager.h" },
 #if !UE_BUILD_SHIPPING
-		{ "ToolTip", "Uses priority matrix for task management" },
+		{ "ToolTip", "Uses priority matrix for task management\n\nMoveTo and Stop have the highest priority and sgould be managed instantly so there are not stored here" },
 #endif
 	};
 #endif
@@ -310,9 +310,9 @@ void EmptyLinkFunctionForGeneratedCodeTaskManager() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Code_Projects_GitHub_MirWorld_MirWorld_Project_MirWorld_Source_MirWorld_TaskManager_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UTaskManager, UTaskManager::StaticClass, TEXT("UTaskManager"), &Z_Registration_Info_UClass_UTaskManager, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UTaskManager), 3683057535U) },
+		{ Z_Construct_UClass_UTaskManager, UTaskManager::StaticClass, TEXT("UTaskManager"), &Z_Registration_Info_UClass_UTaskManager, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UTaskManager), 307665231U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Code_Projects_GitHub_MirWorld_MirWorld_Project_MirWorld_Source_MirWorld_TaskManager_h_2129352489(TEXT("/Script/MirWorld"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Code_Projects_GitHub_MirWorld_MirWorld_Project_MirWorld_Source_MirWorld_TaskManager_h_1655508684(TEXT("/Script/MirWorld"),
 		Z_CompiledInDeferFile_FID_Code_Projects_GitHub_MirWorld_MirWorld_Project_MirWorld_Source_MirWorld_TaskManager_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Code_Projects_GitHub_MirWorld_MirWorld_Project_MirWorld_Source_MirWorld_TaskManager_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

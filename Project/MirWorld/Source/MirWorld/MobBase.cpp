@@ -17,27 +17,27 @@ void AMobBase::moveToNextTile()
 
 	CurrentTile = NextTile;
 	NextTile = *(CurrentTrajectory.begin());
-	percentOfPassedDistance = 0.0f;
+	PercentOfPassedDistance = 0.0f;
 	CurrentTrajectory.RemoveAt(0);
 
 	GetWorldTimerManager().SetTimer(
 		ApproachTimerHandle,
 		this,
-		&AMobBase::goCloserToNextTile,
+		&AMobBase::GoCloserToNextTile,
 		SecsForNextTile / MovementSpeed / MotionFrameAmount * FVector::Distance(NextTile, CurrentTile) / TileSize,
 		true,
 		0
 	);
 }
 
-void AMobBase::goCloserToNextTile()
+void AMobBase::GoCloserToNextTile()
 {
-	percentOfPassedDistance += 1.0f / MotionFrameAmount;
+	PercentOfPassedDistance += 1.0f / MotionFrameAmount;
 
-	FVector newLocation = CurrentTile * (1 - percentOfPassedDistance) + NextTile * percentOfPassedDistance;
+	FVector newLocation = CurrentTile * (1 - PercentOfPassedDistance) + NextTile * PercentOfPassedDistance;
 	SetActorLocation(newLocation);
 
-	if (std::abs(percentOfPassedDistance - 1) < 0.01) {
+	if (std::abs(PercentOfPassedDistance - 1) < 0.01) {
 		GetWorldTimerManager().ClearTimer(ApproachTimerHandle);
 		moveToNextTile();
 	}
@@ -75,7 +75,7 @@ void AMobBase::FollowTrajectory()
 	}
 
 	if (CurrentTrajectory == G_NO_WAY) {
-		reportImpossibleTask();
+		ReportImpossibleTask();
 		HasTask = false;
 		return;
 	}

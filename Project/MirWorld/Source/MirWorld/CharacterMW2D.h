@@ -4,6 +4,7 @@
 
 #include "Kismet/GameplayStatics.h"
 #include "CoreMinimal.h"
+#include "Generator.h"
 #include "Resource.h"
 #include "MobBase2D.h"
 #include "EnumsFictitiousClass.h"
@@ -19,56 +20,48 @@ UCLASS()
 class MIRWORLD_API ACharacterMW2D : public AMobBase2D
 {
 	GENERATED_BODY()
-	
+
+
+
+	// Actions //----------------------------------------------------------------------------------------------
+
 public:
 	// Sets specific task and the mob starts its
-	// If TypeOfAction == Extract then AimPtr is AResource
-	void SetAction(int TypeOfAction, TArray<FVector> NewTrajectory, AActor* AimPtr) override;
-
-	// Perform selected task
-	void DoAction() override;
+	// If TypeOfAction == Extract or Mine then AimPtr is AResource
+	// If TypeOfAction == MoveTo then AimPtr is any actor with the position to go to
+	void SetAction(int TypeOfAction, AActor* AimPtr) override;
 
 	// Shows if work animation must be played
 	UFUNCTION(BlueprintCallable, Category = "Mob Action")
 	bool IsWorking() const;
 
-	UFUNCTION(BlueprintCallable, Category = "Character ID")
-	int GetID() const;
-
-	UFUNCTION(BlueprintCallable, Category = "Character ID")
-	void SetID(int NewID);
-
 protected:
-	// Called when the game starts or when spawned
-	void BeginPlay() override;
-
-	/*
-	// Says to the GameMode, that mob can't perform the task
-	UFUNCTION(BlueprintImplementableEvent, Category = "Mob Action") /// implemented in BPs
-	ACharacterMW2D* reportImpossibleTask() override;
-
-	// Says to the GameMode, that mob has performed the task
-	UFUNCTION(BlueprintImplementableEvent, Category = "Mob Action") /// implemented in BPs
-	ACharacterMW2D* reportDoneTask() override;*/
-
-	// Checks if aim resource is valid
-	UFUNCTION(BlueprintCallable, Category = "Character ID")
-	bool IsResourceValid(AResource* Resource);
-
-	void prepareToResourceTask();
-
-	// Extract a bunch of a resource or extract the whole res point 
-	UFUNCTION(BlueprintCallable, Category = "Resource Extracting")
-	void MineResource();
-
-	// Unique for every character
-	UPROPERTY(EditAnywhere, Category = "Character ID")
-	int ID = -1;
+	// Perform selected task
+	void DoAction() override;
 
 	UPROPERTY(EditAnywhere, Category = "Mob State")
 	int SelectedAction_ = 2; // see the enum
 	EActivity SelectedAction = eMoveTo;
 
+	// Shows if work animation must be played
+	bool bIsWorking = false;
+
+	// End of Actions //---------------------------------------------------------------------------------------
+
+
+
+	// Resource Actions //----------------------------------------------------------------------------------------------
+
+protected:
+	// Checks if aim resource is valid
+	UFUNCTION(BlueprintCallable, Category = "Character ID")
+	bool IsResourceValid(AResource* Resource);
+
+	void PrepareToResourceTask();
+
+	// Extract a bunch of a resource or extract the whole res point 
+	UFUNCTION(BlueprintCallable, Category = "Resource Extracting")
+	void MineResource();
 
 	// Timer for subresults of extracting a resource
 	FTimerHandle SubExtractTimerHandle;
@@ -79,7 +72,6 @@ protected:
 
 	// Cntr for repears of resource extracting
 	int RepeatsCntr = 0;
-
 
 	// Shows what resources the character can extract
 	UPROPERTY(EditAnywhere, Category = "Character Stats")
@@ -101,9 +93,6 @@ protected:
 		1 // gold
 	};
 
-	// Shows if work animation must be played
-	bool bIsWorking = false;
-
 	// what resource is axtracting
 	AResource* Resource;
 
@@ -112,4 +101,34 @@ protected:
 
 	// refers to the score cntr
 	AScoreCntr* ScoreCntr = nullptr;
+
+	// End of Resource Actions //---------------------------------------------------------------------------------------
+
+
+
+	// Character's Basics //----------------------------------------------------------------------------------------------
+
+public:
+	UFUNCTION(BlueprintCallable, Category = "Character ID")
+	int GetID() const;
+
+	UFUNCTION(BlueprintCallable, Category = "Character ID")
+	void SetID(int NewID);
+
+protected:
+	// Unique for every character
+	UPROPERTY(EditAnywhere, Category = "Character ID")
+	int ID = -1;
+
+	// End of Character's Basics //---------------------------------------------------------------------------------------
+	
+	
+
+	// Any Actor's stuff //----------------------------------------------------------------------------------------------
+
+protected:
+	// Called when the game starts or when spawned
+	virtual void BeginPlay() override;
+
+	// End of Any Actor's stuff //---------------------------------------------------------------------------------------
 };

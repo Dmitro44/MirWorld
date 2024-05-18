@@ -13,8 +13,11 @@ using namespace std;
 
 // const for the no way to destination
 TFVector NO_WAY { FVector(-1,-1,0) };
-// constant for the Z coordinate
-const int CHARACTER_Z = 90;
+
+// const for char's height
+//const int CHARACTER_Z_POS = 90;
+int z_pos; // TODO
+
 
 // Creating a shortcut for int, int pair type
 struct cell
@@ -100,7 +103,7 @@ TFVector tracePath(vector<vector<cell>> cellDetails, Pair dest)
         pair<int, int> p = path[i];
         p_1[0] = p.first;
         p_1[1] = p.second;
-        p_1[2] = CHARACTER_Z;
+        p_1[2] = z_pos;
         PATH.Add(p_1);
     }
     return PATH;
@@ -513,5 +516,6 @@ TFVector AStarSearch(int32 grid[][COL], FVector src_1, FVector dest_1)
 
 TFVector  APathFinder::getPathFromTo(int32 grid[][COL], FVector src_1, FVector dest_1)
 {
+    z_pos = src_1.Z;
     return AStarSearch(grid, src_1, dest_1);
 }
