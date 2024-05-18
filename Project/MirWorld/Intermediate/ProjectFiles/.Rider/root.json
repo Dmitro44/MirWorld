@@ -2,53 +2,28 @@
 	"ConfigurationsAndPlatforms": [
 		{
 			"Configuration": "DebugGame",
-			"Platform": "IOS",
+			"Platform": "Win64",
 			"Target": "Editor"
 		},
 		{
 			"Configuration": "DebugGame",
-			"Platform": "Mac",
-			"Target": "Editor"
-		},
-		{
-			"Configuration": "DebugGame",
-			"Platform": "IOS",
-			"Target": "Program"
-		},
-		{
-			"Configuration": "DebugGame",
-			"Platform": "Mac",
-			"Target": "Program"
+			"Platform": "Win64",
+			"Target": "Game"
 		},
 		{
 			"Configuration": "Development",
-			"Platform": "IOS",
+			"Platform": "Win64",
 			"Target": "Editor"
 		},
 		{
 			"Configuration": "Development",
-			"Platform": "Mac",
-			"Target": "Editor"
-		},
-		{
-			"Configuration": "Development",
-			"Platform": "IOS",
-			"Target": "Program"
-		},
-		{
-			"Configuration": "Development",
-			"Platform": "Mac",
-			"Target": "Program"
+			"Platform": "Win64",
+			"Target": "Game"
 		},
 		{
 			"Configuration": "Shipping",
-			"Platform": "IOS",
-			"Target": "Program"
-		},
-		{
-			"Configuration": "Shipping",
-			"Platform": "Mac",
-			"Target": "Program"
+			"Platform": "Win64",
+			"Target": "Game"
 		}
 	]
 }

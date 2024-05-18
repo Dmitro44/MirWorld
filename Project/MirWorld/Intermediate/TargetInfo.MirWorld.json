@@ -2,12 +2,12 @@
 	"Targets": [
 		{
 			"Name": "MirWorld",
-			"Path": "../Source/MirWorld.Target.cs",
+			"Path": "..\\Source\\MirWorld.Target.cs",
 			"Type": "Game"
 		},
 		{
 			"Name": "MirWorldEditor",
-			"Path": "../Source/MirWorldEditor.Target.cs",
+			"Path": "..\\Source\\MirWorldEditor.Target.cs",
 			"Type": "Editor"
 		}
 	]
