@@ -140,9 +140,10 @@ void AGenerator::ClearTiles(TArray<FVector> Tiles)
 	auto& Map = MapInfo.GetMap();
 	for (auto Tile : Tiles) {
 		TArray<AActor*> FoundActors;
+		Tile.Z = 0;
 		UGameplayStatics::GetAllActorsOfClass(GetWorld(), ABasicActor::StaticClass(), FoundActors);
 		for (auto& Object : FoundActors) {
-			if (Object->GetActorLocation().Equals(Tile, 50)) {
+			if (Object->GetActorLocation().Equals(Tile, SIDE_SIZE / 3) && !dynamic_cast<ATile*>(Object)) {
 				Object->Destroy();
 			}
 		}
