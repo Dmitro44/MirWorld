@@ -116,6 +116,8 @@ void AGenerator::BuildMap(const FVector CenteredLocation, const int X, const int
 	BuildTiles(CenteredLocation, X, Y);
 
 	BuildResources(CenteredLocation, X, Y);
+
+	ClearTiles(StartPositions);
 }
 
 bool AGenerator::TileIsPassable(const int X, const int Y)
@@ -126,6 +128,26 @@ bool AGenerator::TileIsPassable(const int X, const int Y)
 bool AGenerator::TileIsBuildable(const int X, const int Y)
 {
 	return MapInfo.GetMap()[X][Y].bIsBuildable;
+}
+
+TArray<FVector> AGenerator::GetStartPositions()
+{
+	return StartPositions;
+}
+
+void AGenerator::ClearTiles(TArray<FVector> Tiles)
+{
+	auto& Map = MapInfo.GetMap();
+	for (auto Tile : Tiles) {
+		TArray<AActor*> FoundActors;
+		UGameplayStatics::GetAllActorsOfClass(GetWorld(), ABasicActor::StaticClass(), FoundActors);
+		for (auto& Object : FoundActors) {
+			if (Object->GetActorLocation().Equals(Tile, 50)) {
+				Object->Destroy();
+			}
+		}
+		Map[static_cast<int>(Tile.X) / SIDE_SIZE][static_cast<int>(Tile.Y) / SIDE_SIZE].Clear();
+	}
 }
 
 TArray<FVector> AGenerator::GetTrajectory(FVector Start, FVector Aim)
@@ -140,10 +162,10 @@ TArray<FVector> AGenerator::GetTrajectory(FVector Start, FVector Aim)
 	}
 
 	// We consider that first tile is located in 0,0,0 and its side size is SIDE_SIZE 
-	Start.X = static_cast<int32>(Start.X) / SIDE_SIZE;
-	Start.Y = static_cast<int32>(Start.Y) / SIDE_SIZE;
-	Aim.X = static_cast<int32>(Aim.X) / SIDE_SIZE;
-	Aim.Y = static_cast<int32>(Aim.Y) / SIDE_SIZE;
+	Start.X = static_cast<int32>(Start.X + 1) / SIDE_SIZE;
+	Start.Y = static_cast<int32>(Start.Y + 1) / SIDE_SIZE;
+	Aim.X = static_cast<int32>(Aim.X + 1) / SIDE_SIZE;
+	Aim.Y = static_cast<int32>(Aim.Y + 1) / SIDE_SIZE;
 
 	TArray<FVector> Trajectory = APathFinder::getPathFromTo(PassabilityMatrix, Start, Aim); // it's only indexes for now
 

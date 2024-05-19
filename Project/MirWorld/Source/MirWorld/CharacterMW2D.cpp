@@ -7,7 +7,6 @@ void ACharacterMW2D::SetAction(int TypeOfAction, AActor* AimPtr)
 {
 	SelectedAction = static_cast<EActivity>(TypeOfAction);
 	SelectedAction_ = TypeOfAction;
-	bHasTask = true;
 
 	Resource = nullptr;
 	switch (SelectedAction) {
@@ -17,13 +16,18 @@ void ACharacterMW2D::SetAction(int TypeOfAction, AActor* AimPtr)
 	case eMine:
 		Resource = reinterpret_cast<AResource*>(AimPtr);
 		break;
+	default:
+		ReportImpossibleTask();
+		return;
 	}
 
+	bHasTask = true;
 	GoTo(AimPtr->GetActorLocation());
 }
 
 void ACharacterMW2D::DoAction()
 {
+	bIsMoving = false;
 	switch (SelectedAction)
 	{
 	case eExtract:

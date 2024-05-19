@@ -20,6 +20,8 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #define FID_Code_Projects_GitHub_MirWorld_MirWorld_Project_MirWorld_Source_MirWorld_Generator_h_19_RPC_WRAPPERS_NO_PURE_DECLS \
  \
 	DECLARE_FUNCTION(execGetTrajectory); \
+	DECLARE_FUNCTION(execClearTiles); \
+	DECLARE_FUNCTION(execGetStartPositions); \
 	DECLARE_FUNCTION(execTileIsBuildable); \
 	DECLARE_FUNCTION(execTileIsPassable); \
 	DECLARE_FUNCTION(execBuildMap);

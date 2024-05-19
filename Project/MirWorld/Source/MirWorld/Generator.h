@@ -31,6 +31,12 @@ public:
 	UFUNCTION(BlueprintCallable)
 	bool TileIsBuildable(const int X, const int Y);
 
+	UFUNCTION(BlueprintCallable)
+	TArray<FVector> GetStartPositions();
+
+	UFUNCTION(BlueprintCallable)
+	void ClearTiles(TArray<FVector> Tiles);
+
 	// Return the trajectory from Start to Aim or NO_WAY = 
 	UFUNCTION(BlueprintCallable)
 	TArray<FVector> GetTrajectory(FVector Start, FVector Aim);
@@ -72,4 +78,12 @@ protected:
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
 	TSoftClassPtr<AResource> ObjectType;
 
+	//------------------
+
+	TArray<FVector> StartPositions = {
+		{2500, 2500, 90},
+		{2600, 2500, 90},
+		{2600, 2600, 90},
+		{2500, 2600, 90}
+	};
 };

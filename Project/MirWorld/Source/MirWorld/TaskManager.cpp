@@ -74,11 +74,13 @@ bool UTaskManager::StartTask(ACharacterMW2D* Char) // TODO
 			auto& Task = Tasks[i];
 			if ((Task.IDs.Contains(CharID) || Task.IDs.IsEmpty()) && 
 				PriorityMatrix[CharID][Task_T.ResType]) {
-				Char->SetAction(
-					Task_T.ResType,
-					Task.Aim
-				);
+				auto Aim = Task.Aim;
 				Tasks.erase(Tasks.begin() + i);
+				int Type = (Task_T.ResType == 0 ? 2 : Task_T.ResType - 1); // "translation" to char's enum
+				Char->SetAction(
+					Type,
+					Aim
+				);
 				return true;
 			}
 		}

@@ -44,14 +44,17 @@ void AMobBase2D::GoTo(FVector NewDestination)
 	Destination = NewDestination;
 	auto Path = GetPathFromMob(NewDestination);
 
-	if (Path.IsEmpty()) {
+	if (Path.IsEmpty() || 
+		abs(abs(GetActorLocation().Z - NewDestination.Z) -
+			FVector::Distance(GetActorLocation(), NewDestination)) < 1) 
+	{
 		DoAction();
 		return;
 	}
 
 	if (Path == G_NO_WAY) {
-		ReportImpossibleTask();
 		bHasTask = false;
+		ReportImpossibleTask();
 		return;
 	}
 

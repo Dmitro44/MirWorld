@@ -14,6 +14,14 @@ struct FInfoMatrix
 		Building = NewBuilding;
 	};
 
+	void Clear() {
+		bIsGoThrough = true;
+		bIsBuildable = true;
+
+		Building = 0;
+		Resources = 0;
+	}
+
 	bool bIsGoThrough = true;
 	bool bIsBuildable = true;
 

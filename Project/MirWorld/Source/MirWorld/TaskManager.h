@@ -36,7 +36,7 @@ class MIRWORLD_API UTaskManager : public UObject
 		int PriorityLevel;
 		
 		bool operator>(const FTask_T& other) {
-			return  - (ResType - other.ResType) + (PriorityLevel - other.PriorityLevel) * MUCH_MORE_THAN_TASKTYPE > 0;
+			return -(ResType - other.ResType) + (PriorityLevel - other.PriorityLevel) * MUCH_MORE_THAN_TASKTYPE > 0;
 		}
 
 		bool operator<(const FTask_T& other) {

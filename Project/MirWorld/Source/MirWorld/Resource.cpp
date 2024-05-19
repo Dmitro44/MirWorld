@@ -28,18 +28,27 @@ int AResource::GiveBunch()
 {
 	int Mined = FMath::RandRange(BaseRecieve - 1.0, BaseRecieve + 2.5);
 
-	this->ResorceLeft -= Mined;
-
-	if (ResorceLeft > 0) {
+	if (Mined <= ResorceLeft) {
+		ResorceLeft -= Mined;
+		return Mined;
+	}
+	else if (ResorceLeft != 0) {
+		Mined = ResorceLeft;
+		ResorceLeft = 0;
 		return Mined;
 	}
 	else {
-		return 1;
+		return Mined;
 	}
 }
 
 int AResource::ExtractRes()
 {
+	SetActorLocation( {-1000, -1000, -1000} );
+	bDoesExist = false;
+	SetActorHiddenInGame(true);
+	SetActorEnableCollision(false);
+	SetActorTickEnabled(false);
 	return BaseRecieve * 3 > ResorceLeft ? BaseRecieve * 3 : ResorceLeft;
 }
 
