@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 
+
 struct FInfoMatrix
 {
 	FInfoMatrix() = default;
@@ -59,11 +60,11 @@ private:
 
 	// Refers to the passability of trees on the map
 	UPROPERTY(EditAnywhere, Category = "Tile settings") // it's actually can't be accesed through blueprints
-	const bool bTreeIsPassable = true;
+	bool bTreeIsPassable = true;
 
 	// Refers to the passability of stones on the map
 	UPROPERTY(EditAnywhere, Category = "Tile settings") // it's actually can't be accesed through blueprints
-	const bool bStoneIsPassable = false;
+	bool bStoneIsPassable = false;
 
 	float RandomResMove;
 };

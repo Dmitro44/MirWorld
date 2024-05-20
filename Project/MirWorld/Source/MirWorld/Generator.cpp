@@ -5,6 +5,16 @@ AGenerator::AGenerator()
 	PrimaryActorTick.bCanEverTick = false;
 }
 
+void AGenerator::SetIsLoaded(bool value)
+{
+	bIsLoaded = value;
+}
+
+bool AGenerator::GetIsLoaded() const
+{
+	return bIsLoaded;
+}
+
 void AGenerator::BuildResources(const FVector CenteredLocation, const int X, const int Y)
 {
 	for (auto OuterIndex{ 0 }; OuterIndex <= Y - 1; ++OuterIndex)

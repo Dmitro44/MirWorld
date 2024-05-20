@@ -37,6 +37,9 @@ public:
 
 	UFUNCTION(BlueprintCallable, Category = "Resource")
 	int GetResourceLeft() const;
+	
+	UFUNCTION(BlueprintCallable, Category = "Resource")
+	void SetResourceLeft(int ResourseLeft);
 
 	UFUNCTION(BlueprintCallable, Category = "Biome")
 	int GetBiomeType() const;
@@ -49,6 +52,12 @@ public:
 
 	UFUNCTION(BlueprintCallable, Category = "Resource")
 	void SetDoesExist(bool NewStatus);
+
+	UFUNCTION(BlueprintCallable, Category = "Biome")
+	void SetRandomGenerationNum(int Num);
+	
+	UFUNCTION(BlueprintCallable, Category = "Biome")
+	int GetRandomGenerationNum() const;
 
 protected:
 	UFUNCTION(BlueprintCallable, Category = "Resource")
@@ -71,6 +80,9 @@ protected:
 
 	UPROPERTY(EditAnywhere, Category = "Biome")
 	int BiomeType;
+
+	UPROPERTY(EditAnywhere, Category = "Biome")
+	int RandomGenerationNum;
 
 	bool bDoesExist = true;
 };

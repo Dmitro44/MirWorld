@@ -14,16 +14,19 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #endif
 #define MIRWORLD_Resource_generated_h
 
-#define FID_UnrealRep_MirWorld_Project_MirWorld_Source_MirWorld_Resource_h_14_SPARSE_DATA
-#define FID_UnrealRep_MirWorld_Project_MirWorld_Source_MirWorld_Resource_h_14_SPARSE_DATA_PROPERTY_ACCESSORS
-#define FID_UnrealRep_MirWorld_Project_MirWorld_Source_MirWorld_Resource_h_14_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS
-#define FID_UnrealRep_MirWorld_Project_MirWorld_Source_MirWorld_Resource_h_14_RPC_WRAPPERS_NO_PURE_DECLS \
+#define FID_Github_MirWorld_Project_MirWorld_Source_MirWorld_Resource_h_14_SPARSE_DATA
+#define FID_Github_MirWorld_Project_MirWorld_Source_MirWorld_Resource_h_14_SPARSE_DATA_PROPERTY_ACCESSORS
+#define FID_Github_MirWorld_Project_MirWorld_Source_MirWorld_Resource_h_14_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS
+#define FID_Github_MirWorld_Project_MirWorld_Source_MirWorld_Resource_h_14_RPC_WRAPPERS_NO_PURE_DECLS \
  \
 	DECLARE_FUNCTION(execSetResourceType); \
+	DECLARE_FUNCTION(execGetRandomGenerationNum); \
+	DECLARE_FUNCTION(execSetRandomGenerationNum); \
 	DECLARE_FUNCTION(execSetDoesExist); \
 	DECLARE_FUNCTION(execGetDoesExist); \
 	DECLARE_FUNCTION(execSetBiomeType); \
 	DECLARE_FUNCTION(execGetBiomeType); \
+	DECLARE_FUNCTION(execSetResourceLeft); \
 	DECLARE_FUNCTION(execGetResourceLeft); \
 	DECLARE_FUNCTION(execGetResourceType); \
 	DECLARE_FUNCTION(execExtractRes); \
@@ -34,8 +37,8 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 	DECLARE_FUNCTION(execMineTime);
 
 
-#define FID_UnrealRep_MirWorld_Project_MirWorld_Source_MirWorld_Resource_h_14_ACCESSORS
-#define FID_UnrealRep_MirWorld_Project_MirWorld_Source_MirWorld_Resource_h_14_INCLASS_NO_PURE_DECLS \
+#define FID_Github_MirWorld_Project_MirWorld_Source_MirWorld_Resource_h_14_ACCESSORS
+#define FID_Github_MirWorld_Project_MirWorld_Source_MirWorld_Resource_h_14_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesAResource(); \
 	friend struct Z_Construct_UClass_AResource_Statics; \
@@ -44,7 +47,7 @@ public: \
 	DECLARE_SERIALIZER(AResource)
 
 
-#define FID_UnrealRep_MirWorld_Project_MirWorld_Source_MirWorld_Resource_h_14_ENHANCED_CONSTRUCTORS \
+#define FID_Github_MirWorld_Project_MirWorld_Source_MirWorld_Resource_h_14_ENHANCED_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	NO_API AResource(); \
 private: \
@@ -58,17 +61,17 @@ public: \
 	NO_API virtual ~AResource();
 
 
-#define FID_UnrealRep_MirWorld_Project_MirWorld_Source_MirWorld_Resource_h_11_PROLOG
-#define FID_UnrealRep_MirWorld_Project_MirWorld_Source_MirWorld_Resource_h_14_GENERATED_BODY \
+#define FID_Github_MirWorld_Project_MirWorld_Source_MirWorld_Resource_h_11_PROLOG
+#define FID_Github_MirWorld_Project_MirWorld_Source_MirWorld_Resource_h_14_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_UnrealRep_MirWorld_Project_MirWorld_Source_MirWorld_Resource_h_14_SPARSE_DATA \
-	FID_UnrealRep_MirWorld_Project_MirWorld_Source_MirWorld_Resource_h_14_SPARSE_DATA_PROPERTY_ACCESSORS \
-	FID_UnrealRep_MirWorld_Project_MirWorld_Source_MirWorld_Resource_h_14_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS \
-	FID_UnrealRep_MirWorld_Project_MirWorld_Source_MirWorld_Resource_h_14_RPC_WRAPPERS_NO_PURE_DECLS \
-	FID_UnrealRep_MirWorld_Project_MirWorld_Source_MirWorld_Resource_h_14_ACCESSORS \
-	FID_UnrealRep_MirWorld_Project_MirWorld_Source_MirWorld_Resource_h_14_INCLASS_NO_PURE_DECLS \
-	FID_UnrealRep_MirWorld_Project_MirWorld_Source_MirWorld_Resource_h_14_ENHANCED_CONSTRUCTORS \
+	FID_Github_MirWorld_Project_MirWorld_Source_MirWorld_Resource_h_14_SPARSE_DATA \
+	FID_Github_MirWorld_Project_MirWorld_Source_MirWorld_Resource_h_14_SPARSE_DATA_PROPERTY_ACCESSORS \
+	FID_Github_MirWorld_Project_MirWorld_Source_MirWorld_Resource_h_14_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS \
+	FID_Github_MirWorld_Project_MirWorld_Source_MirWorld_Resource_h_14_RPC_WRAPPERS_NO_PURE_DECLS \
+	FID_Github_MirWorld_Project_MirWorld_Source_MirWorld_Resource_h_14_ACCESSORS \
+	FID_Github_MirWorld_Project_MirWorld_Source_MirWorld_Resource_h_14_INCLASS_NO_PURE_DECLS \
+	FID_Github_MirWorld_Project_MirWorld_Source_MirWorld_Resource_h_14_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
@@ -76,7 +79,7 @@ PRAGMA_ENABLE_DEPRECATION_WARNINGS
 template<> MIRWORLD_API UClass* StaticClass<class AResource>();
 
 #undef CURRENT_FILE_ID
-#define CURRENT_FILE_ID FID_UnrealRep_MirWorld_Project_MirWorld_Source_MirWorld_Resource_h
+#define CURRENT_FILE_ID FID_Github_MirWorld_Project_MirWorld_Source_MirWorld_Resource_h
 
 
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

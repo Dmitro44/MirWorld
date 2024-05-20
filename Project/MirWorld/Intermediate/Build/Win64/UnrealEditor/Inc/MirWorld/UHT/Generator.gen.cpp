@@ -56,12 +56,29 @@ void EmptyLinkFunctionForGeneratedCodeGenerator() {}
 		P_THIS->BuildMap(Z_Param_CenteredLocation,Z_Param_X,Z_Param_Y);
 		P_NATIVE_END;
 	}
+	DEFINE_FUNCTION(AGenerator::execGetIsLoaded)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		*(bool*)Z_Param__Result=P_THIS->GetIsLoaded();
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(AGenerator::execSetIsLoaded)
+	{
+		P_GET_UBOOL(Z_Param_value);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->SetIsLoaded(Z_Param_value);
+		P_NATIVE_END;
+	}
 	void AGenerator::StaticRegisterNativesAGenerator()
 	{
 		UClass* Class = AGenerator::StaticClass();
 		static const FNameNativePtrPair Funcs[] = {
 			{ "BuildMap", &AGenerator::execBuildMap },
+			{ "GetIsLoaded", &AGenerator::execGetIsLoaded },
 			{ "GetTrajectory", &AGenerator::execGetTrajectory },
+			{ "SetIsLoaded", &AGenerator::execSetIsLoaded },
 			{ "TileIsBuildable", &AGenerator::execTileIsBuildable },
 			{ "TileIsPassable", &AGenerator::execTileIsPassable },
 		};
@@ -133,6 +150,46 @@ void EmptyLinkFunctionForGeneratedCodeGenerator() {}
 		}
 		return ReturnFunction;
 	}
+	struct Z_Construct_UFunction_AGenerator_GetIsLoaded_Statics
+	{
+		struct Generator_eventGetIsLoaded_Parms
+		{
+			bool ReturnValue;
+		};
+		static void NewProp_ReturnValue_SetBit(void* Obj);
+		static const UECodeGen_Private::FBoolPropertyParams NewProp_ReturnValue;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+	void Z_Construct_UFunction_AGenerator_GetIsLoaded_Statics::NewProp_ReturnValue_SetBit(void* Obj)
+	{
+		((Generator_eventGetIsLoaded_Parms*)Obj)->ReturnValue = 1;
+	}
+	const UECodeGen_Private::FBoolPropertyParams Z_Construct_UFunction_AGenerator_GetIsLoaded_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(Generator_eventGetIsLoaded_Parms), &Z_Construct_UFunction_AGenerator_GetIsLoaded_Statics::NewProp_ReturnValue_SetBit, METADATA_PARAMS(0, nullptr) };
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AGenerator_GetIsLoaded_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AGenerator_GetIsLoaded_Statics::NewProp_ReturnValue,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AGenerator_GetIsLoaded_Statics::Function_MetaDataParams[] = {
+		{ "Category", "Save" },
+		{ "ModuleRelativePath", "Generator.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AGenerator_GetIsLoaded_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AGenerator, nullptr, "GetIsLoaded", nullptr, nullptr, Z_Construct_UFunction_AGenerator_GetIsLoaded_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AGenerator_GetIsLoaded_Statics::PropPointers), sizeof(Z_Construct_UFunction_AGenerator_GetIsLoaded_Statics::Generator_eventGetIsLoaded_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x54020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AGenerator_GetIsLoaded_Statics::Function_MetaDataParams), Z_Construct_UFunction_AGenerator_GetIsLoaded_Statics::Function_MetaDataParams) };
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_AGenerator_GetIsLoaded_Statics::PropPointers) < 2048);
+	static_assert(sizeof(Z_Construct_UFunction_AGenerator_GetIsLoaded_Statics::Generator_eventGetIsLoaded_Parms) < MAX_uint16);
+	UFunction* Z_Construct_UFunction_AGenerator_GetIsLoaded()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AGenerator_GetIsLoaded_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
 	struct Z_Construct_UFunction_AGenerator_GetTrajectory_Statics
 	{
 		struct Generator_eventGetTrajectory_Parms
@@ -181,6 +238,46 @@ void EmptyLinkFunctionForGeneratedCodeGenerator() {}
 		if (!ReturnFunction)
 		{
 			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AGenerator_GetTrajectory_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_AGenerator_SetIsLoaded_Statics
+	{
+		struct Generator_eventSetIsLoaded_Parms
+		{
+			bool value;
+		};
+		static void NewProp_value_SetBit(void* Obj);
+		static const UECodeGen_Private::FBoolPropertyParams NewProp_value;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+	void Z_Construct_UFunction_AGenerator_SetIsLoaded_Statics::NewProp_value_SetBit(void* Obj)
+	{
+		((Generator_eventSetIsLoaded_Parms*)Obj)->value = 1;
+	}
+	const UECodeGen_Private::FBoolPropertyParams Z_Construct_UFunction_AGenerator_SetIsLoaded_Statics::NewProp_value = { "value", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(Generator_eventSetIsLoaded_Parms), &Z_Construct_UFunction_AGenerator_SetIsLoaded_Statics::NewProp_value_SetBit, METADATA_PARAMS(0, nullptr) };
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AGenerator_SetIsLoaded_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AGenerator_SetIsLoaded_Statics::NewProp_value,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AGenerator_SetIsLoaded_Statics::Function_MetaDataParams[] = {
+		{ "Category", "Save" },
+		{ "ModuleRelativePath", "Generator.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AGenerator_SetIsLoaded_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AGenerator, nullptr, "SetIsLoaded", nullptr, nullptr, Z_Construct_UFunction_AGenerator_SetIsLoaded_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AGenerator_SetIsLoaded_Statics::PropPointers), sizeof(Z_Construct_UFunction_AGenerator_SetIsLoaded_Statics::Generator_eventSetIsLoaded_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AGenerator_SetIsLoaded_Statics::Function_MetaDataParams), Z_Construct_UFunction_AGenerator_SetIsLoaded_Statics::Function_MetaDataParams) };
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_AGenerator_SetIsLoaded_Statics::PropPointers) < 2048);
+	static_assert(sizeof(Z_Construct_UFunction_AGenerator_SetIsLoaded_Statics::Generator_eventSetIsLoaded_Parms) < MAX_uint16);
+	UFunction* Z_Construct_UFunction_AGenerator_SetIsLoaded()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AGenerator_SetIsLoaded_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -347,6 +444,11 @@ void EmptyLinkFunctionForGeneratedCodeGenerator() {}
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_ObjectType_MetaData[];
 #endif
 		static const UECodeGen_Private::FSoftClassPropertyParams NewProp_ObjectType;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_bIsLoaded_MetaData[];
+#endif
+		static void NewProp_bIsLoaded_SetBit(void* Obj);
+		static const UECodeGen_Private::FBoolPropertyParams NewProp_bIsLoaded;
 		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UECodeGen_Private::FClassParams ClassParams;
@@ -358,7 +460,9 @@ void EmptyLinkFunctionForGeneratedCodeGenerator() {}
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_AGenerator_Statics::DependentSingletons) < 16);
 	const FClassFunctionLinkInfo Z_Construct_UClass_AGenerator_Statics::FuncInfo[] = {
 		{ &Z_Construct_UFunction_AGenerator_BuildMap, "BuildMap" }, // 2181011163
+		{ &Z_Construct_UFunction_AGenerator_GetIsLoaded, "GetIsLoaded" }, // 2438837755
 		{ &Z_Construct_UFunction_AGenerator_GetTrajectory, "GetTrajectory" }, // 3933290406
+		{ &Z_Construct_UFunction_AGenerator_SetIsLoaded, "SetIsLoaded" }, // 3840012904
 		{ &Z_Construct_UFunction_AGenerator_TileIsBuildable, "TileIsBuildable" }, // 1546904854
 		{ &Z_Construct_UFunction_AGenerator_TileIsPassable, "TileIsPassable" }, // 444847072
 	};
@@ -432,6 +536,17 @@ void EmptyLinkFunctionForGeneratedCodeGenerator() {}
 	};
 #endif
 	const UECodeGen_Private::FSoftClassPropertyParams Z_Construct_UClass_AGenerator_Statics::NewProp_ObjectType = { "ObjectType", nullptr, (EPropertyFlags)0x0024080000010015, UECodeGen_Private::EPropertyGenFlags::SoftClass, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AGenerator, ObjectType), Z_Construct_UClass_AResource_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AGenerator_Statics::NewProp_ObjectType_MetaData), Z_Construct_UClass_AGenerator_Statics::NewProp_ObjectType_MetaData) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AGenerator_Statics::NewProp_bIsLoaded_MetaData[] = {
+		{ "Category", "Save" },
+		{ "ModuleRelativePath", "Generator.h" },
+	};
+#endif
+	void Z_Construct_UClass_AGenerator_Statics::NewProp_bIsLoaded_SetBit(void* Obj)
+	{
+		((AGenerator*)Obj)->bIsLoaded = 1;
+	}
+	const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_AGenerator_Statics::NewProp_bIsLoaded = { "bIsLoaded", nullptr, (EPropertyFlags)0x0020080000000001, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(AGenerator), &Z_Construct_UClass_AGenerator_Statics::NewProp_bIsLoaded_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AGenerator_Statics::NewProp_bIsLoaded_MetaData), Z_Construct_UClass_AGenerator_Statics::NewProp_bIsLoaded_MetaData) };
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AGenerator_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGenerator_Statics::NewProp_MapSize,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGenerator_Statics::NewProp_TileMap_Inner,
@@ -440,6 +555,7 @@ void EmptyLinkFunctionForGeneratedCodeGenerator() {}
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGenerator_Statics::NewProp_TreeType,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGenerator_Statics::NewProp_StoneType,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGenerator_Statics::NewProp_ObjectType,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGenerator_Statics::NewProp_bIsLoaded,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_AGenerator_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<AGenerator>::IsAbstract,
@@ -474,15 +590,15 @@ void EmptyLinkFunctionForGeneratedCodeGenerator() {}
 	}
 	DEFINE_VTABLE_PTR_HELPER_CTOR(AGenerator);
 	AGenerator::~AGenerator() {}
-	struct Z_CompiledInDeferFile_FID_UnrealRep_MirWorld_Project_MirWorld_Source_MirWorld_Generator_h_Statics
+	struct Z_CompiledInDeferFile_FID_Github_MirWorld_Project_MirWorld_Source_MirWorld_Generator_h_Statics
 	{
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
-	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UnrealRep_MirWorld_Project_MirWorld_Source_MirWorld_Generator_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_AGenerator, AGenerator::StaticClass, TEXT("AGenerator"), &Z_Registration_Info_UClass_AGenerator, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AGenerator), 3590340835U) },
+	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Github_MirWorld_Project_MirWorld_Source_MirWorld_Generator_h_Statics::ClassInfo[] = {
+		{ Z_Construct_UClass_AGenerator, AGenerator::StaticClass, TEXT("AGenerator"), &Z_Registration_Info_UClass_AGenerator, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AGenerator), 902814572U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UnrealRep_MirWorld_Project_MirWorld_Source_MirWorld_Generator_h_1369365629(TEXT("/Script/MirWorld"),
-		Z_CompiledInDeferFile_FID_UnrealRep_MirWorld_Project_MirWorld_Source_MirWorld_Generator_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_UnrealRep_MirWorld_Project_MirWorld_Source_MirWorld_Generator_h_Statics::ClassInfo),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Github_MirWorld_Project_MirWorld_Source_MirWorld_Generator_h_357090069(TEXT("/Script/MirWorld"),
+		Z_CompiledInDeferFile_FID_Github_MirWorld_Project_MirWorld_Source_MirWorld_Generator_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Github_MirWorld_Project_MirWorld_Source_MirWorld_Generator_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

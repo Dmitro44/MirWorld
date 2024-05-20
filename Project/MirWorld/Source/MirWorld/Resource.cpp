@@ -62,6 +62,11 @@ int AResource::GetResourceLeft() const
 	return ResorceLeft;
 }
 
+void AResource::SetResourceLeft(int NewResourseLeft)
+{
+	ResorceLeft = NewResourseLeft;
+}
+
 int AResource::GetBiomeType() const
 {
 	return BiomeType;
@@ -82,6 +87,16 @@ bool AResource::GetDoesExist() const
 void AResource::SetDoesExist(bool bNewStatus)
 {
 	bDoesExist = bNewStatus;
+}
+
+void AResource::SetRandomGenerationNum(int Num)
+{
+	RandomGenerationNum = Num;
+}
+
+int AResource::GetRandomGenerationNum() const
+{
+	return RandomGenerationNum;
 }
 
 void AResource::SetResourceType(int NewType)
