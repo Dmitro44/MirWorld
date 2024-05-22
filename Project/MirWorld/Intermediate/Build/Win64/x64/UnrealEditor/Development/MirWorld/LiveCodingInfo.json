@@ -3,6 +3,7 @@
 	{
 		"Module.MirWorld.cpp.obj": [
 			"BasicActor.gen.cpp.obj",
+			"Building.gen.cpp.obj",
 			"CharacterMW.gen.cpp.obj",
 			"CharacterMW2D.gen.cpp.obj",
 			"GameplayMW_GameMode.gen.cpp.obj",
@@ -20,6 +21,7 @@
 			"Tile.gen.cpp.obj",
 			"Tree.gen.cpp.obj",
 			"BasicActor.cpp.obj",
+			"Building.cpp.obj",
 			"CharacterMW.cpp.obj",
 			"CharacterMW2D.cpp.obj",
 			"EnumsFictitiousClass.cpp.obj",

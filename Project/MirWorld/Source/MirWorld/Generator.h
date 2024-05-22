@@ -50,6 +50,8 @@ public:
 
 	void BuildResources(const FVector CenteredLocation, const int X, const int Y);
 
+	void SetMapInfo(MapInfo NewMapInfo);
+
 protected:
 	virtual void BeginPlay() override;
 

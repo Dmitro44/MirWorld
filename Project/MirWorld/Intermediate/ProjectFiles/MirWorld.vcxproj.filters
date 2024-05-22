@@ -38,6 +38,12 @@
     <ClInclude Include="..\..\Source\MirWorld\BasicActor.h">
       <Filter>Source\MirWorld</Filter>
     </ClInclude>
+    <ClCompile Include="..\..\Source\MirWorld\Building.cpp">
+      <Filter>Source\MirWorld</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\MirWorld\Building.h">
+      <Filter>Source\MirWorld</Filter>
+    </ClInclude>
     <ClCompile Include="..\..\Source\MirWorld\CharacterMW.cpp">
       <Filter>Source\MirWorld</Filter>
     </ClCompile>
