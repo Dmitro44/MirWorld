@@ -28,6 +28,21 @@ void EmptyLinkFunctionForGeneratedCodeGenerator() {}
 		*(TArray<FVector>*)Z_Param__Result=P_THIS->GetTrajectory(Z_Param_Start,Z_Param_Aim);
 		P_NATIVE_END;
 	}
+	DEFINE_FUNCTION(AGenerator::execClearTiles)
+	{
+		P_GET_TARRAY(FVector,Z_Param_Tiles);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->ClearTiles(Z_Param_Tiles);
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(AGenerator::execGetStartPositions)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		*(TArray<FVector>*)Z_Param__Result=P_THIS->GetStartPositions();
+		P_NATIVE_END;
+	}
 	DEFINE_FUNCTION(AGenerator::execTileIsBuildable)
 	{
 		P_GET_PROPERTY(FIntProperty,Z_Param_X);
@@ -76,7 +91,9 @@ void EmptyLinkFunctionForGeneratedCodeGenerator() {}
 		UClass* Class = AGenerator::StaticClass();
 		static const FNameNativePtrPair Funcs[] = {
 			{ "BuildMap", &AGenerator::execBuildMap },
+			{ "ClearTiles", &AGenerator::execClearTiles },
 			{ "GetIsLoaded", &AGenerator::execGetIsLoaded },
+			{ "GetStartPositions", &AGenerator::execGetStartPositions },
 			{ "GetTrajectory", &AGenerator::execGetTrajectory },
 			{ "SetIsLoaded", &AGenerator::execSetIsLoaded },
 			{ "TileIsBuildable", &AGenerator::execTileIsBuildable },
@@ -150,6 +167,43 @@ void EmptyLinkFunctionForGeneratedCodeGenerator() {}
 		}
 		return ReturnFunction;
 	}
+	struct Z_Construct_UFunction_AGenerator_ClearTiles_Statics
+	{
+		struct Generator_eventClearTiles_Parms
+		{
+			TArray<FVector> Tiles;
+		};
+		static const UECodeGen_Private::FStructPropertyParams NewProp_Tiles_Inner;
+		static const UECodeGen_Private::FArrayPropertyParams NewProp_Tiles;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_AGenerator_ClearTiles_Statics::NewProp_Tiles_Inner = { "Tiles", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, Z_Construct_UScriptStruct_FVector, METADATA_PARAMS(0, nullptr) };
+	const UECodeGen_Private::FArrayPropertyParams Z_Construct_UFunction_AGenerator_ClearTiles_Statics::NewProp_Tiles = { "Tiles", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(Generator_eventClearTiles_Parms, Tiles), EArrayPropertyFlags::None, METADATA_PARAMS(0, nullptr) };
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AGenerator_ClearTiles_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AGenerator_ClearTiles_Statics::NewProp_Tiles_Inner,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AGenerator_ClearTiles_Statics::NewProp_Tiles,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AGenerator_ClearTiles_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Generator.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AGenerator_ClearTiles_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AGenerator, nullptr, "ClearTiles", nullptr, nullptr, Z_Construct_UFunction_AGenerator_ClearTiles_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AGenerator_ClearTiles_Statics::PropPointers), sizeof(Z_Construct_UFunction_AGenerator_ClearTiles_Statics::Generator_eventClearTiles_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AGenerator_ClearTiles_Statics::Function_MetaDataParams), Z_Construct_UFunction_AGenerator_ClearTiles_Statics::Function_MetaDataParams) };
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_AGenerator_ClearTiles_Statics::PropPointers) < 2048);
+	static_assert(sizeof(Z_Construct_UFunction_AGenerator_ClearTiles_Statics::Generator_eventClearTiles_Parms) < MAX_uint16);
+	UFunction* Z_Construct_UFunction_AGenerator_ClearTiles()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AGenerator_ClearTiles_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
 	struct Z_Construct_UFunction_AGenerator_GetIsLoaded_Statics
 	{
 		struct Generator_eventGetIsLoaded_Parms
@@ -174,7 +228,6 @@ void EmptyLinkFunctionForGeneratedCodeGenerator() {}
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AGenerator_GetIsLoaded_Statics::Function_MetaDataParams[] = {
-		{ "Category", "Save" },
 		{ "ModuleRelativePath", "Generator.h" },
 	};
 #endif
@@ -187,6 +240,43 @@ void EmptyLinkFunctionForGeneratedCodeGenerator() {}
 		if (!ReturnFunction)
 		{
 			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AGenerator_GetIsLoaded_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_AGenerator_GetStartPositions_Statics
+	{
+		struct Generator_eventGetStartPositions_Parms
+		{
+			TArray<FVector> ReturnValue;
+		};
+		static const UECodeGen_Private::FStructPropertyParams NewProp_ReturnValue_Inner;
+		static const UECodeGen_Private::FArrayPropertyParams NewProp_ReturnValue;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_AGenerator_GetStartPositions_Statics::NewProp_ReturnValue_Inner = { "ReturnValue", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, Z_Construct_UScriptStruct_FVector, METADATA_PARAMS(0, nullptr) };
+	const UECodeGen_Private::FArrayPropertyParams Z_Construct_UFunction_AGenerator_GetStartPositions_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(Generator_eventGetStartPositions_Parms, ReturnValue), EArrayPropertyFlags::None, METADATA_PARAMS(0, nullptr) };
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AGenerator_GetStartPositions_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AGenerator_GetStartPositions_Statics::NewProp_ReturnValue_Inner,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AGenerator_GetStartPositions_Statics::NewProp_ReturnValue,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AGenerator_GetStartPositions_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Generator.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AGenerator_GetStartPositions_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AGenerator, nullptr, "GetStartPositions", nullptr, nullptr, Z_Construct_UFunction_AGenerator_GetStartPositions_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AGenerator_GetStartPositions_Statics::PropPointers), sizeof(Z_Construct_UFunction_AGenerator_GetStartPositions_Statics::Generator_eventGetStartPositions_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AGenerator_GetStartPositions_Statics::Function_MetaDataParams), Z_Construct_UFunction_AGenerator_GetStartPositions_Statics::Function_MetaDataParams) };
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_AGenerator_GetStartPositions_Statics::PropPointers) < 2048);
+	static_assert(sizeof(Z_Construct_UFunction_AGenerator_GetStartPositions_Statics::Generator_eventGetStartPositions_Parms) < MAX_uint16);
+	UFunction* Z_Construct_UFunction_AGenerator_GetStartPositions()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AGenerator_GetStartPositions_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -265,7 +355,6 @@ void EmptyLinkFunctionForGeneratedCodeGenerator() {}
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AGenerator_SetIsLoaded_Statics::Function_MetaDataParams[] = {
-		{ "Category", "Save" },
 		{ "ModuleRelativePath", "Generator.h" },
 	};
 #endif
@@ -420,6 +509,11 @@ void EmptyLinkFunctionForGeneratedCodeGenerator() {}
 		static const UECodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
 #endif
 #if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_bIsLoaded_MetaData[];
+#endif
+		static void NewProp_bIsLoaded_SetBit(void* Obj);
+		static const UECodeGen_Private::FBoolPropertyParams NewProp_bIsLoaded;
+#if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_MapSize_MetaData[];
 #endif
 		static const UECodeGen_Private::FStructPropertyParams NewProp_MapSize;
@@ -444,11 +538,6 @@ void EmptyLinkFunctionForGeneratedCodeGenerator() {}
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_ObjectType_MetaData[];
 #endif
 		static const UECodeGen_Private::FSoftClassPropertyParams NewProp_ObjectType;
-#if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam NewProp_bIsLoaded_MetaData[];
-#endif
-		static void NewProp_bIsLoaded_SetBit(void* Obj);
-		static const UECodeGen_Private::FBoolPropertyParams NewProp_bIsLoaded;
 		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UECodeGen_Private::FClassParams ClassParams;
@@ -460,9 +549,11 @@ void EmptyLinkFunctionForGeneratedCodeGenerator() {}
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_AGenerator_Statics::DependentSingletons) < 16);
 	const FClassFunctionLinkInfo Z_Construct_UClass_AGenerator_Statics::FuncInfo[] = {
 		{ &Z_Construct_UFunction_AGenerator_BuildMap, "BuildMap" }, // 2181011163
-		{ &Z_Construct_UFunction_AGenerator_GetIsLoaded, "GetIsLoaded" }, // 2438837755
+		{ &Z_Construct_UFunction_AGenerator_ClearTiles, "ClearTiles" }, // 819188836
+		{ &Z_Construct_UFunction_AGenerator_GetIsLoaded, "GetIsLoaded" }, // 404968099
+		{ &Z_Construct_UFunction_AGenerator_GetStartPositions, "GetStartPositions" }, // 3431098489
 		{ &Z_Construct_UFunction_AGenerator_GetTrajectory, "GetTrajectory" }, // 3933290406
-		{ &Z_Construct_UFunction_AGenerator_SetIsLoaded, "SetIsLoaded" }, // 3840012904
+		{ &Z_Construct_UFunction_AGenerator_SetIsLoaded, "SetIsLoaded" }, // 2904779625
 		{ &Z_Construct_UFunction_AGenerator_TileIsBuildable, "TileIsBuildable" }, // 1546904854
 		{ &Z_Construct_UFunction_AGenerator_TileIsPassable, "TileIsPassable" }, // 444847072
 	};
@@ -474,6 +565,17 @@ void EmptyLinkFunctionForGeneratedCodeGenerator() {}
 		{ "ModuleRelativePath", "Generator.h" },
 	};
 #endif
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AGenerator_Statics::NewProp_bIsLoaded_MetaData[] = {
+		{ "Category", "Save" },
+		{ "ModuleRelativePath", "Generator.h" },
+	};
+#endif
+	void Z_Construct_UClass_AGenerator_Statics::NewProp_bIsLoaded_SetBit(void* Obj)
+	{
+		((AGenerator*)Obj)->bIsLoaded = 1;
+	}
+	const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_AGenerator_Statics::NewProp_bIsLoaded = { "bIsLoaded", nullptr, (EPropertyFlags)0x0020080000020001, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(AGenerator), &Z_Construct_UClass_AGenerator_Statics::NewProp_bIsLoaded_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AGenerator_Statics::NewProp_bIsLoaded_MetaData), Z_Construct_UClass_AGenerator_Statics::NewProp_bIsLoaded_MetaData) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AGenerator_Statics::NewProp_MapSize_MetaData[] = {
 		{ "Category", "Generator" },
@@ -536,18 +638,8 @@ void EmptyLinkFunctionForGeneratedCodeGenerator() {}
 	};
 #endif
 	const UECodeGen_Private::FSoftClassPropertyParams Z_Construct_UClass_AGenerator_Statics::NewProp_ObjectType = { "ObjectType", nullptr, (EPropertyFlags)0x0024080000010015, UECodeGen_Private::EPropertyGenFlags::SoftClass, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AGenerator, ObjectType), Z_Construct_UClass_AResource_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AGenerator_Statics::NewProp_ObjectType_MetaData), Z_Construct_UClass_AGenerator_Statics::NewProp_ObjectType_MetaData) };
-#if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AGenerator_Statics::NewProp_bIsLoaded_MetaData[] = {
-		{ "Category", "Save" },
-		{ "ModuleRelativePath", "Generator.h" },
-	};
-#endif
-	void Z_Construct_UClass_AGenerator_Statics::NewProp_bIsLoaded_SetBit(void* Obj)
-	{
-		((AGenerator*)Obj)->bIsLoaded = 1;
-	}
-	const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_AGenerator_Statics::NewProp_bIsLoaded = { "bIsLoaded", nullptr, (EPropertyFlags)0x0020080000000001, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(AGenerator), &Z_Construct_UClass_AGenerator_Statics::NewProp_bIsLoaded_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AGenerator_Statics::NewProp_bIsLoaded_MetaData), Z_Construct_UClass_AGenerator_Statics::NewProp_bIsLoaded_MetaData) };
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AGenerator_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGenerator_Statics::NewProp_bIsLoaded,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGenerator_Statics::NewProp_MapSize,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGenerator_Statics::NewProp_TileMap_Inner,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGenerator_Statics::NewProp_TileMap,
@@ -555,7 +647,6 @@ void EmptyLinkFunctionForGeneratedCodeGenerator() {}
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGenerator_Statics::NewProp_TreeType,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGenerator_Statics::NewProp_StoneType,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGenerator_Statics::NewProp_ObjectType,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGenerator_Statics::NewProp_bIsLoaded,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_AGenerator_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<AGenerator>::IsAbstract,
@@ -595,9 +686,9 @@ void EmptyLinkFunctionForGeneratedCodeGenerator() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Github_MirWorld_Project_MirWorld_Source_MirWorld_Generator_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_AGenerator, AGenerator::StaticClass, TEXT("AGenerator"), &Z_Registration_Info_UClass_AGenerator, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AGenerator), 902814572U) },
+		{ Z_Construct_UClass_AGenerator, AGenerator::StaticClass, TEXT("AGenerator"), &Z_Registration_Info_UClass_AGenerator, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AGenerator), 2340545519U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Github_MirWorld_Project_MirWorld_Source_MirWorld_Generator_h_357090069(TEXT("/Script/MirWorld"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Github_MirWorld_Project_MirWorld_Source_MirWorld_Generator_h_2217098508(TEXT("/Script/MirWorld"),
 		Z_CompiledInDeferFile_FID_Github_MirWorld_Project_MirWorld_Source_MirWorld_Generator_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Github_MirWorld_Project_MirWorld_Source_MirWorld_Generator_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

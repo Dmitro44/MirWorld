@@ -23,6 +23,11 @@ public:
 
 
 	UFUNCTION(BlueprintCallable)
+	void SetIsLoaded(bool value);
+	UFUNCTION(BlueprintCallable)
+	bool GetIsLoaded() const;
+
+	UFUNCTION(BlueprintCallable)
 	void BuildMap(const FVector CenteredLocation, const int X, const int Y);
 
 	UFUNCTION(BlueprintCallable)
@@ -50,6 +55,8 @@ protected:
 
 	MapInfo MapInfo;
 
+	UPROPERTY(VisibleAnywhere, Category = "Save")
+	bool bIsLoaded = false;
 
 	// Map Properties
 
