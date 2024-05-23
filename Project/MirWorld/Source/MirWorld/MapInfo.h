@@ -54,6 +54,9 @@ public:
 	float Limits = 4.0f;
 
 	TArray<TArray<FInfoMatrix>>& GetMap();
+	
+	void SetMap(TArray<TArray<FInfoMatrix>> Matrix);
+
 
 private:
 	TArray<TArray<FInfoMatrix>> Map;

@@ -43,6 +43,11 @@ TArray<TArray<FInfoMatrix>>& MapInfo::GetMap()
 	return Map;
 }
 
+void MapInfo::SetMap(TArray<TArray<FInfoMatrix>> Matrix)
+{
+	Map = Matrix;
+}
+
 void MapInfo::GenerateBiome(const int X, const int Y)
 {
 	float RandomBioMove = FMath::RandRange(-100, 100); // TODO!!!
