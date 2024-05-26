@@ -80,6 +80,9 @@ protected:
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
 	TSoftClassPtr<AResource> StoneType;
 
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
+	TSoftClassPtr<AResource> GoldType;
+	
 	//------------------
 
 	TArray<TObjectPtr<AActor>> ObjectMap;
