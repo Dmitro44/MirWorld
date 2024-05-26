@@ -48,6 +48,8 @@ public:
 
 	void GenerateIron(const int X, const int Y);
 
+	void GenerateFood(const int X, const int Y);
+
 	UPROPERTY(EditAnywhere, meta = (Generation))
 	float NoiseScale = 0.025f;
 
@@ -80,6 +82,10 @@ private:
 	// Refers to the passability of irons on the map
 	UPROPERTY(EditAnywhere, Category = "Tile settings") // it's actually can't be accesed through blueprints
 	bool bIronIsPassable = false;
+
+	// Refers to the passability of irons on the map
+	UPROPERTY(EditAnywhere, Category = "Tile settings") // it's actually can't be accesed through blueprints
+	bool bFoodIsPassable = false;
 
 	float RandomResMove;
 };

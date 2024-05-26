@@ -85,6 +85,9 @@ protected:
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
 	TSoftClassPtr<AResource> IronType;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
+	TSoftClassPtr<AResource> FoodType;
 	
 	//------------------
 

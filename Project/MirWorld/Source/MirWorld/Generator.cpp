@@ -75,6 +75,14 @@ void AGenerator::BuildResources(const FVector CenteredLocation, const int X, con
 				Resource->SetInfo(FBlankObjectInfo(InnerIndex, OuterIndex, 0));
 				break;
 			}
+			case 5: {
+				ObjectToSpawn = UGameplayStatics::BeginDeferredActorSpawnFromClass(
+				this, FoodType.LoadSynchronous(), SpawnTransform);
+				AResource* Resource = Cast<AResource>(ObjectToSpawn);
+				Resource->SetBiomeType(BiomeType);
+				Resource->SetInfo(FBlankObjectInfo(InnerIndex, OuterIndex, 0));
+				break;
+			}
 			default: {
 				break;
 			}

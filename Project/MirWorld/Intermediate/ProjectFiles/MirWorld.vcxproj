@@ -146,11 +146,13 @@
       <AdditionalOptions>$(ClCompile_AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <ClInclude Include="..\..\Source\MirWorld\EnumsFictitiousClass.h"/>
+    <ClCompile Include="..\..\Source\MirWorld\Food.cpp" />
     <ClCompile Include="..\..\Source\MirWorld\GameplayMW_GameMode.cpp">
       <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles)</ForcedIncludeFiles>
       <AdditionalOptions>$(ClCompile_AdditionalOptions)</AdditionalOptions>
     </ClCompile>
+    <ClInclude Include="..\..\Source\MirWorld\Food.h" />
     <ClInclude Include="..\..\Source\MirWorld\GameplayMW_GameMode.h"/>
     <ClCompile Include="..\..\Source\MirWorld\Generator.cpp">
       <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>

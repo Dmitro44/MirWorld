@@ -9,6 +9,7 @@ void MapInfo::GenerateResources(const int X, const int Y)
 	GenerateStone(X, Y);
 	GenerateGold(X, Y);
 	GenerateIron(X, Y);
+	GenerateFood(X, Y);
 }
 
 void MapInfo::GenerateTree(const int X, const int Y)
@@ -64,6 +65,20 @@ void MapInfo::GenerateIron(const int X, const int Y)
 	if (Iron > 15) {
 		Map[X][Y].Resources = 4;
 		Map[X][Y].bIsGoThrough = bIronIsPassable;
+		Map[X][Y].bIsBuildable = false;
+	}
+}
+
+void MapInfo::GenerateFood(const int X, const int Y)
+{
+	float Food = FMath::PerlinNoise2D(FVector2D(X + 0.1 + FMath::RandRange(-10, 10), 
+												 Y + 0.1 + FMath::RandRange(-10, 10))) * 100.0f;
+
+	//GEngine->AddOnScreenDebugMessage(-1, 999.0f, FColor::Yellow, FString::Printf(TEXT("Stone_ %f"), Gold));
+
+	if (Food > 15) {
+		Map[X][Y].Resources = 5;
+		Map[X][Y].bIsGoThrough = bFoodIsPassable;
 		Map[X][Y].bIsBuildable = false;
 	}
 }

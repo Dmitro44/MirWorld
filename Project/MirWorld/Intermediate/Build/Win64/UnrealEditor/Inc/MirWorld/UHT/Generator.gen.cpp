@@ -543,6 +543,10 @@ void EmptyLinkFunctionForGeneratedCodeGenerator() {}
 #endif
 		static const UECodeGen_Private::FSoftClassPropertyParams NewProp_IronType;
 #if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_FoodType_MetaData[];
+#endif
+		static const UECodeGen_Private::FSoftClassPropertyParams NewProp_FoodType;
+#if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_ObjectType_MetaData[];
 #endif
 		static const UECodeGen_Private::FSoftClassPropertyParams NewProp_ObjectType;
@@ -654,6 +658,13 @@ void EmptyLinkFunctionForGeneratedCodeGenerator() {}
 #endif
 	const UECodeGen_Private::FSoftClassPropertyParams Z_Construct_UClass_AGenerator_Statics::NewProp_IronType = { "IronType", nullptr, (EPropertyFlags)0x0024080000010015, UECodeGen_Private::EPropertyGenFlags::SoftClass, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AGenerator, IronType), Z_Construct_UClass_AResource_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AGenerator_Statics::NewProp_IronType_MetaData), Z_Construct_UClass_AGenerator_Statics::NewProp_IronType_MetaData) };
 #if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AGenerator_Statics::NewProp_FoodType_MetaData[] = {
+		{ "Category", "Generator" },
+		{ "ModuleRelativePath", "Generator.h" },
+	};
+#endif
+	const UECodeGen_Private::FSoftClassPropertyParams Z_Construct_UClass_AGenerator_Statics::NewProp_FoodType = { "FoodType", nullptr, (EPropertyFlags)0x0024080000010015, UECodeGen_Private::EPropertyGenFlags::SoftClass, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AGenerator, FoodType), Z_Construct_UClass_AResource_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AGenerator_Statics::NewProp_FoodType_MetaData), Z_Construct_UClass_AGenerator_Statics::NewProp_FoodType_MetaData) };
+#if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AGenerator_Statics::NewProp_ObjectType_MetaData[] = {
 		{ "Category", "Generator" },
 		{ "ModuleRelativePath", "Generator.h" },
@@ -670,6 +681,7 @@ void EmptyLinkFunctionForGeneratedCodeGenerator() {}
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGenerator_Statics::NewProp_StoneType,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGenerator_Statics::NewProp_GoldType,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGenerator_Statics::NewProp_IronType,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGenerator_Statics::NewProp_FoodType,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGenerator_Statics::NewProp_ObjectType,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_AGenerator_Statics::StaticCppClassTypeInfo = {
@@ -710,9 +722,9 @@ void EmptyLinkFunctionForGeneratedCodeGenerator() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UnrealRep_MirWorld_Project_MirWorld_Source_MirWorld_Generator_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_AGenerator, AGenerator::StaticClass, TEXT("AGenerator"), &Z_Registration_Info_UClass_AGenerator, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AGenerator), 989403807U) },
+		{ Z_Construct_UClass_AGenerator, AGenerator::StaticClass, TEXT("AGenerator"), &Z_Registration_Info_UClass_AGenerator, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AGenerator), 3883300974U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UnrealRep_MirWorld_Project_MirWorld_Source_MirWorld_Generator_h_881095878(TEXT("/Script/MirWorld"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UnrealRep_MirWorld_Project_MirWorld_Source_MirWorld_Generator_h_3462906556(TEXT("/Script/MirWorld"),
 		Z_CompiledInDeferFile_FID_UnrealRep_MirWorld_Project_MirWorld_Source_MirWorld_Generator_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_UnrealRep_MirWorld_Project_MirWorld_Source_MirWorld_Generator_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);
