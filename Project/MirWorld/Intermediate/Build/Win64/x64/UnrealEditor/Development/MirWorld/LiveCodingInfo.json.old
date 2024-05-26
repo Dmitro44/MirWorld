@@ -3,8 +3,10 @@
 	{
 		"Module.MirWorld.cpp.obj": [
 			"BasicActor.gen.cpp.obj",
+			"Building.gen.cpp.obj",
 			"CharacterMW.gen.cpp.obj",
 			"CharacterMW2D.gen.cpp.obj",
+			"CraftBench.gen.cpp.obj",
 			"GameplayMW_GameMode.gen.cpp.obj",
 			"Generator.gen.cpp.obj",
 			"MirWorld.init.gen.cpp.obj",
@@ -20,8 +22,10 @@
 			"Tile.gen.cpp.obj",
 			"Tree.gen.cpp.obj",
 			"BasicActor.cpp.obj",
+			"Building.cpp.obj",
 			"CharacterMW.cpp.obj",
 			"CharacterMW2D.cpp.obj",
+			"CraftBench.cpp.obj",
 			"EnumsFictitiousClass.cpp.obj",
 			"GameplayMW_GameMode.cpp.obj",
 			"Generator.cpp.obj",
