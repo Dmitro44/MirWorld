@@ -159,12 +159,14 @@
     </ClCompile>
     <ClInclude Include="..\..\Source\MirWorld\Generator.h"/>
     <ClCompile Include="..\..\Source\MirWorld\Gold.cpp" />
+    <ClCompile Include="..\..\Source\MirWorld\Iron.cpp" />
     <ClCompile Include="..\..\Source\MirWorld\MapInfo.cpp">
       <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles)</ForcedIncludeFiles>
       <AdditionalOptions>$(ClCompile_AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <ClInclude Include="..\..\Source\MirWorld\Gold.h" />
+    <ClInclude Include="..\..\Source\MirWorld\Iron.h" />
     <ClInclude Include="..\..\Source\MirWorld\MapInfo.h"/>
     <None Include="..\..\Source\MirWorld\MirWorld.Build.cs"/>
     <ClCompile Include="..\..\Source\MirWorld\MirWorld.cpp">

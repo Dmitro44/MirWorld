@@ -46,6 +46,8 @@ public:
 
 	void GenerateGold(const int X, const int Y);
 
+	void GenerateIron(const int X, const int Y);
+
 	UPROPERTY(EditAnywhere, meta = (Generation))
 	float NoiseScale = 0.025f;
 
@@ -74,6 +76,10 @@ private:
 	// Refers to the passability of golds on the map
 	UPROPERTY(EditAnywhere, Category = "Tile settings") // it's actually can't be accesed through blueprints
 	bool bGoldIsPassable = false;
+
+	// Refers to the passability of irons on the map
+	UPROPERTY(EditAnywhere, Category = "Tile settings") // it's actually can't be accesed through blueprints
+	bool bIronIsPassable = false;
 
 	float RandomResMove;
 };
