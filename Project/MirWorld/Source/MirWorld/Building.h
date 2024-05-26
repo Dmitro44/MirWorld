@@ -16,8 +16,16 @@ class MIRWORLD_API ABuilding : public ABasicActor
 	
 	ABuilding();
 
-protected:
+	int8 GetWoodCost();
+	int8 GetStoneCost();
+	int8 GetIronCost();
+	int8 GetGoldCost();
 
-	
+protected:
+	int8 WoodCost;
+	int8 StoneCost;
+	int8 IronCost;
+	int8 GoldCost;
+
 
 };
