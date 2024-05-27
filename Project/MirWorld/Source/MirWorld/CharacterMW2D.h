@@ -6,6 +6,7 @@
 #include "CoreMinimal.h"
 #include "Generator.h"
 #include "Resource.h"
+#include "Building.h"
 #include "MobBase2D.h"
 #include "EnumsFictitiousClass.h"
 #include "ScoreCntr.h"
@@ -46,6 +47,16 @@ protected:
 	// Shows if work animation must be played
 	bool bIsWorking = false;
 
+	// Shows how many repeats should be produced
+	UPROPERTY(EditAnywhere, Category = "Resource Extracting")
+	int RepeatsRequired = 5;
+
+	// Cntr for repeats
+	int RepeatsCntr = 0;
+
+	// Timer for mining and building
+	FTimerHandle TaskTimerHandle;
+
 	// End of Actions //---------------------------------------------------------------------------------------
 
 
@@ -62,16 +73,6 @@ protected:
 	// Extract a bunch of a resource or extract the whole res point 
 	UFUNCTION(BlueprintCallable, Category = "Resource Extracting")
 	void MineResource();
-
-	// Timer for subresults of extracting a resource
-	FTimerHandle SubExtractTimerHandle;
-
-	// Shows how many repeats should be produced
-	UPROPERTY(EditAnywhere, Category = "Resource Extracting")
-	int RepeatsRequired = 5;
-
-	// Cntr for repears of resource extracting
-	int RepeatsCntr = 0;
 
 	// Shows what resources the character can extract
 	UPROPERTY(EditAnywhere, Category = "Character Stats")
@@ -103,6 +104,17 @@ protected:
 	AScoreCntr* ScoreCntr = nullptr;
 
 	// End of Resource Actions //---------------------------------------------------------------------------------------
+
+	
+
+	// Building Actions //----------------------------------------------------------------------------------------------
+	
+	// what building must be constucted
+	ABuilding* Building;
+
+	void Build();
+
+	// End of Building Actions //---------------------------------------------------------------------------------------
 
 
 

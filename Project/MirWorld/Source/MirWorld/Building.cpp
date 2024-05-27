@@ -33,3 +33,17 @@ int8 ABuilding::GetGoldCost()
 {
 	return GoldCost;
 }
+
+int ABuilding::Build()
+{
+	if (++DoneTimesBuilding >= 3) {
+		BecomeReady();
+	}
+
+	return TimesRequiredBuilding - DoneTimesBuilding;
+}
+
+float ABuilding::GetBuildingTime()
+{
+	return BuildingTime;
+}

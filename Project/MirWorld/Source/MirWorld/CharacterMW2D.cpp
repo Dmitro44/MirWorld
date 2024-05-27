@@ -12,9 +12,14 @@ void ACharacterMW2D::SetAction(int TypeOfAction, AActor* AimPtr)
 	switch (SelectedAction) {
 	case eMoveTo:
 		break;
-	case eExtract: // or
-	case eMine:
+	case eMine: // or
+		RepeatsRequired = 5;
+	case eExtract:
 		Resource = reinterpret_cast<AResource*>(AimPtr);
+		break;
+	case eBuild:
+		RepeatsRequired = 3;
+		Building = reinterpret_cast<ABuilding*>(AimPtr);
 		break;
 	default:
 		ReportImpossibleTask();
@@ -33,7 +38,7 @@ void ACharacterMW2D::DoAction()
 	case eExtract:
 		bIsWorking = true;
 		GetWorldTimerManager().SetTimer(
-			SubExtractTimerHandle,
+			TaskTimerHandle,
 			this,
 			&ACharacterMW2D::MineResource,
 			Resource->ExtractTime(),
@@ -44,7 +49,7 @@ void ACharacterMW2D::DoAction()
 		RepeatsCntr = 0;
 		bIsWorking = true;
 		GetWorldTimerManager().SetTimer(
-			SubExtractTimerHandle,
+			TaskTimerHandle,
 			this,
 			&ACharacterMW2D::MineResource,
 			Resource->MineTime(),
@@ -57,7 +62,15 @@ void ACharacterMW2D::DoAction()
 		ReportDoneTask();
 		break;
 	case eBuild:
-		// TODO ------------------------------------------------------------------------------------------------------------------------
+		RepeatsCntr = 0;
+		bIsWorking = true;
+		GetWorldTimerManager().SetTimer(
+			TaskTimerHandle,
+			this,
+			&ACharacterMW2D::Build,
+			Building->GetBuildingTime(),
+			true
+		);	
 		break;
 	}
 }
@@ -67,6 +80,18 @@ bool ACharacterMW2D::IsWorking() const
 	return bIsWorking;
 }
 
+
+void ACharacterMW2D::Build()
+{
+	RepeatsCntr = Building->Build();
+
+	if (RepeatsCntr <= 0) {
+		GetWorldTimerManager().ClearTimer(TaskTimerHandle);
+		bIsWorking = false;
+		bHasTask = false;
+		ReportDoneTask();
+	}
+}
 
 int ACharacterMW2D::GetID() const
 {
@@ -125,7 +150,7 @@ void ACharacterMW2D::MineResource()
 	);
 
 	if (RepeatsCntr == RepeatsRequired - 1 || SelectedAction == eExtract) {
-		GetWorldTimerManager().ClearTimer(SubExtractTimerHandle);
+		GetWorldTimerManager().ClearTimer(TaskTimerHandle);
 		bIsWorking = false;
 		bHasTask = false;
 		ReportDoneTask();
