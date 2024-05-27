@@ -43,7 +43,7 @@ void AGenerator::BuildResources(const FVector CenteredLocation, const int X, con
 
 			switch (SubstanceType)
 			{
-			case 1: {
+			case 1: { // tree
 				ObjectToSpawn = UGameplayStatics::BeginDeferredActorSpawnFromClass(
 					this, TreeType.LoadSynchronous(), SpawnTransform);
 				AResource* Resource = Cast<AResource>(ObjectToSpawn);
@@ -51,7 +51,7 @@ void AGenerator::BuildResources(const FVector CenteredLocation, const int X, con
 				Resource->SetInfo(FBlankObjectInfo(InnerIndex, OuterIndex, 0));
 				break;
 			}
-			case 2: {
+			case 2: { // stone
 				ObjectToSpawn = UGameplayStatics::BeginDeferredActorSpawnFromClass(
 					this, StoneType.LoadSynchronous(), SpawnTransform);
 				AResource* Resource = Cast<AResource>(ObjectToSpawn);
@@ -59,7 +59,7 @@ void AGenerator::BuildResources(const FVector CenteredLocation, const int X, con
 				Resource->SetInfo(FBlankObjectInfo(InnerIndex, OuterIndex, 0));
 				break;
 			}
-			case 3: {
+			case 3: { // gold
 				ObjectToSpawn = UGameplayStatics::BeginDeferredActorSpawnFromClass(
 					this, GoldType.LoadSynchronous(), SpawnTransform);
 				AResource* Resource = Cast<AResource>(ObjectToSpawn);
@@ -67,17 +67,17 @@ void AGenerator::BuildResources(const FVector CenteredLocation, const int X, con
 				Resource->SetInfo(FBlankObjectInfo(InnerIndex, OuterIndex, 0));
 				break;
 			}
-			case 4: {
+			case 4: { // iron
 				ObjectToSpawn = UGameplayStatics::BeginDeferredActorSpawnFromClass(
-				this, IronType.LoadSynchronous(), SpawnTransform);
+					this, IronType.LoadSynchronous(), SpawnTransform);
 				AResource* Resource = Cast<AResource>(ObjectToSpawn);
 				Resource->SetBiomeType(BiomeType);
 				Resource->SetInfo(FBlankObjectInfo(InnerIndex, OuterIndex, 0));
 				break;
 			}
-			case 5: {
+			case 5: { // food
 				ObjectToSpawn = UGameplayStatics::BeginDeferredActorSpawnFromClass(
-				this, FoodType.LoadSynchronous(), SpawnTransform);
+					this, FoodType.LoadSynchronous(), SpawnTransform);
 				AResource* Resource = Cast<AResource>(ObjectToSpawn);
 				Resource->SetBiomeType(BiomeType);
 				Resource->SetInfo(FBlankObjectInfo(InnerIndex, OuterIndex, 0));
@@ -143,6 +143,11 @@ void AGenerator::BuildMap(const FVector CenteredLocation, const int X, const int
 
 	MapSize.X = X;
 	MapSize.Y = Y;
+
+	/*StoneCntr = 0;
+	IronCntr = 0;
+	GoldCntr = 0;
+	FoodCntr = 0;*/
 
 	//Creating and allocating memory for matrix
 	MapInfo.CreateEmptyMatrix(MapSize.X, MapSize.Y);

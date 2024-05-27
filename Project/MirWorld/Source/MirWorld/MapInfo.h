@@ -85,7 +85,7 @@ private:
 
 	// Refers to the passability of irons on the map
 	UPROPERTY(EditAnywhere, Category = "Tile settings") // it's actually can't be accesed through blueprints
-	bool bFoodIsPassable = false;
+	bool bFoodIsPassable = true;
 
 	float RandomResMove;
 };

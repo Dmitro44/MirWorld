@@ -34,7 +34,7 @@ void MapInfo::GenerateStone(const int X, const int Y)
 
 	//GEngine->AddOnScreenDebugMessage(-1, 999.0f, FColor::Yellow, FString::Printf(TEXT("Stone_ %f"), Stone));
 
-	if (Stone > 15) {
+	if (Stone > 17) {
 		Map[X][Y].Resources = 2;
 		Map[X][Y].bIsGoThrough = bStoneIsPassable;
 		Map[X][Y].bIsBuildable = false;
@@ -48,7 +48,7 @@ void MapInfo::GenerateGold(const int X, const int Y)
 
 	//GEngine->AddOnScreenDebugMessage(-1, 999.0f, FColor::Yellow, FString::Printf(TEXT("Stone_ %f"), Gold));
 
-	if (Gold > 15) {
+	if (Gold > 21) {
 		Map[X][Y].Resources = 3;
 		Map[X][Y].bIsGoThrough = bGoldIsPassable;
 		Map[X][Y].bIsBuildable = false;
@@ -62,7 +62,7 @@ void MapInfo::GenerateIron(const int X, const int Y)
 
 	//GEngine->AddOnScreenDebugMessage(-1, 999.0f, FColor::Yellow, FString::Printf(TEXT("Stone_ %f"), Gold));
 
-	if (Iron > 15) {
+	if (Iron > 21) {
 		Map[X][Y].Resources = 4;
 		Map[X][Y].bIsGoThrough = bIronIsPassable;
 		Map[X][Y].bIsBuildable = false;
@@ -76,7 +76,7 @@ void MapInfo::GenerateFood(const int X, const int Y)
 
 	//GEngine->AddOnScreenDebugMessage(-1, 999.0f, FColor::Yellow, FString::Printf(TEXT("Stone_ %f"), Gold));
 
-	if (Food > 15) {
+	if (Food > 20) {
 		Map[X][Y].Resources = 5;
 		Map[X][Y].bIsGoThrough = bFoodIsPassable;
 		Map[X][Y].bIsBuildable = false;

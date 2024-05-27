@@ -617,6 +617,7 @@ double calculateHValue(int row, int col, Pair dest)
     return ((double)sqrt((row - dest.first) * (row - dest.first) + (col - dest.second) * (col - dest.second)));
 }
 
+float CHAR_HEIGHT;
 // A Utility Function to trace the path from the source
 // to destination
 TFVector tracePath(vector<vector<cell>> cellDetails, Pair dest)
@@ -651,6 +652,9 @@ TFVector tracePath(vector<vector<cell>> cellDetails, Pair dest)
         Path.erase(Path.begin());
         UE_LOG(LogTemp, Warning, TEXT("-> (%d,%d) "), PATH.Last()[0], PATH.Last()[1]);
     }
+    for (auto& now : PATH) {
+        now.Z = CHAR_HEIGHT;
+    }
     return PATH;
 }
 
@@ -663,6 +667,7 @@ TFVector  APathFinder::getPathFromTo(int grid[][COL], FVector src_1, FVector des
     Pair src,dest;
     src.first = src_1[0];
     src.second = src_1[1];
+    CHAR_HEIGHT = src_1.Z;
     
     dest.first = dest_1[0];
     dest.second = dest_1[1];

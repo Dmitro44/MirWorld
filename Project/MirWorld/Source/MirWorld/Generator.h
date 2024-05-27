@@ -60,10 +60,28 @@ protected:
 	UPROPERTY(VisibleAnywhere, Category = "Save")
 	bool bIsLoaded = false;
 
+	//------------------
 	// Map Properties
-
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
 	FVector2D MapSize;
+
+	/*// max resource amnt on the map
+	UPROPERTY(EditAnywhere, Category = "Resources")
+	int MaxStoneAmnt = 100;
+	int StoneCntr = 0;
+
+	UPROPERTY(EditAnywhere, Category = "Resources")
+	int MaxIronAmnt = 50;
+	int IronCntr = 0;
+
+	UPROPERTY(EditAnywhere, Category = "Resources")
+	int MaxGoldAmnt = 30;
+	int GoldCntr = 0;
+
+	UPROPERTY(EditAnywhere, Category = "Resources")
+	int MaxFoodAmnt = 100;
+	int FoodCntr = 0;*/
+
 
 	// Container which contains Tiles, displayed in the world
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, meta = (AllowPrivateAccess = true))
@@ -97,7 +115,7 @@ protected:
 	TSoftClassPtr<AResource> ObjectType;
 
 	//------------------
-
+	// for characters
 	TArray<FVector> StartPositions = {
 		{2500, 2500, 90},
 		{2600, 2500, 90},
