@@ -63,6 +63,11 @@ protected:
 
 	// Resource Actions //----------------------------------------------------------------------------------------------
 
+public:
+	// Returns if char can mine/extract 
+	UFUNCTION(BlueprintCallable, Category = "Resource Extracting")
+	bool CanMine(int ResType);
+
 protected:
 	// Checks if aim resource is valid
 	UFUNCTION(BlueprintCallable, Category = "Character ID")
@@ -113,6 +118,9 @@ protected:
 	ABuilding* Building;
 
 	void Build();
+
+	UPROPERTY(EditAnywhere, Category = "Character Stats")
+	float BuildingSpeed = 1;
 
 	// End of Building Actions //---------------------------------------------------------------------------------------
 

@@ -72,11 +72,13 @@ bool UTaskManager::StartTask(ACharacterMW2D* Char) // TODO
 		auto& Tasks = TaskStorage[Task_T.ResType];
 		for (size_t i = 0; i < Tasks.size(); ++i) {
 			auto& Task = Tasks[i];
+			auto Aim = Task.Aim;
 			if ((Task.IDs.Contains(CharID) || Task.IDs.IsEmpty()) && 
-				PriorityMatrix[CharID][Task_T.ResType]) {
-				auto Aim = Task.Aim;
-				Tasks.erase(Tasks.begin() + i);
+				PriorityMatrix[CharID][Task_T.ResType] &&
+				(!Task_T.ResType || Char->CanMine(reinterpret_cast<AResource*>(Aim)->GetResourceType())))
+			{
 				int Type = (Task_T.ResType == 0 ? 2 : Task_T.ResType - 1); // "translation" to char's enum
+				Tasks.erase(Tasks.begin() + i);
 				Char->SetAction(
 					Type,
 					Aim

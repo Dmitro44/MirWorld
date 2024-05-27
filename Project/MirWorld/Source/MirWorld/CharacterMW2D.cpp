@@ -41,7 +41,7 @@ void ACharacterMW2D::DoAction()
 			TaskTimerHandle,
 			this,
 			&ACharacterMW2D::MineResource,
-			Resource->ExtractTime(),
+			Resource->ExtractTime() / ExtractSpeeds[Resource->GetResourceType()],
 			true
 		);
 		break;
@@ -52,7 +52,7 @@ void ACharacterMW2D::DoAction()
 			TaskTimerHandle,
 			this,
 			&ACharacterMW2D::MineResource,
-			Resource->MineTime(),
+			Resource->MineTime() / ExtractSpeeds[Resource->GetResourceType()],
 			true
 		);
 		break;
@@ -109,6 +109,14 @@ void ACharacterMW2D::SetID(int NewID)
 bool ACharacterMW2D::IsResourceValid(AResource* CheckResource)
 {
 	return CheckResource != nullptr && CheckResource->GetDoesExist();
+}
+
+bool ACharacterMW2D::CanMine(int ResType)
+{
+	if (ResType < 0 || ResType >= RESOURCE_AMNT) {
+		return false;
+	}
+	return CanExtract[ResType];
 }
 
 void ACharacterMW2D::PrepareToResourceTask()

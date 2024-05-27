@@ -24,6 +24,7 @@ class AResource;
 	DECLARE_FUNCTION(execGetID); \
 	DECLARE_FUNCTION(execMineResource); \
 	DECLARE_FUNCTION(execIsResourceValid); \
+	DECLARE_FUNCTION(execCanMine); \
 	DECLARE_FUNCTION(execIsWorking);
 
 
