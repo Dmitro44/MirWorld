@@ -12,9 +12,12 @@ void ACharacterMW2D::SetAction(int TypeOfAction, AActor* AimPtr)
 	switch (SelectedAction) {
 	case eMoveTo:
 		break;
-	case eMine: // or
+	case eMine:
 		RepeatsRequired = 5;
+		Resource = reinterpret_cast<AResource*>(AimPtr);
+		break;
 	case eExtract:
+		RepeatsRequired = 1;
 		Resource = reinterpret_cast<AResource*>(AimPtr);
 		break;
 	case eBuild:

@@ -77,10 +77,9 @@ bool UTaskManager::StartTask(ACharacterMW2D* Char) // TODO
 				PriorityMatrix[CharID][Task_T.ResType] &&
 				(!Task_T.ResType || Char->CanMine(reinterpret_cast<AResource*>(Aim)->GetResourceType())))
 			{
-				int Type = (Task_T.ResType == 0 ? 2 : Task_T.ResType - 1); // "translation" to char's enum
 				Tasks.erase(Tasks.begin() + i);
 				Char->SetAction(
-					Type,
+					Task.TaskType,
 					Aim
 				);
 				return true;
