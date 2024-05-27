@@ -14,7 +14,11 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MirWorldModuleRules")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Development")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
+<<<<<<< Updated upstream
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5f639476b4d26a816ee1a795517e4dc5f50dd4f3")]
+=======
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d11a209d6769b9087e7d87205b1eacad27b3241b")]
+>>>>>>> Stashed changes
 [assembly: System.Reflection.AssemblyProductAttribute("MirWorldModuleRules")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MirWorldModuleRules")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

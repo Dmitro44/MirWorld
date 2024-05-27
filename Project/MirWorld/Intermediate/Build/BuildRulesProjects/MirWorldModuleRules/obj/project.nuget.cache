@@ -1,5 +1,6 @@
 {
   "version": 2,
+<<<<<<< Updated upstream
   "dgSpecHash": "5pr7K/3Fis52jKHZLuS0FId1HrjCCuZP3E5gl7AfJBp+Gt2f5W8jfxn9Q4+MDfvd3YtuP+njkh7mALF8qiXehA==",
   "success": true,
   "projectFilePath": "D:\\Github\\MirWorld\\Project\\MirWorld\\Intermediate\\Build\\BuildRulesProjects\\MirWorldModuleRules\\MirWorldModuleRules.csproj",
@@ -142,4 +143,57 @@
     "C:\\Users\\Alexey\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512"
   ],
   "logs": []
+=======
+  "dgSpecHash": "jiH89sCYn8jLFjzJU9FMRK6QDSr0f2rTmXvThp42czRDUVn1ffw4JUp0OAU6mrC/E9MEYlVnEHSKRUpXUw/vyQ==",
+  "success": false,
+  "projectFilePath": "D:\\Github\\MirWorld\\Project\\MirWorld\\Intermediate\\Build\\BuildRulesProjects\\MirWorldModuleRules\\MirWorldModuleRules.csproj",
+  "expectedPackageFiles": [],
+  "logs": [
+    {
+      "code": "NU1104",
+      "level": "Error",
+      "message": "Unable to find project 'D:\\Program Files\\Epic Games\\UE_5.3\\Engine\\Intermediate\\Build\\BuildRulesProjects\\MarketplaceRules\\MarketplaceRules.csproj'. Check that the project reference is valid and that the project file exists.",
+      "libraryId": "D:\\Program Files\\Epic Games\\UE_5.3\\Engine\\Intermediate\\Build\\BuildRulesProjects\\MarketplaceRules\\MarketplaceRules.csproj",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    },
+    {
+      "code": "NU1104",
+      "level": "Error",
+      "message": "Unable to find project 'D:\\Program Files\\Epic Games\\UE_5.3\\Engine\\Source\\Programs\\UnrealBuildTool\\UnrealBuildTool.csproj'. Check that the project reference is valid and that the project file exists.",
+      "libraryId": "D:\\Program Files\\Epic Games\\UE_5.3\\Engine\\Source\\Programs\\UnrealBuildTool\\UnrealBuildTool.csproj",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    },
+    {
+      "code": "NU1104",
+      "level": "Error",
+      "message": "Unable to find project 'D:\\Program Files\\Epic Games\\UE_5.3\\Engine\\Intermediate\\Build\\BuildRulesProjects\\UE5Rules\\UE5Rules.csproj'. Check that the project reference is valid and that the project file exists.",
+      "libraryId": "D:\\Program Files\\Epic Games\\UE_5.3\\Engine\\Intermediate\\Build\\BuildRulesProjects\\UE5Rules\\UE5Rules.csproj",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    },
+    {
+      "code": "NU1104",
+      "level": "Error",
+      "message": "Unable to find project 'D:\\Program Files\\Epic Games\\UE_5.3\\Engine\\Source\\Programs\\Shared\\EpicGames.Build\\EpicGames.Build.csproj'. Check that the project reference is valid and that the project file exists.",
+      "libraryId": "D:\\Program Files\\Epic Games\\UE_5.3\\Engine\\Source\\Programs\\Shared\\EpicGames.Build\\EpicGames.Build.csproj",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    },
+    {
+      "code": "NU1104",
+      "level": "Error",
+      "message": "Unable to find project 'D:\\Program Files\\Epic Games\\UE_5.3\\Engine\\Intermediate\\Build\\BuildRulesProjects\\UE5ProgramRules\\UE5ProgramRules.csproj'. Check that the project reference is valid and that the project file exists.",
+      "libraryId": "D:\\Program Files\\Epic Games\\UE_5.3\\Engine\\Intermediate\\Build\\BuildRulesProjects\\UE5ProgramRules\\UE5ProgramRules.csproj",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    }
+  ]
+>>>>>>> Stashed changes
 }

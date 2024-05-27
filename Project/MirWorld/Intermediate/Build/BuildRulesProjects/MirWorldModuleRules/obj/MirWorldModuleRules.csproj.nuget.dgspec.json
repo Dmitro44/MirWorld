@@ -4,6 +4,7 @@
     "D:\\Github\\MirWorld\\Project\\MirWorld\\Intermediate\\Build\\BuildRulesProjects\\MirWorldModuleRules\\MirWorldModuleRules.csproj": {}
   },
   "projects": {
+<<<<<<< Updated upstream
     "D:\\Epic Games\\UE_5.3\\Engine\\Intermediate\\Build\\BuildRulesProjects\\MarketplaceRules\\MarketplaceRules.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -1089,6 +1090,11 @@
     "D:\\Github\\MirWorld\\Project\\MirWorld\\Intermediate\\Build\\BuildRulesProjects\\MirWorldModuleRules\\MirWorldModuleRules.csproj": {
       "version": "1.0.0",
       "restore": {
+=======
+    "D:\\Github\\MirWorld\\Project\\MirWorld\\Intermediate\\Build\\BuildRulesProjects\\MirWorldModuleRules\\MirWorldModuleRules.csproj": {
+      "version": "1.0.0",
+      "restore": {
+>>>>>>> Stashed changes
         "projectUniqueName": "D:\\Github\\MirWorld\\Project\\MirWorld\\Intermediate\\Build\\BuildRulesProjects\\MirWorldModuleRules\\MirWorldModuleRules.csproj",
         "projectName": "MirWorldModuleRules",
         "projectPath": "D:\\Github\\MirWorld\\Project\\MirWorld\\Intermediate\\Build\\BuildRulesProjects\\MirWorldModuleRules\\MirWorldModuleRules.csproj",
@@ -1110,6 +1116,7 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
+<<<<<<< Updated upstream
               "D:\\Epic Games\\UE_5.3\\Engine\\Intermediate\\Build\\BuildRulesProjects\\MarketplaceRules\\MarketplaceRules.csproj": {
                 "projectPath": "D:\\Epic Games\\UE_5.3\\Engine\\Intermediate\\Build\\BuildRulesProjects\\MarketplaceRules\\MarketplaceRules.csproj"
               },
@@ -1124,6 +1131,22 @@
               },
               "D:\\Epic Games\\UE_5.3\\Engine\\Source\\Programs\\UnrealBuildTool\\UnrealBuildTool.csproj": {
                 "projectPath": "D:\\Epic Games\\UE_5.3\\Engine\\Source\\Programs\\UnrealBuildTool\\UnrealBuildTool.csproj"
+=======
+              "D:\\Program Files\\Epic Games\\UE_5.3\\Engine\\Intermediate\\Build\\BuildRulesProjects\\MarketplaceRules\\MarketplaceRules.csproj": {
+                "projectPath": "D:\\Program Files\\Epic Games\\UE_5.3\\Engine\\Intermediate\\Build\\BuildRulesProjects\\MarketplaceRules\\MarketplaceRules.csproj"
+              },
+              "D:\\Program Files\\Epic Games\\UE_5.3\\Engine\\Intermediate\\Build\\BuildRulesProjects\\UE5ProgramRules\\UE5ProgramRules.csproj": {
+                "projectPath": "D:\\Program Files\\Epic Games\\UE_5.3\\Engine\\Intermediate\\Build\\BuildRulesProjects\\UE5ProgramRules\\UE5ProgramRules.csproj"
+              },
+              "D:\\Program Files\\Epic Games\\UE_5.3\\Engine\\Intermediate\\Build\\BuildRulesProjects\\UE5Rules\\UE5Rules.csproj": {
+                "projectPath": "D:\\Program Files\\Epic Games\\UE_5.3\\Engine\\Intermediate\\Build\\BuildRulesProjects\\UE5Rules\\UE5Rules.csproj"
+              },
+              "D:\\Program Files\\Epic Games\\UE_5.3\\Engine\\Source\\Programs\\Shared\\EpicGames.Build\\EpicGames.Build.csproj": {
+                "projectPath": "D:\\Program Files\\Epic Games\\UE_5.3\\Engine\\Source\\Programs\\Shared\\EpicGames.Build\\EpicGames.Build.csproj"
+              },
+              "D:\\Program Files\\Epic Games\\UE_5.3\\Engine\\Source\\Programs\\UnrealBuildTool\\UnrealBuildTool.csproj": {
+                "projectPath": "D:\\Program Files\\Epic Games\\UE_5.3\\Engine\\Source\\Programs\\UnrealBuildTool\\UnrealBuildTool.csproj"
+>>>>>>> Stashed changes
               }
             }
           }

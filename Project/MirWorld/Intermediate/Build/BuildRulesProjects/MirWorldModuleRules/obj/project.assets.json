@@ -1,6 +1,7 @@
 {
   "version": 3,
   "targets": {
+<<<<<<< Updated upstream
     "net6.0": {
       "Blake3/0.5.1": {
         "type": "package",
@@ -8053,14 +8054,18 @@
       "path": "../../../../../../../../Epic Games/UE_5.3/Engine/Source/Programs/UnrealBuildTool/UnrealBuildTool.csproj",
       "msbuildProject": "../../../../../../../../Epic Games/UE_5.3/Engine/Source/Programs/UnrealBuildTool/UnrealBuildTool.csproj"
     }
+=======
+    "net6.0": {}
+>>>>>>> Stashed changes
   },
+  "libraries": {},
   "projectFileDependencyGroups": {
     "net6.0": [
-      "EpicGames.Build >= 1.0.0",
-      "MarketplaceRules >= 1.0.0",
-      "UE5ProgramRules >= 1.0.0",
-      "UE5Rules >= 1.0.0",
-      "UnrealBuildTool >= 1.0.0"
+      "D:\\Program Files\\Epic Games\\UE_5.3\\Engine\\Intermediate\\Build\\BuildRulesProjects\\MarketplaceRules\\MarketplaceRules.csproj",
+      "D:\\Program Files\\Epic Games\\UE_5.3\\Engine\\Intermediate\\Build\\BuildRulesProjects\\UE5ProgramRules\\UE5ProgramRules.csproj",
+      "D:\\Program Files\\Epic Games\\UE_5.3\\Engine\\Intermediate\\Build\\BuildRulesProjects\\UE5Rules\\UE5Rules.csproj",
+      "D:\\Program Files\\Epic Games\\UE_5.3\\Engine\\Source\\Programs\\Shared\\EpicGames.Build\\EpicGames.Build.csproj",
+      "D:\\Program Files\\Epic Games\\UE_5.3\\Engine\\Source\\Programs\\UnrealBuildTool\\UnrealBuildTool.csproj"
     ]
   },
   "packageFolders": {
@@ -8090,6 +8095,7 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
+<<<<<<< Updated upstream
             "D:\\Epic Games\\UE_5.3\\Engine\\Intermediate\\Build\\BuildRulesProjects\\MarketplaceRules\\MarketplaceRules.csproj": {
               "projectPath": "D:\\Epic Games\\UE_5.3\\Engine\\Intermediate\\Build\\BuildRulesProjects\\MarketplaceRules\\MarketplaceRules.csproj"
             },
@@ -8104,6 +8110,22 @@
             },
             "D:\\Epic Games\\UE_5.3\\Engine\\Source\\Programs\\UnrealBuildTool\\UnrealBuildTool.csproj": {
               "projectPath": "D:\\Epic Games\\UE_5.3\\Engine\\Source\\Programs\\UnrealBuildTool\\UnrealBuildTool.csproj"
+=======
+            "D:\\Program Files\\Epic Games\\UE_5.3\\Engine\\Intermediate\\Build\\BuildRulesProjects\\MarketplaceRules\\MarketplaceRules.csproj": {
+              "projectPath": "D:\\Program Files\\Epic Games\\UE_5.3\\Engine\\Intermediate\\Build\\BuildRulesProjects\\MarketplaceRules\\MarketplaceRules.csproj"
+            },
+            "D:\\Program Files\\Epic Games\\UE_5.3\\Engine\\Intermediate\\Build\\BuildRulesProjects\\UE5ProgramRules\\UE5ProgramRules.csproj": {
+              "projectPath": "D:\\Program Files\\Epic Games\\UE_5.3\\Engine\\Intermediate\\Build\\BuildRulesProjects\\UE5ProgramRules\\UE5ProgramRules.csproj"
+            },
+            "D:\\Program Files\\Epic Games\\UE_5.3\\Engine\\Intermediate\\Build\\BuildRulesProjects\\UE5Rules\\UE5Rules.csproj": {
+              "projectPath": "D:\\Program Files\\Epic Games\\UE_5.3\\Engine\\Intermediate\\Build\\BuildRulesProjects\\UE5Rules\\UE5Rules.csproj"
+            },
+            "D:\\Program Files\\Epic Games\\UE_5.3\\Engine\\Source\\Programs\\Shared\\EpicGames.Build\\EpicGames.Build.csproj": {
+              "projectPath": "D:\\Program Files\\Epic Games\\UE_5.3\\Engine\\Source\\Programs\\Shared\\EpicGames.Build\\EpicGames.Build.csproj"
+            },
+            "D:\\Program Files\\Epic Games\\UE_5.3\\Engine\\Source\\Programs\\UnrealBuildTool\\UnrealBuildTool.csproj": {
+              "projectPath": "D:\\Program Files\\Epic Games\\UE_5.3\\Engine\\Source\\Programs\\UnrealBuildTool\\UnrealBuildTool.csproj"
+>>>>>>> Stashed changes
             }
           }
         }
@@ -8141,5 +8163,52 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1104",
+      "level": "Error",
+      "message": "Unable to find project 'D:\\Program Files\\Epic Games\\UE_5.3\\Engine\\Intermediate\\Build\\BuildRulesProjects\\MarketplaceRules\\MarketplaceRules.csproj'. Check that the project reference is valid and that the project file exists.",
+      "libraryId": "D:\\Program Files\\Epic Games\\UE_5.3\\Engine\\Intermediate\\Build\\BuildRulesProjects\\MarketplaceRules\\MarketplaceRules.csproj",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    },
+    {
+      "code": "NU1104",
+      "level": "Error",
+      "message": "Unable to find project 'D:\\Program Files\\Epic Games\\UE_5.3\\Engine\\Source\\Programs\\UnrealBuildTool\\UnrealBuildTool.csproj'. Check that the project reference is valid and that the project file exists.",
+      "libraryId": "D:\\Program Files\\Epic Games\\UE_5.3\\Engine\\Source\\Programs\\UnrealBuildTool\\UnrealBuildTool.csproj",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    },
+    {
+      "code": "NU1104",
+      "level": "Error",
+      "message": "Unable to find project 'D:\\Program Files\\Epic Games\\UE_5.3\\Engine\\Intermediate\\Build\\BuildRulesProjects\\UE5Rules\\UE5Rules.csproj'. Check that the project reference is valid and that the project file exists.",
+      "libraryId": "D:\\Program Files\\Epic Games\\UE_5.3\\Engine\\Intermediate\\Build\\BuildRulesProjects\\UE5Rules\\UE5Rules.csproj",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    },
+    {
+      "code": "NU1104",
+      "level": "Error",
+      "message": "Unable to find project 'D:\\Program Files\\Epic Games\\UE_5.3\\Engine\\Source\\Programs\\Shared\\EpicGames.Build\\EpicGames.Build.csproj'. Check that the project reference is valid and that the project file exists.",
+      "libraryId": "D:\\Program Files\\Epic Games\\UE_5.3\\Engine\\Source\\Programs\\Shared\\EpicGames.Build\\EpicGames.Build.csproj",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    },
+    {
+      "code": "NU1104",
+      "level": "Error",
+      "message": "Unable to find project 'D:\\Program Files\\Epic Games\\UE_5.3\\Engine\\Intermediate\\Build\\BuildRulesProjects\\UE5ProgramRules\\UE5ProgramRules.csproj'. Check that the project reference is valid and that the project file exists.",
+      "libraryId": "D:\\Program Files\\Epic Games\\UE_5.3\\Engine\\Intermediate\\Build\\BuildRulesProjects\\UE5ProgramRules\\UE5ProgramRules.csproj",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    }
+  ]
 }
