@@ -4,6 +4,9 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/GameModeBase.h"
+#include "MapInfo.h"
+#include "EnumsFictitiousClass.h"
+#include "UObject/NoExportTypes.h"
 #include "PathFinder.generated.h"
 
 /**

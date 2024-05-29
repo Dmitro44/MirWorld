@@ -1,6 +1,6 @@
-/Users/daniil_mariyn/Documents/Game\ Mirworld/MirWorld/Project/MirWorld/Intermediate/Build/Mac/arm64/MirWorldEditor/DebugGame/Engine/SharedPCH.Engine.NonOptimized.Cpp20.h.gch: \
-  /Users/daniil_mariyn/Documents/Game\ Mirworld/MirWorld/Project/MirWorld/Intermediate/Build/Mac/arm64/MirWorldEditor/DebugGame/Engine/SharedPCH.Engine.NonOptimized.Cpp20.h \
-  /Users/daniil_mariyn/Documents/Game\ Mirworld/MirWorld/Project/MirWorld/Intermediate/Build/Mac/arm64/MirWorldEditor/DebugGame/Engine/SharedDefinitions.Engine.NonOptimized.Cpp20.h \
+/Users/daniil_mariyn/Downloads/GameWorld/MirWorld/Project/MirWorld/Intermediate/Build/Mac/arm64/MirWorldEditor/DebugGame/Engine/SharedPCH.Engine.NonOptimized.Cpp20.h.gch: \
+  /Users/daniil_mariyn/Downloads/GameWorld/MirWorld/Project/MirWorld/Intermediate/Build/Mac/arm64/MirWorldEditor/DebugGame/Engine/SharedPCH.Engine.NonOptimized.Cpp20.h \
+  /Users/daniil_mariyn/Downloads/GameWorld/MirWorld/Project/MirWorld/Intermediate/Build/Mac/arm64/MirWorldEditor/DebugGame/Engine/SharedDefinitions.Engine.NonOptimized.Cpp20.h \
   Runtime/Engine/Public/EngineSharedPCH.h \
   Runtime/Slate/Public/SlateSharedPCH.h \
   Runtime/CoreUObject/Public/CoreUObjectSharedPCH.h \
