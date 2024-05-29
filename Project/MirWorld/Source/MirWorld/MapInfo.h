@@ -87,5 +87,5 @@ private:
 	UPROPERTY(EditAnywhere, Category = "Tile settings") // it's actually can't be accesed through blueprints
 	bool bFoodIsPassable = true;
 
-	float RandomResMove;
+	float RandomResMove = 1;
 };

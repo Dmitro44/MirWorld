@@ -688,7 +688,8 @@ TFVector  APathFinder::getPathFromTo(int grid[][COL], FVector src_1, FVector des
     }
 
     // Either the source or the destination is blocked
-    if (isUnBlocked(grid, src.first, src.second) == false || isUnBlocked(grid, dest.first, dest.second) == false)
+    // UPDATE: the source is always considered as unblocked
+    if (/*isUnBlocked(grid, src.first, src.second) == false ||*/ isUnBlocked(grid, dest.first, dest.second) == false)
     {
        // printf("Source or the destination is blocked\n");
         return{NO_WAY};

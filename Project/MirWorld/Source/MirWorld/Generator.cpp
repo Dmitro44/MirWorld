@@ -164,6 +164,29 @@ bool AGenerator::TileIsPassable(const int X, const int Y)
 	return MapInfo.GetMap()[X][Y].bIsGoThrough;
 }
 
+void AGenerator::SetTileIsPassable_ByCoords(const int X, const int Y, bool NewState)
+{
+	auto& Map = MapInfo.GetMap();
+	if (X < 0 || Y < 0 || X >= Map.Num() || Y >= Map.Num()) {
+		return;
+	}
+	Map[X][Y].bIsGoThrough = NewState;
+}
+
+void AGenerator::SetTileIsPassable(FVector TilePos, bool NewState)
+{
+	int X = (TilePos.X + 1) / SIDE_SIZE;
+	int Y = (TilePos.Y + 1) / SIDE_SIZE;
+	SetTileIsPassable_ByCoords(X, Y, NewState);
+}
+
+bool AGenerator::GetTileIsPassable(FVector TilePos)
+{
+	int X = (TilePos.X + 1) / SIDE_SIZE;
+	int Y = (TilePos.Y + 1) / SIDE_SIZE;
+	return TileIsPassable(X, Y);
+}
+
 bool AGenerator::TileIsBuildable(const int X, const int Y)
 {
 	return MapInfo.GetMap()[X][Y].bIsBuildable;

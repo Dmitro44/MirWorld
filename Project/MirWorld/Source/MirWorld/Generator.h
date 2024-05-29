@@ -34,6 +34,15 @@ public:
 	bool TileIsPassable(const int X, const int Y);
 
 	UFUNCTION(BlueprintCallable)
+	void SetTileIsPassable_ByCoords(const int X, const int Y, bool NewState);
+
+	UFUNCTION(BlueprintCallable)
+	void SetTileIsPassable(FVector TilePos, bool NewState);
+
+	UFUNCTION(BlueprintCallable)
+	bool GetTileIsPassable(FVector TilePos);
+
+	UFUNCTION(BlueprintCallable)
 	bool TileIsBuildable(const int X, const int Y);
 
 	UFUNCTION(BlueprintCallable)
@@ -54,7 +63,6 @@ public:
 
 protected:
 	virtual void BeginPlay() override;
-
 	MapInfo MapInfo;
 
 	UPROPERTY(VisibleAnywhere, Category = "Save")
@@ -118,8 +126,8 @@ protected:
 	// for characters
 	TArray<FVector> StartPositions = {
 		{2500, 2500, 90},
-		{2600, 2500, 90},
-		{2600, 2600, 90},
-		{2500, 2600, 90}
+		{2600, 2500, 90.1},
+		{2600, 2600, 90.2},
+		{2500, 2600, 90.3}
 	};
 };

@@ -9,6 +9,8 @@
 #include "MobBase2D.generated.h"
 
 
+const float INSTANT_REBOUND_COEFF = 0.05;
+
 
 /**
  * Basic class for all mobs and characters in MirWorld
@@ -44,6 +46,9 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "Mob Movement")
 	virtual void GoTo(FVector Destination);
 
+	// Tries to find other pos to char when its destination become blocked
+	virtual void GoBack();
+
 	// Stops any movement and activities
 	UFUNCTION(BlueprintCallable, Category = "Mob Action")
 	virtual void StopAll();
@@ -59,6 +64,9 @@ public:
 protected:
 	// Mob moves closer to the next tile in the trajectory
 	void GoCloserToNextTile();
+
+	// Shows if char goes back to the previous tile
+	bool bIsGoingBack = false;
 
 	// Timer for initializing the next tile approach process
 	FTimerHandle ApproachTimerHandle;

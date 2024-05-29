@@ -33,8 +33,36 @@ void AMobBase2D::GoCloserToNextTile()
 
 	if (std::abs(PercentOfPassedDistance - 1) < 0.01) {
 		GetWorldTimerManager().ClearTimer(ApproachTimerHandle);
+
+		// change passability of tiles
+		auto Actor = UGameplayStatics::GetActorOfClass(GetWorld(), AGenerator::StaticClass());
+		auto Map = reinterpret_cast<AGenerator*>(Actor);
+
+		if (!Map->GetTileIsPassable(NextTile) && !bIsGoingBack) {
+			return GoBack();
+		}
+		
+		if (!bIsGoingBack) {
+			Map->SetTileIsPassable(CurrentTile, true);
+		}
+		Map->SetTileIsPassable(NextTile, false);
+
 		SetActorLocation(NextTile);
 		CurrentTile = NextTile;
+
+		// if desired position was blocked so char has come back
+		if (bIsGoingBack) {
+			bIsGoingBack = false;
+			bHasTask = false;
+			bIsMoving = false;
+			auto Path = GetPathFromMob(Destination);
+			if (Path != G_NO_WAY) {
+				GoTo(Destination);
+			}
+			ReportImpossibleTask();
+			return;
+		}
+		
 		GoTo(Destination);
 	}
 }
@@ -54,6 +82,7 @@ void AMobBase2D::GoTo(FVector NewDestination)
 
 	if (Path == G_NO_WAY) {
 		bHasTask = false;
+		bIsMoving = false;
 		ReportImpossibleTask();
 		return;
 	}
@@ -74,7 +103,35 @@ void AMobBase2D::GoTo(FVector NewDestination)
 	);
 }
 
-void AMobBase2D::StopAll()
+void AMobBase2D::GoBack()
+{
+	auto Actor = UGameplayStatics::GetActorOfClass(GetWorld(), AGenerator::StaticClass());
+	auto Map = reinterpret_cast<AGenerator*>(Actor);
+
+	std::swap(CurrentTile, NextTile);
+	bIsMoving = true;
+	PercentOfPassedDistance = INSTANT_REBOUND_COEFF; //FVector::Distance(GetActorLocation(), NextTile) / FVector::Distance(CurrentTile, NextTile);
+	GetWorldTimerManager().SetTimer(
+		ApproachTimerHandle,
+		this,
+		&AMobBase2D::GoCloserToNextTile,
+		SecsForNextTile / MovementSpeed / MotionFrameAmount * FVector::Distance(NextTile, CurrentTile) / TileSize,
+		true,
+		0
+	);
+
+	bIsGoingBack = true;
+	Direction = NextTile - CurrentTile;
+
+	/*if (Map->GetTileIsPassable(CurrentTile)) { // can return to the previous tile
+		TODO
+	}
+	else {
+		TODO
+	}*/
+}
+
+void AMobBase2D::StopAll() // CHANGE IMPLEMENTATIONd
 {
 	bIsMoving = false;
 
@@ -108,6 +165,9 @@ void AMobBase2D::SetStartPos(FVector StartPos)
 {
 	NextTile = StartPos;
 	CurrentTile = StartPos;
+	auto Actor = UGameplayStatics::GetActorOfClass(GetWorld(), AGenerator::StaticClass());
+	auto Map = reinterpret_cast<AGenerator*>(Actor);
+	Map->SetTileIsPassable(CurrentTile, false);
 	SetActorLocation(StartPos);
 }
 

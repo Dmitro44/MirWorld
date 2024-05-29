@@ -23,6 +23,9 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 	DECLARE_FUNCTION(execClearTiles); \
 	DECLARE_FUNCTION(execGetStartPositions); \
 	DECLARE_FUNCTION(execTileIsBuildable); \
+	DECLARE_FUNCTION(execGetTileIsPassable); \
+	DECLARE_FUNCTION(execSetTileIsPassable); \
+	DECLARE_FUNCTION(execSetTileIsPassable_ByCoords); \
 	DECLARE_FUNCTION(execTileIsPassable); \
 	DECLARE_FUNCTION(execBuildMap); \
 	DECLARE_FUNCTION(execGetIsLoaded); \
