@@ -57,6 +57,7 @@ bool isDestination(int row, int col, Pair dest)
         return true;
     return false;
 }
+
 void updateCellDetails(vector<vector<cell>>& cellDetails, int i, int j, double fNew, double gNew, double hNew, int parent_i, int parent_j)
 {
     cellDetails[i][j].f = fNew;

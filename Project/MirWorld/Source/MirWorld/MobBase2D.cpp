@@ -24,7 +24,7 @@ void AMobBase2D::Tick(float DeltaTime)
 }
 
 
-void AMobBase2D::GoCloserToNextTile()
+void AMobBase2D::GoCloserToNextTile() //TODO
 {
 	PercentOfPassedDistance += 1.0f / MotionFrameAmount;
 
@@ -42,10 +42,12 @@ void AMobBase2D::GoCloserToNextTile()
 			return GoBack();
 		}
 		
-		if (!bIsGoingBack) {
+		/*if (!bIsGoingBack) {
 			Map->SetTileIsPassable(CurrentTile, true);
+		}*/
+		if (Path.IsEmpty()) {
+			Map->SetTileIsPassable(NextTile, false);
 		}
-		Map->SetTileIsPassable(NextTile, false);
 
 		SetActorLocation(NextTile);
 		CurrentTile = NextTile;
@@ -55,7 +57,7 @@ void AMobBase2D::GoCloserToNextTile()
 			bIsGoingBack = false;
 			bHasTask = false;
 			bIsMoving = false;
-			auto Path = GetPathFromMob(Destination);
+			Path = GetPathFromMob(Destination); // TODO: circle
 			if (Path != G_NO_WAY) {
 				GoTo(Destination);
 			}
@@ -67,10 +69,15 @@ void AMobBase2D::GoCloserToNextTile()
 	}
 }
 
-void AMobBase2D::GoTo(FVector NewDestination)
+void AMobBase2D::GoTo(FVector NewDestination) //TODO
 {
 	Destination = NewDestination;
-	auto Path = GetPathFromMob(NewDestination);
+	if (bGoToCircle) {
+		Path = GetPathFromMob(NewDestination); // TODO: go to circle
+	}
+	else {
+		Path = GetPathFromMob(NewDestination);
+	}
 
 	if (Path.IsEmpty() || 
 		abs(abs(GetActorLocation().Z - NewDestination.Z) -
@@ -87,9 +94,14 @@ void AMobBase2D::GoTo(FVector NewDestination)
 		return;
 	}
 
+	if (!bIsMoving) {
+		auto Actor = UGameplayStatics::GetActorOfClass(GetWorld(), AGenerator::StaticClass());
+		reinterpret_cast<AGenerator*>(Actor)->SetTileIsPassable(CurrentTile, true);
+	}
 	bIsMoving = true;
 
 	NextTile = *(Path.begin());
+	Path.RemoveAt(0);
 	Direction = NextTile - CurrentTile;
 	PercentOfPassedDistance = 0.0f;
 

@@ -59,6 +59,9 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "Biome")
 	int GetRandomGenerationNum() const;
 
+	UFUNCTION(BlueprintCallable, Category = "Resource")
+	int IsPassable() const;
+
 protected:
 	UFUNCTION(BlueprintCallable, Category = "Resource")
 	void SetResourceType(int NewType);
@@ -80,6 +83,9 @@ protected:
 
 	UPROPERTY(EditAnywhere, Category = "Biome")
 	int BiomeType;
+
+	UPROPERTY(EditAnywhere, Category = "Resource")
+	bool bIsPassable = false;
 
 	UPROPERTY(EditAnywhere, Category = "Biome")
 	int RandomGenerationNum;

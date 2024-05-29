@@ -99,6 +99,11 @@ int AResource::GetRandomGenerationNum() const
 	return RandomGenerationNum;
 }
 
+int AResource::IsPassable() const
+{
+	return bIsPassable;
+}
+
 void AResource::SetResourceType(int NewType)
 {
 	if (NewType >= 0 && NewType < RESOURCE_AMNT) {

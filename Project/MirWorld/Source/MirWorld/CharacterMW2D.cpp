@@ -30,6 +30,9 @@ void ACharacterMW2D::SetAction(int TypeOfAction, AActor* AimPtr)
 	}
 
 	bHasTask = true;
+	bGoToCircle = (SelectedAction == eMine || SelectedAction == eExtract) &&
+				  !reinterpret_cast<AResource*>(AimPtr)->IsPassable();
+
 	GoTo(AimPtr->GetActorLocation());
 }
 

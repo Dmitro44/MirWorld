@@ -22,6 +22,13 @@ void EmptyLinkFunctionForGeneratedCodeResource() {}
 		P_THIS->SetResourceType(Z_Param_NewType);
 		P_NATIVE_END;
 	}
+	DEFINE_FUNCTION(AResource::execIsPassable)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		*(int32*)Z_Param__Result=P_THIS->IsPassable();
+		P_NATIVE_END;
+	}
 	DEFINE_FUNCTION(AResource::execGetRandomGenerationNum)
 	{
 		P_FINISH;
@@ -145,6 +152,7 @@ void EmptyLinkFunctionForGeneratedCodeResource() {}
 			{ "GetResourceLeft", &AResource::execGetResourceLeft },
 			{ "GetResourceType", &AResource::execGetResourceType },
 			{ "GiveBunch", &AResource::execGiveBunch },
+			{ "IsPassable", &AResource::execIsPassable },
 			{ "MineTime", &AResource::execMineTime },
 			{ "SetBiomeType", &AResource::execSetBiomeType },
 			{ "SetDoesExist", &AResource::execSetDoesExist },
@@ -438,6 +446,41 @@ void EmptyLinkFunctionForGeneratedCodeResource() {}
 		if (!ReturnFunction)
 		{
 			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AResource_GiveBunch_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_AResource_IsPassable_Statics
+	{
+		struct Resource_eventIsPassable_Parms
+		{
+			int32 ReturnValue;
+		};
+		static const UECodeGen_Private::FIntPropertyParams NewProp_ReturnValue;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UECodeGen_Private::FIntPropertyParams Z_Construct_UFunction_AResource_IsPassable_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(Resource_eventIsPassable_Parms, ReturnValue), METADATA_PARAMS(0, nullptr) };
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AResource_IsPassable_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AResource_IsPassable_Statics::NewProp_ReturnValue,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AResource_IsPassable_Statics::Function_MetaDataParams[] = {
+		{ "Category", "Resource" },
+		{ "ModuleRelativePath", "Resource.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AResource_IsPassable_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AResource, nullptr, "IsPassable", nullptr, nullptr, Z_Construct_UFunction_AResource_IsPassable_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AResource_IsPassable_Statics::PropPointers), sizeof(Z_Construct_UFunction_AResource_IsPassable_Statics::Resource_eventIsPassable_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x54020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AResource_IsPassable_Statics::Function_MetaDataParams), Z_Construct_UFunction_AResource_IsPassable_Statics::Function_MetaDataParams) };
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_AResource_IsPassable_Statics::PropPointers) < 2048);
+	static_assert(sizeof(Z_Construct_UFunction_AResource_IsPassable_Statics::Resource_eventIsPassable_Parms) < MAX_uint16);
+	UFunction* Z_Construct_UFunction_AResource_IsPassable()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AResource_IsPassable_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -763,6 +806,11 @@ void EmptyLinkFunctionForGeneratedCodeResource() {}
 #endif
 		static const UECodeGen_Private::FIntPropertyParams NewProp_BiomeType;
 #if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_bIsPassable_MetaData[];
+#endif
+		static void NewProp_bIsPassable_SetBit(void* Obj);
+		static const UECodeGen_Private::FBoolPropertyParams NewProp_bIsPassable;
+#if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_RandomGenerationNum_MetaData[];
 #endif
 		static const UECodeGen_Private::FIntPropertyParams NewProp_RandomGenerationNum;
@@ -784,6 +832,7 @@ void EmptyLinkFunctionForGeneratedCodeResource() {}
 		{ &Z_Construct_UFunction_AResource_GetResourceLeft, "GetResourceLeft" }, // 3411369210
 		{ &Z_Construct_UFunction_AResource_GetResourceType, "GetResourceType" }, // 1835135641
 		{ &Z_Construct_UFunction_AResource_GiveBunch, "GiveBunch" }, // 1443290399
+		{ &Z_Construct_UFunction_AResource_IsPassable, "IsPassable" }, // 2882372274
 		{ &Z_Construct_UFunction_AResource_MineTime, "MineTime" }, // 1277463625
 		{ &Z_Construct_UFunction_AResource_SetBiomeType, "SetBiomeType" }, // 236822830
 		{ &Z_Construct_UFunction_AResource_SetDoesExist, "SetDoesExist" }, // 1206391479
@@ -850,6 +899,17 @@ void EmptyLinkFunctionForGeneratedCodeResource() {}
 #endif
 	const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_AResource_Statics::NewProp_BiomeType = { "BiomeType", nullptr, (EPropertyFlags)0x0020080000000001, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AResource, BiomeType), METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AResource_Statics::NewProp_BiomeType_MetaData), Z_Construct_UClass_AResource_Statics::NewProp_BiomeType_MetaData) };
 #if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AResource_Statics::NewProp_bIsPassable_MetaData[] = {
+		{ "Category", "Resource" },
+		{ "ModuleRelativePath", "Resource.h" },
+	};
+#endif
+	void Z_Construct_UClass_AResource_Statics::NewProp_bIsPassable_SetBit(void* Obj)
+	{
+		((AResource*)Obj)->bIsPassable = 1;
+	}
+	const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_AResource_Statics::NewProp_bIsPassable = { "bIsPassable", nullptr, (EPropertyFlags)0x0020080000000001, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(AResource), &Z_Construct_UClass_AResource_Statics::NewProp_bIsPassable_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AResource_Statics::NewProp_bIsPassable_MetaData), Z_Construct_UClass_AResource_Statics::NewProp_bIsPassable_MetaData) };
+#if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AResource_Statics::NewProp_RandomGenerationNum_MetaData[] = {
 		{ "Category", "Biome" },
 		{ "ModuleRelativePath", "Resource.h" },
@@ -863,6 +923,7 @@ void EmptyLinkFunctionForGeneratedCodeResource() {}
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AResource_Statics::NewProp_BaseRecieve,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AResource_Statics::NewProp_ResourceType,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AResource_Statics::NewProp_BiomeType,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AResource_Statics::NewProp_bIsPassable,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AResource_Statics::NewProp_RandomGenerationNum,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_AResource_Statics::StaticCppClassTypeInfo = {
@@ -904,9 +965,9 @@ void EmptyLinkFunctionForGeneratedCodeResource() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Code_Projects_GitHub_MirWorld_MirWorld_Project_MirWorld_Source_MirWorld_Resource_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_AResource, AResource::StaticClass, TEXT("AResource"), &Z_Registration_Info_UClass_AResource, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AResource), 2108736740U) },
+		{ Z_Construct_UClass_AResource, AResource::StaticClass, TEXT("AResource"), &Z_Registration_Info_UClass_AResource, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AResource), 2676476331U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Code_Projects_GitHub_MirWorld_MirWorld_Project_MirWorld_Source_MirWorld_Resource_h_2413631339(TEXT("/Script/MirWorld"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Code_Projects_GitHub_MirWorld_MirWorld_Project_MirWorld_Source_MirWorld_Resource_h_3710248277(TEXT("/Script/MirWorld"),
 		Z_CompiledInDeferFile_FID_Code_Projects_GitHub_MirWorld_MirWorld_Project_MirWorld_Source_MirWorld_Resource_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Code_Projects_GitHub_MirWorld_MirWorld_Project_MirWorld_Source_MirWorld_Resource_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

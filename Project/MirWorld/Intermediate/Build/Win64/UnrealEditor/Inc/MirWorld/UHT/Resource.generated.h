@@ -20,6 +20,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #define FID_Code_Projects_GitHub_MirWorld_MirWorld_Project_MirWorld_Source_MirWorld_Resource_h_14_RPC_WRAPPERS_NO_PURE_DECLS \
  \
 	DECLARE_FUNCTION(execSetResourceType); \
+	DECLARE_FUNCTION(execIsPassable); \
 	DECLARE_FUNCTION(execGetRandomGenerationNum); \
 	DECLARE_FUNCTION(execSetRandomGenerationNum); \
 	DECLARE_FUNCTION(execSetDoesExist); \

@@ -65,8 +65,14 @@ protected:
 	// Mob moves closer to the next tile in the trajectory
 	void GoCloserToNextTile();
 
-	// Shows if char goes back to the previous tile
+	// Shows if mob goes back to the previous tile
 	bool bIsGoingBack = false;
+
+	// Shows if mob goes not to direction exactly but to its circle
+	bool bGoToCircle = false;
+
+	// Trajectory to the aim
+	TArray<FVector> Path;
 
 	// Timer for initializing the next tile approach process
 	FTimerHandle ApproachTimerHandle;
