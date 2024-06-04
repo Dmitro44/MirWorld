@@ -21,16 +21,12 @@ class MIRWORLD_API ABuilding : public ABasicActor
 	int8 GetIronCost();
 	int8 GetGoldCost();
 
-
-
 protected:
 	int8 WoodCost;
 	int8 StoneCost;
 	int8 IronCost;
 	int8 GoldCost;
 	
-
-
 
 	// Building //----------------------------------------------------------------------------------------------
 
@@ -42,11 +38,19 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "Building")
 	float GetBuildingTime();
 
+	UFUNCTION(BlueprintCallable, Category = "Building")
+	bool GetIsReady();
+
+	UFUNCTION(BlueprintCallable, Category = "Building")
+	void SetIsReady(bool NewState);
+
+	UFUNCTION(BlueprintCallable, Category = "Building")
+	float GetReadinessPercentage();
+
 protected:
 	UFUNCTION(BlueprintImplementableEvent, Category = "Building") /// implemented in BPs
 	void BecomeReady();
 
-	UPROPERTY(EditAnywhere, Category = "Building")
 	bool bIsReady = false;
 
 	// One "portion"

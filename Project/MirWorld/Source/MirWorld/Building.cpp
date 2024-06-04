@@ -34,6 +34,21 @@ int8 ABuilding::GetGoldCost()
 	return GoldCost;
 }
 
+bool ABuilding::GetIsReady()
+{
+	return bIsReady;
+}
+
+void ABuilding::SetIsReady(bool NewState)
+{
+	bIsReady = NewState;
+}
+
+float ABuilding::GetReadinessPercentage()
+{
+	return static_cast<float>(DoneTimesBuilding) / TimesRequiredBuilding * 100.0F;
+}
+
 int ABuilding::Build()
 {
 	if (++DoneTimesBuilding >= 3) {

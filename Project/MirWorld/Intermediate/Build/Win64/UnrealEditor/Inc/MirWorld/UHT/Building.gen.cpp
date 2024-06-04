@@ -14,6 +14,28 @@ void EmptyLinkFunctionForGeneratedCodeBuilding() {}
 	MIRWORLD_API UClass* Z_Construct_UClass_ABuilding_NoRegister();
 	UPackage* Z_Construct_UPackage__Script_MirWorld();
 // End Cross Module References
+	DEFINE_FUNCTION(ABuilding::execGetReadinessPercentage)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		*(float*)Z_Param__Result=P_THIS->GetReadinessPercentage();
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(ABuilding::execSetIsReady)
+	{
+		P_GET_UBOOL(Z_Param_NewState);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->SetIsReady(Z_Param_NewState);
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(ABuilding::execGetIsReady)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		*(bool*)Z_Param__Result=P_THIS->GetIsReady();
+		P_NATIVE_END;
+	}
 	DEFINE_FUNCTION(ABuilding::execGetBuildingTime)
 	{
 		P_FINISH;
@@ -39,6 +61,9 @@ void EmptyLinkFunctionForGeneratedCodeBuilding() {}
 		static const FNameNativePtrPair Funcs[] = {
 			{ "Build", &ABuilding::execBuild },
 			{ "GetBuildingTime", &ABuilding::execGetBuildingTime },
+			{ "GetIsReady", &ABuilding::execGetIsReady },
+			{ "GetReadinessPercentage", &ABuilding::execGetReadinessPercentage },
+			{ "SetIsReady", &ABuilding::execSetIsReady },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
 	}
@@ -147,6 +172,121 @@ void EmptyLinkFunctionForGeneratedCodeBuilding() {}
 		}
 		return ReturnFunction;
 	}
+	struct Z_Construct_UFunction_ABuilding_GetIsReady_Statics
+	{
+		struct Building_eventGetIsReady_Parms
+		{
+			bool ReturnValue;
+		};
+		static void NewProp_ReturnValue_SetBit(void* Obj);
+		static const UECodeGen_Private::FBoolPropertyParams NewProp_ReturnValue;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+	void Z_Construct_UFunction_ABuilding_GetIsReady_Statics::NewProp_ReturnValue_SetBit(void* Obj)
+	{
+		((Building_eventGetIsReady_Parms*)Obj)->ReturnValue = 1;
+	}
+	const UECodeGen_Private::FBoolPropertyParams Z_Construct_UFunction_ABuilding_GetIsReady_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(Building_eventGetIsReady_Parms), &Z_Construct_UFunction_ABuilding_GetIsReady_Statics::NewProp_ReturnValue_SetBit, METADATA_PARAMS(0, nullptr) };
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_ABuilding_GetIsReady_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ABuilding_GetIsReady_Statics::NewProp_ReturnValue,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ABuilding_GetIsReady_Statics::Function_MetaDataParams[] = {
+		{ "Category", "Building" },
+		{ "ModuleRelativePath", "Building.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_ABuilding_GetIsReady_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ABuilding, nullptr, "GetIsReady", nullptr, nullptr, Z_Construct_UFunction_ABuilding_GetIsReady_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_ABuilding_GetIsReady_Statics::PropPointers), sizeof(Z_Construct_UFunction_ABuilding_GetIsReady_Statics::Building_eventGetIsReady_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_ABuilding_GetIsReady_Statics::Function_MetaDataParams), Z_Construct_UFunction_ABuilding_GetIsReady_Statics::Function_MetaDataParams) };
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_ABuilding_GetIsReady_Statics::PropPointers) < 2048);
+	static_assert(sizeof(Z_Construct_UFunction_ABuilding_GetIsReady_Statics::Building_eventGetIsReady_Parms) < MAX_uint16);
+	UFunction* Z_Construct_UFunction_ABuilding_GetIsReady()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_ABuilding_GetIsReady_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_ABuilding_GetReadinessPercentage_Statics
+	{
+		struct Building_eventGetReadinessPercentage_Parms
+		{
+			float ReturnValue;
+		};
+		static const UECodeGen_Private::FFloatPropertyParams NewProp_ReturnValue;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UECodeGen_Private::FFloatPropertyParams Z_Construct_UFunction_ABuilding_GetReadinessPercentage_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(Building_eventGetReadinessPercentage_Parms, ReturnValue), METADATA_PARAMS(0, nullptr) };
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_ABuilding_GetReadinessPercentage_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ABuilding_GetReadinessPercentage_Statics::NewProp_ReturnValue,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ABuilding_GetReadinessPercentage_Statics::Function_MetaDataParams[] = {
+		{ "Category", "Building" },
+		{ "ModuleRelativePath", "Building.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_ABuilding_GetReadinessPercentage_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ABuilding, nullptr, "GetReadinessPercentage", nullptr, nullptr, Z_Construct_UFunction_ABuilding_GetReadinessPercentage_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_ABuilding_GetReadinessPercentage_Statics::PropPointers), sizeof(Z_Construct_UFunction_ABuilding_GetReadinessPercentage_Statics::Building_eventGetReadinessPercentage_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_ABuilding_GetReadinessPercentage_Statics::Function_MetaDataParams), Z_Construct_UFunction_ABuilding_GetReadinessPercentage_Statics::Function_MetaDataParams) };
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_ABuilding_GetReadinessPercentage_Statics::PropPointers) < 2048);
+	static_assert(sizeof(Z_Construct_UFunction_ABuilding_GetReadinessPercentage_Statics::Building_eventGetReadinessPercentage_Parms) < MAX_uint16);
+	UFunction* Z_Construct_UFunction_ABuilding_GetReadinessPercentage()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_ABuilding_GetReadinessPercentage_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_ABuilding_SetIsReady_Statics
+	{
+		struct Building_eventSetIsReady_Parms
+		{
+			bool NewState;
+		};
+		static void NewProp_NewState_SetBit(void* Obj);
+		static const UECodeGen_Private::FBoolPropertyParams NewProp_NewState;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+	void Z_Construct_UFunction_ABuilding_SetIsReady_Statics::NewProp_NewState_SetBit(void* Obj)
+	{
+		((Building_eventSetIsReady_Parms*)Obj)->NewState = 1;
+	}
+	const UECodeGen_Private::FBoolPropertyParams Z_Construct_UFunction_ABuilding_SetIsReady_Statics::NewProp_NewState = { "NewState", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(Building_eventSetIsReady_Parms), &Z_Construct_UFunction_ABuilding_SetIsReady_Statics::NewProp_NewState_SetBit, METADATA_PARAMS(0, nullptr) };
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_ABuilding_SetIsReady_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ABuilding_SetIsReady_Statics::NewProp_NewState,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ABuilding_SetIsReady_Statics::Function_MetaDataParams[] = {
+		{ "Category", "Building" },
+		{ "ModuleRelativePath", "Building.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_ABuilding_SetIsReady_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ABuilding, nullptr, "SetIsReady", nullptr, nullptr, Z_Construct_UFunction_ABuilding_SetIsReady_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_ABuilding_SetIsReady_Statics::PropPointers), sizeof(Z_Construct_UFunction_ABuilding_SetIsReady_Statics::Building_eventSetIsReady_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_ABuilding_SetIsReady_Statics::Function_MetaDataParams), Z_Construct_UFunction_ABuilding_SetIsReady_Statics::Function_MetaDataParams) };
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_ABuilding_SetIsReady_Statics::PropPointers) < 2048);
+	static_assert(sizeof(Z_Construct_UFunction_ABuilding_SetIsReady_Statics::Building_eventSetIsReady_Parms) < MAX_uint16);
+	UFunction* Z_Construct_UFunction_ABuilding_SetIsReady()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_ABuilding_SetIsReady_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
 	IMPLEMENT_CLASS_NO_AUTO_REGISTRATION(ABuilding);
 	UClass* Z_Construct_UClass_ABuilding_NoRegister()
 	{
@@ -159,11 +299,6 @@ void EmptyLinkFunctionForGeneratedCodeBuilding() {}
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
 #endif
-#if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam NewProp_bIsReady_MetaData[];
-#endif
-		static void NewProp_bIsReady_SetBit(void* Obj);
-		static const UECodeGen_Private::FBoolPropertyParams NewProp_bIsReady;
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_BuildingTime_MetaData[];
 #endif
@@ -185,6 +320,9 @@ void EmptyLinkFunctionForGeneratedCodeBuilding() {}
 		{ &Z_Construct_UFunction_ABuilding_BecomeReady, "BecomeReady" }, // 2505183922
 		{ &Z_Construct_UFunction_ABuilding_Build, "Build" }, // 2429025959
 		{ &Z_Construct_UFunction_ABuilding_GetBuildingTime, "GetBuildingTime" }, // 1218268819
+		{ &Z_Construct_UFunction_ABuilding_GetIsReady, "GetIsReady" }, // 1723924404
+		{ &Z_Construct_UFunction_ABuilding_GetReadinessPercentage, "GetReadinessPercentage" }, // 1913725808
+		{ &Z_Construct_UFunction_ABuilding_SetIsReady, "SetIsReady" }, // 692177475
 	};
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_ABuilding_Statics::FuncInfo) < 2048);
 #if WITH_METADATA
@@ -196,17 +334,6 @@ void EmptyLinkFunctionForGeneratedCodeBuilding() {}
 		{ "ModuleRelativePath", "Building.h" },
 	};
 #endif
-#if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ABuilding_Statics::NewProp_bIsReady_MetaData[] = {
-		{ "Category", "Building" },
-		{ "ModuleRelativePath", "Building.h" },
-	};
-#endif
-	void Z_Construct_UClass_ABuilding_Statics::NewProp_bIsReady_SetBit(void* Obj)
-	{
-		((ABuilding*)Obj)->bIsReady = 1;
-	}
-	const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_ABuilding_Statics::NewProp_bIsReady = { "bIsReady", nullptr, (EPropertyFlags)0x0020080000000001, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(ABuilding), &Z_Construct_UClass_ABuilding_Statics::NewProp_bIsReady_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_ABuilding_Statics::NewProp_bIsReady_MetaData), Z_Construct_UClass_ABuilding_Statics::NewProp_bIsReady_MetaData) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ABuilding_Statics::NewProp_BuildingTime_MetaData[] = {
 		{ "Category", "Building" },
@@ -228,7 +355,6 @@ void EmptyLinkFunctionForGeneratedCodeBuilding() {}
 #endif
 	const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_ABuilding_Statics::NewProp_TimesRequiredBuilding = { "TimesRequiredBuilding", nullptr, (EPropertyFlags)0x0020080000000001, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ABuilding, TimesRequiredBuilding), METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_ABuilding_Statics::NewProp_TimesRequiredBuilding_MetaData), Z_Construct_UClass_ABuilding_Statics::NewProp_TimesRequiredBuilding_MetaData) };
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ABuilding_Statics::PropPointers[] = {
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ABuilding_Statics::NewProp_bIsReady,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ABuilding_Statics::NewProp_BuildingTime,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ABuilding_Statics::NewProp_TimesRequiredBuilding,
 	};
@@ -270,9 +396,9 @@ void EmptyLinkFunctionForGeneratedCodeBuilding() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Code_Projects_GitHub_MirWorld_MirWorld_Project_MirWorld_Source_MirWorld_Building_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_ABuilding, ABuilding::StaticClass, TEXT("ABuilding"), &Z_Registration_Info_UClass_ABuilding, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ABuilding), 3568914072U) },
+		{ Z_Construct_UClass_ABuilding, ABuilding::StaticClass, TEXT("ABuilding"), &Z_Registration_Info_UClass_ABuilding, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ABuilding), 2340959616U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Code_Projects_GitHub_MirWorld_MirWorld_Project_MirWorld_Source_MirWorld_Building_h_4015492165(TEXT("/Script/MirWorld"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Code_Projects_GitHub_MirWorld_MirWorld_Project_MirWorld_Source_MirWorld_Building_h_1594801473(TEXT("/Script/MirWorld"),
 		Z_CompiledInDeferFile_FID_Code_Projects_GitHub_MirWorld_MirWorld_Project_MirWorld_Source_MirWorld_Building_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Code_Projects_GitHub_MirWorld_MirWorld_Project_MirWorld_Source_MirWorld_Building_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

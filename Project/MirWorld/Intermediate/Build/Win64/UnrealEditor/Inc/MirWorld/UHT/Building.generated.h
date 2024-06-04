@@ -19,6 +19,9 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #define FID_Code_Projects_GitHub_MirWorld_MirWorld_Project_MirWorld_Source_MirWorld_Building_h_15_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS
 #define FID_Code_Projects_GitHub_MirWorld_MirWorld_Project_MirWorld_Source_MirWorld_Building_h_15_RPC_WRAPPERS_NO_PURE_DECLS \
  \
+	DECLARE_FUNCTION(execGetReadinessPercentage); \
+	DECLARE_FUNCTION(execSetIsReady); \
+	DECLARE_FUNCTION(execGetIsReady); \
 	DECLARE_FUNCTION(execGetBuildingTime); \
 	DECLARE_FUNCTION(execBuild);
 
