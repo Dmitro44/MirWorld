@@ -1,4 +1,4 @@
-#include "/Users/daniil_mariyn/Downloads/GameWorld/MirWorld/Project/MirWorld/Intermediate/Build/Mac/arm64/MirWorldEditor/DebugGame/UnrealEd/SharedDefinitions.UnrealEd.NonOptimized.Cpp20.h"
+#include "/Users/daniil_mariyn/Downloads/Practica/MirWorld/Project/MirWorld/Intermediate/Build/Mac/arm64/MirWorldEditor/DebugGame/UnrealEd/SharedDefinitions.UnrealEd.NonOptimized.Cpp20.h"
 #undef UE_IS_ENGINE_MODULE
 #undef DEPRECATED_FORGAME
 #define DEPRECATED_FORGAME DEPRECATED

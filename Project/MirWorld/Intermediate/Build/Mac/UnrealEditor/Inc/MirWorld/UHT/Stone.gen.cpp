@@ -77,15 +77,15 @@ void EmptyLinkFunctionForGeneratedCodeStone() {}
 	}
 	DEFINE_VTABLE_PTR_HELPER_CTOR(AStone);
 	AStone::~AStone() {}
-	struct Z_CompiledInDeferFile_FID_daniil_mariyn_Downloads_GameWorld_MirWorld_Project_MirWorld_Source_MirWorld_Stone_h_Statics
+	struct Z_CompiledInDeferFile_FID_daniil_mariyn_Downloads_Practica_MirWorld_Project_MirWorld_Source_MirWorld_Stone_h_Statics
 	{
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
-	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_daniil_mariyn_Downloads_GameWorld_MirWorld_Project_MirWorld_Source_MirWorld_Stone_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_AStone, AStone::StaticClass, TEXT("AStone"), &Z_Registration_Info_UClass_AStone, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AStone), 1328135148U) },
+	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_daniil_mariyn_Downloads_Practica_MirWorld_Project_MirWorld_Source_MirWorld_Stone_h_Statics::ClassInfo[] = {
+		{ Z_Construct_UClass_AStone, AStone::StaticClass, TEXT("AStone"), &Z_Registration_Info_UClass_AStone, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AStone), 3819114599U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_daniil_mariyn_Downloads_GameWorld_MirWorld_Project_MirWorld_Source_MirWorld_Stone_h_1697333415(TEXT("/Script/MirWorld"),
-		Z_CompiledInDeferFile_FID_daniil_mariyn_Downloads_GameWorld_MirWorld_Project_MirWorld_Source_MirWorld_Stone_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_daniil_mariyn_Downloads_GameWorld_MirWorld_Project_MirWorld_Source_MirWorld_Stone_h_Statics::ClassInfo),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_daniil_mariyn_Downloads_Practica_MirWorld_Project_MirWorld_Source_MirWorld_Stone_h_3289514655(TEXT("/Script/MirWorld"),
+		Z_CompiledInDeferFile_FID_daniil_mariyn_Downloads_Practica_MirWorld_Project_MirWorld_Source_MirWorld_Stone_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_daniil_mariyn_Downloads_Practica_MirWorld_Project_MirWorld_Source_MirWorld_Stone_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

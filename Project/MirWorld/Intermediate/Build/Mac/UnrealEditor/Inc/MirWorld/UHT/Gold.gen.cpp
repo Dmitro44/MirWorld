@@ -74,15 +74,15 @@ void EmptyLinkFunctionForGeneratedCodeGold() {}
 	}
 	DEFINE_VTABLE_PTR_HELPER_CTOR(AGold);
 	AGold::~AGold() {}
-	struct Z_CompiledInDeferFile_FID_daniil_mariyn_Downloads_GameWorld_MirWorld_Project_MirWorld_Source_MirWorld_Gold_h_Statics
+	struct Z_CompiledInDeferFile_FID_daniil_mariyn_Downloads_Practica_MirWorld_Project_MirWorld_Source_MirWorld_Gold_h_Statics
 	{
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
-	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_daniil_mariyn_Downloads_GameWorld_MirWorld_Project_MirWorld_Source_MirWorld_Gold_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_AGold, AGold::StaticClass, TEXT("AGold"), &Z_Registration_Info_UClass_AGold, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AGold), 249285964U) },
+	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_daniil_mariyn_Downloads_Practica_MirWorld_Project_MirWorld_Source_MirWorld_Gold_h_Statics::ClassInfo[] = {
+		{ Z_Construct_UClass_AGold, AGold::StaticClass, TEXT("AGold"), &Z_Registration_Info_UClass_AGold, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AGold), 3691826098U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_daniil_mariyn_Downloads_GameWorld_MirWorld_Project_MirWorld_Source_MirWorld_Gold_h_701446120(TEXT("/Script/MirWorld"),
-		Z_CompiledInDeferFile_FID_daniil_mariyn_Downloads_GameWorld_MirWorld_Project_MirWorld_Source_MirWorld_Gold_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_daniil_mariyn_Downloads_GameWorld_MirWorld_Project_MirWorld_Source_MirWorld_Gold_h_Statics::ClassInfo),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_daniil_mariyn_Downloads_Practica_MirWorld_Project_MirWorld_Source_MirWorld_Gold_h_4186680010(TEXT("/Script/MirWorld"),
+		Z_CompiledInDeferFile_FID_daniil_mariyn_Downloads_Practica_MirWorld_Project_MirWorld_Source_MirWorld_Gold_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_daniil_mariyn_Downloads_Practica_MirWorld_Project_MirWorld_Source_MirWorld_Gold_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
