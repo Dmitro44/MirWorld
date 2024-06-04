@@ -1,7 +1,7 @@
-/Users/daniil_mariyn/Downloads/GameWorld/MirWorld/Project/MirWorld/Intermediate/Build/Mac/arm64/MirWorldEditor/DebugGame/UnrealEd/SharedPCH.UnrealEd.NonOptimized.Cpp20.h.gch: \
-  /Users/daniil_mariyn/Downloads/GameWorld/MirWorld/Project/MirWorld/Intermediate/Build/Mac/arm64/MirWorldEditor/DebugGame/Engine/SharedPCH.Engine.NonOptimized.Cpp20.h.gch \
-  /Users/daniil_mariyn/Downloads/GameWorld/MirWorld/Project/MirWorld/Intermediate/Build/Mac/arm64/MirWorldEditor/DebugGame/Engine/SharedPCH.Engine.NonOptimized.Cpp20.h \
-  /Users/daniil_mariyn/Downloads/GameWorld/MirWorld/Project/MirWorld/Intermediate/Build/Mac/arm64/MirWorldEditor/DebugGame/Engine/SharedDefinitions.Engine.NonOptimized.Cpp20.h \
+/Users/daniil_mariyn/Downloads/Practica/MirWorld/Project/MirWorld/Intermediate/Build/Mac/arm64/MirWorldEditor/DebugGame/UnrealEd/SharedPCH.UnrealEd.NonOptimized.Cpp20.h.gch: \
+  /Users/daniil_mariyn/Downloads/Practica/MirWorld/Project/MirWorld/Intermediate/Build/Mac/arm64/MirWorldEditor/DebugGame/Engine/SharedPCH.Engine.NonOptimized.Cpp20.h.gch \
+  /Users/daniil_mariyn/Downloads/Practica/MirWorld/Project/MirWorld/Intermediate/Build/Mac/arm64/MirWorldEditor/DebugGame/Engine/SharedPCH.Engine.NonOptimized.Cpp20.h \
+  /Users/daniil_mariyn/Downloads/Practica/MirWorld/Project/MirWorld/Intermediate/Build/Mac/arm64/MirWorldEditor/DebugGame/Engine/SharedDefinitions.Engine.NonOptimized.Cpp20.h \
   /Users/Shared/Epic\ Games/UE_5.3/Engine/Source/Runtime/Engine/Public/EngineSharedPCH.h \
   /Users/Shared/Epic\ Games/UE_5.3/Engine/Source/Runtime/Slate/Public/SlateSharedPCH.h \
   /Users/Shared/Epic\ Games/UE_5.3/Engine/Source/Runtime/CoreUObject/Public/CoreUObjectSharedPCH.h \
@@ -3852,8 +3852,8 @@
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/istream \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/ostream \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/bitset \
-  /Users/daniil_mariyn/Downloads/GameWorld/MirWorld/Project/MirWorld/Intermediate/Build/Mac/arm64/MirWorldEditor/DebugGame/UnrealEd/SharedPCH.UnrealEd.NonOptimized.Cpp20.h \
-  /Users/daniil_mariyn/Downloads/GameWorld/MirWorld/Project/MirWorld/Intermediate/Build/Mac/arm64/MirWorldEditor/DebugGame/UnrealEd/SharedDefinitions.UnrealEd.NonOptimized.Cpp20.h \
+  /Users/daniil_mariyn/Downloads/Practica/MirWorld/Project/MirWorld/Intermediate/Build/Mac/arm64/MirWorldEditor/DebugGame/UnrealEd/SharedPCH.UnrealEd.NonOptimized.Cpp20.h \
+  /Users/daniil_mariyn/Downloads/Practica/MirWorld/Project/MirWorld/Intermediate/Build/Mac/arm64/MirWorldEditor/DebugGame/UnrealEd/SharedDefinitions.UnrealEd.NonOptimized.Cpp20.h \
   Editor/UnrealEd/Public/UnrealEdSharedPCH.h \
   Runtime/Engine/Public/EngineSharedPCH.h \
   Runtime/Messaging/Public/IMessageContext.h \

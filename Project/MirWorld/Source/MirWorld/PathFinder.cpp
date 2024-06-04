@@ -8,28 +8,6 @@
 #include "Generator.h"
 #include "Kismet/GameplayStatics.h"
 using namespace std;
-//
-// // Creating a shortcut for int, int pair type
-typedef TPair<int, int> FPair;
-typedef TArray<FVector> TFVector;
-// // Creating a shortcut for pair<float, pair<int32, int32>> type
- typedef TPair<float, FPair> FP_Pair;
-FVector NO_WAY{-1,-1,0};
-const float TREE_DELAY = 1.5;
-// Creating a shortcut for int, int pair type
-typedef pair<int, int> Pair;
-// Creating a shortcut for pair<int, pair<int, int>> type
-typedef pair<double, Pair > pPair;
-// A structure to hold the necessary parameters
-struct cell
-{
-    // Row and Column index of its parent
-    // Note that 0 <= i <= ROW-1 & 0 <= j <= COL-1
-    int parent_i, parent_j;
-
-    // f = g + h
-    double f, g, h;
-};
 
 // A Utility Function to check whether given cell (row, col)
 // is a valid cell or not.
@@ -72,7 +50,7 @@ double calculateHValue(int row, int col, Pair dest)
     // Return distance
     return ((double)sqrt((row - dest.first) * (row - dest.first) + (col - dest.second) * (col - dest.second)));
 }
-void findMinVal(Pair src,Pair& dest)
+void APathFinder::findMinVal(Pair src,Pair& dest)
 {
     Pair min;
     double nearest = FLT_MAX;
@@ -134,7 +112,7 @@ void findMinVal(Pair src,Pair& dest)
 float CHAR_HEIGHT;
 // A Utility Function to trace the path from the source
 // to destination
-TFVector tracePath(vector<vector<cell>> cellDetails, Pair dest)
+TFVector APathFinder::tracePath(vector<vector<cell>> cellDetails, Pair dest)
 {
     //printf("\nThe Path is ");
     UE_LOG(LogTemp, Warning, TEXT("The path is: "));
@@ -172,27 +150,37 @@ TFVector tracePath(vector<vector<cell>> cellDetails, Pair dest)
     return PATH;
 }
 
+float APathFinder::getTexture(FVector pos)
+{
+    TArray<AActor*> FoundActors = { nullptr };
+    UGameplayStatics::GetAllActorsOfClass(GetWorld(), AGenerator::StaticClass(), FoundActors);
+    auto MapInfoActor = reinterpret_cast<MapInfo*>(FoundActors[0]);
+    if (MapInfoActor)
+    {
+        TArray<TArray<FInfoMatrix>> map = MapInfoActor->GetMap();
+        if(map[pos.X][pos.Y].Resources == 2)
+        return TREE_DELAY;
+    }
+    return 1;
+}
+
+void APathFinder::goNearDest(bool flag)
+{
+    IsNearDest = flag;
+}
+
 // A Function to find the shortest path between
 // a given source cell to a destination cell according
 // to A* Search Algorithm
-float getTexture(FVector pos)
-{
-    // TArray<AActor*> FoundActors = { nullptr };
-    // UGameplayStatics::GetAllActorsOfClass(GetWorld(), AGenerator::StaticClass(), FoundActors);
-    // auto MapInfoActor = reinterpret_cast<MapInfo*>(FoundActors[0]);
-    // if (MapInfoActor)
-    // {
-    //     TArray<TArray<FInfoMatrix>> map = MapInfoActor->GetMap();
-    //     if(map[pos.X][pos.Y].Resources == 2)
-    //     return TREE_DELAY;
-    // }
-    return 1;
-}
 
 TFVector  APathFinder::getPathFromTo(int grid[][COL], FVector src_1, FVector dest_1)
 {
     // If the source is out of range
     Pair src,dest;
+    if(IsNearDest)
+    {
+        findMinVal(src,dest);//
+    }
     src.first = src_1[0];
     src.second = src_1[1];
     CHAR_HEIGHT = src_1.Z;
@@ -212,14 +200,20 @@ TFVector  APathFinder::getPathFromTo(int grid[][COL], FVector src_1, FVector des
     {
         UE_LOG(LogTemp, Warning, TEXT("Destination is invalid"));
         return {NO_WAY};
-        //printf("Destination is invalid\n");
     }
 
     // Either the source or the destination is blocked
     if (!isUnBlocked(grid, dest.first, dest.second))
     {
        // printf("Source or the destination is blocked\n");
-       findMinVal(src,dest);
+        if(IsNearDest)
+            findMinVal(src,dest);
+        else
+        {
+            UE_LOG(LogTemp, Warning, TEXT("Destination is invalid"));
+            return {NO_WAY};
+        }
+            
     }
 
     // If the destination cell is the same as source cell
