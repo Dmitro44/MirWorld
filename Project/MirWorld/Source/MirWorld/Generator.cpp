@@ -230,8 +230,7 @@ TArray<FVector> AGenerator::GetTrajectory(FVector Start, FVector Aim)
 	Aim.X = static_cast<int32>(Aim.X + 1) / SIDE_SIZE;
 	Aim.Y = static_cast<int32>(Aim.Y + 1) / SIDE_SIZE;
 
-	APathFinder PathFinder;
-	TArray<FVector> Trajectory = PathFinder.getPathFromTo(PassabilityMatrix, Start, Aim); // it's only indexes for now
+	TArray<FVector> Trajectory = APathFinder::getPathFromTo(PassabilityMatrix, Start, Aim); // it's only indexes for now
 
 	if (Trajectory == G_NO_WAY) {
 		return Trajectory;
