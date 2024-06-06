@@ -795,11 +795,11 @@ void EmptyLinkFunctionForGeneratedCodeGenerator() {}
 		{ "AllowPrivateAccess", "TRUE" },
 		{ "Category", "Generator" },
 #if !UE_BUILD_SHIPPING
-		{ "Comment", "/*// max resource amnt on the map\n\x09UPROPERTY(EditAnywhere, Category = \"Resources\")\n\x09int MaxStoneAmnt = 100;\n\x09int StoneCntr = 0;\n\n\x09UPROPERTY(EditAnywhere, Category = \"Resources\")\n\x09int MaxIronAmnt = 50;\n\x09int IronCntr = 0;\n\n\x09UPROPERTY(EditAnywhere, Category = \"Resources\")\n\x09int MaxGoldAmnt = 30;\n\x09int GoldCntr = 0;\n\n\x09UPROPERTY(EditAnywhere, Category = \"Resources\")\n\x09int MaxFoodAmnt = 100;\n\x09int FoodCntr = 0;*/// Container which contains Tiles, displayed in the world\n" },
+		{ "Comment", "// Container which contains Tiles, displayed in the world\n" },
 #endif
 		{ "ModuleRelativePath", "Generator.h" },
 #if !UE_BUILD_SHIPPING
-		{ "ToolTip", "// max resource amnt on the map\n       UPROPERTY(EditAnywhere, Category = \"Resources\")\n       int MaxStoneAmnt = 100;\n       int StoneCntr = 0;\n\n       UPROPERTY(EditAnywhere, Category = \"Resources\")\n       int MaxIronAmnt = 50;\n       int IronCntr = 0;\n\n       UPROPERTY(EditAnywhere, Category = \"Resources\")\n       int MaxGoldAmnt = 30;\n       int GoldCntr = 0;\n\n       UPROPERTY(EditAnywhere, Category = \"Resources\")\n       int MaxFoodAmnt = 100;\n       int FoodCntr = 0;// Container which contains Tiles, displayed in the world" },
+		{ "ToolTip", "Container which contains Tiles, displayed in the world" },
 #endif
 	};
 #endif
@@ -910,9 +910,9 @@ void EmptyLinkFunctionForGeneratedCodeGenerator() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Code_Projects_GitHub_MirWorld_MirWorld_Project_MirWorld_Source_MirWorld_Generator_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_AGenerator, AGenerator::StaticClass, TEXT("AGenerator"), &Z_Registration_Info_UClass_AGenerator, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AGenerator), 1234293930U) },
+		{ Z_Construct_UClass_AGenerator, AGenerator::StaticClass, TEXT("AGenerator"), &Z_Registration_Info_UClass_AGenerator, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AGenerator), 1995554204U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Code_Projects_GitHub_MirWorld_MirWorld_Project_MirWorld_Source_MirWorld_Generator_h_3653659064(TEXT("/Script/MirWorld"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Code_Projects_GitHub_MirWorld_MirWorld_Project_MirWorld_Source_MirWorld_Generator_h_4208226554(TEXT("/Script/MirWorld"),
 		Z_CompiledInDeferFile_FID_Code_Projects_GitHub_MirWorld_MirWorld_Project_MirWorld_Source_MirWorld_Generator_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Code_Projects_GitHub_MirWorld_MirWorld_Project_MirWorld_Source_MirWorld_Generator_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

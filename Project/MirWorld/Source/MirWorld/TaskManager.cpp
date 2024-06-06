@@ -26,9 +26,13 @@ void UTaskManager::AddTask(int TaskType, AActor* Aim, TSet<int> IDs)
 {
 	switch (static_cast<EActivity>(TaskType))
 	{
-	case eMoveTo: // new
-		TaskStorage[1 + reinterpret_cast<AResource*>(Aim)->GetResourceType()].emplace_back(Aim, eMoveTo, std::move(IDs));
-		break; // end new
+	case eMoveTo:
+		if (dynamic_cast<AResource*>(Aim)) {
+			TaskStorage[1 + reinterpret_cast<AResource*>(Aim)->GetResourceType()].emplace_back(Aim, eMoveTo, std::move(IDs));
+		} else if (dynamic_cast<ABuilding*>(Aim)) {
+			TaskStorage[0].emplace_back(Aim, eMoveTo, std::move(IDs));
+		}
+		break;
 	case eExtract:
 		TaskStorage[1 + reinterpret_cast<AResource*>(Aim)->GetResourceType()].emplace_back(Aim, eExtract, std::move(IDs));
 		break;

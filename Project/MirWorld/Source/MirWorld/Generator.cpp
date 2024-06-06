@@ -213,6 +213,17 @@ void AGenerator::ClearTiles(TArray<FVector> Tiles)
 	}
 }
 
+size_t AGenerator::CalcLength(FVector Start, TArray<FVector> Trajectory) {
+	size_t Length = 0;
+	FVector CurrentPos = Start;
+	while (!Trajectory.IsEmpty()) {
+		Length += FVector::Distance(*Trajectory.begin(), CurrentPos);
+		CurrentPos = *Trajectory.begin();
+		Trajectory.RemoveAt(0);
+	}
+	return Length;
+}
+
 TArray<FVector> AGenerator::GetTrajectory(FVector Start, FVector Aim, int Radius)
 {
 	int32 PassabilityMatrix[ROW][COL];
@@ -224,7 +235,6 @@ TArray<FVector> AGenerator::GetTrajectory(FVector Start, FVector Aim, int Radius
 				PassabilityMatrix[i][j] = (Map[i][j].bIsGoThrough ? 1 : 0);
 			}
 		}
-
 
 		// We consider that first tile is located in 0,0,0 and its side size is SIDE_SIZE 
 		Start.X = static_cast<int32>(Start.X + 1) / SIDE_SIZE;
@@ -253,16 +263,19 @@ TArray<FVector> AGenerator::GetTrajectory(FVector Start, FVector Aim, int Radius
 	}
 	else {
 		auto ShortestPath = G_NO_WAY;
+		size_t ShortestLength = 0;
 		for (int dx = -Radius; dx <= Radius; ++dx) {
 			for (int dy = -Radius; dy <= Radius; ++dy) {
 				auto NewAim = Aim;
 				NewAim.X += dx * SIDE_SIZE;
 				NewAim.Y += dy * SIDE_SIZE;
 				auto NewPath = GetTrajectory(Start, NewAim, 0);
-				if ((NewPath.Num() <= ShortestPath.Num() && NewPath != G_NO_WAY) ||
+				size_t NewLength = CalcLength(Start, NewPath);
+				if ((NewLength < ShortestLength && NewPath != G_NO_WAY) ||
 					ShortestPath == G_NO_WAY)
 				{
 					ShortestPath = std::move(NewPath);
+					ShortestLength = NewLength;
 				}
 			}
 		}
