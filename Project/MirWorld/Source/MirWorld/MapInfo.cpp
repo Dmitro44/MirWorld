@@ -88,6 +88,11 @@ TArray<TArray<FInfoMatrix>>& MapInfo::GetMap()
 	return Map;
 }
 
+const TArray<TArray<FInfoMatrix>>& MapInfo::GetMap() const
+{
+	return Map;
+}
+
 void MapInfo::SetMap(TArray<TArray<FInfoMatrix>> Matrix)
 {
 	Map = Matrix;

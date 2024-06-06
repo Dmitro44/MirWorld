@@ -60,6 +60,8 @@ public:
 	float Limits = 4.0f;
 
 	TArray<TArray<FInfoMatrix>>& GetMap();
+
+	const TArray<TArray<FInfoMatrix>>& GetMap() const;
 	
 	void SetMap(TArray<TArray<FInfoMatrix>> Matrix);
 

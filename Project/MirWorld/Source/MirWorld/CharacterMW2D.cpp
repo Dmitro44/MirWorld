@@ -15,14 +15,17 @@ void ACharacterMW2D::SetAction(int TypeOfAction, AActor* AimPtr)
 	case eMine:
 		RepeatsRequired = 5;
 		Resource = reinterpret_cast<AResource*>(AimPtr);
+		AimRadius = Resource->IsPassable() ? 0 : 1;
 		break;
 	case eExtract:
 		RepeatsRequired = 1;
 		Resource = reinterpret_cast<AResource*>(AimPtr);
+		AimRadius = Resource->IsPassable() ? 0 : 1;
 		break;
 	case eBuild:
 		RepeatsRequired = 3;
 		Building = reinterpret_cast<ABuilding*>(AimPtr);
+		AimRadius = 2;
 		break;
 	default:
 		ReportImpossibleTask();
@@ -30,9 +33,6 @@ void ACharacterMW2D::SetAction(int TypeOfAction, AActor* AimPtr)
 	}
 
 	bHasTask = true;
-	bGoToCircle = (SelectedAction == eMine || SelectedAction == eExtract) &&
-				  !reinterpret_cast<AResource*>(AimPtr)->IsPassable();
-
 	GoTo(AimPtr->GetActorLocation());
 }
 

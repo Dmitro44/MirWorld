@@ -213,42 +213,74 @@ void AGenerator::ClearTiles(TArray<FVector> Tiles)
 	}
 }
 
-TArray<FVector> AGenerator::GetTrajectory(FVector Start, FVector Aim)
+TArray<FVector> AGenerator::GetTrajectory(FVector Start, FVector Aim, int Radius)
 {
 	int32 PassabilityMatrix[ROW][COL];
 	auto& Map = MapInfo.GetMap();
 
-	for (int i = 0; i < ROW; ++i) {
-		for (int j = 0; j < COL; ++j) {
-			PassabilityMatrix[i][j] = (Map[i][j].bIsGoThrough ? 1 : 0);
+	if (Radius == 0) {
+		for (int i = 0; i < ROW; ++i) {
+			for (int j = 0; j < COL; ++j) {
+				PassabilityMatrix[i][j] = (Map[i][j].bIsGoThrough ? 1 : 0);
+			}
 		}
+
+		// We consider that first tile is located in 0,0,0 and its side size is SIDE_SIZE 
+		Start.X = static_cast<int32>(Start.X + 1) / SIDE_SIZE;
+		Start.Y = static_cast<int32>(Start.Y + 1) / SIDE_SIZE;
+		Aim.X = static_cast<int32>(Aim.X + 1) / SIDE_SIZE;
+		Aim.Y = static_cast<int32>(Aim.Y + 1) / SIDE_SIZE;
+
+		//APathFinder PathFinder;
+		APathFinder::goNearDest(false);
+		TArray<FVector> Trajectory = APathFinder::getPathFromTo(PassabilityMatrix, Start, Aim, this); // it's only indexes for now
+
+		if (Trajectory == G_NO_WAY) {
+			return Trajectory;
+		}
+
+		TArray<FVector> ReturnArray;
+
+		for (int i = Trajectory.Num() - 2; i >= 0; --i) {
+			ReturnArray.Emplace(
+				Trajectory[i].X * SIDE_SIZE,
+				Trajectory[i].Y * SIDE_SIZE,
+				Trajectory[i].Z
+			);
+		}
+		return ReturnArray;
+	} else {
+		auto ShortestPath = G_NO_WAY;
+		for (int dx = -Radius; dx <= Radius; ++dx) {
+			for (int dy = -Radius; dy <= Radius; ++dy) {
+				auto NewAim = Aim;
+				NewAim.X += dx * SIDE_SIZE;
+				NewAim.Y += dy * SIDE_SIZE;
+				auto NewPath = GetTrajectory(Start, NewAim, 0);
+				if ((NewPath.Num() <= ShortestPath.Num() && NewPath != G_NO_WAY) ||
+					ShortestPath == G_NO_WAY) 
+				{
+					ShortestPath = std::move(NewPath);
+				}
+			}
+		} 
+		return ShortestPath;
 	}
 
-	// We consider that first tile is located in 0,0,0 and its side size is SIDE_SIZE 
-	Start.X = static_cast<int32>(Start.X + 1) / SIDE_SIZE;
-	Start.Y = static_cast<int32>(Start.Y + 1) / SIDE_SIZE;
-	Aim.X = static_cast<int32>(Aim.X + 1) / SIDE_SIZE;
-	Aim.Y = static_cast<int32>(Aim.Y + 1) / SIDE_SIZE;
-
-	APathFinder PathFinder;
-	TArray<FVector> Trajectory = PathFinder.getPathFromTo(PassabilityMatrix, Start, Aim); // it's only indexes for now
-
-	if (Trajectory == G_NO_WAY) {
-		return Trajectory;
-	}
-
-	TArray<FVector> ReturnArray;
-
-	for (int i = Trajectory.Num() - 2; i >= 0; --i) {
-		ReturnArray.Emplace(
-			Trajectory[i].X * SIDE_SIZE,
-			Trajectory[i].Y * SIDE_SIZE,
-			Trajectory[i].Z
-		);
-	}
-	return ReturnArray;
+	return G_NO_WAY;
 }
 
+
+const MapInfo& AGenerator::GetMapInfo()
+{
+	return MapInfo;
+}
+
+template <class MI>
+void AGenerator::SetMapInfo(const MI& NewMapInfo)
+{
+	MapInfo = NewMapInfo;
+}
 
 void AGenerator::BeginPlay()
 {

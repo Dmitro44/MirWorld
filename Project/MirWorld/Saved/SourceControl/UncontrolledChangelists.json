@@ -16,7 +16,9 @@
 				"A:/Code/Projects/GitHub_MirWorld/MirWorld/Project/MirWorld/Content/BPs/MapContent/Tiles/BP_Tile.uasset",
 				"A:/Code/Projects/GitHub_MirWorld/MirWorld/Project/MirWorld/Content/BPs/BP_PlayerPawn.uasset",
 				"A:/Code/Projects/GitHub_MirWorld/MirWorld/Project/MirWorld/Content/BPs/MapContent/BP_Resource.uasset",
-				"A:/Code/Projects/GitHub_MirWorld/MirWorld/Project/MirWorld/Content/BPs/Building/CraftBench/BP_CraftBench.uasset"
+				"A:/Code/Projects/GitHub_MirWorld/MirWorld/Project/MirWorld/Content/BPs/Building/CraftBench/BP_CraftBench.uasset",
+				"A:/Code/Projects/GitHub_MirWorld/MirWorld/Project/MirWorld/Content/Maps/lvl_Gameplay.umap",
+				"A:/Code/Projects/GitHub_MirWorld/MirWorld/Project/MirWorld/Content/BPs/MapContent/Food/BP_Food.uasset"
 			]
 		}
 	]

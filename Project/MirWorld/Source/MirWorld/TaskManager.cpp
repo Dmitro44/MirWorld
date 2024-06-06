@@ -26,6 +26,9 @@ void UTaskManager::AddTask(int TaskType, AActor* Aim, TSet<int> IDs)
 {
 	switch (static_cast<EActivity>(TaskType))
 	{
+	case eMoveTo: // new
+		TaskStorage[1 + reinterpret_cast<AResource*>(Aim)->GetResourceType()].emplace_back(Aim, eMoveTo, std::move(IDs));
+		break; // end new
 	case eExtract:
 		TaskStorage[1 + reinterpret_cast<AResource*>(Aim)->GetResourceType()].emplace_back(Aim, eExtract, std::move(IDs));
 		break;
@@ -46,7 +49,7 @@ void UTaskManager::ClearTasks()
 	TaskStorage.clear();
 }
 
-bool UTaskManager::StartTask(ACharacterMW2D* Char) // TODO
+bool UTaskManager::StartTask(ACharacterMW2D* Char) 
 {
 	int CharID = Char->GetID();
 	std::vector<FTask_T> Priorites;
@@ -66,7 +69,7 @@ bool UTaskManager::StartTask(ACharacterMW2D* Char) // TODO
 		return false;
 	}
 
-	// Here we are looking for a suitable task 
+	// Here we are looking for a suitable task
 	// It also takes into account the priorities
 	for (auto& Task_T : Priorites) {
 		auto& Tasks = TaskStorage[Task_T.ResType];

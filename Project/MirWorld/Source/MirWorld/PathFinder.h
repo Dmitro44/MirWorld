@@ -45,13 +45,15 @@ class MIRWORLD_API APathFinder : public AGameModeBase
 	GENERATED_BODY()
 
 public:
-	static TFVector getPathFromTo(int grid[][COL], FVector start, FVector dest);
+	static TFVector getPathFromTo(int grid[][COL], FVector start, FVector dest, AActor* WorldAnchor_p);
 	static TFVector tracePath(std::vector<std::vector<cell>> cellDetails, Pair dest);
 	static float getTexture(FVector pos);
 	static void findMinVal(Pair src,Pair& dest);
 	static void goNearDest(bool flag);
 //private:
 	static bool IsNearDest;
+	static AActor* WorldAnchor;
 };
 
-APathFinder::IsNearDest = false;
+bool APathFinder::IsNearDest = false;
+AActor* APathFinder::WorldAnchor = nullptr;

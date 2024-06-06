@@ -41,13 +41,6 @@ void AMobBase2D::GoCloserToNextTile() //TODO
 		if (!Map->GetTileIsPassable(NextTile) && !bIsGoingBack) {
 			return GoBack();
 		}
-		
-		/*if (!bIsGoingBack) {
-			Map->SetTileIsPassable(CurrentTile, true);
-		}*/
-		if (Path.IsEmpty()) {
-			Map->SetTileIsPassable(NextTile, false);
-		}
 
 		SetActorLocation(NextTile);
 		CurrentTile = NextTile;
@@ -56,33 +49,31 @@ void AMobBase2D::GoCloserToNextTile() //TODO
 		if (bIsGoingBack) {
 			bIsGoingBack = false;
 			bHasTask = false;
-			bIsMoving = false;
-			Path = GetPathFromMob(Destination); // TODO: circle
-			if (Path != G_NO_WAY) {
-				GoTo(Destination);
+			Path = GetPathFromMob(Destination); 
+			if (Path == G_NO_WAY) {
+				bIsMoving = false;
+				Map->SetTileIsPassable(CurrentTile, false);
+				ReportImpossibleTask();
+				return;
 			}
-			ReportImpossibleTask();
-			return;
 		}
 		
 		GoTo(Destination);
 	}
 }
 
-void AMobBase2D::GoTo(FVector NewDestination) //TODO
+void AMobBase2D::GoTo(FVector NewDestination)
 {
 	Destination = NewDestination;
-	if (bGoToCircle) {
-		Path = GetPathFromMob(NewDestination); // TODO: go to circle
-	}
-	else {
-		Path = GetPathFromMob(NewDestination);
-	}
+	Path = GetPathFromMob(NewDestination); 
 
 	if (Path.IsEmpty() || 
 		abs(abs(GetActorLocation().Z - NewDestination.Z) -
 			FVector::Distance(GetActorLocation(), NewDestination)) < 1) 
 	{
+		bIsMoving = false;
+		auto Actor = UGameplayStatics::GetActorOfClass(GetWorld(), AGenerator::StaticClass());
+		reinterpret_cast<AGenerator*>(Actor)->SetTileIsPassable(CurrentTile, false);
 		DoAction();
 		return;
 	}
@@ -90,6 +81,8 @@ void AMobBase2D::GoTo(FVector NewDestination) //TODO
 	if (Path == G_NO_WAY) {
 		bHasTask = false;
 		bIsMoving = false;
+		auto Actor = UGameplayStatics::GetActorOfClass(GetWorld(), AGenerator::StaticClass());
+		reinterpret_cast<AGenerator*>(Actor)->SetTileIsPassable(CurrentTile, false);
 		ReportImpossibleTask();
 		return;
 	}
@@ -143,7 +136,7 @@ void AMobBase2D::GoBack()
 	}*/
 }
 
-void AMobBase2D::StopAll() // CHANGE IMPLEMENTATIONd
+void AMobBase2D::StopAll() // CHANGE IMPLEMENTATION
 {
 	bIsMoving = false;
 
@@ -159,7 +152,7 @@ TArray<FVector> AMobBase2D::GetPathFromMob(FVector Aim)
 	auto Map = reinterpret_cast<AGenerator*>(FoundActors[0]);
 	TArray<FVector> Trajectory = G_NO_WAY;
 	if (Map) {
-		Trajectory = Map->GetTrajectory(CurrentTile, Aim);
+		Trajectory = Map->GetTrajectory(CurrentTile, Aim, AimRadius);
 	}
 	return Trajectory;
 }

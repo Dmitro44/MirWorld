@@ -68,8 +68,8 @@ protected:
 	// Shows if mob goes back to the previous tile
 	bool bIsGoingBack = false;
 
-	// Shows if mob goes not to direction exactly but to its circle
-	bool bGoToCircle = false;
+	// Shows how close should the mob get to the target 
+	int AimRadius = 0;
 
 	// Trajectory to the aim
 	TArray<FVector> Path;

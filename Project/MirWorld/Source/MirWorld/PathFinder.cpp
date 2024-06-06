@@ -50,6 +50,7 @@ double calculateHValue(int row, int col, Pair dest)
     // Return distance
     return ((double)sqrt((row - dest.first) * (row - dest.first) + (col - dest.second) * (col - dest.second)));
 }
+
 void APathFinder::findMinVal(Pair src,Pair& dest)
 {
     Pair min;
@@ -153,11 +154,11 @@ TFVector APathFinder::tracePath(vector<vector<cell>> cellDetails, Pair dest)
 float APathFinder::getTexture(FVector pos)
 {
     TArray<AActor*> FoundActors = { nullptr };
-    UGameplayStatics::GetAllActorsOfClass(GetWorld(), AGenerator::StaticClass(), FoundActors);
-    auto MapInfoActor = reinterpret_cast<MapInfo*>(FoundActors[0]);
+    UGameplayStatics::GetAllActorsOfClass(WorldAnchor->GetWorld(), AGenerator::StaticClass(), FoundActors);
+    auto MapInfoActor = reinterpret_cast<AGenerator*>(FoundActors[0]);
     if (MapInfoActor)
     {
-        TArray<TArray<FInfoMatrix>> map = MapInfoActor->GetMap();
+        TArray<TArray<FInfoMatrix>> map = MapInfoActor->GetMapInfo().GetMap();
         if(map[pos.X][pos.Y].Resources == 2)
         return TREE_DELAY;
     }
@@ -173,8 +174,14 @@ void APathFinder::goNearDest(bool flag)
 // a given source cell to a destination cell according
 // to A* Search Algorithm
 
-TFVector  APathFinder::getPathFromTo(int grid[][COL], FVector src_1, FVector dest_1)
+TFVector  APathFinder::getPathFromTo(int grid[][COL], FVector src_1, FVector dest_1, AActor* WorldAnchor_p)
 {
+    if (src_1.X == dest_1.X && src_1.Y == dest_1.Y) {
+        return TFVector(); // empty
+    }
+
+    APathFinder::WorldAnchor = WorldAnchor_p;
+
     // If the source is out of range
     Pair src,dest;
     if(IsNearDest)

@@ -23,9 +23,10 @@ void EmptyLinkFunctionForGeneratedCodeGenerator() {}
 	{
 		P_GET_STRUCT(FVector,Z_Param_Start);
 		P_GET_STRUCT(FVector,Z_Param_Aim);
+		P_GET_PROPERTY(FIntProperty,Z_Param_Radius);
 		P_FINISH;
 		P_NATIVE_BEGIN;
-		*(TArray<FVector>*)Z_Param__Result=P_THIS->GetTrajectory(Z_Param_Start,Z_Param_Aim);
+		*(TArray<FVector>*)Z_Param__Result=P_THIS->GetTrajectory(Z_Param_Start,Z_Param_Aim,Z_Param_Radius);
 		P_NATIVE_END;
 	}
 	DEFINE_FUNCTION(AGenerator::execClearTiles)
@@ -359,10 +360,12 @@ void EmptyLinkFunctionForGeneratedCodeGenerator() {}
 		{
 			FVector Start;
 			FVector Aim;
+			int32 Radius;
 			TArray<FVector> ReturnValue;
 		};
 		static const UECodeGen_Private::FStructPropertyParams NewProp_Start;
 		static const UECodeGen_Private::FStructPropertyParams NewProp_Aim;
+		static const UECodeGen_Private::FIntPropertyParams NewProp_Radius;
 		static const UECodeGen_Private::FStructPropertyParams NewProp_ReturnValue_Inner;
 		static const UECodeGen_Private::FArrayPropertyParams NewProp_ReturnValue;
 		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
@@ -373,22 +376,25 @@ void EmptyLinkFunctionForGeneratedCodeGenerator() {}
 	};
 	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_AGenerator_GetTrajectory_Statics::NewProp_Start = { "Start", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(Generator_eventGetTrajectory_Parms, Start), Z_Construct_UScriptStruct_FVector, METADATA_PARAMS(0, nullptr) };
 	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_AGenerator_GetTrajectory_Statics::NewProp_Aim = { "Aim", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(Generator_eventGetTrajectory_Parms, Aim), Z_Construct_UScriptStruct_FVector, METADATA_PARAMS(0, nullptr) };
+	const UECodeGen_Private::FIntPropertyParams Z_Construct_UFunction_AGenerator_GetTrajectory_Statics::NewProp_Radius = { "Radius", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(Generator_eventGetTrajectory_Parms, Radius), METADATA_PARAMS(0, nullptr) };
 	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_AGenerator_GetTrajectory_Statics::NewProp_ReturnValue_Inner = { "ReturnValue", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, Z_Construct_UScriptStruct_FVector, METADATA_PARAMS(0, nullptr) };
 	const UECodeGen_Private::FArrayPropertyParams Z_Construct_UFunction_AGenerator_GetTrajectory_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(Generator_eventGetTrajectory_Parms, ReturnValue), EArrayPropertyFlags::None, METADATA_PARAMS(0, nullptr) };
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AGenerator_GetTrajectory_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AGenerator_GetTrajectory_Statics::NewProp_Start,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AGenerator_GetTrajectory_Statics::NewProp_Aim,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AGenerator_GetTrajectory_Statics::NewProp_Radius,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AGenerator_GetTrajectory_Statics::NewProp_ReturnValue_Inner,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AGenerator_GetTrajectory_Statics::NewProp_ReturnValue,
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AGenerator_GetTrajectory_Statics::Function_MetaDataParams[] = {
 #if !UE_BUILD_SHIPPING
-		{ "Comment", "// Return the trajectory from Start to Aim or NO_WAY = \n" },
+		{ "Comment", "// Return the trajectory from Start to Aim or NO_WAY \n// Radius == 0 refers to a trajectory accurately to the aim \n// Radius == 1 refers to the shortest trajectory to the aim or to its direct neighbors\n// Radius == 2 refers to the shortest trajectory to the aim or to its neighbors that are no further than two tiles\n" },
 #endif
+		{ "CPP_Default_Radius", "0" },
 		{ "ModuleRelativePath", "Generator.h" },
 #if !UE_BUILD_SHIPPING
-		{ "ToolTip", "Return the trajectory from Start to Aim or NO_WAY =" },
+		{ "ToolTip", "Return the trajectory from Start to Aim or NO_WAY\nRadius == 0 refers to a trajectory accurately to the aim\nRadius == 1 refers to the shortest trajectory to the aim or to its direct neighbors\nRadius == 2 refers to the shortest trajectory to the aim or to its neighbors that are no further than two tiles" },
 #endif
 	};
 #endif
@@ -744,7 +750,7 @@ void EmptyLinkFunctionForGeneratedCodeGenerator() {}
 		{ &Z_Construct_UFunction_AGenerator_GetIsLoaded, "GetIsLoaded" }, // 404968099
 		{ &Z_Construct_UFunction_AGenerator_GetStartPositions, "GetStartPositions" }, // 3431098489
 		{ &Z_Construct_UFunction_AGenerator_GetTileIsPassable, "GetTileIsPassable" }, // 740519948
-		{ &Z_Construct_UFunction_AGenerator_GetTrajectory, "GetTrajectory" }, // 3933290406
+		{ &Z_Construct_UFunction_AGenerator_GetTrajectory, "GetTrajectory" }, // 4140090920
 		{ &Z_Construct_UFunction_AGenerator_SetIsLoaded, "SetIsLoaded" }, // 2904779625
 		{ &Z_Construct_UFunction_AGenerator_SetTileIsPassable, "SetTileIsPassable" }, // 2733835379
 		{ &Z_Construct_UFunction_AGenerator_SetTileIsPassable_ByCoords, "SetTileIsPassable_ByCoords" }, // 472045623
@@ -904,9 +910,9 @@ void EmptyLinkFunctionForGeneratedCodeGenerator() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Code_Projects_GitHub_MirWorld_MirWorld_Project_MirWorld_Source_MirWorld_Generator_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_AGenerator, AGenerator::StaticClass, TEXT("AGenerator"), &Z_Registration_Info_UClass_AGenerator, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AGenerator), 4131598090U) },
+		{ Z_Construct_UClass_AGenerator, AGenerator::StaticClass, TEXT("AGenerator"), &Z_Registration_Info_UClass_AGenerator, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AGenerator), 1234293930U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Code_Projects_GitHub_MirWorld_MirWorld_Project_MirWorld_Source_MirWorld_Generator_h_2691217765(TEXT("/Script/MirWorld"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Code_Projects_GitHub_MirWorld_MirWorld_Project_MirWorld_Source_MirWorld_Generator_h_3653659064(TEXT("/Script/MirWorld"),
 		Z_CompiledInDeferFile_FID_Code_Projects_GitHub_MirWorld_MirWorld_Project_MirWorld_Source_MirWorld_Generator_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Code_Projects_GitHub_MirWorld_MirWorld_Project_MirWorld_Source_MirWorld_Generator_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

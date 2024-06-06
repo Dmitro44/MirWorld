@@ -51,15 +51,21 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void ClearTiles(TArray<FVector> Tiles);
 
-	// Return the trajectory from Start to Aim or NO_WAY = 
+	// Return the trajectory from Start to Aim or NO_WAY 
+	// Radius == 0 refers to a trajectory accurately to the aim 
+	// Radius == 1 refers to the shortest trajectory to the aim or to its direct neighbors
+	// Radius == 2 refers to the shortest trajectory to the aim or to its neighbors that are no further than two tiles
 	UFUNCTION(BlueprintCallable)
-	TArray<FVector> GetTrajectory(FVector Start, FVector Aim);
+	TArray<FVector> GetTrajectory(FVector Start, FVector Aim, int Radius = 0);
 
 	void BuildTiles(const FVector CenteredLocation, const int X, const int Y);
 
 	void BuildResources(const FVector CenteredLocation, const int X, const int Y);
 
-	void SetMapInfo(MapInfo NewMapInfo);
+	template <class MI>
+	void SetMapInfo(const MI& NewMapInfo);
+
+	const MapInfo& GetMapInfo();
 
 protected:
 	virtual void BeginPlay() override;
