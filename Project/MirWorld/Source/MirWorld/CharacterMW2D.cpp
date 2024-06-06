@@ -11,6 +11,14 @@ void ACharacterMW2D::SetAction(int TypeOfAction, AActor* AimPtr)
 	Resource = nullptr;
 	switch (SelectedAction) {
 	case eMoveTo:
+		if (dynamic_cast<AResource*>(AimPtr)) {
+			Resource = reinterpret_cast<AResource*>(AimPtr);
+			AimRadius = Resource->IsPassable() ? 0 : 1;
+		} else if (dynamic_cast<ABuilding*>(AimPtr)) {
+			AimRadius = 2;
+		} else {
+			AimRadius = 0;
+		}
 		break;
 	case eMine:
 		RepeatsRequired = 5;

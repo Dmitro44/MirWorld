@@ -78,7 +78,10 @@ bool UTaskManager::StartTask(ACharacterMW2D* Char)
 			auto Aim = Task.Aim;
 			if ((Task.IDs.Contains(CharID) || Task.IDs.IsEmpty()) && 
 				PriorityMatrix[CharID][Task_T.ResType] &&
-				(!Task_T.ResType || Char->CanMine(reinterpret_cast<AResource*>(Aim)->GetResourceType())))
+				(!Task_T.ResType ||
+				 Char->CanMine(reinterpret_cast<AResource*>(Aim)->GetResourceType()) ||
+				 Task.TaskType == static_cast<int>(eMoveTo) 
+				))
 			{
 				Tasks.erase(Tasks.begin() + i);
 				Char->SetAction(
