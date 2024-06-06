@@ -8,7 +8,6 @@ MirWorld is a real-time strategy game (RTS) inspired by the RimWorld game. The g
 - Gameplay
 - Installation
 - Usage
-- Language Requirements
 - Software Requirements
 - Hardware Requirements
 - Contributing
@@ -48,10 +47,33 @@ The game is won when the player achieves a certain score, which can be obtained 
 Remember, the gameplay of MirWorld is dynamic and complex, offering players a rich and immersive gaming experience.
 
 
-(Describe the gameplay, the game mechanics, the objectives, the characters, the challenges, etc.)
+### Gameplay Image
 
-!Gameplay Image
-!Gameplay Image
+
+#### Map Generation
+
+![Снимок экрана 2024-06-07 005831](https://github.com/Dmitro44/MirWorld/assets/88528618/39143e25-bfee-4859-955c-79b9cf77b19c)
+
+
+![Снимок экрана 2024-06-07 005838](https://github.com/Dmitro44/MirWorld/assets/88528618/28cfb92b-908d-4328-b2db-4a2213b989d8)
+
+
+#### Building System
+
+![Снимок экрана 2024-06-07 005902](https://github.com/Dmitro44/MirWorld/assets/88528618/91a08b1e-0953-4425-ad98-cdf3885d81f8)
+
+
+![Снимок экрана 2024-06-07 005908](https://github.com/Dmitro44/MirWorld/assets/88528618/9379dac9-7daf-4a4a-862d-292201fa2037)
+
+
+![Снимок экрана 2024-06-07 005949](https://github.com/Dmitro44/MirWorld/assets/88528618/28b98c33-bd6c-4b57-bdc9-28f887983911)
+
+
+![Снимок экрана 2024-06-07 010013](https://github.com/Dmitro44/MirWorld/assets/88528618/659e43f0-2153-472b-acb9-21f367930c00)
+
+#### Resourse extraction
+
+![Снимок экрана 2024-06-07 010110](https://github.com/Dmitro44/MirWorld/assets/88528618/70c08279-bc38-4414-a311-c7fe2262dfb8)
 
 ## Installation
 
@@ -71,11 +93,14 @@ Remember, the gameplay of MirWorld is dynamic and complex, offering players a ri
 
 After installation, you can start the game by running the code in UE5 editor from menu
 
-!picture of menu....
+### Start menu:
 
-## Language Requirements
+![menu](https://github.com/Dmitro44/MirWorld/assets/88528618/944e7b8a-dd71-49bd-bb02-57260b5403db)
 
-The application must be in Russian.
+### Saving menu:
+
+![menu_2](https://github.com/Dmitro44/MirWorld/assets/88528618/39eb0840-11fe-494a-ae82-ce3a1e7419e4)
+
 
 ## Software Requirements
 
