@@ -128,3 +128,6 @@ This project has no license to use.
 
 If you have any questions, suggestions, or feedback, feel free to reach out to us.
 
+=======
+A simple building and management game with random world generation.
+Check develop branch
