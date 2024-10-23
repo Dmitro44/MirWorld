@@ -4,9 +4,11 @@
 
 #include "Kismet/GameplayStatics.h"
 #include "CoreMinimal.h"
+#include "Generator.h"
 #include "Resource.h"
+#include "Building.h"
 #include "MobBase2D.h"
-#include "CharacterMW.h" // for EActivity
+#include "EnumsFictitiousClass.h"
 #include "ScoreCntr.h"
 #include "ResourceStorage.h"
 #include "CharacterMW2D.generated.h"
@@ -19,52 +21,63 @@ UCLASS()
 class MIRWORLD_API ACharacterMW2D : public AMobBase2D
 {
 	GENERATED_BODY()
-	
+
+
+
+	// Actions //----------------------------------------------------------------------------------------------
+
 public:
 	// Sets specific task and the mob starts its
-	// If TypeOfAction == Extract then AimPtr is AResource
-	void SetAction(int TypeOfAction, TArray<FVector> NewTrajectory, AActor* AimPtr) override;
-
-	// Perform selected task
-	void DoAction() override;
+	// If TypeOfAction == Extract or Mine then AimPtr is AResource
+	// If TypeOfAction == MoveTo then AimPtr is any actor with the position to go to
+	void SetAction(int TypeOfAction, AActor* AimPtr) override;
 
 	// Shows if work animation must be played
 	UFUNCTION(BlueprintCallable, Category = "Mob Action")
 	bool IsWorking() const;
 
 protected:
-	// Called when the game starts or when spawned
-	void BeginPlay() override;
-
-	// Says to the GameMode, that mob can't perform the task
-	void reportImpossibleTask() override;
-
-	// Says to the GameMode, that mob has performed the task
-	void reportDoneTask() override;
-
-	// Extract a bunch of a resource
-	UFUNCTION(BlueprintCallable, Category = "Resource Extracting")
-	void ExtractBunch();
-
-	// Shows how many repeats should be produced
-	UPROPERTY(EditAnywhere, Category = "Character ID")
-	int ID = -1;
+	// Perform selected task
+	void DoAction() override;
 
 	UPROPERTY(EditAnywhere, Category = "Mob State")
-	int SelectedAction_ = 0; // see the enum
-	EActivity SelectedAction = eNone;
+	int SelectedAction_ = 2; // see the enum
+	EActivity SelectedAction = eMoveTo;
 
-
-	// Timer for subresults of extracting a resource
-	FTimerHandle SubExtractTimerHandle;
+	// Shows if work animation must be played
+	bool bIsWorking = false;
 
 	// Shows how many repeats should be produced
 	UPROPERTY(EditAnywhere, Category = "Resource Extracting")
 	int RepeatsRequired = 5;
 
-	// Cntr for repears of resource extracting
+	// Cntr for repeats
 	int RepeatsCntr = 0;
 
+	// Timer for mining and building
+	FTimerHandle TaskTimerHandle;
+
+	// End of Actions //---------------------------------------------------------------------------------------
+
+
+
+	// Resource Actions //----------------------------------------------------------------------------------------------
+
+public:
+	// Returns if char can mine/extract 
+	UFUNCTION(BlueprintCallable, Category = "Resource Extracting")
+	bool CanMine(int ResType);
+
+protected:
+	// Checks if aim resource is valid
+	UFUNCTION(BlueprintCallable, Category = "Character ID")
+	bool IsResourceValid(AResource* Resource);
+
+	void PrepareToResourceTask();
+
+	// Extract a bunch of a resource or extract the whole res point 
+	UFUNCTION(BlueprintCallable, Category = "Resource Extracting")
+	void MineResource();
 
 	// Shows what resources the character can extract
 	UPROPERTY(EditAnywhere, Category = "Character Stats")
@@ -86,9 +99,6 @@ protected:
 		1 // gold
 	};
 
-	// Shows if work animation must be played
-	bool bIsWorking = false;
-
 	// what resource is axtracting
 	AResource* Resource;
 
@@ -97,4 +107,48 @@ protected:
 
 	// refers to the score cntr
 	AScoreCntr* ScoreCntr = nullptr;
+
+	// End of Resource Actions //---------------------------------------------------------------------------------------
+
+	
+
+	// Building Actions //----------------------------------------------------------------------------------------------
+	
+	// what building must be constucted
+	ABuilding* Building;
+
+	void Build();
+
+	UPROPERTY(EditAnywhere, Category = "Character Stats")
+	float BuildingSpeed = 1;
+
+	// End of Building Actions //---------------------------------------------------------------------------------------
+
+
+
+	// Character's Basics //----------------------------------------------------------------------------------------------
+
+public:
+	UFUNCTION(BlueprintCallable, Category = "Character ID")
+	int GetID() const;
+
+	UFUNCTION(BlueprintCallable, Category = "Character ID")
+	void SetID(int NewID);
+
+protected:
+	// Unique for every character
+	UPROPERTY(EditAnywhere, Category = "Character ID")
+	int ID = -1;
+
+	// End of Character's Basics //---------------------------------------------------------------------------------------
+	
+	
+
+	// Any Actor's stuff //----------------------------------------------------------------------------------------------
+
+protected:
+	// Called when the game starts or when spawned
+	virtual void BeginPlay() override;
+
+	// End of Any Actor's stuff //---------------------------------------------------------------------------------------
 };

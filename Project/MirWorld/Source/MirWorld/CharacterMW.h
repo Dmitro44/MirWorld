@@ -4,6 +4,7 @@
 
 #include "Kismet/GameplayStatics.h"
 #include "CoreMinimal.h"
+#include "EnumsFictitiousClass.h"
 #include "Resource.h"
 #include "MobBase.h"
 #include "ScoreCntr.h"
@@ -11,23 +12,12 @@
 #include "CharacterMW.generated.h"
 
 
-enum EActivity {
-	eExtract = 0,
-	eMoveTo,
-	eStop,
-	eNone
-};
-
 UCLASS()
 class MIRWORLD_API ACharacterMW : public AMobBase
 {
 	GENERATED_BODY()
 	
 public:
-	// Sets specific task and the mob starts its
-	// If TypeOfAction == Extract then AimPtr is AResource
-	void SetAction(int TypeOfAction, TArray<FVector> NewTrajectory, AActor* AimPtr) override;
-
 	// Perform selected task
 	void DoAction() override;
 
@@ -36,10 +26,10 @@ protected:
 	void BeginPlay() override;
 
 	// Says to the GameMode, that mob can't perform the task
-	void reportImpossibleTask() override;
+	void ReportImpossibleTask() override;
 
 	// Says to the GameMode, that mob has performed the task
-	void reportDoneTask() override;
+	void ReportDoneTask() override;
 
 	// Extract a bunch of a resource
 	UFUNCTION(BlueprintCallable, Category = "Resource Extracting")
@@ -51,7 +41,7 @@ protected:
 
 	UPROPERTY(EditAnywhere, Category = "Mob State")
 	int SelectedAction_ = 0; // see the enum
-	EActivity SelectedAction = eNone; 
+	EActivity SelectedAction; 
 
 
 	// Timer for subresults of extracting a resource

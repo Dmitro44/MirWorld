@@ -13,5 +13,26 @@ AGameplayMW_GameMode::AGameplayMW_GameMode()
 	{
 		DefaultPawnClass = PlayerPawnBPClass.Class;
 	}
+
+	Manager = CreateDefaultSubobject<UTaskManager>(TEXT("TaskManager"));
 }
 
+void AGameplayMW_GameMode::GM_SetPriorityMatrix(TArray<int> NewMatrix, int ID)
+{
+	Manager->SetPriorityMatrix(NewMatrix, ID);
+}
+
+void AGameplayMW_GameMode::GM_AddTask(int TaskType, AActor* Aim, TSet<int> IDs)
+{
+	Manager->AddTask(TaskType, Aim, IDs);
+}
+
+void AGameplayMW_GameMode::GM_ClearTasks()
+{
+	Manager->ClearTasks();
+}
+
+bool AGameplayMW_GameMode::GM_StartTask(ACharacterMW2D* Char)
+{
+	return Manager->StartTask(Char);
+}

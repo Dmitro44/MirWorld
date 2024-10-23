@@ -28,7 +28,7 @@ struct FBlankObjectInfo
 };
 
 
-UCLASS()
+UCLASS(BlueprintType)
 class MIRWORLD_API ABasicActor : public AActor
 {
 	GENERATED_BODY()
@@ -41,7 +41,7 @@ public:
 
 protected:
 	virtual void BeginPlay() override;
-
+	
 	// Component that can be attached to actors to render static meshes. 
 	// Commonly used to render static geometry in the game world.
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components", meta = (AllowPrivateAccess = true))
@@ -49,4 +49,6 @@ protected:
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Config", meta = (AllowPrivateAccess = true))
 	FBlankObjectInfo ObjectInfo;
+
+
 };

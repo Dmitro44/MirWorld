@@ -3,11 +3,9 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "EnumsFictitiousClass.h"
 #include "GameFramework/Actor.h"
 #include "MobBase.generated.h"
-
-
-const TArray<FVector> G_NO_WAY = { {-1, -1, 0} }; // global NO_WAY
 
 
 UCLASS()
@@ -19,10 +17,10 @@ class MIRWORLD_API AMobBase : public AActor
 	void moveToNextTile();
 
 	// Mob moves closer to the next tile in the trajectory
-	void goCloserToNextTile();
+	void GoCloserToNextTile();
 
 	// Percent of already passed disrance between the current tile and the next
-	float percentOfPassedDistance = 0.0f;
+	float PercentOfPassedDistance = 0.0f;
 	
 public:	
 	// Sets default values for this actor's properties
@@ -48,7 +46,7 @@ public:
 
 	// Sets specific task and the mob starts its
 	UFUNCTION(BlueprintCallable, Category = "Mob Action")
-	virtual void SetAction(int TypeOfAction, TArray<FVector> newTrajectory, AActor* AimPtr) {}; /// pure virtual
+	virtual void SetAction(int TypeOfAction, AActor* AimPtr) {}; /// pure virtual
 
 	// Performs selected task
 	UFUNCTION(BlueprintCallable, Category = "Mob Action")
@@ -68,10 +66,10 @@ protected:
 	virtual void BeginPlay() override;
 
 	// Says to the GameMode, that mob can't perform the task
-	virtual void reportImpossibleTask() {}; /// pure virtual
+	virtual void ReportImpossibleTask() {}; /// pure virtual
 
 	// Says to the GameMode, that mob has performed the task
-	virtual void reportDoneTask() {}; /// pure virtual
+	virtual void ReportDoneTask() {}; /// pure virtual
 
 	// Timer for initializing the next tile approach process
 	FTimerHandle ApproachTimerHandle;

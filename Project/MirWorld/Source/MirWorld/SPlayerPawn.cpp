@@ -26,7 +26,7 @@ ASPlayerPawn::ASPlayerPawn()
 
 	CameraComponent = CreateDefaultSubobject<UCameraComponent>(TEXT("CameraComponent"));
 	CameraComponent->SetProjectionMode(ECameraProjectionMode::Orthographic); /// added for better image -------------------------------
-	/// поменял режим с перспективы по умолчанию на ортогональный. Теперь расстояние до точки не играет роли для отрисовки (или типа того, но перспективы теперь нет)
+	/// пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ. пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ (пїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ, пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ)
 	CameraComponent->SetupAttachment(SpringArmComponent);
 }
 
@@ -36,8 +36,8 @@ void ASPlayerPawn::BeginPlay()
 	Super::BeginPlay();
 
 	// Set the initial target location and zoom
-	TargetLocation = GetActorLocation();
-	TargetZoom = 3000.0f;
+	TargetLocation = FVector(2500.0f, 2500.0f, 0);
+	TargetZoom = 6000.0f;
 
 	// Rotate the spring arm to face the ground
 	const FRotator Rotation = SpringArmComponent->GetRelativeRotation();
@@ -103,7 +103,7 @@ void ASPlayerPawn::Tick(float DeltaTime)
 	TargetLocation.Y = FMath::Clamp(TargetLocation.Y, MinBoundary.Y, MaxBoundary.Y);
 	TargetLocation.Z = FMath::Clamp(TargetLocation.Z, MinBoundary.Z, MaxBoundary.Z);
 	CameraComponent->SetOrthoWidth(TargetZoom); /// added ----------------------------------------------
-	/// угол обзора. Можно представлять, как высоту, но это не она, конечно
+	/// пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ. пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅ пїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 
 	// Move the pawn in the desired location
 	const FVector InterpolatedLocation = UKismetMathLibrary::VInterpTo(GetActorLocation(), TargetLocation, DeltaTime, moveSpeed);

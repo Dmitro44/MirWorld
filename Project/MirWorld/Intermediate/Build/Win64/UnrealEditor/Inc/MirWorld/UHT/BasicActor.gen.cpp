@@ -141,6 +141,7 @@ template<> MIRWORLD_API UScriptStruct* StaticStruct<FBlankObjectInfo>()
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_ABasicActor_Statics::DependentSingletons) < 16);
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ABasicActor_Statics::Class_MetaDataParams[] = {
+		{ "BlueprintType", "true" },
 		{ "IncludePath", "BasicActor.h" },
 		{ "ModuleRelativePath", "BasicActor.h" },
 	};
@@ -214,9 +215,9 @@ template<> MIRWORLD_API UScriptStruct* StaticStruct<FBlankObjectInfo>()
 		{ FBlankObjectInfo::StaticStruct, Z_Construct_UScriptStruct_FBlankObjectInfo_Statics::NewStructOps, TEXT("BlankObjectInfo"), &Z_Registration_Info_UScriptStruct_BlankObjectInfo, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FBlankObjectInfo), 1282743478U) },
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Code_Projects_GitHub_MirWorld_MirWorld_Project_MirWorld_Source_MirWorld_BasicActor_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_ABasicActor, ABasicActor::StaticClass, TEXT("ABasicActor"), &Z_Registration_Info_UClass_ABasicActor, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ABasicActor), 2375069823U) },
+		{ Z_Construct_UClass_ABasicActor, ABasicActor::StaticClass, TEXT("ABasicActor"), &Z_Registration_Info_UClass_ABasicActor, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ABasicActor), 521050524U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Code_Projects_GitHub_MirWorld_MirWorld_Project_MirWorld_Source_MirWorld_BasicActor_h_3844841688(TEXT("/Script/MirWorld"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Code_Projects_GitHub_MirWorld_MirWorld_Project_MirWorld_Source_MirWorld_BasicActor_h_3731970275(TEXT("/Script/MirWorld"),
 		Z_CompiledInDeferFile_FID_Code_Projects_GitHub_MirWorld_MirWorld_Project_MirWorld_Source_MirWorld_BasicActor_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Code_Projects_GitHub_MirWorld_MirWorld_Project_MirWorld_Source_MirWorld_BasicActor_h_Statics::ClassInfo),
 		Z_CompiledInDeferFile_FID_Code_Projects_GitHub_MirWorld_MirWorld_Project_MirWorld_Source_MirWorld_BasicActor_h_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Code_Projects_GitHub_MirWorld_MirWorld_Project_MirWorld_Source_MirWorld_BasicActor_h_Statics::ScriptStructInfo),
 		nullptr, 0);

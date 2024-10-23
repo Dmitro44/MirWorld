@@ -141,6 +141,7 @@ template<> MIRWORLD_API UScriptStruct* StaticStruct<FBlankObjectInfo>()
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_ABasicActor_Statics::DependentSingletons) < 16);
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ABasicActor_Statics::Class_MetaDataParams[] = {
+		{ "BlueprintType", "true" },
 		{ "IncludePath", "BasicActor.h" },
 		{ "ModuleRelativePath", "BasicActor.h" },
 	};
@@ -205,19 +206,19 @@ template<> MIRWORLD_API UScriptStruct* StaticStruct<FBlankObjectInfo>()
 	}
 	DEFINE_VTABLE_PTR_HELPER_CTOR(ABasicActor);
 	ABasicActor::~ABasicActor() {}
-	struct Z_CompiledInDeferFile_FID_daniil_mariyn_Documents_Game_Mirworld_MirWorld_Project_MirWorld_Source_MirWorld_BasicActor_h_Statics
+	struct Z_CompiledInDeferFile_FID_daniil_mariyn_Downloads_Practica_MirWorld_Project_MirWorld_Source_MirWorld_BasicActor_h_Statics
 	{
 		static const FStructRegisterCompiledInInfo ScriptStructInfo[];
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
-	const FStructRegisterCompiledInInfo Z_CompiledInDeferFile_FID_daniil_mariyn_Documents_Game_Mirworld_MirWorld_Project_MirWorld_Source_MirWorld_BasicActor_h_Statics::ScriptStructInfo[] = {
+	const FStructRegisterCompiledInInfo Z_CompiledInDeferFile_FID_daniil_mariyn_Downloads_Practica_MirWorld_Project_MirWorld_Source_MirWorld_BasicActor_h_Statics::ScriptStructInfo[] = {
 		{ FBlankObjectInfo::StaticStruct, Z_Construct_UScriptStruct_FBlankObjectInfo_Statics::NewStructOps, TEXT("BlankObjectInfo"), &Z_Registration_Info_UScriptStruct_BlankObjectInfo, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FBlankObjectInfo), 1282743478U) },
 	};
-	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_daniil_mariyn_Documents_Game_Mirworld_MirWorld_Project_MirWorld_Source_MirWorld_BasicActor_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_ABasicActor, ABasicActor::StaticClass, TEXT("ABasicActor"), &Z_Registration_Info_UClass_ABasicActor, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ABasicActor), 2375069823U) },
+	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_daniil_mariyn_Downloads_Practica_MirWorld_Project_MirWorld_Source_MirWorld_BasicActor_h_Statics::ClassInfo[] = {
+		{ Z_Construct_UClass_ABasicActor, ABasicActor::StaticClass, TEXT("ABasicActor"), &Z_Registration_Info_UClass_ABasicActor, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ABasicActor), 521050524U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_daniil_mariyn_Documents_Game_Mirworld_MirWorld_Project_MirWorld_Source_MirWorld_BasicActor_h_3844841688(TEXT("/Script/MirWorld"),
-		Z_CompiledInDeferFile_FID_daniil_mariyn_Documents_Game_Mirworld_MirWorld_Project_MirWorld_Source_MirWorld_BasicActor_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_daniil_mariyn_Documents_Game_Mirworld_MirWorld_Project_MirWorld_Source_MirWorld_BasicActor_h_Statics::ClassInfo),
-		Z_CompiledInDeferFile_FID_daniil_mariyn_Documents_Game_Mirworld_MirWorld_Project_MirWorld_Source_MirWorld_BasicActor_h_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_daniil_mariyn_Documents_Game_Mirworld_MirWorld_Project_MirWorld_Source_MirWorld_BasicActor_h_Statics::ScriptStructInfo),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_daniil_mariyn_Downloads_Practica_MirWorld_Project_MirWorld_Source_MirWorld_BasicActor_h_3731970275(TEXT("/Script/MirWorld"),
+		Z_CompiledInDeferFile_FID_daniil_mariyn_Downloads_Practica_MirWorld_Project_MirWorld_Source_MirWorld_BasicActor_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_daniil_mariyn_Downloads_Practica_MirWorld_Project_MirWorld_Source_MirWorld_BasicActor_h_Statics::ClassInfo),
+		Z_CompiledInDeferFile_FID_daniil_mariyn_Downloads_Practica_MirWorld_Project_MirWorld_Source_MirWorld_BasicActor_h_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_daniil_mariyn_Downloads_Practica_MirWorld_Project_MirWorld_Source_MirWorld_BasicActor_h_Statics::ScriptStructInfo),
 		nullptr, 0);
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

@@ -5,6 +5,16 @@ AGenerator::AGenerator()
 	PrimaryActorTick.bCanEverTick = false;
 }
 
+void AGenerator::SetIsLoaded(bool value)
+{
+	bIsLoaded = value;
+}
+
+bool AGenerator::GetIsLoaded() const
+{
+	return bIsLoaded;
+}
+
 void AGenerator::BuildResources(const FVector CenteredLocation, const int X, const int Y)
 {
 	for (auto OuterIndex{ 0 }; OuterIndex <= Y - 1; ++OuterIndex)
@@ -24,7 +34,7 @@ void AGenerator::BuildResources(const FVector CenteredLocation, const int X, con
 			FVector SpawnLocation =
 				FVector(static_cast<float>(InnerIndex) - static_cast<float>(X) / 2.f,
 					static_cast<float>(OuterIndex) - static_cast<float>(Y) / 2.f,
-					1.f) * SectorSize + CenteredLocation;
+					0.f) * SectorSize + CenteredLocation;
 
 			FTransform SpawnTransform;
 			SpawnTransform.SetLocation(SpawnLocation);
@@ -33,30 +43,49 @@ void AGenerator::BuildResources(const FVector CenteredLocation, const int X, con
 
 			switch (SubstanceType)
 			{
-			case 0:
-				break;
-			case 1: {
+			case 1: { // tree
 				ObjectToSpawn = UGameplayStatics::BeginDeferredActorSpawnFromClass(
 					this, TreeType.LoadSynchronous(), SpawnTransform);
-
-				ATree* Tree = Cast<ATree>(ObjectToSpawn);
-				Tree->SetBiomeType(BiomeType);
-				Tree->SetInfo(FBlankObjectInfo(InnerIndex, OuterIndex, 0));
-
+				AResource* Resource = Cast<AResource>(ObjectToSpawn);
+				Resource->SetBiomeType(BiomeType);
+				Resource->SetInfo(FBlankObjectInfo(InnerIndex, OuterIndex, 0));
 				break;
 			}
-			case 2: {
+			case 2: { // stone
 				ObjectToSpawn = UGameplayStatics::BeginDeferredActorSpawnFromClass(
 					this, StoneType.LoadSynchronous(), SpawnTransform);
-
-				AStone* Stone = Cast<AStone>(ObjectToSpawn);
-				Stone->SetBiomeType(BiomeType);
-				Stone->SetInfo(FBlankObjectInfo(InnerIndex, OuterIndex, 0));
-
+				AResource* Resource = Cast<AResource>(ObjectToSpawn);
+				Resource->SetBiomeType(BiomeType);
+				Resource->SetInfo(FBlankObjectInfo(InnerIndex, OuterIndex, 0));
 				break;
 			}
-			default:
+			case 3: { // gold
+				ObjectToSpawn = UGameplayStatics::BeginDeferredActorSpawnFromClass(
+					this, GoldType.LoadSynchronous(), SpawnTransform);
+				AResource* Resource = Cast<AResource>(ObjectToSpawn);
+				Resource->SetBiomeType(BiomeType);
+				Resource->SetInfo(FBlankObjectInfo(InnerIndex, OuterIndex, 0));
 				break;
+			}
+			case 4: { // iron
+				ObjectToSpawn = UGameplayStatics::BeginDeferredActorSpawnFromClass(
+					this, IronType.LoadSynchronous(), SpawnTransform);
+				AResource* Resource = Cast<AResource>(ObjectToSpawn);
+				Resource->SetBiomeType(BiomeType);
+				Resource->SetInfo(FBlankObjectInfo(InnerIndex, OuterIndex, 0));
+				break;
+			}
+			case 5: { // food
+				ObjectToSpawn = UGameplayStatics::BeginDeferredActorSpawnFromClass(
+					this, FoodType.LoadSynchronous(), SpawnTransform);
+				AResource* Resource = Cast<AResource>(ObjectToSpawn);
+				Resource->SetBiomeType(BiomeType);
+				Resource->SetInfo(FBlankObjectInfo(InnerIndex, OuterIndex, 0));
+				break;
+			}
+			default: {
+				break;
+			}
 			}
 
 			ObjectMap.Add(ObjectToSpawn);
@@ -115,12 +144,19 @@ void AGenerator::BuildMap(const FVector CenteredLocation, const int X, const int
 	MapSize.X = X;
 	MapSize.Y = Y;
 
+	/*StoneCntr = 0;
+	IronCntr = 0;
+	GoldCntr = 0;
+	FoodCntr = 0;*/
+
 	//Creating and allocating memory for matrix
 	MapInfo.CreateEmptyMatrix(MapSize.X, MapSize.Y);
 
 	BuildTiles(CenteredLocation, X, Y);
 
 	BuildResources(CenteredLocation, X, Y);
+
+	ClearTiles(StartPositions);
 }
 
 bool AGenerator::TileIsPassable(const int X, const int Y)
@@ -128,41 +164,138 @@ bool AGenerator::TileIsPassable(const int X, const int Y)
 	return MapInfo.GetMap()[X][Y].bIsGoThrough;
 }
 
+void AGenerator::SetTileIsPassable_ByCoords(const int X, const int Y, bool NewState)
+{
+	auto& Map = MapInfo.GetMap();
+	if (X < 0 || Y < 0 || X >= Map.Num() || Y >= Map.Num()) {
+		return;
+	}
+	Map[X][Y].bIsGoThrough = NewState;
+}
+
+void AGenerator::SetTileIsPassable(FVector TilePos, bool NewState)
+{
+	int X = (TilePos.X + 1) / SIDE_SIZE;
+	int Y = (TilePos.Y + 1) / SIDE_SIZE;
+	SetTileIsPassable_ByCoords(X, Y, NewState);
+}
+
+bool AGenerator::GetTileIsPassable(FVector TilePos)
+{
+	int X = (TilePos.X + 1) / SIDE_SIZE;
+	int Y = (TilePos.Y + 1) / SIDE_SIZE;
+	return TileIsPassable(X, Y);
+}
+
 bool AGenerator::TileIsBuildable(const int X, const int Y)
 {
 	return MapInfo.GetMap()[X][Y].bIsBuildable;
 }
 
-TArray<FVector> AGenerator::GetTrajectory(FVector Start, FVector Aim)
+TArray<FVector> AGenerator::GetStartPositions()
+{
+	return StartPositions;
+}
+
+void AGenerator::ClearTiles(TArray<FVector> Tiles)
+{
+	auto& Map = MapInfo.GetMap();
+	for (auto Tile : Tiles) {
+		TArray<AActor*> FoundActors;
+		Tile.Z = 0;
+		UGameplayStatics::GetAllActorsOfClass(GetWorld(), ABasicActor::StaticClass(), FoundActors);
+		for (auto& Object : FoundActors) {
+			if (Object->GetActorLocation().Equals(Tile, SIDE_SIZE / 3) && !dynamic_cast<ATile*>(Object)) {
+				Object->Destroy();
+			}
+		}
+		Map[static_cast<int>(Tile.X) / SIDE_SIZE][static_cast<int>(Tile.Y) / SIDE_SIZE].Clear();
+	}
+}
+
+size_t AGenerator::CalcLength(FVector Start, TArray<FVector> Trajectory) {
+	size_t Length = 0;
+	FVector CurrentPos = Start;
+	while (!Trajectory.IsEmpty()) {
+		Length += FVector::Distance(*Trajectory.begin(), CurrentPos);
+		CurrentPos = *Trajectory.begin();
+		Trajectory.RemoveAt(0);
+	}
+	return Length;
+}
+
+TArray<FVector> AGenerator::GetTrajectory(FVector Start, FVector Aim, int Radius)
 {
 	int32 PassabilityMatrix[ROW][COL];
 	auto& Map = MapInfo.GetMap();
 
-	for (int i = 0; i < ROW; ++i) {
-		for (int j = 0; j < COL; ++j) {
-			PassabilityMatrix[i][j] = (Map[i][j].bIsGoThrough ? 1 : 0);
+	if (Radius == 0) {
+		for (int i = 0; i < ROW; ++i) {
+			for (int j = 0; j < COL; ++j) {
+				PassabilityMatrix[i][j] = (Map[i][j].bIsGoThrough ? 1 : 0);
+			}
 		}
+
+		// We consider that first tile is located in 0,0,0 and its side size is SIDE_SIZE 
+		Start.X = static_cast<int32>(Start.X + 1) / SIDE_SIZE;
+		Start.Y = static_cast<int32>(Start.Y + 1) / SIDE_SIZE;
+		Aim.X = static_cast<int32>(Aim.X + 1) / SIDE_SIZE;
+		Aim.Y = static_cast<int32>(Aim.Y + 1) / SIDE_SIZE;
+
+		//APathFinder PathFinder;
+		APathFinder::goNearDest(false);
+		TArray<FVector> Trajectory = APathFinder::getPathFromTo(PassabilityMatrix, Start, Aim, this); // it's only indexes for now
+
+		if (Trajectory == G_NO_WAY) {
+			return Trajectory;
+		}
+
+		TArray<FVector> ReturnArray;
+
+		for (int i = Trajectory.Num() - 2; i >= 0; --i) {
+			ReturnArray.Emplace(
+				Trajectory[i].X * SIDE_SIZE,
+				Trajectory[i].Y * SIDE_SIZE,
+				Trajectory[i].Z
+			);
+		}
+		return ReturnArray;
+	}
+	else {
+		auto ShortestPath = G_NO_WAY;
+		size_t ShortestLength = 0;
+		for (int dx = -Radius; dx <= Radius; ++dx) {
+			for (int dy = -Radius; dy <= Radius; ++dy) {
+				auto NewAim = Aim;
+				NewAim.X += dx * SIDE_SIZE;
+				NewAim.Y += dy * SIDE_SIZE;
+				auto NewPath = GetTrajectory(Start, NewAim, 0);
+				size_t NewLength = CalcLength(Start, NewPath);
+				if ((NewLength < ShortestLength && NewPath != G_NO_WAY) ||
+					ShortestPath == G_NO_WAY)
+				{
+					ShortestPath = std::move(NewPath);
+					ShortestLength = NewLength;
+				}
+			}
+		}
+		return ShortestPath;
 	}
 
-	// We consider that first tile is located in 0,0,0 and its side size is SIDE_SIZE 
-	Start.X = static_cast<int32>(Start.X) / SIDE_SIZE;
-	Start.Y = static_cast<int32>(Start.Y) / SIDE_SIZE;
-	Aim.X = static_cast<int32>(Aim.X) / SIDE_SIZE;
-	Aim.Y = static_cast<int32>(Aim.Y) / SIDE_SIZE;
-
-	TArray<FVector> Trajectory = APathFinder::getPathFromTo(PassabilityMatrix, Start, Aim); // it's only indexes for now
-
-	if (Trajectory == G_NO_WAY) {
-		return Trajectory;
-	}
-
-	for (auto& Now : Trajectory) {
-		Now.X *= SIDE_SIZE;
-		Now.Y *= SIDE_SIZE;
-	}
-	return Trajectory;
+	return G_NO_WAY;
 }
 
+
+const MapInfo& AGenerator::GetMapInfo()
+{
+	return MapInfo;
+}
+
+template <class MI>
+void AGenerator::SetMapInfo(const MI& NewMapInfo)
+{
+	MapInfo = NewMapInfo;
+}
 
 void AGenerator::BeginPlay()
 {

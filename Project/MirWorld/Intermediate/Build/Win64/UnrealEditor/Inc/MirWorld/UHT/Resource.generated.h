@@ -19,11 +19,23 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #define FID_Code_Projects_GitHub_MirWorld_MirWorld_Project_MirWorld_Source_MirWorld_Resource_h_14_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS
 #define FID_Code_Projects_GitHub_MirWorld_MirWorld_Project_MirWorld_Source_MirWorld_Resource_h_14_RPC_WRAPPERS_NO_PURE_DECLS \
  \
+	DECLARE_FUNCTION(execSetResourceType); \
+	DECLARE_FUNCTION(execIsPassable); \
+	DECLARE_FUNCTION(execGetRandomGenerationNum); \
+	DECLARE_FUNCTION(execSetRandomGenerationNum); \
+	DECLARE_FUNCTION(execSetDoesExist); \
+	DECLARE_FUNCTION(execGetDoesExist); \
 	DECLARE_FUNCTION(execSetBiomeType); \
 	DECLARE_FUNCTION(execGetBiomeType); \
+	DECLARE_FUNCTION(execSetResourceLeft); \
+	DECLARE_FUNCTION(execGetResourceLeft); \
 	DECLARE_FUNCTION(execGetResourceType); \
+	DECLARE_FUNCTION(execExtractRes); \
 	DECLARE_FUNCTION(execGiveBunch); \
-	DECLARE_FUNCTION(execTimeRequired);
+	DECLARE_FUNCTION(execSetExtractTime); \
+	DECLARE_FUNCTION(execSetMineTime); \
+	DECLARE_FUNCTION(execExtractTime); \
+	DECLARE_FUNCTION(execMineTime);
 
 
 #define FID_Code_Projects_GitHub_MirWorld_MirWorld_Project_MirWorld_Source_MirWorld_Resource_h_14_ACCESSORS

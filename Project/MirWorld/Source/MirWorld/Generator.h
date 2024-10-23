@@ -23,30 +23,62 @@ public:
 
 
 	UFUNCTION(BlueprintCallable)
+	void SetIsLoaded(bool value);
+	UFUNCTION(BlueprintCallable)
+	bool GetIsLoaded() const;
+
+	UFUNCTION(BlueprintCallable)
 	void BuildMap(const FVector CenteredLocation, const int X, const int Y);
 
 	UFUNCTION(BlueprintCallable)
 	bool TileIsPassable(const int X, const int Y);
 
 	UFUNCTION(BlueprintCallable)
+	void SetTileIsPassable_ByCoords(const int X, const int Y, bool NewState);
+
+	UFUNCTION(BlueprintCallable)
+	void SetTileIsPassable(FVector TilePos, bool NewState);
+
+	UFUNCTION(BlueprintCallable)
+	bool GetTileIsPassable(FVector TilePos);
+
+	UFUNCTION(BlueprintCallable)
 	bool TileIsBuildable(const int X, const int Y);
 
-	// Return the trajectory from Start to Aim or NO_WAY = 
 	UFUNCTION(BlueprintCallable)
-	TArray<FVector> GetTrajectory(FVector Start, FVector Aim);
+	TArray<FVector> GetStartPositions();
+
+	UFUNCTION(BlueprintCallable)
+	void ClearTiles(TArray<FVector> Tiles);
+
+	// Return the trajectory from Start to Aim or NO_WAY 
+	// Radius == 0 refers to a trajectory accurately to the aim 
+	// Radius == 1 refers to the shortest trajectory to the aim or to its direct neighbors
+	// Radius == 2 refers to the shortest trajectory to the aim or to its neighbors that are no further than two tiles
+	UFUNCTION(BlueprintCallable)
+	TArray<FVector> GetTrajectory(FVector Start, FVector Aim, int Radius = 0);
 
 	void BuildTiles(const FVector CenteredLocation, const int X, const int Y);
 
 	void BuildResources(const FVector CenteredLocation, const int X, const int Y);
 
-protected:
-	virtual void BeginPlay() override;
+	template <class MI>
+	void SetMapInfo(const MI& NewMapInfo);
 
+	const MapInfo& GetMapInfo();
+
+protected:
+
+	size_t CalcLength(FVector Start, TArray<FVector> Trajectory);
+
+	virtual void BeginPlay() override;
 	MapInfo MapInfo;
 
+	UPROPERTY(VisibleAnywhere, Category = "Save")
+	bool bIsLoaded = false;
 
+	//------------------
 	// Map Properties
-
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
 	FVector2D MapSize;
 
@@ -60,11 +92,20 @@ protected:
 	TSoftClassPtr<ATile> TileType;
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
-	TSoftClassPtr<ATree> TreeType;
+	TSoftClassPtr<AResource> TreeType;
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
-	TSoftClassPtr<AStone> StoneType;
+	TSoftClassPtr<AResource> StoneType;
 
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
+	TSoftClassPtr<AResource> GoldType;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
+	TSoftClassPtr<AResource> IronType;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
+	TSoftClassPtr<AResource> FoodType;
+	
 	//------------------
 
 	TArray<TObjectPtr<AActor>> ObjectMap;
@@ -72,4 +113,12 @@ protected:
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
 	TSoftClassPtr<AResource> ObjectType;
 
+	//------------------
+	// for characters
+	TArray<FVector> StartPositions = {
+		{2500, 2500, 90},
+		{2600, 2500, 91},
+		{2600, 2600, 92},
+		{2500, 2600, 93}
+	};
 };

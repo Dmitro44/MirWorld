@@ -1,157 +1,245 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+// // Fill out your copyright notice in the Description page of Project Settings.
+//
+//
+ #include "PathFinder.h"
+ #include <iostream>
+ #include <vector>
 
-
-#include "PathFinder.h"
-// Creating a shortcut for int, int pair type
-typedef TPair<int32, int32> FPair;
-typedef TArray<FVector> TFVector;
-// Creating a shortcut for pair<float, pair<int32, int32>> type
-typedef TPair<float, FPair> FP_Pair;
-
-// A structure to hold the necessary parameters
-struct FCell
-{
-	// Row and Column index of its parent
-	// Note that 0 <= i <= ROW-1 & 0 <= j <= COL-1
-	int32 parent_i, parent_j;
-
-	// f = g + h
-	float f, g, h;
-};
+#include "Generator.h"
+#include "Kismet/GameplayStatics.h"
+using namespace std;
 
 // A Utility Function to check whether given cell (row, col)
 // is a valid cell or not.
-bool IsValid(int32 row, int32 col)
+bool isValid(int row, int col)
 {
-	return (row >= 0) && (row < ROW) && (col >= 0) && (col < COL);
+    return (row >= 0) && (row < ROW) && (col >= 0) && (col < COL);
 }
 
 // A Utility Function to check whether the given cell is
 // blocked or not
-bool IsUnBlocked(int32 grid[][COL], int32 row, int32 col)
+bool isUnBlocked(int grid[][COL], int row, int col)
 {
-	// Returns true if the cell is not blocked else false
-	if (grid[row][col] == 1)
-		return true;
+    // Returns true if the cell is not blocked else false
+    if (grid[row][col] == 1)
+        return true;
 
-	return false;
+    return false;
 }
 
 // A Utility Function to check whether destination cell has
 // been reached or not
-bool IsDestination(int32 row, int32 col, FVector dest)
+bool isDestination(int row, int col, Pair dest)
 {
-	if (row == dest[0] && col == dest[1])
-		return true;
-	return false;
+    if (row == dest.first && col == dest.second)
+        return true;
+    return false;
 }
 
-void UpdateCellDetails(TArray<TArray<FCell>>& cellDetails, int32 i, int32 j, float fNew, float gNew, float hNew, int32 parent_i, int32 parent_j)
+void updateCellDetails(vector<vector<cell>>& cellDetails, int i, int j, double fNew, double gNew, double hNew, int parent_i, int parent_j)
 {
-	cellDetails[i][j].f = fNew;
-	cellDetails[i][j].g = gNew;
-	cellDetails[i][j].h = hNew;
-	cellDetails[i][j].parent_i = parent_i;
-	cellDetails[i][j].parent_j = parent_j;
+    cellDetails[i][j].f = fNew;
+    cellDetails[i][j].g = gNew;
+    cellDetails[i][j].h = hNew;
+    cellDetails[i][j].parent_i = parent_i;
+    cellDetails[i][j].parent_j = parent_j;
 }
-
 // A Utility Function to calculate the 'h' heuristics.
-float CalculateHValue(int32 row, int32 col, FVector dest)
+double calculateHValue(int row, int col, Pair dest)
 {
-	// Return distance
-	return FMath::Sqrt(static_cast<float>((row - dest[0]) * (row - dest[0]) + (col - dest[1]) * (col - dest[1])));
+    // Return distance
+    return ((double)sqrt((row - dest.first) * (row - dest.first) + (col - dest.second) * (col - dest.second)));
 }
+
+void APathFinder::findMinVal(Pair src,Pair& dest)
+{
+    Pair min;
+    double nearest = FLT_MAX;
+   
+    // first
+    if (isValid(dest.first - 1, dest.second) && calculateHValue(src.first,src.second,{dest.first - 1, dest.second}) < nearest)
+    {
+        nearest = calculateHValue(src.first,src.second,{dest.first - 1, dest.second});
+        dest.first = dest.first - 1;
+    }
+    //second
+    if (isValid(dest.first + 1, dest.second) && calculateHValue(src.first,src.second,{dest.first + 1, dest.second}) < nearest)
+    {
+        nearest = calculateHValue(src.first,src.second,{dest.first + 1, dest.second});
+        dest.first = dest.first + 1;
+    }
+    //third
+    if (isValid(dest.first, dest.second + 1) && calculateHValue(src.first,src.second,{dest.first, dest.second + 1}) < nearest)
+    {
+        nearest = calculateHValue(src.first,src.second,{dest.first, dest.second + 1});
+        dest.second = dest.second + 1;
+    }
+    //fourth
+    if (isValid(dest.first, dest.second - 1) && calculateHValue(src.first,src.second,{dest.first, dest.second - 1}) < nearest)
+    {
+        nearest = calculateHValue(src.first,src.second,{dest.first, dest.second - 1});
+        dest.second = dest.second - 1;
+    }
+    //fitth
+    if (isValid(dest.first - 1, dest.second + 1 ) && calculateHValue(src.first,src.second,{dest.first - 1, dest.second + 1}) < nearest)
+    {
+        nearest = calculateHValue(src.first,src.second,{dest.first - 1, dest.second + 1});
+        dest.first = dest.first - 1;
+        dest.second = dest.second + 1;
+    }
+    //sixth
+    if (isValid(dest.first - 1, dest.second - 1) && calculateHValue(src.first,src.second,{dest.first - 1, dest.second - 1}) < nearest)
+    {
+        nearest = calculateHValue(src.first,src.second,{dest.first - 1, dest.second - 1});
+        dest.first = dest.first - 1;
+        dest.second = dest.second - 1;
+    }
+    //seventh
+    if (isValid(dest.first + 1, dest.second + 1) && calculateHValue(src.first,src.second,{dest.first + 1, dest.second + 1}) < nearest)
+    {
+        nearest = calculateHValue(src.first,src.second,{dest.first + 1, dest.second + 1});
+        dest.first = dest.first + 1;
+        dest.second = dest.second + 1;
+    }
+    //eighth
+    if (isValid(dest.first + 1, dest.second - 1) && calculateHValue(src.first,src.second,{dest.first + 1, dest.second - 1}) < nearest)
+    {
+        nearest = calculateHValue(src.first,src.second,{dest.first + 1, dest.second - 1});
+        dest.first = dest.first + 1;
+        dest.second = dest.second - 1;
+    }
+}
+
+float CHAR_HEIGHT;
 // A Utility Function to trace the path from the source
 // to destination
-TFVector TracePath(TArray<TArray<FCell>> cellDetails, FVector dest)
+TFVector APathFinder::tracePath(vector<vector<cell>> cellDetails, Pair dest)
 {
-	UE_LOG(LogTemp, Warning, TEXT("The Path is "));
-	int32 row = dest[0];
-	int32 col = dest[1];
-
-	TFVector Path;
-
-	while (!(cellDetails[row][col].parent_i == row && cellDetails[row][col].parent_j == col))
-	{
-		Path.Emplace(row, col,0);
-		int32 temp_row = cellDetails[row][col].parent_i;
-		int32 temp_col = cellDetails[row][col].parent_j;
-		row = temp_row;
-		col = temp_col;
-	}
-	TFVector path;
-	Path.Emplace(row, col,0);
-	while (!path.IsEmpty())
-	{
-		FVector p;
-		p = Path.Top();
-		path.Add(p);
-		Path.RemoveAt(0);
-		UE_LOG(LogTemp, Warning, TEXT("-> (%d,%d) "), p[0], p[1]);
-	}
-	return path;
+    //printf("\nThe Path is ");
+    UE_LOG(LogTemp, Warning, TEXT("The path is: "));
+    int row = dest.first;
+    ////
+    int col = dest.second;
+    std::vector<Pair> Path;
+    TFVector PATH;
+    
+    while (!(cellDetails[row][col].parent_i == row && cellDetails[row][col].parent_j == col))
+    {
+        Path.emplace_back(row, col);
+        int temp_row = cellDetails[row][col].parent_i;
+        int temp_col = cellDetails[row][col].parent_j;
+        row = temp_row;
+        col = temp_col;
+    }
+    vector<Pair> path;
+    Path.emplace_back(row, col);
+    FVector p_1;
+    while (!Path.empty())
+    {
+        pair<int, int> p = Path[0];
+        p_1[0] = p.first;
+        p_1[1] = p.second;
+        p_1[2] = 0;
+        PATH.Push(p_1);
+        path.push_back(p);
+        Path.erase(Path.begin());
+        UE_LOG(LogTemp, Warning, TEXT("-> (%d,%d) "), PATH.Last()[0], PATH.Last()[1]);
+    }
+    for (auto& now : PATH) {
+        now.Z = CHAR_HEIGHT;
+    }
+    return PATH;
 }
+
+float APathFinder::getTexture(FVector pos)
+{
+    TArray<AActor*> FoundActors = { nullptr };
+    UGameplayStatics::GetAllActorsOfClass(WorldAnchor->GetWorld(), AGenerator::StaticClass(), FoundActors);
+    auto MapInfoActor = reinterpret_cast<AGenerator*>(FoundActors[0]);
+    if (MapInfoActor)
+    {
+        TArray<TArray<FInfoMatrix>> map = MapInfoActor->GetMapInfo().GetMap();
+        if(map[pos.X][pos.Y].Resources == 2)
+        return TREE_DELAY;
+    }
+    return 1;
+}
+
+void APathFinder::goNearDest(bool flag)
+{
+    IsNearDest = flag;
+}
+
 // A Function to find the shortest path between
 // a given source cell to a destination cell according
 // to A* Search Algorithm
-TFVector AStarSearch(int32 grid[][COL], FVector src, FVector dest)
+
+TFVector  APathFinder::getPathFromTo(int grid[][COL], FVector src_1, FVector dest_1, AActor* WorldAnchor_p)
 {
-	TFVector NO_WAY;
-	NO_WAY.Emplace(-1,-1,0);
+    if (src_1.X == dest_1.X && src_1.Y == dest_1.Y) {
+        return TFVector(); // empty
+    }
+
+    APathFinder::WorldAnchor = WorldAnchor_p;
+
     // If the source is out of range
-    if (!IsValid(src[0], src[1]))
+    Pair src,dest;
+    if(IsNearDest)
     {
-        UE_LOG(LogTemp, Warning, TEXT("Source is invalid"));
-        return NO_WAY;
+        findMinVal(src,dest);//
+    }
+    src.first = src_1[0];
+    src.second = src_1[1];
+    CHAR_HEIGHT = src_1.Z;
+    
+    dest.first = dest_1[0];
+    dest.second = dest_1[1];
+    
+    if (isValid(src.first, src.second) == false)
+    {
+        //printf("Source is invalid\n");
+        return {NO_WAY};
+        
     }
 
     // If the destination is out of range
-    if (!IsValid(dest[0], dest[1]))
+    if (isValid(dest.first, dest.second) == false)
     {
         UE_LOG(LogTemp, Warning, TEXT("Destination is invalid"));
-    	return NO_WAY;
+        return {NO_WAY};
     }
 
     // Either the source or the destination is blocked
-    if (!IsUnBlocked(grid, src[0], src[1]) || !IsUnBlocked(grid, dest[0], dest[1]))
+    if (!isUnBlocked(grid, dest.first, dest.second))
     {
-        UE_LOG(LogTemp, Warning, TEXT("Source or the destination is blocked"));
-    	return NO_WAY;
+       // printf("Source or the destination is blocked\n");
+        if(IsNearDest)
+            findMinVal(src,dest);
+        else
+        {
+            UE_LOG(LogTemp, Warning, TEXT("Destination is invalid"));
+            return {NO_WAY};
+        }
+            
     }
 
     // If the destination cell is the same as source cell
-    if (IsDestination(src[0], src[1], dest))
+    if (isDestination(src.first, src.second, dest))
     {
-        UE_LOG(LogTemp, Warning, TEXT("We are already at the destination"));
-    	TFVector way;
-    	way.Emplace(src[0], src[1],0);
-    	return way;
+        //printf("We are already at the destination\n");
+        return{NO_WAY};
     }
 
-    // Create a closed list and initialise it to false which
-    // means that no cell has been included yet This closed
-    // list is implemented as a boolean 2D array
-    TArray<TArray<bool>> closedList;
-    closedList.Init(TArray<bool>(), ROW);
-    for (auto& Array : closedList)
-    {
-        Array.Init(false, COL);
-    }
-
+    vector <vector<bool>> closedList(ROW, vector<bool>(COL,false));
     // Declare a 2D array of structure to hold the details
     // of that cell
-    TArray<TArray<FCell>> cellDetails;
-    cellDetails.Init(TArray<FCell>(), ROW);
-    for (auto& Array : cellDetails)
-    {
-        Array.Init(FCell(), COL);
-    }
+    vector<vector<cell>> cellDetails(ROW, vector<cell>(COL));
 
-    int32 i, j;
+    int i, j;
 
-    for (i = 0; i < ROW; i++)
+    for ( i = 0; i < ROW; i++)
     {
-        for (j = 0; j < COL; j++)
+        for ( j = 0; j < COL; j++)
         {
             cellDetails[i][j].f = FLT_MAX;
             cellDetails[i][j].g = FLT_MAX;
@@ -161,109 +249,86 @@ TFVector AStarSearch(int32 grid[][COL], FVector src, FVector dest)
         }
     }
 
+    float maxFloat = FLT_MAX;
+
     // Initialising the parameters of the starting node
-    i = src[0];
-    j = src[1];
-    cellDetails[i][j].f = 0.0f;
-    cellDetails[i][j].g = 0.0f;
-    cellDetails[i][j].h = 0.0f;
+    i = src.first;
+    j = src.second;
+    cellDetails[i][j].f = 0.0;
+    cellDetails[i][j].g = 0.0;
+    cellDetails[i][j].h = 0.0;
     cellDetails[i][j].parent_i = i;
     cellDetails[i][j].parent_j = j;
-
-    /*
-	Create an open list having information as-
-	<f, <i, j>>
-	where f = g + h,
-	and i, j are the row and column index of that cell
-	Note that 0 <= i <= ROW-1 & 0 <= j <= COL-1
-	This open list is implemented as a set of pair of
-	pair.*/
-    TSet<FP_Pair> openList;
+    
+    std::vector<pPair> openList;
 
     // Put the starting cell on the open list and set its
     // 'f' as 0
-    openList.Add(FP_Pair(0.0f, FPair(i, j))); //the start position
+    openList.push_back(make_pair(0.0, make_pair(i, j))); //the start position
 
-    // We set this boolean value as false as initially
-    // the destination is not reached.
     bool foundDest = false;
 
-    while (!openList.IsEmpty())
+    while (!openList.empty())
     {
-        FP_Pair p1 = *(openList.CreateIterator());
+        pPair p = *openList.begin();
 
         // Remove this vertex from the open list
-        openList.Remove(p1);
+        openList.erase(openList.begin());
 
         // Add this vertex to the closed list
-        i = p1.Value.Key;
-        j = p1.Value.Value;
+        i = p.second.first;
+        j = p.second.second;
         closedList[i][j] = true;
 
         /*
-            Generating all the 8 successor of this cell
+		Generating all the 8 successor of this cell
 
-                N.W N N.E
-                \ | /
-                    \ | /
-                W----Cell----E
-                    / | \
-                    / | \
-                S.W S S.E
+			N.W N N.E
+			\ | /
+				\ | /
+			W----Cell----E
+				/ | \
+				/ | \
+			S.W S S.E
 
-            Cell-->Popped Cell (i, j)
-            N --> North	(i-1, j)
-            S --> South	(i+1, j)
-            E --> East (i, j+1)
-            W --> West (i, j-1)
-            N.E--> North-East (i-1, j+1)
-            N.W--> North-West (i-1, j-1)
-            S.E--> South-East (i+1, j+1)
-            S.W--> South-West (i+1, j-1)
-             */
+		Cell-->Popped Cell (i, j)
+		N --> North	(i-1, j)
+		S --> South	(i+1, j)
+		E --> East (i, j+1)
+		W --> West (i, j-1)
+		N.E--> North-East (i-1, j+1)
+		N.W--> North-West (i-1, j-1)
+		S.E--> South-East (i+1, j+1)
+		S.W--> South-West (i+1, j-1)
+         */
 
-             // To store the 'g', 'h' and 'f' of the 8 successors
-        float gNew, hNew, fNew;
+        // To store the 'g', 'h' and 'f' of the 8 successors
+        double gNew, hNew, fNew;
 
         //----------- 1st Successor (North)
         // ------------
+        
+        if (isValid(i - 1, j)) {
 
-        // Only process this cell if this is a valid one
-        if (IsValid((i - 1), j))
-        {
-            // If the destination cell is the same as the
-            // current successor
-            if (IsDestination(i - 1, j, dest)) {
+            if (isDestination(i - 1, j, dest))
+            {
                 // Set the Parent of the destination cell
                 cellDetails[i - 1][j].parent_i = i;
                 cellDetails[i - 1][j].parent_j = j;
-                UE_LOG(LogTemp, Warning, TEXT("The destination cell is found"));
-                TFVector p = TracePath(cellDetails, dest);
+               // printf("The destination cell is found\n");
                 foundDest = true;
-                return p;
+                return tracePath(cellDetails, dest);
             }
-            // If the successor is already on the closed
-            // list or if it is blocked, then ignore it.
-            // Else do the following
-            else if (!closedList[i - 1][j] && IsUnBlocked(grid, i - 1, j))
+            else if (!closedList[i - 1][j] && isUnBlocked(grid, i - 1, j))
             {
-                gNew = cellDetails[i][j].g + 1.0f;
-                hNew = CalculateHValue(i - 1, j, dest);
+                gNew = cellDetails[i][j].g + 1.0*getTexture(FVector(i - 1,j,CHAR_HEIGHT));
+                hNew = calculateHValue(i - 1, j, dest);
                 fNew = gNew + hNew;
-
-                // If it isn’t on the open list, add it to
-                // the open list. Make the current square
-                // the parent of this square. Record the
-                // f, g, and h costs of the square cell
-                //			 OR
-                // If it is on the open list already, check
-                // to see if this path to that square is
-                // better, using 'f' cost as the measure.
+                
                 if (cellDetails[i - 1][j].f == FLT_MAX || cellDetails[i - 1][j].f > fNew)
                 {
-                    openList.Add(FP_Pair(fNew, FPair(i - 1, j)));
-                    // Update the details of this cell
-                    UpdateCellDetails(cellDetails, i - 1, j, fNew, gNew, hNew, i, j);
+                    openList.push_back(std::make_pair(fNew, std::make_pair(i - 1, j)));
+                    updateCellDetails(cellDetails, i - 1, j, fNew, gNew, hNew, i, j);
                 }
             }
         }
@@ -271,127 +336,119 @@ TFVector AStarSearch(int32 grid[][COL], FVector src, FVector dest)
         //----------- 2nd Successor (South)
         // ------------
 
-        if (IsValid(i + 1, j))
+        if (isValid(i + 1, j))
         {
             // If the destination cell is the same as the
             // current successor
-            if (IsDestination(i + 1, j, dest))
+            if (isDestination(i + 1, j, dest))
             {
                 // Set the Parent of the destination cell
                 cellDetails[i + 1][j].parent_i = i;
                 cellDetails[i + 1][j].parent_j = j;
-                UE_LOG(LogTemp, Warning, TEXT("The destination cell is found"));
+                //printf("The destination cell is found\n");
                 foundDest = true;
-                TFVector p = TracePath(cellDetails, dest);
-                return p;
+                return tracePath(cellDetails, dest);
             }
 
-            else if (!closedList[i + 1][j] && IsUnBlocked(grid, i + 1, j)) {
-                gNew = cellDetails[i][j].g + 1.0f;
-                hNew = CalculateHValue(i + 1, j, dest);
+            else if (!closedList[i + 1][j] && isUnBlocked(grid, i + 1, j))
+                {
+                gNew = cellDetails[i][j].g + 1.0 * getTexture(FVector(i + 1,j,CHAR_HEIGHT));
+                hNew = calculateHValue(i + 1, j, dest);
                 fNew = gNew + hNew;
 
                 if (cellDetails[i + 1][j].f == FLT_MAX || cellDetails[i + 1][j].f > fNew)
                 {
-                    openList.Add(FP_Pair(fNew, FPair(i + 1, j)));
+                    openList.push_back(std::make_pair(fNew, std::make_pair(i + 1, j)));
                     // Update the details of this cell
-                    UpdateCellDetails(cellDetails, i + 1, j, fNew, gNew, hNew, i, j);
+                    updateCellDetails(cellDetails, i + 1, j, fNew, gNew, hNew, i, j);
                 }
             }
         }
 
         //----------- 3rd Successor (East)
         //------------
-        if (IsValid(i, j + 1)) {
+
+        if (isValid(i, j + 1) == true) {
             // If the destination cell is the same as the
             // current successor
-            if (IsDestination(i, j + 1, dest))
+            if (isDestination(i, j + 1, dest) == true)
             {
                 // Set the Parent of the destination cell
                 cellDetails[i][j + 1].parent_i = i;
                 cellDetails[i][j + 1].parent_j = j;
-                UE_LOG(LogTemp, Warning, TEXT("The destination cell is found"));
+                //printf("The destination cell is found\n");
                 foundDest = true;
-                TFVector p = TracePath(cellDetails, dest);
-                return p;
+                return tracePath(cellDetails, dest);
             }
 
-            else if (!closedList[i][j + 1] && IsUnBlocked(grid, i, j + 1))
+            else if (!closedList[i][j + 1] && isUnBlocked(grid, i, j + 1))
             {
-                gNew = cellDetails[i][j].g + 1.0f;
-                hNew = CalculateHValue(i, j + 1, dest);
+                gNew = cellDetails[i][j].g + 1.0 * getTexture(FVector(i,j + 1,CHAR_HEIGHT));;
+                hNew = calculateHValue(i, j + 1, dest);
                 fNew = gNew + hNew;
 
                 if (cellDetails[i][j + 1].f == FLT_MAX || cellDetails[i][j + 1].f > fNew)
                 {
-                    openList.Add(FP_Pair(fNew, FPair(i, j + 1)));
+                    openList.push_back(std::make_pair(fNew, std::make_pair(i, j + 1)));
 
                     // Update the details of this cell
-                    UpdateCellDetails(cellDetails, i, j + 1, fNew, gNew, hNew, i, j);
+                    updateCellDetails(cellDetails, i, j + 1, fNew, gNew, hNew, i, j);
                 }
             }
         }
 
         //----------- 4th Successor (West)
         //------------
-        if (IsValid(i, j - 1))
+
+        if (isValid(i, j - 1))
         {
-            // If the destination cell is the same as the
-            // current successor
-            if (IsDestination(i, j - 1, dest))
+            if (isDestination(i, j - 1, dest))
             {
-                // Set the Parent of the destination cell
                 cellDetails[i][j - 1].parent_i = i;
                 cellDetails[i][j - 1].parent_j = j;
-                UE_LOG(LogTemp, Warning, TEXT("The destination cell is found"));
                 foundDest = true;
-                TFVector p = TracePath(cellDetails, dest);
-                return p;
+                return tracePath(cellDetails, dest);
             }
 
-            else if (!closedList[i][j - 1] && IsUnBlocked(grid, i, j - 1))
+            else if (!closedList[i][j - 1]  && isUnBlocked(grid, i, j - 1))
             {
-                gNew = cellDetails[i][j].g + 1.0f;
-                hNew = CalculateHValue(i, j - 1, dest);
+                gNew = cellDetails[i][j].g + 1.0 * getTexture(FVector(i ,j - 1,CHAR_HEIGHT));;
+                hNew = calculateHValue(i, j - 1, dest);
                 fNew = gNew + hNew;
 
-                if (cellDetails[i][j - 1].f == FLT_MAX || cellDetails[i][j - 1].f > fNew)
+                if (cellDetails[i][j - 1].f == FLT_MAX
+                    || cellDetails[i][j - 1].f > fNew)
                 {
-                    openList.Add(FP_Pair(fNew, FPair(i, j - 1)));
-
-                    // Update the details of this cell
-                    UpdateCellDetails(cellDetails, i, j - 1, fNew, gNew, hNew, i, j);
+                    openList.push_back(std::make_pair(fNew, std::make_pair(i, j - 1)));
+                    updateCellDetails(cellDetails, i , j - 1, fNew, gNew, hNew, i, j);
                 }
             }
         }
 
         //----------- 5th Successor (North-East)
         //------------
-        if (IsValid(i - 1, j + 1)) {
-            // If the destination cell is the same as the
-            // current successor
-            if (IsDestination(i - 1, j + 1, dest))
+
+        if (isValid(i - 1, j + 1))
             {
-                // Set the Parent of the destination cell
+            if (isDestination(i - 1, j + 1, dest))
+            {
                 cellDetails[i - 1][j + 1].parent_i = i;
                 cellDetails[i - 1][j + 1].parent_j = j;
-                UE_LOG(LogTemp, Warning, TEXT("The destination cell is found"));
                 foundDest = true;
-                TFVector p = TracePath(cellDetails, dest);
-                return p;
+                return tracePath(cellDetails, dest);
             }
 
-            else if (!closedList[i - 1][j + 1] && IsUnBlocked(grid, i - 1, j + 1)) {
-                gNew = cellDetails[i][j].g + 1.414f;
-                hNew = CalculateHValue(i - 1, j + 1, dest);
+            else if (!closedList[i - 1][j + 1]  && isUnBlocked(grid, i - 1, j + 1))
+                {
+                gNew = cellDetails[i][j].g + 1.414 * getTexture(FVector(i - 1,j + 1,CHAR_HEIGHT));;
+                hNew = calculateHValue(i - 1, j + 1, dest);
                 fNew = gNew + hNew;
+
 
                 if (cellDetails[i - 1][j + 1].f == FLT_MAX || cellDetails[i - 1][j + 1].f > fNew)
                 {
-                    openList.Add(FP_Pair(fNew, FPair(i - 1, j + 1)));
-
-                    // Update the details of this cell
-                    UpdateCellDetails(cellDetails, i - 1, j + 1, fNew, gNew, hNew, i, j);
+                    openList.push_back(std::make_pair(fNew, std::make_pair(i - 1, j + 1)));
+                    updateCellDetails(cellDetails, i - 1, j + 1, fNew, gNew, hNew, i, j);
                 }
             }
         }
@@ -399,62 +456,53 @@ TFVector AStarSearch(int32 grid[][COL], FVector src, FVector dest)
         //----------- 6th Successor (North-West)
         //------------
 
-        if (IsValid(i - 1, j - 1)) {
-            // If the destination cell is the same as the
-            // current successor
-            if (IsDestination(i - 1, j - 1, dest))
+        if (isValid(i - 1, j - 1))
+        {
+            if (isDestination(i - 1, j - 1, dest))
             {
-                // Set the Parent of the destination cell
                 cellDetails[i - 1][j - 1].parent_i = i;
                 cellDetails[i - 1][j - 1].parent_j = j;
-                UE_LOG(LogTemp, Warning, TEXT("The destination cell is found"));
                 foundDest = true;
-                TFVector p = TracePath(cellDetails, dest);
-                return p;
+                return tracePath(cellDetails, dest);
             }
 
-            else if (!closedList[i - 1][j - 1] && IsUnBlocked(grid, i - 1, j - 1)) {
-                gNew = cellDetails[i][j].g + 1.414f;
-                hNew = CalculateHValue(i - 1, j - 1, dest);
+            else if (closedList[i - 1][j - 1] == false && isUnBlocked(grid, i - 1, j - 1) == true) {
+                gNew = cellDetails[i][j].g + 1.414 * getTexture(FVector(i - 1,j - 1,CHAR_HEIGHT));;
+                hNew = calculateHValue(i - 1, j - 1, dest);
                 fNew = gNew + hNew;
 
-                if (cellDetails[i - 1][j - 1].f == FLT_MAX || cellDetails[i - 1][j - 1].f > fNew)
+                if (cellDetails[i - 1][j - 1].f == FLT_MAX
+                    || cellDetails[i - 1][j - 1].f > fNew)
                 {
-                    openList.Add(FP_Pair(fNew, FPair(i - 1, j - 1)));
-
-                    // Update the details of this cell
-                    UpdateCellDetails(cellDetails, i - 1, j - 1, fNew, gNew, hNew, i, j);
+                    openList.push_back(std::make_pair(fNew, std::make_pair(i - 1, j - 1)));
+                    updateCellDetails(cellDetails, i - 1, j - 1, fNew, gNew, hNew, i, j);
                 }
             }
         }
+
         //----------- 7th Successor (South-East)
         //------------
 
-        if (IsValid(i + 1, j + 1)) {
-            // If the destination cell is the same as the
-            // current successor
-            if (IsDestination(i + 1, j + 1, dest))
+        if (isValid(i + 1, j + 1))
+        {
+            if (isDestination(i + 1, j + 1, dest))
             {
-                // Set the Parent of the destination cell
                 cellDetails[i + 1][j + 1].parent_i = i;
                 cellDetails[i + 1][j + 1].parent_j = j;
-                UE_LOG(LogTemp, Warning, TEXT("The destination cell is found"));
                 foundDest = true;
-                TFVector p = TracePath(cellDetails, dest);
-                return p;
+                return tracePath(cellDetails, dest);
             }
 
-            else if (!closedList[i + 1][j + 1] && IsUnBlocked(grid, i + 1, j + 1)) {
-                gNew = cellDetails[i][j].g + 1.414f;
-                hNew = CalculateHValue(i + 1, j + 1, dest);
+            else if (!closedList[i + 1][j + 1] && isUnBlocked(grid, i + 1, j + 1))
+            {
+                gNew = cellDetails[i][j].g + 1.414 * getTexture(FVector(i + 1,j + 1,CHAR_HEIGHT));;
+                hNew = calculateHValue(i + 1, j + 1, dest);
                 fNew = gNew + hNew;
 
                 if (cellDetails[i + 1][j + 1].f == FLT_MAX || cellDetails[i + 1][j + 1].f > fNew)
                 {
-                    openList.Add(FP_Pair(fNew, FPair(i + 1, j + 1)));
-
-                    // Update the details of this cell
-                    UpdateCellDetails(cellDetails, i + 1, j + 1, fNew, gNew, hNew, i, j);
+                    openList.push_back(std::make_pair(fNew, std::make_pair(i + 1, j + 1)));
+                    updateCellDetails(cellDetails, i + 1, j + 1, fNew, gNew, hNew, i, j);
                 }
             }
         }
@@ -462,44 +510,34 @@ TFVector AStarSearch(int32 grid[][COL], FVector src, FVector dest)
         //----------- 8th Successor (South-West)
         //------------
 
-        if (IsValid(i + 1, j - 1)) {
-            // If the destination cell is the same as the
-            // current successor
-            if (IsDestination(i + 1, j - 1, dest))
+        if (isValid(i + 1, j - 1))
+        {
+            if (isDestination(i + 1, j - 1, dest))
             {
-                // Set the Parent of the destination cell
                 cellDetails[i + 1][j - 1].parent_i = i;
                 cellDetails[i + 1][j - 1].parent_j = j;
-                UE_LOG(LogTemp, Warning, TEXT("The destination cell is found"));
                 foundDest = true;
-                TFVector p = TracePath(cellDetails, dest);
-                return p;
+                return tracePath(cellDetails, dest);
             }
 
-            else if (!closedList[i + 1][j - 1] && IsUnBlocked(grid, i + 1, j - 1)) {
-                gNew = cellDetails[i][j].g + 1.414f;
-                hNew = CalculateHValue(i + 1, j - 1, dest);
+            else if (!closedList[i + 1][j - 1] && isUnBlocked(grid, i + 1, j - 1))
+            {
+                gNew = cellDetails[i][j].g + 1.414 * getTexture(FVector(i + 1,j - 1,CHAR_HEIGHT));;
+                hNew = calculateHValue(i + 1, j - 1, dest);
                 fNew = gNew + hNew;
 
-                if (cellDetails[i + 1][j - 1].f == FLT_MAX || cellDetails[i + 1][j - 1].f > fNew)
-                {
-                    openList.Add(FP_Pair(fNew, FPair(i + 1, j - 1)));
-
-                    // Update the details of this cell
-                    UpdateCellDetails(cellDetails, i + 1, j - 1, fNew, gNew, hNew, i, j);
+                if (cellDetails[i + 1][j - 1].f == FLT_MAX
+                    || cellDetails[i + 1][j - 1].f > fNew) {
+                    openList.push_back(std::make_pair(fNew, std::make_pair(i + 1, j - 1)));
+                    updateCellDetails(cellDetails, i + 1, j - 1, fNew, gNew, hNew, i, j);
                 }
             }
         }
-
-	    if (foundDest == false)
-	    {	
-		    UE_LOG(LogTemp, Warning, TEXT("Failed to find the Destination Cell"));
-		    return NO_WAY;
-	    }
     }
-	return NO_WAY;
-}
-TFVector APathFinder::getPathFromTo(int32 grid[][COL],FVector start, FVector dest)
-{
-	return AStarSearch(grid,start, dest);
+
+	if (foundDest == false)
+		UE_LOG(LogTemp, Warning, TEXT("Failed to find the Destination Cell"));
+	    
+    return {NO_WAY};
+    
 }

@@ -42,11 +42,10 @@ void EmptyLinkFunctionForGeneratedCodeMobBase() {}
 	DEFINE_FUNCTION(AMobBase::execSetAction)
 	{
 		P_GET_PROPERTY(FIntProperty,Z_Param_TypeOfAction);
-		P_GET_TARRAY(FVector,Z_Param_newTrajectory);
 		P_GET_OBJECT(AActor,Z_Param_AimPtr);
 		P_FINISH;
 		P_NATIVE_BEGIN;
-		P_THIS->SetAction(Z_Param_TypeOfAction,Z_Param_newTrajectory,Z_Param_AimPtr);
+		P_THIS->SetAction(Z_Param_TypeOfAction,Z_Param_AimPtr);
 		P_NATIVE_END;
 	}
 	DEFINE_FUNCTION(AMobBase::execHasAction)
@@ -202,12 +201,9 @@ void EmptyLinkFunctionForGeneratedCodeMobBase() {}
 		struct MobBase_eventSetAction_Parms
 		{
 			int32 TypeOfAction;
-			TArray<FVector> newTrajectory;
 			AActor* AimPtr;
 		};
 		static const UECodeGen_Private::FIntPropertyParams NewProp_TypeOfAction;
-		static const UECodeGen_Private::FStructPropertyParams NewProp_newTrajectory_Inner;
-		static const UECodeGen_Private::FArrayPropertyParams NewProp_newTrajectory;
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_AimPtr;
 		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 #if WITH_METADATA
@@ -216,13 +212,9 @@ void EmptyLinkFunctionForGeneratedCodeMobBase() {}
 		static const UECodeGen_Private::FFunctionParams FuncParams;
 	};
 	const UECodeGen_Private::FIntPropertyParams Z_Construct_UFunction_AMobBase_SetAction_Statics::NewProp_TypeOfAction = { "TypeOfAction", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(MobBase_eventSetAction_Parms, TypeOfAction), METADATA_PARAMS(0, nullptr) };
-	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_AMobBase_SetAction_Statics::NewProp_newTrajectory_Inner = { "newTrajectory", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, Z_Construct_UScriptStruct_FVector, METADATA_PARAMS(0, nullptr) };
-	const UECodeGen_Private::FArrayPropertyParams Z_Construct_UFunction_AMobBase_SetAction_Statics::NewProp_newTrajectory = { "newTrajectory", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(MobBase_eventSetAction_Parms, newTrajectory), EArrayPropertyFlags::None, METADATA_PARAMS(0, nullptr) };
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_AMobBase_SetAction_Statics::NewProp_AimPtr = { "AimPtr", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(MobBase_eventSetAction_Parms, AimPtr), Z_Construct_UClass_AActor_NoRegister, METADATA_PARAMS(0, nullptr) };
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AMobBase_SetAction_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AMobBase_SetAction_Statics::NewProp_TypeOfAction,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AMobBase_SetAction_Statics::NewProp_newTrajectory_Inner,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AMobBase_SetAction_Statics::NewProp_newTrajectory,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AMobBase_SetAction_Statics::NewProp_AimPtr,
 	};
 #if WITH_METADATA
@@ -485,7 +477,7 @@ void EmptyLinkFunctionForGeneratedCodeMobBase() {}
 		{ &Z_Construct_UFunction_AMobBase_DoAction, "DoAction" }, // 4162670875
 		{ &Z_Construct_UFunction_AMobBase_FollowTrajectory, "FollowTrajectory" }, // 3593297659
 		{ &Z_Construct_UFunction_AMobBase_HasAction, "HasAction" }, // 2963107839
-		{ &Z_Construct_UFunction_AMobBase_SetAction, "SetAction" }, // 1190955491
+		{ &Z_Construct_UFunction_AMobBase_SetAction, "SetAction" }, // 691136837
 		{ &Z_Construct_UFunction_AMobBase_SetStartPos, "SetStartPos" }, // 1294903535
 		{ &Z_Construct_UFunction_AMobBase_SetTileSize, "SetTileSize" }, // 2834676201
 		{ &Z_Construct_UFunction_AMobBase_SetTrajectory, "SetTrajectory" }, // 1844677938
@@ -494,14 +486,8 @@ void EmptyLinkFunctionForGeneratedCodeMobBase() {}
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_AMobBase_Statics::FuncInfo) < 2048);
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AMobBase_Statics::Class_MetaDataParams[] = {
-#if !UE_BUILD_SHIPPING
-		{ "Comment", "// global NO_WAY\n" },
-#endif
 		{ "IncludePath", "MobBase.h" },
 		{ "ModuleRelativePath", "MobBase.h" },
-#if !UE_BUILD_SHIPPING
-		{ "ToolTip", "global NO_WAY" },
-#endif
 	};
 #endif
 #if WITH_METADATA
@@ -708,9 +694,9 @@ void EmptyLinkFunctionForGeneratedCodeMobBase() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Code_Projects_GitHub_MirWorld_MirWorld_Project_MirWorld_Source_MirWorld_MobBase_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_AMobBase, AMobBase::StaticClass, TEXT("AMobBase"), &Z_Registration_Info_UClass_AMobBase, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AMobBase), 1346978675U) },
+		{ Z_Construct_UClass_AMobBase, AMobBase::StaticClass, TEXT("AMobBase"), &Z_Registration_Info_UClass_AMobBase, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AMobBase), 1518958786U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Code_Projects_GitHub_MirWorld_MirWorld_Project_MirWorld_Source_MirWorld_MobBase_h_2043240499(TEXT("/Script/MirWorld"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Code_Projects_GitHub_MirWorld_MirWorld_Project_MirWorld_Source_MirWorld_MobBase_h_4175154564(TEXT("/Script/MirWorld"),
 		Z_CompiledInDeferFile_FID_Code_Projects_GitHub_MirWorld_MirWorld_Project_MirWorld_Source_MirWorld_MobBase_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Code_Projects_GitHub_MirWorld_MirWorld_Project_MirWorld_Source_MirWorld_MobBase_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);
